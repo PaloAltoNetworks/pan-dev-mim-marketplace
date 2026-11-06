@@ -198,5 +198,10 @@
     "from": "/marketplace/SecretsEngineForHCPVaultHashiCorpCloudPlatform",
     "to": "/marketplace",
     "reason": "archived — no longer supported"
+  },
+  {
+    "from": "/marketplace/AutoEnrollmentConnector",
+    "to": "/marketplace",
+    "reason": "archived — no longer supported"
   }
 ]
