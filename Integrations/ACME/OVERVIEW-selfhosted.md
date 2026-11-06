@@ -34,3 +34,4 @@ The ACME Adaptable CA enables the Certificate Manager, Self-Hosted to communicat
 ACME (Automated Certificate Management Environment) is a communications protocol for automating the issuance and domain validation procedures, allowing the automated deployment of public key infrastructure without user interaction. It was designed by the Internet Security Research Group (ISRG) for their Let's Encrypt service.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**
+
