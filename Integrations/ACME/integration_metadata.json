@@ -1,0 +1,68 @@
+{
+  "name": "ACME",
+  "description": "ACME CA driver simplifies certificate management via Venafi, enabling easy requests, renewals, and revocations from ACME CAs like Let's Encrypt.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "price": "Free",
+  "license": "Software Tool License Agreement",
+  "licenseUrl": "https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/legal/software-tool-license-agreement.pdf",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted",
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "CyberArk Certificate Manager",
+    "Other"
+  ],
+  "supportUrl": "https://community.cyberark.com/s/",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "currentVersion": "2.2",
+      "downloadFiles": [
+        "AcmeAdaptableCA_2.2.zip"
+      ],
+      "documentationFile": "DOCS-selfhosted.md",
+      "supportPrice": "Paid",
+      "supportAcquisition": {
+        "type": "contact-sales",
+        "label": "Contact Your Account Team",
+        "description": "This driver is free to download. Support is provided under a paid support subscription — contact your account team for details."
+      }
+    },
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Add ACME as a CA",
+          "description": "Add an ACME certificate authority in Certificate Manager, SaaS",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/certificates/ca/adding-acme-ca/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Add ACME as a CA",
+          "description": "Add an ACME certificate authority in Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/co-overview-issuing-certs/adding-a-certificate-authority/adding-acme-ca"
+        }
+      ]
+    }
+  ]
+}

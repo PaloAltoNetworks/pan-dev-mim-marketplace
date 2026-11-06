@@ -1,0 +1,26 @@
+{
+  "name": "VMware Workspace One",
+  "description": "Enhance VMware Workspace ONE with Venafi for better control of machine identities, visibility for certificates, and secure access management.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "VMware",
+  "categories": [
+    "Endpoint & Device Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Endpoint",
+    "MDM"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Workspace One",
+    "Other"
+  ],
+  "logoFile": "VMware.png",
+  "price": "Free"
+}

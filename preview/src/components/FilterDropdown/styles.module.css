@@ -1,0 +1,86 @@
+/* Filter Dropdown Component Styles */
+
+.filter-dropdown {
+  border-top: 1px solid var(--ifm-color-emphasis-300);
+}
+
+.filter-dropdown-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 0.75rem 0;
+  color: inherit;
+}
+
+.filter-dropdown-header:hover .filter-section-label {
+  color: var(--ngts-primary);
+}
+
+.filter-section-label {
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+  color: var(--ifm-color-content-secondary);
+  margin: 0;
+  transition: color 0.15s;
+}
+
+.filter-dropdown-chevron {
+  font-size: 1rem;
+  color: var(--ifm-color-emphasis-600);
+  transition: transform 0.2s ease;
+  display: inline-block;
+}
+
+.filter-dropdown-chevron.open {
+  transform: rotate(180deg);
+}
+
+.filter-dropdown-list {
+  max-height: 220px;
+  overflow-y: auto;
+  padding-bottom: 0.75rem;
+  scrollbar-width: thin;
+  scrollbar-color: var(--ngts-primary-light) transparent;
+}
+
+.filter-dropdown-list::-webkit-scrollbar {
+  width: 4px;
+}
+
+.filter-dropdown-list::-webkit-scrollbar-thumb {
+  background-color: var(--ngts-primary-light);
+  border-radius: 4px;
+}
+
+.filter-count {
+  font-weight: 400;
+  color: var(--ifm-color-emphasis-600);
+}
+
+.filter-checkbox-text {
+  flex: 1;
+  min-width: 0;
+}
+
+.filter-checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 0.9rem;
+  padding: 0.2rem 0;
+  cursor: pointer;
+  color: var(--ifm-font-color-base);
+}
+
+.filter-checkbox-label input[type="checkbox"] {
+  accent-color: var(--ngts-primary);
+  width: 14px;
+  height: 14px;
+  flex-shrink: 0;
+}

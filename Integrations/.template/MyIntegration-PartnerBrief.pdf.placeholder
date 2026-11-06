@@ -1,0 +1,3 @@
+Replace this file with your actual PDF (partner brief, whitepaper, etc.),
+naming it to match the `otherResources[].url` value in
+integration_metadata.json (e.g. `MyIntegration-PartnerBrief.pdf`).

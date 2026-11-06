@@ -1,0 +1,26 @@
+{
+  "name": "GitHub Actions for Code Sign Manager",
+  "description": "Sign build artifacts within GitHub Actions CI/CD workflows using Code Sign Manager, keeping private signing keys secured in Certificate Manager, Self-Hosted.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Qensus",
+  "categories": [
+    "CI/CD & DevOps"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Automation/Orchestration",
+    "DevOps"
+  ],
+  "useCases": [
+    "Code Signing"
+  ],
+  "keywords": [
+    "GitHub Actions",
+    "REST"
+  ],
+  "logoFile": "github.png",
+  "price": "Free"
+}

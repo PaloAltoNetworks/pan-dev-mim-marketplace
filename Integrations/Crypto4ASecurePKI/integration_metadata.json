@@ -1,0 +1,31 @@
+{
+  "name": "Crypto4A Secure PKI",
+  "description": "Crypto4A Secure PKI offers a quantum-ready solution integrated with Venafi, ensuring secure certificate management and robust root of trust.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Crypto4A Technologies",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority",
+    "Post-Quantum Ready (PQC)"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Secure PKI",
+    "Adaptable Framework - CA"
+  ],
+  "logoFile": "Crypto4A.png",
+  "downloadFiles": [
+    "Crypto4A_Adaptable_CA.ps1"
+  ],
+  "supportUrl": "https://crypto4a.com/about/contact",
+  "price": "Free",
+  "license": "MIT"
+}

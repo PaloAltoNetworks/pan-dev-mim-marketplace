@@ -1,0 +1,22 @@
+{
+  "description": "Approved categories for integration_metadata.json. One axis: what kind of system the integration connects to. Every listing must declare exactly one category from this list — validate-integration.js errors on anything else. To add a category, open a PR against this file; a CODEOWNER must approve. A new category should be able to hold at least ~4 listings; otherwise use a tag.",
+  "approved_list": [
+    "API Gateway & WAF",
+    "CI/CD & DevOps",
+    "Certificate Authority",
+    "Data Platform & Storage",
+    "Discovery & Asset Management",
+    "Endpoint & Device Management",
+    "Firewall & Network Security",
+    "HSM & Key Management",
+    "ITSM & Workflow",
+    "Identity & Access Management",
+    "IoT & OT",
+    "Kubernetes & Containers",
+    "Load Balancer & ADC",
+    "SIEM & Observability",
+    "Secrets Management",
+    "Utilities & Extensions",
+    "Web Server"
+  ]
+}

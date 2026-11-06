@@ -1,0 +1,41 @@
+{
+  "name": "Axiad CA",
+  "description": "The purpose of this document is to provide information regarding the configuration of Axiad Cloud PKI for integration with Venafi Trust Protection Platform (TPP).",
+  "support": "Supported",
+  "currentVersion": "1.0",
+  "author": "Axiad",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "documentationFile": "DOCUMENTATION.md",
+  "supportUrl": "https://docs.axiad.com",
+  "price": "Free",
+  "license": "MIT",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Axiad Documentation",
+          "description": "Axiad's official product documentation",
+          "url": "https://docs.axiad.com"
+        }
+      ],
+      "downloadFiles": [
+        "ID_PKI_Adaptable_Script.ps1",
+        "ID_PKI_Adaptable_ScriptRA.ps1"
+      ]
+    }
+  ]
+}

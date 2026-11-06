@@ -1,0 +1,33 @@
+{
+  "name": "Radware Alteon Load Balancer & ADC",
+  "description": "Create a secured session to Radware Alteon",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Radware",
+  "categories": [
+    "Load Balancer & ADC"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "ADC/Load Balancing",
+    "WAF"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Alteon Load Balancer & ADC",
+    "Adaptable Framework - App"
+  ],
+  "logoFile": "Radware.png",
+  "downloadFiles": [
+    "Radware Alteon ADC OS 30.5.1.200 and above.ps1",
+    "Radware Alteon ADC OS 33.0.x.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "supportUrl": "https://support.radware.com/",
+  "price": "Free",
+  "license": "MIT"
+}

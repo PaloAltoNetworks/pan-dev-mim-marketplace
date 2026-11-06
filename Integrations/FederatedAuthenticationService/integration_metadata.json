@@ -1,0 +1,36 @@
+{
+  "name": "Federated Authentication Service (FAS)",
+  "description": "Auto-enrollment for Citrix FAS using Zero Touch PKI.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Community",
+  "supportEmail": "cybr-mis.support@paloaltonetworks.com",
+  "categories": [
+    "Identity & Access Management"
+  ],
+  "products": [
+    "Zero Touch PKI"
+  ],
+  "tags": [
+    "Authentication",
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Zero Touch PKI",
+      "overviewFile": "OVERVIEW-ztpki.md",
+      "documentationLinks": [
+        {
+          "title": "Auto-Enrollment Connector Overview",
+          "description": "Citrix FAS is delivered through the ZTPKI Auto-Enrollment Connector",
+          "url": "https://docs.cyberark.com/mis-saas/ztpki/connectors/aec-overview/"
+        }
+      ]
+    }
+  ]
+}

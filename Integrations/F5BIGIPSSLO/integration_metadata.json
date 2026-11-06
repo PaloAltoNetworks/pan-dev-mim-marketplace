@@ -1,0 +1,31 @@
+{
+  "name": "F5 BIG-IP SSLO",
+  "description": "Automate your SSL certificate lifecycle with F5 BIG-IP SSLO and Venafi integration, enhancing security and streamlining management.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Secur Solutions Group",
+  "categories": [
+    "Load Balancer & ADC"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "ADC/Load Balancing",
+    "TLS/SSL",
+    "Adaptable Framework"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "F5"
+  ],
+  "logoFile": "F5.png",
+  "price": "Paid (Contact Partner)",
+  "supportEmail": "support@secursolutionsgroup.com",
+  "acquisition": {
+    "type": "contact-partner",
+    "url": "https://secursolutionsgroup.com/contact-us"
+  }
+}

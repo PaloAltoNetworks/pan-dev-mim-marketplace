@@ -1,0 +1,57 @@
+{
+  "name": "Imperva WAF",
+  "description": "Unlock encrypted traffic with Venafi's solution to enhance Imperva WAF, ensuring robust protection against web application attacks.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "API Gateway & WAF"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Cloud",
+    "WAF"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Web Application Firewall",
+    "Adaptable Framework - App"
+  ],
+  "logoFile": "Imperva.png",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Imperva WAF Integration Guide",
+          "description": "Complete integration guide for Imperva WAF",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/imperva-waf/"
+        },
+        {
+          "title": "Provisioning Certificates to Imperva WAF",
+          "description": "Step-by-step guide for certificate provisioning",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-imperva-waf/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Imperva WAF Integration Guide",
+          "description": "Complete integration guide for Imperva WAF",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/imperva-waf"
+        }
+      ]
+    }
+  ],
+  "price": "Free"
+}

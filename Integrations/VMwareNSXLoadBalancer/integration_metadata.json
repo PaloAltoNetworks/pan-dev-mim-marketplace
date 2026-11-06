@@ -1,0 +1,62 @@
+{
+  "name": "VMware NSX Load Balancer (formerly Avi Vantage)",
+  "description": "Automation for machine identities used by NSX Load Balancer",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "VMware",
+  "categories": [
+    "Load Balancer & ADC"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "ADC/Load Balancing"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "NSX Load Balancer",
+    "Connector Framework - Machine"
+  ],
+  "logoFile": "VMware.png",
+  "supportUrl": "https://support.broadcom.com",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "author": "Venafi",
+      "documentationLinks": [
+        {
+          "title": "VMware NSX Load Balancer (formerly Avi Vantage) Integration Guide",
+          "description": "Complete integration guide for VMware NSX Load Balancer (formerly Avi Vantage)",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/vmware-nsx-avi/"
+        },
+        {
+          "title": "Provisioning Certificates — VMware NSX Load Balancer (formerly Avi Vantage)",
+          "description": "Step-by-step guide for certificate provisioning",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-vmware-nsx-avi/"
+        }
+      ]
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "author": "VMware",
+      "downloadFiles": [
+        "Avi Vantage.ps1"
+      ],
+      "supportUrl": "https://support.broadcom.com/"
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "author": "Venafi"
+    }
+  ],
+  "price": "Free",
+  "license": "MIT"
+}

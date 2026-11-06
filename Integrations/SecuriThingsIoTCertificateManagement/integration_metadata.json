@@ -1,0 +1,22 @@
+{
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Community",
+  "supportEmail": "cybr-mis.support@paloaltonetworks.com",
+  "categories": [
+    "IoT & OT"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "IoT"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "price": "Free",
+  "name": "SecuriThings IoT Certificate Management",
+  "description": "Enable automated rotation, centralized policy enforcement, and real-time operational insights for IoT certificates"
+}

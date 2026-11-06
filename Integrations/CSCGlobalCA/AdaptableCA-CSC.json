@@ -1,0 +1,9 @@
+{
+    "base_url": "https://apis-ote.cscglobal.com/dbs/api/v2/tls/",
+    "venafi_auth_url": "https://uvo1a2f9iuokloy1bn1.env.cloudshare.com/vedauth/Authorize/Token",
+    "venafi_update_url": "https://uvo1a2f9iuokloy1bn1.env.cloudshare.com/vedsdk/Config/Write",
+    "venafi_credentials_update_url": "https://uvo1a2f9iuokloy1bn1.env.cloudshare.com/vedsdk/Credentials/Update",
+    "credentails_path": "\\VED\\Policy\\Partner Dev\\CSC\\Administration\\CSC credential\\Venafi_api_key_token",
+    "client_id": "websdk"
+}
+

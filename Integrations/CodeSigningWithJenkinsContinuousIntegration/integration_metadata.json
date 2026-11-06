@@ -1,0 +1,26 @@
+{
+  "name": "Code Signing with Jenkins Continuous Integration",
+  "description": "A Jenkins plugin that enables Venafi customers to easily integrate with CodeSign Protect.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Qensus",
+  "categories": [
+    "CI/CD & DevOps"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "DevOps",
+    "Open Source"
+  ],
+  "useCases": [
+    "Code Signing"
+  ],
+  "keywords": [
+    "Jenkins",
+    "REST"
+  ],
+  "logoFile": "Jenkins.png",
+  "price": "Free"
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Atos Trustway HSM",
+  "description": "Atos Trustway HSM secures cryptographic keys, ensuring compliance and preventing unauthorized access while simplifying machine identity management.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Atos",
+  "categories": [
+    "HSM & Key Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "HSM"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Trustway HSM",
+    "PKCS#11"
+  ],
+  "logoFile": "Atos.png",
+  "supportUrl": "https://eviden.com/en/contact",
+  "price": "Free"
+}

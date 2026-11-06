@@ -1,0 +1,28 @@
+{
+  "name": "HashiCorp Vault Adaptable CA",
+  "description": "move variables to custom fields",
+  "support": "Community",
+  "currentVersion": "1.0",
+  "author": "Community",
+  "supportEmail": "cybr-mis.support@paloaltonetworks.com",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority",
+    "Adaptable Framework"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "downloadFiles": [
+    "HashicorpVaultAdaptableCA.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "price": "Free",
+  "license": "MIT"
+}

@@ -1,0 +1,51 @@
+{
+  "name": "mim-marketplace-preview",
+  "version": "0.0.0",
+  "private": true,
+  "description": "Local, offline preview of how a marketplace integration renders on pan.dev/mim. Rendering engine is synced from pan-dev-mim; do not hand-edit src/, src/css/custom.css, or generate-gallery.js.",
+  "scripts": {
+    "docusaurus": "docusaurus",
+    "prestart": "node generate-gallery.js",
+    "start": "docusaurus start",
+    "prebuild": "node generate-gallery.js",
+    "build": "docusaurus build",
+    "serve": "docusaurus serve",
+    "clear": "docusaurus clear",
+    "typecheck": "tsc"
+  },
+  "dependencies": {
+    "@docusaurus/core": "3.9.2",
+    "@docusaurus/preset-classic": "3.9.2",
+    "@mdx-js/react": "^3.0.0",
+    "clsx": "^2.0.0",
+    "prism-react-renderer": "^2.3.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "devDependencies": {
+    "@docusaurus/module-type-aliases": "3.9.2",
+    "@docusaurus/tsconfig": "3.9.2",
+    "@docusaurus/types": "3.9.2",
+    "sharp": "^0.35.5",
+    "typescript": "~5.6.2",
+    "uuid": "^11.1.1"
+  },
+  "overrides": {
+    "webpack": "5.105.4",
+    "tinypool": "^2.1.2",
+    "serialize-javascript": "^7.1.3",
+    "follow-redirects": "^1.16.2",
+    "launch-editor": "^2.14.2",
+    "joi": "^17.13.9",
+    "body-parser": "^1.20.9",
+    "fast-uri": "^3.1.9",
+    "postcss-selector-parser@6": "^6.1.5",
+    "qs": "^6.16.1",
+    "sockjs": {
+      "uuid": "^11.1.1"
+    }
+  },
+  "engines": {
+    "node": "^20.0.0 || ^22.0.0"
+  }
+}

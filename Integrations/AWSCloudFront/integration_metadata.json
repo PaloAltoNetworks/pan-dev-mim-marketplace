@@ -1,0 +1,28 @@
+{
+  "name": "AWS CloudFront",
+  "description": "AWS CloudFront accelerates app delivery with a secure global CDN, while Venafi automates HTTPS for efficiency and protection.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Load Balancer & ADC"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Cloud",
+    "CDN"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "CloudFront",
+    "REST"
+  ],
+  "logoFile": "AWS-Light.png",
+  "logoFileDark": "AWS-Dark.png",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "price": "Free"
+}

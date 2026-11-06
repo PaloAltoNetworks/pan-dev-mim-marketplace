@@ -1,0 +1,40 @@
+{
+  "name": "Google Cloud Load Balancing",
+  "description": "Effortlessly scale HTTPS with Google Cloud Load Balancing and Venafi, ensuring secure, automated certificate management and eliminating outages.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Google, Inc.",
+  "categories": [
+    "Load Balancer & ADC"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "ADC/Load Balancing",
+    "Cloud"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Cloud Load Balancing",
+    "REST"
+  ],
+  "logoFile": "Google-Cloud.png",
+  "supportUrl": "https://cloud.google.com/support-hub",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Google Cloud Load Balancing Integration Guide",
+          "description": "Complete integration guide for Google Cloud Load Balancing",
+          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/cco-drivers-GoogleCloudLoadBalancer.php"
+        }
+      ]
+    }
+  ]
+}

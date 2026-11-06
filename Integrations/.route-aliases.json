@@ -1,0 +1,202 @@
+[
+  {
+    "from": "/marketplace/CiscoASAAdaptableAppDriver",
+    "to": "/marketplace/CiscoASA",
+    "reason": "merged into Cisco ASA"
+  },
+  {
+    "from": "/marketplace/CiscoASAMachineConnector",
+    "to": "/marketplace/CiscoASA",
+    "reason": "merged into Cisco ASA"
+  },
+  {
+    "from": "/marketplace/AlicloudALBAdaptableAppDriver",
+    "to": "/marketplace/AlicloudALB",
+    "reason": "merged into Alicloud ALB"
+  },
+  {
+    "from": "/marketplace/AlicloudALBConnector",
+    "to": "/marketplace/AlicloudALB",
+    "reason": "merged into Alicloud ALB"
+  },
+  {
+    "from": "/marketplace/AlicloudPrivateCAAdaptableCADriverCertificateManagement",
+    "to": "/marketplace/AlicloudPrivateCA",
+    "reason": "merged into Alicloud Private CA"
+  },
+  {
+    "from": "/marketplace/AlicloudPrivateCAConnector",
+    "to": "/marketplace/AlicloudPrivateCA",
+    "reason": "merged into Alicloud Private CA"
+  },
+  {
+    "from": "/marketplace/HuaweiCloudElasticLoadBalancerELBAdaptableAppDriver",
+    "to": "/marketplace/HuaweiCloudELB",
+    "reason": "merged into Huawei Cloud ELB"
+  },
+  {
+    "from": "/marketplace/HuaweiCloudElasticLoadBalancerELBConnector",
+    "to": "/marketplace/HuaweiCloudELB",
+    "reason": "merged into Huawei Cloud ELB"
+  },
+  {
+    "from": "/marketplace/TencentCloudLoadBalancerAdaptableAppDriver",
+    "to": "/marketplace/TencentCloudLoadBalancer",
+    "reason": "merged into Tencent Cloud Load Balancer"
+  },
+  {
+    "from": "/marketplace/TencentCloudLoadBalancerConnector",
+    "to": "/marketplace/TencentCloudLoadBalancer",
+    "reason": "merged into Tencent Cloud Load Balancer"
+  },
+  {
+    "from": "/marketplace/OracleWalletProvisioningDriver",
+    "to": "/marketplace/OracleWallet",
+    "reason": "merged into Oracle Wallet"
+  },
+  {
+    "from": "/marketplace/OracleWalletProvisioningConnector",
+    "to": "/marketplace/OracleWallet",
+    "reason": "merged into Oracle Wallet"
+  },
+  {
+    "from": "/marketplace/SwissSignAdaptableCADriver",
+    "to": "/marketplace/SwissSignCA",
+    "reason": "merged into SwissSign CA"
+  },
+  {
+    "from": "/marketplace/SwissSignCAConnector",
+    "to": "/marketplace/SwissSignCA",
+    "reason": "merged into SwissSign CA"
+  },
+  {
+    "from": "/marketplace/CSCGlobalCAConnectorforCyberArkCertificateManagerSelfHosted",
+    "to": "/marketplace/CSCGlobalCA",
+    "reason": "merged into CSC Global CA"
+  },
+  {
+    "from": "/marketplace/CSCGlobalCAConnectorforCyberArkCertificateManagerSaaS",
+    "to": "/marketplace/CSCGlobalCA",
+    "reason": "merged into CSC Global CA"
+  },
+  {
+    "from": "/marketplace/RecursiveCertificateDiscoveryDriverforCyberArkCertificateManager",
+    "to": "/marketplace/RecursiveCertificateDiscovery",
+    "reason": "merged into Recursive Certificate Discovery"
+  },
+  {
+    "from": "/marketplace/RecursiveCertificateDiscoveryConnectorforCyberArkCertificateManagerSaaS",
+    "to": "/marketplace/RecursiveCertificateDiscovery",
+    "reason": "merged into Recursive Certificate Discovery"
+  },
+  {
+    "from": "/marketplace/MachineIdentityProtectionappforServiceNow",
+    "to": "/marketplace/MachineIdentityProtectionforServiceNow",
+    "reason": "merged into Machine Identity Protection for ServiceNow"
+  },
+  {
+    "from": "/marketplace/AeyrixMachineIdentityProtectionApplicationforServiceNow",
+    "to": "/marketplace/MachineIdentityProtectionforServiceNow",
+    "reason": "merged into Machine Identity Protection for ServiceNow"
+  },
+  {
+    "from": "/marketplace/ChefCookbook",
+    "to": "/marketplace",
+    "reason": "archived — no longer supported"
+  },
+  {
+    "from": "/marketplace/ChefInfraCookbook",
+    "to": "/marketplace",
+    "reason": "archived — no longer supported"
+  },
+  {
+    "from": "/marketplace/AWSPrivateCAPolicy",
+    "to": "/marketplace",
+    "reason": "archived — no longer supported"
+  },
+  {
+    "from": "/marketplace/DataDog",
+    "to": "/marketplace",
+    "reason": "archived — no longer supported"
+  },
+  {
+    "from": "/marketplace/HashiCorpVaultRequestSync",
+    "to": "/marketplace",
+    "reason": "archived — no longer supported"
+  },
+  {
+    "from": "/marketplace/IntelSGX",
+    "to": "/marketplace",
+    "reason": "archived — no longer supported"
+  },
+  {
+    "from": "/marketplace/MonitorEngineforHashiCorpVault",
+    "to": "/marketplace",
+    "reason": "archived — no longer supported"
+  },
+  {
+    "from": "/marketplace/OpenStackHeat",
+    "to": "/marketplace",
+    "reason": "archived — no longer supported"
+  },
+  {
+    "from": "/marketplace/PCFCredHubRequestSync",
+    "to": "/marketplace",
+    "reason": "archived — no longer supported"
+  },
+  {
+    "from": "/marketplace/ZeroTouchPKIAdaptableDriver",
+    "to": "/marketplace",
+    "reason": "archived — no longer supported"
+  },
+  {
+    "from": "/marketplace/MachineIdentityManagementwithAWSCloudFormation",
+    "to": "/marketplace",
+    "reason": "archived — no longer supported"
+  },
+  {
+    "from": "/marketplace/NGINXIngressController",
+    "to": "/marketplace",
+    "reason": "archived — no longer supported"
+  },
+  {
+    "from": "/marketplace/CyberArkCertificateManagerOperatorforRedHatOpenShift",
+    "to": "/marketplace/CertificateManagerOperatorforRedHatOpenShift",
+    "reason": "renamed to drop CyberArk branding"
+  },
+  {
+    "from": "/marketplace/CiscoSDWANWANEdgeAppDriverforCyberArkCertificateManager",
+    "to": "/marketplace/CiscoSDWANWANEdgeAppDriverforCertificateManager",
+    "reason": "renamed to drop CyberArk branding"
+  },
+  {
+    "from": "/marketplace/DellWyseMgmtSuiteandCyberArkZeroTouchPKI",
+    "to": "/marketplace/DellWyseMgmtSuiteandZeroTouchPKI",
+    "reason": "renamed to drop CyberArk branding"
+  },
+  {
+    "from": "/marketplace/GitHubActionsforCyberArkCodeSignManager",
+    "to": "/marketplace/GitHubActionsforCodeSignManager",
+    "reason": "renamed to drop CyberArk branding"
+  },
+  {
+    "from": "/marketplace/WISeKeyCertifyIDManagedPKI",
+    "to": "/marketplace",
+    "reason": "archived — no longer supported"
+  },
+  {
+    "from": "/marketplace/WISeKeyCertifyIDTLSManager",
+    "to": "/marketplace",
+    "reason": "archived — no longer supported"
+  },
+  {
+    "from": "/marketplace/DockerEnterprise",
+    "to": "/marketplace",
+    "reason": "archived — no longer supported"
+  },
+  {
+    "from": "/marketplace/SecretsEngineForHCPVaultHashiCorpCloudPlatform",
+    "to": "/marketplace",
+    "reason": "archived — no longer supported"
+  }
+]

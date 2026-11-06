@@ -1,0 +1,29 @@
+{
+  "name": "IIS Device Discovery",
+  "description": "The IIS Device Discovery script is intended to import Windows servers running IIS (7.x and later) into a specified policy folder in Trust Protection Platform. The devices folder can be specified during an onboard discovery job.",
+  "support": "Community",
+  "currentVersion": "1.0",
+  "author": "Community",
+  "supportEmail": "cybr-mis.support@paloaltonetworks.com",
+  "categories": [
+    "Discovery & Asset Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Discovery"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "downloadFiles": [
+    "IIS_Device_Discovery.ps1",
+    "IISHostList.csv"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "logoFile": "logo.png",
+  "price": "Free",
+  "license": "MIT"
+}

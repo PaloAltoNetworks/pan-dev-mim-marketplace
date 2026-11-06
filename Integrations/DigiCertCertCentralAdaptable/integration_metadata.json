@@ -1,0 +1,31 @@
+{
+  "name": "DigiCert CertCentral Adaptable",
+  "description": "DigiCert-built Adaptable CA driver for CertCentral, an alternative to the native DigiCert CertCentral integration for organizations that need custom certificate profile handling.",
+  "support": "Supported",
+  "currentVersion": "1.0.1",
+  "author": "DigiCert",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "CertCentral",
+    "Adaptable Framework - CA"
+  ],
+  "logoFile": "DigiCert.png",
+  "downloadFiles": [
+    "DigiCert_Adaptable_Script.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "supportUrl": "https://www.digicert.com/support",
+  "price": "Free",
+  "license": "MIT"
+}

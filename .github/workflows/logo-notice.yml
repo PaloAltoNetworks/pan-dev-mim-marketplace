@@ -1,0 +1,36 @@
+# Notifies PR authors when an integration will fall back to the generic logo.
+#
+# A missing logo is a warning, not a blocker (see scripts/validate-integration.js).
+# This workflow posts a single, self-updating comment listing any integrations in
+# the PR that have no logo, with a link to the generic fallback asset.
+#
+# Runs on pull_request_target so it has a write-scoped token even for fork PRs.
+# For safety it checks out only the BASE ref (our own scripts) and never executes
+# PR code — the script reads the PR head via the contents API, not from disk.
+name: logo-notice
+
+on:
+  pull_request_target:
+    branches: [main]
+    types: [opened, reopened, synchronize]
+    paths:
+      - 'Integrations/**'
+
+jobs:
+  logo-notice:
+    name: logo-notice
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+    steps:
+      # Checks out the BASE ref (default on pull_request_target), i.e. our own
+      # scripts — never the PR head. Do not add `ref:` here.
+      - uses: actions/checkout@v4
+
+      - name: Notify on missing integration logos
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+        run: python3 .github/scripts/check_missing_logos.py "$PR"

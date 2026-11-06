@@ -1,0 +1,32 @@
+{
+  "name": "HID PKIaaS",
+  "description": "Automate certificate lifecycle management with HID Global's cloud-based PKI-as-a-Service certificate authority integrated with Venafi.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "HID Global",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "PKIaaS",
+    "REST"
+  ],
+  "downloadFiles": [
+    "HID_PKIaaS_Adaptable_CA_Driver.ps1",
+    "HID_PKIaaS_Create_Custom_Fields.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "logoFile": "HID.png",
+  "supportUrl": "https://support.hidglobal.com/",
+  "price": "Free",
+  "license": "MIT"
+}

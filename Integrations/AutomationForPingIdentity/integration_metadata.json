@@ -1,0 +1,39 @@
+{
+  "name": "Automation for Ping Identity",
+  "description": "Securely retrieve credentials required for execution of business processes",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "IDMWorks",
+  "categories": [
+    "Identity & Access Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Authentication"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "PingFederate",
+    "Adaptable Framework - App"
+  ],
+  "logoFile": "Ping.png",
+  "supportUrl": "https://www.idmworks.com/contact/",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Automation for Ping Identity Integration Guide",
+          "description": "Complete integration guide for Automation for Ping Identity",
+          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/t-drivers-AdaptableApp-settingUp.php"
+        }
+      ]
+    }
+  ]
+}

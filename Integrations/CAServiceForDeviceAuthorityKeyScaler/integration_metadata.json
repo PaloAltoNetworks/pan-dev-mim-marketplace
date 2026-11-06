@@ -1,0 +1,44 @@
+{
+  "name": "CA Service for Device Authority KeyScaler",
+  "description": "Automate x.509 certificate lifecycle management for IoT devices with Device Authority KeyScaler and Venafi. Enhance security, reduce costs, and streamline compliance.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Device Authority Ltd",
+  "categories": [
+    "IoT & OT"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Certificate Authority",
+    "IoT",
+    "Management Layer"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "KeyScaler IOT Devices",
+    "VCert Java"
+  ],
+  "logoFile": "Device-Authority.png",
+  "supportUrl": "https://support.deviceauthority.com/hc/en-us",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md"
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md"
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md"
+    }
+  ],
+  "price": "Free"
+}

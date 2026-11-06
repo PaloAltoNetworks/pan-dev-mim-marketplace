@@ -1,0 +1,25 @@
+{
+  "name": "HP JetAdvantage Security Manager",
+  "description": "Connect JetAdvantage Secure Manager with Certificate Manager, Self-Hosted",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "HPE",
+  "categories": [
+    "Endpoint & Device Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Endpoint"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "JetAdvantage Security Manager",
+    "SCEP"
+  ],
+  "logoFile": "HP.png",
+  "price": "Free"
+}

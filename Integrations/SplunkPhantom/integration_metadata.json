@@ -1,0 +1,27 @@
+{
+  "name": "Splunk Phantom",
+  "description": "Automate risk intelligence actions with Splunk Phantom and Venafi, enhancing security and compliance through full event automation.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Splunk",
+  "categories": [
+    "ITSM & Workflow"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "GRC",
+    "SOAR"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Phantom",
+    "Other"
+  ],
+  "logoFile": "splunk-phantom.png",
+  "supportUrl": "https://splunk.my.site.com/customer/s/",
+  "price": "Free"
+}

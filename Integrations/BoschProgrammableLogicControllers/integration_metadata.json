@@ -1,0 +1,25 @@
+{
+  "name": "Bosch Programmable Logic Controllers",
+  "description": "Secure Bosch PLCs with embedded machine identity management, ensuring consistent policies, full automation, and enhanced access controls.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "accessec GmbH",
+  "categories": [
+    "IoT & OT"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "IoT"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Programmable Logic Controllers",
+    "VCert Python"
+  ],
+  "logoFile": "Bosch-Rexroth.png",
+  "price": "Free"
+}

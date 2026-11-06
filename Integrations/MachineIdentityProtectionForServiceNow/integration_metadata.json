@@ -1,0 +1,44 @@
+{
+  "name": "Machine Identity Protection for ServiceNow",
+  "description": "Machine Identity Management from ServiceNow",
+  "categories": [
+    "ITSM & Workflow"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted",
+    "Certificate Manager SaaS"
+  ],
+  "tags": [
+    "Automation/Orchestration",
+    "Cloud",
+    "ITSM"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "ServiceNow",
+    "REST"
+  ],
+  "logoFile": "ServiceNow.png",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Aeyrix",
+  "supportUrl": "https://aeyrix.com",
+  "price": "Paid",
+  "acquisition": {
+    "type": "contact-sales",
+    "label": "Contact Your Account Team",
+    "description": "This integration is available to customers with an active subscription. Contact your account team for access."
+  },
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md"
+    },
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md"
+    }
+  ]
+}

@@ -1,0 +1,26 @@
+{
+  "name": "SaltStack Enterprise",
+  "description": "Accelerate HTTPS automation and continuous delivery with SaltStack Enterprise and Venafi, streamlining certificate management and scaling effortlessly.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "SaltStack",
+  "categories": [
+    "CI/CD & DevOps"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "DevOps",
+    "Open Source"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "SaltStack Enterprise",
+    "VCert Python"
+  ],
+  "logoFile": "SaltStack.png",
+  "price": "Free"
+}

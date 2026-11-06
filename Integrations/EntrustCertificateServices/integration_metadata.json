@@ -1,0 +1,56 @@
+{
+  "name": "Entrust Certificate Services",
+  "description": "Entrust Certificate Services enhances enterprise encryption with visibility, automated workflows, and risk reduction for secure machine identity management.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Certificate Services",
+    "REST"
+  ],
+  "logoFile": "entrust.png",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Entrust Certificate Services Integration Guide",
+          "description": "Complete integration guide for Entrust Certificate Services",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/certificates/ca/adding-entrust-ca/"
+        }
+      ]
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md"
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Entrust Certificate Services Integration Guide",
+          "description": "Complete integration guide for Entrust Certificate Services",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/co-overview-issuing-certs/adding-a-certificate-authority/adding-entrust-ca"
+        }
+      ]
+    }
+  ],
+  "price": "Free"
+}

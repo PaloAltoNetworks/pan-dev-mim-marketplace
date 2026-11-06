@@ -1,0 +1,39 @@
+{
+  "name": "Entrust nShield HSMs",
+  "description": "Integrate Entrust nShield HSMs with Venafi TLS Protect for enhanced key security and lifecycle automation, meeting regulatory requirements.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "HSM & Key Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "HSM"
+  ],
+  "useCases": [
+    "Code Signing"
+  ],
+  "keywords": [
+    "nShield",
+    "PKCS#11"
+  ],
+  "logoFile": "entrust.png",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Entrust nShield HSMs Integration Guide",
+          "description": "Complete integration guide for Entrust nShield HSMs",
+          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Configuration/PlatformConfig/t-connector-HSM-create.php"
+        }
+      ]
+    }
+  ]
+}

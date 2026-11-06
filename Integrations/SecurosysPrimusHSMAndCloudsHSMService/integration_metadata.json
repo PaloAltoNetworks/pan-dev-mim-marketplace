@@ -1,0 +1,27 @@
+{
+  "name": "Securosys Primus HSM and CloudsHSM Service",
+  "description": "Enhance security and compliance with Securosys Primus HSM and CloudsHSM, integrating with Venafi for robust key management solutions.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Securosys SA",
+  "categories": [
+    "HSM & Key Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Cloud",
+    "HSM"
+  ],
+  "useCases": [
+    "Code Signing"
+  ],
+  "keywords": [
+    "Primus HSM",
+    "PKCS#11",
+    "Blockchain"
+  ],
+  "supportUrl": "https://www.securosys.com/en/support",
+  "price": "Free"
+}

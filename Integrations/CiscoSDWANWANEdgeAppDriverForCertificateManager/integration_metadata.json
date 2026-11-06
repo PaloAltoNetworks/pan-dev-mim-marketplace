@@ -1,0 +1,27 @@
+{
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Secur Solutions Group",
+  "supportEmail": "support@secursolutionsgroup.com",
+  "categories": [
+    "Firewall & Network Security"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Network Infrastructure",
+    "Adaptable Framework"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "price": "Paid (Contact Partner)",
+  "name": "Cisco SD-WAN WAN Edge App Driver for Certificate Manager",
+  "description": "Automate CSR generation, certificate issuance and installation for Cisco SD-WAN WAN Edge devices to be fully integrated with Certificate Manager.",
+  "acquisition": {
+    "type": "contact-partner",
+    "url": "https://secursolutionsgroup.com/contact-us"
+  }
+}

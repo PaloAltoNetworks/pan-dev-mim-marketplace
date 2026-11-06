@@ -1,0 +1,41 @@
+{
+  "name": "Fortinet FortiManager",
+  "description": "Integrate Venafi with FortiManager for streamlined TLS certificate management",
+  "support": "Supported",
+  "currentVersion": "1.5",
+  "author": "Venafi",
+  "categories": [
+    "Firewall & Network Security"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "TLS/SSL Inspection",
+    "Automation/Orchestration",
+    "Firewall"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "FortiManager",
+    "Adaptable Framework - App"
+  ],
+  "logoFile": "Fortinet-Light.png",
+  "logoFileDark": "Fortinet-Dark.png",
+  "downloadFiles": [
+    "FortiManagerAdaptableApp_1.5.zip"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "price": "Free",
+  "license": "Software Tool License Agreement",
+  "licenseUrl": "https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/legal/software-tool-license-agreement.pdf",
+  "supportPrice": "Paid",
+  "supportAcquisition": {
+    "type": "contact-sales",
+    "label": "Contact Your Account Team",
+    "description": "This driver is free to download. Support is provided under a paid support subscription — contact your account team for details."
+  }
+}

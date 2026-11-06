@@ -1,0 +1,68 @@
+{
+  "name": "AWS Private CA Service",
+  "description": "A cert-manager external issuer implementation with AWS Private CA as the backend certificate authority",
+  "support": "Supported",
+  "currentVersion": "1.0.1",
+  "author": "Venafi",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "DevOps",
+    "Kubernetes",
+    "Open Source"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Private CA Service",
+    "REST"
+  ],
+  "logoFile": "AWS-Light.png",
+  "logoFileDark": "AWS-Dark.png",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "AWS Private CA Service Integration Guide",
+          "description": "Complete integration guide for AWS Private CA Service",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/certificates/ca/adding-aws-private-ca/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Adding AWS Private CA",
+          "description": "Guide for adding AWS Private CA as a certificate authority in Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/co-overview-issuing-certs/adding-a-certificate-authority/adding-aws-private-ca"
+        }
+      ]
+    }
+  ],
+  "price": "Free",
+  "stagedProductVariants": [
+    {
+      "product": "Certificate Manager for Kubernetes",
+      "suffix": "k8s",
+      "note": "Staged pending product approval; not displayed.",
+      "documentationLinks": [
+        {
+          "title": "AWS Private CA Service Integration Guide",
+          "description": "Complete integration guide for AWS Private CA Service",
+          "url": "https://cert-manager.github.io/aws-privateca-issuer/"
+        }
+      ]
+    }
+  ]
+}

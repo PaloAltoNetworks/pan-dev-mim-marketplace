@@ -1,0 +1,46 @@
+{
+  "name": "Pulse Secure Virtual Traffic Manager",
+  "description": "Automate TLS certificate provisioning for Pulse Secure (Ivanti) Virtual Traffic Manager to eliminate outages caused by expired certificates.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Ivanti",
+  "supportEmail": "cybr-mis.support@paloaltonetworks.com",
+  "categories": [
+    "Load Balancer & ADC"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "ADC/Load Balancing",
+    "Adaptable Framework"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Virtual Traffic Manager",
+    "vTM",
+    "Adaptable Framework - App"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "logoFile": "logo.svg",
+  "price": "Free",
+  "license": "MIT",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Pulse Secure Virtual Traffic Manager Integration Guide",
+          "description": "Complete integration guide for Pulse Secure Virtual Traffic Manager",
+          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/AdaptableFrameworks/c_AdaptableApp_overview.php"
+        }
+      ],
+      "downloadFiles": [
+        "Pulse-Secure-vTM.ps1"
+      ]
+    }
+  ]
+}

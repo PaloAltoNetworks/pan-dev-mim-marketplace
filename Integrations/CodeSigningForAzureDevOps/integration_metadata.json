@@ -1,0 +1,27 @@
+{
+  "name": "Code Signing for Azure DevOps",
+  "description": "Integrate secure code signing into Azure DevOps pipelines with Sidechain's Azure Pipelines agent for Venafi CodeSign Protect.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Sidechain Security",
+  "categories": [
+    "CI/CD & DevOps"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "DevOps",
+    "Cloud"
+  ],
+  "useCases": [
+    "Code Signing"
+  ],
+  "keywords": [
+    "Azure DevOps",
+    "REST"
+  ],
+  "logoFile": "azuredevops.png",
+  "supportUrl": "https://sidechainsecurity.com/company/contact/",
+  "price": "Free"
+}

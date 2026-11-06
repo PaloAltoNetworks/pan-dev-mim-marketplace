@@ -1,0 +1,42 @@
+{
+  "name": "Snowflake",
+  "description": "Snowflake enhances developer experience by integrating Venafi for seamless machine identity management, enabling easy requests and renewals directly within their environment.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "StarSchema-Marketplace",
+  "categories": [
+    "Data Platform & Storage"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Data Platform",
+    "DevOps"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Snowflake Platform",
+    "VCert Java"
+  ],
+  "logoFile": "Snowflake.png",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md"
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md"
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md"
+    }
+  ],
+  "price": "Free"
+}

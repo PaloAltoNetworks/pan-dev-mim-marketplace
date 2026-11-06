@@ -1,0 +1,44 @@
+{
+  "name": "HashiCorp Vault Request Sync",
+  "description": "Sync machine identities seamlessly between Venafi and HashiCorp Vault with our CLI tool, enhancing collaboration and visibility.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Secrets Management"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Secret Store",
+    "DevOps",
+    "Open Source"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "HashiCorp Vault",
+    "VCert Go"
+  ],
+  "logoFile": "HashiCorp-Light.png",
+  "logoFileDark": "HashiCorp-Dark.png",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md"
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md"
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md"
+    }
+  ],
+  "price": "Free"
+}

@@ -1,0 +1,25 @@
+{
+  "name": "Oracle Directory Server",
+  "description": "Oracle Directory Server streamlines secure admin access and policy enforcement through established organization hierarchies and Windows authentication.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Oracle",
+  "categories": [
+    "Identity & Access Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Authentication"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Oracle Directory Server",
+    "Other"
+  ],
+  "logoFile": "Oracle.png",
+  "price": "Free"
+}

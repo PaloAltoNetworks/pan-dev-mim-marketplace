@@ -1,0 +1,39 @@
+{
+  "name": "Palo Alto Networks NGFW",
+  "description": "Automation for next-generation firewall's device machine identity",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Firewall & Network Security"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "TLS/SSL Inspection",
+    "Firewall"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "NGFW",
+    "Adaptable Framework - App"
+  ],
+  "logoFile": "Palo-Alto-Networks.png",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Palo Alto Networks NGFW Integration Guide",
+          "description": "Complete integration guide for Palo Alto Networks NGFW",
+          "url": "https://docs.venafi.com/Docs/26.1/TopNav/Content/Drivers/cco-PaloAltoNetworks-AppDriverConfig.php"
+        }
+      ]
+    }
+  ]
+}

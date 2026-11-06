@@ -1,0 +1,26 @@
+{
+  "name": "Threat Inspection Using Palo Alto Networks NGFW",
+  "description": "Automate machined identities for decryption profiles",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Palo Alto Networks",
+  "categories": [
+    "Firewall & Network Security"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "TLS/SSL Inspection",
+    "Firewall"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "NGFW",
+    "Adaptable Framework - App"
+  ],
+  "logoFile": "Palo-Alto-Networks.png",
+  "price": "Free"
+}

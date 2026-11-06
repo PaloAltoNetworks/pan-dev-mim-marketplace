@@ -1,0 +1,60 @@
+{
+  "name": "Certificate Manager Operator for Red Hat OpenShift",
+  "description": "Simplifies deployment of Venafi's enterprise components and dependencies.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Kubernetes & Containers"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Automation/Orchestration",
+    "Kubernetes"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "OpenShift",
+    "Other",
+    "Firefly"
+  ],
+  "logoFile": "Venafi.png",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Certificate Manager Operator for Red Hat OpenShift Integration Guide",
+          "description": "Complete integration guide for Certificate Manager Operator for Red Hat OpenShift",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/k8s-components/c-osr-overview/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md"
+    }
+  ],
+  "price": "Free",
+  "stagedProductVariants": [
+    {
+      "product": "Certificate Manager for Kubernetes",
+      "suffix": "k8s",
+      "note": "Staged pending product approval; not displayed.",
+      "documentationLinks": [
+        {
+          "title": "Certificate Manager Operator for Red Hat OpenShift Integration Guide",
+          "description": "Complete integration guide for Certificate Manager Operator for Red Hat OpenShift",
+          "url": "https://catalog.redhat.com/en/software/container-stacks/detail/65ba7a33a723d0b8f2df84b4"
+        }
+      ]
+    }
+  ]
+}

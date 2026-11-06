@@ -1,0 +1,27 @@
+{
+  "name": "Carillon CA",
+  "description": "The purpose of this document is to provide information regarding the integration of Carillon's CertServ PKI Suite with with Venafi Trust Protection Platform (TPP) by means of an Adaptable CA script.",
+  "support": "Supported",
+  "currentVersion": "1.0",
+  "author": "Carillon",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "downloadFiles": [
+    "Carillon_CA.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "supportUrl": "https://pub.cis.carillon.ca",
+  "price": "Free",
+  "license": "MIT"
+}

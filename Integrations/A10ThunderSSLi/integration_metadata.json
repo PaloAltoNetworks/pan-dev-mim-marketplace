@@ -1,0 +1,26 @@
+{
+  "name": "A10 Thunder SSLi",
+  "description": "A10 Thunder SSLi unlocks and inspects encrypted traffic, enhancing security while reducing risks and automating certificate management.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "A10 Networks",
+  "categories": [
+    "Firewall & Network Security"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "TLS/SSL Inspection"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Thunder SSLi",
+    "Adaptable Framework - App"
+  ],
+  "logoFile": "a10-logo.png",
+  "supportUrl": "https://support.a10networks.com",
+  "price": "Free"
+}

@@ -1,0 +1,16 @@
+# .github/final-approvers.yml
+#
+# GitHub usernames required to approve every PR before merge — the always-on
+# gate, regardless of which integration a PR touches (the second, per-
+# integration gate is .github/owner-reviewers.yml). Enforced by
+# .github/scripts/check_final_approval.py as a required status check rather
+# than GitHub's native "require review from team" ruleset rule, because that
+# rule can never treat a PR's own author as satisfying it — even when they're
+# the sole entry here — and GitHub blocks literal self-approval with no
+# override. check_final_approval.py's self-attestation rule (identical to
+# check_owner_approval.py's) handles that case instead.
+#
+# One username per line. Keep this in sync with the `mim-final-approvers`
+# GitHub team's membership — see .github/OWNER_APPROVAL_DESIGN.md.
+
+- paulternate

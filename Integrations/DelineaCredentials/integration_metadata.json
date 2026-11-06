@@ -1,0 +1,25 @@
+{
+  "name": "Delinea Credentials",
+  "description": "Integrate Delinea Secret Server with Venafi for secure, automated access to secrets, enhancing teamwork and preventing outages.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Secrets Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Secret Store",
+    "Authentication"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Secret Server",
+    "Adaptable Framework - Credential"
+  ],
+  "price": "Free"
+}

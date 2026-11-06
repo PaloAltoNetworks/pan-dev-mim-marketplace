@@ -1,0 +1,45 @@
+{
+  "name": "Futurex KMES Series 3",
+  "description": "Futurex KMES Series 3 enhances certificate lifecycle management with FIPS 140-2 Level 3 security, reducing fraud risk and insider attacks.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Futurex Inc",
+  "categories": [
+    "HSM & Key Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "KMES Series 3",
+    "PKCS#11"
+  ],
+  "logoFile": "Futurex.png",
+  "documentationFile": "DOCUMENTATION.md",
+  "supportUrl": "https://docs.futurex.com",
+  "price": "Free",
+  "license": "MIT",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Futurex Documentation",
+          "description": "Futurex's official product documentation",
+          "url": "https://docs.futurex.com"
+        }
+      ],
+      "downloadFiles": [
+        "Futurex KMES CA.ps1",
+        "FuturexCreateCustomFields.ps1"
+      ]
+    }
+  ]
+}

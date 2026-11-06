@@ -1,0 +1,207 @@
+# .github/owner-reviewers.yml
+#
+# Integration directory -> required reviewer(s). Works identically for
+# internal staff and external partners; none need repo access. Read at
+# runtime by .github/scripts/check_owner_approval.py (the review gate) and
+# request_owner_reviewers.py (auto-request). Full rationale and mechanics:
+# .github/OWNER_APPROVAL_DESIGN.md.
+#
+# Two entry shapes are supported:
+#
+#   1. A bare list — applies to every product of that integration:
+#        Integrations/MyTool: [some-github-user]
+#
+#   2. A map keyed by the exact product string from Config/approved_products.json
+#      (also used verbatim by productVariants[].product) — scopes reviewers to
+#      just that product, for a multi-product integration with different
+#      owners per variant:
+#        Integrations/MyMultiProductTool:
+#          Certificate Manager Self-Hosted: [selfhosted-owner]
+#          Certificate Manager SaaS: [saas-owner]
+#      A product with no key here is treated as unmapped: any PR touching that
+#      product's files (or a shared/root metadata field) fails the gate with
+#      an actionable message, same as an entirely-unmapped directory.
+#
+# A directory missing from this file entirely fails the gate by design (a
+# human must decide who reviews it) — UNLESS the directory is a brand-new
+# integration that doesn't exist yet on the base branch, in which case the
+# gate will trust an entry the PR itself adds here (self-service reviewer
+# declaration for first-time contributors — see CONTRIBUTING.md). This never
+# applies to a directory that already exists, even to add a new product
+# variant to it; that always needs a maintainer-authored change here.
+#
+# A required reviewer who is also the PR's author is treated as self-attested
+# (GitHub blocks literal self-approval) — this is what makes solo-maintained
+# integrations work: `mim-final-approvers` still approves every PR regardless.
+#
+# STATUS: most existing integrations still have no entry here. That's fine for
+# any integration whose next PR is authored by its own maintainer (self-attests
+# via the mechanism above) or is brand-new (self-declares); an update PR from
+# someone other than the integration's actual owner will fail the gate until a
+# maintainer adds an entry.
+
+Integrations/A10ThunderADC:     [paulternate]
+Integrations/A10ThunderSSLi:    [paulternate]
+Integrations/AkamaiAdaptableApplication: [gdbarron]
+Integrations/FortinetFortiManager: [gdbarron]
+Integrations/FortinetFortiGate:
+  Certificate Manager Self-Hosted: [gdbarron]
+  Certificate Manager SaaS: [paulternate]                     # temp — no product-team owner assigned yet
+  Next-Gen Trust Security: [paulternate]                      # temp — no product-team owner assigned yet
+Integrations/PaloAltoPanorama:
+  Certificate Manager Self-Hosted: [gdbarron]
+  Certificate Manager SaaS: [paulternate]                     # temp — no product-team owner assigned yet; variants not created yet
+  Next-Gen Trust Security: [paulternate]                      # temp — no product-team owner assigned yet; variants not created yet
+Integrations/FortinetFortiWeb:
+  Certificate Manager Self-Hosted: [gdbarron]
+  Certificate Manager SaaS: [paulternate]                     # self-declared for a root-level field touch; gdbarron still owns Self-Hosted
+  Next-Gen Trust Security: [paulternate]
+
+# Backfill for pre-release cleanup: integrations touched by the ongoing
+# prerelease-cleanup branch, self-declared to paulternate (branch author) so
+# the reviewer gate isn't blocked on maintainer-mapping backfill mid-cleanup.
+# Replace with the actual product owner as each integration gets one.
+Integrations/ACME: [paulternate]
+Integrations/AWSCertificateManager: [paulternate]
+Integrations/AWSPrivateCAService: [paulternate]
+Integrations/AkeylessVaultPlatform: [paulternate]
+Integrations/ApacheHTTPServer: [paulternate]
+Integrations/AutomationForPingIdentity: [paulternate]
+Integrations/AxiadCA: [paulternate]
+Integrations/CSCGlobalCA: [paulternate]
+Integrations/CertificateManagerOperatorForRedHatOpenShift: [paulternate]
+Integrations/CiscoSDWANWANEdgeAppDriverForCertificateManager: [paulternate]
+Integrations/CyberArkCertificateManagerOperatorForRedHatOpenShift: [paulternate]
+Integrations/DellWyseMgmtSuiteAndZeroTouchPKI: [paulternate]
+Integrations/DigiCertCertCentral: [paulternate]
+Integrations/DigiCertCertCentralAdaptable: [paulternate]
+Integrations/DigiCertONE: [paulternate]
+Integrations/DigiCertONEAdaptableCA: [paulternate]
+Integrations/EntrustCAGateway: [paulternate]
+Integrations/F5BIGIP: [paulternate]
+Integrations/F5BIGIQ: [paulternate]
+Integrations/F5DistributedCloud: [paulternate]
+Integrations/FuturexKMESSeries3: [paulternate]
+Integrations/FuturexVecteraPlusHSM: [paulternate]
+Integrations/GitHubActionsForCodeSignManager: [paulternate]
+Integrations/GlobalSignAtlas: [paulternate]
+Integrations/GlobalSignManagedPKI: [paulternate]
+Integrations/IBMDataPowerGateway: [paulternate]
+Integrations/IBMGuardium: [paulternate]
+Integrations/ImpervaSecureSphere: [paulternate]
+Integrations/JamfPro: [paulternate]
+Integrations/K8SContainerSigningVerificationWithNirmata: [paulternate]
+Integrations/KubernetesClusterDiscovery: [paulternate]
+Integrations/MTLSForKubernetesWorkloadsWithOtterizeVenafi: [paulternate]
+Integrations/MicrosoftADCS: [paulternate]
+Integrations/MicrosoftActiveDirectory: [paulternate]
+Integrations/MicrosoftAzureKeyVault: [paulternate]
+Integrations/MicrosoftIIS: [paulternate]
+Integrations/N8nExtendableWorkflowAutomation: [paulternate]
+Integrations/NGINXWebServer: [paulternate]
+Integrations/NetScalerADC: [paulternate]
+Integrations/NetScalerConsole: [paulternate]
+Integrations/NirmataDevSecOpsPlatform: [paulternate]
+Integrations/OctopusDeployStepTemplates: [paulternate]
+Integrations/OpenTrust: [paulternate]
+Integrations/OracleHTTPServer: [paulternate]
+Integrations/PaloAltoNGFWBulkProvisioning: [paulternate]
+Integrations/PaloAltoNetworksCortexXpanse: [paulternate]
+Integrations/PaloAltoNetworksNGFW: [paulternate]
+Integrations/PingAdaptableFramework: [paulternate]
+Integrations/PulseSecureVirtualTrafficManager: [paulternate]
+Integrations/QuoVadisDigitalCertificateServices: [paulternate]
+Integrations/SSLcom: [paulternate]
+Integrations/SectigoCertificateManager: [paulternate]
+Integrations/SplunkEnterprise: [paulternate]
+Integrations/SwissSignCA: [paulternate]
+Integrations/VMwareNSXLoadBalancer: [paulternate]
+
+# Not a real integration directory — a top-level redirect-alias data file. The
+# gate's touched_integration_dirs() treats any Integrations/<name> path segment
+# as a directory without checking it's actually one, so this needs an entry
+# too. Consider fixing touched_integration_dirs() to skip non-directory paths
+# instead, so files like this don't need a reviewer mapping at all.
+Integrations/.route-aliases.json: [paulternate]
+
+# Same gap as .route-aliases.json above — the gate doesn't exclude dot-prefixed paths
+# even though the generator scripts do (Integrations/.template is scaffolding for new
+# integrations, not a real listing).
+Integrations/.template: [paulternate]
+
+# Backfill for prerelease-cleanup's defaults-tier removal (see PR #22): these integrations
+# had their defaults.* fields lifted to root, so this PR touches them without otherwise
+# changing their content. Replace with the actual product owner as each gets one.
+Integrations/AlicloudALB: [paulternate]
+Integrations/AlicloudPrivateCA: [paulternate]
+Integrations/CiscoASA: [paulternate]
+Integrations/HuaweiCloudELB: [paulternate]
+Integrations/MachineIdentityProtectionForServiceNow: [paulternate]
+Integrations/OracleWallet: [paulternate]
+Integrations/RecursiveCertificateDiscovery: [paulternate]
+Integrations/TencentCloudLoadBalancer: [paulternate]
+
+# Backfill for prerelease-cleanup's email -> supportEmail rename (see PR #24): these
+# integrations had that one key renamed in their metadata, so this PR touches them
+# without otherwise changing their content. Replace with the actual product owner as
+# each gets one.
+Integrations/ActalisCA: [paulternate]
+Integrations/AffirmTrustDVTLSSSL: [paulternate]
+Integrations/ArrayNetworksAPVSeriesADC: [paulternate]
+Integrations/AutoApproveByCaTemplate: [paulternate]
+Integrations/CarillonCA: [paulternate]
+Integrations/CertificateEnrollmentClientWindowsLinuxMacOSWithZeroTouchPKI: [paulternate]
+Integrations/CertificateManagerSaaSEventLogToServiceNow: [paulternate]
+Integrations/CheckPointGAIAPortalManagementCert: [paulternate]
+Integrations/CheckPointNGFW: [paulternate]
+Integrations/CiscoCatalystWLC: [paulternate]
+Integrations/ClientGuestRegistrationAuthorityForWindowsADAndZeroTouchPKI: [paulternate]
+Integrations/ExportFromVenafiCloudIntoTpp: [paulternate]
+Integrations/F5SilverlineAdaptableApp: [paulternate]
+Integrations/FederatedAuthenticationService: [paulternate]
+Integrations/GetTppActiveHistoricalCertificate: [paulternate]
+Integrations/GoogleCasImport: [paulternate]
+Integrations/HashiCorpVaultAdaptableCA: [paulternate]
+Integrations/IDnomicAdaptableCA: [paulternate]
+Integrations/IISDeviceDiscovery: [paulternate]
+Integrations/IdentrustCertificateManagement: [paulternate]
+Integrations/KongKonnectAppDriverForCertificateLifecycleManagement: [paulternate]
+Integrations/KongManagerAPIGWProvisioningDriverCertificateManagement: [paulternate]
+Integrations/NameshieldCA: [paulternate]
+Integrations/OpenXPKIAdaptableCA: [paulternate]
+Integrations/OracleOperaAdaptableApp: [paulternate]
+Integrations/SecuriThingsIoTCertificateManagement: [paulternate]
+Integrations/SetManagementTypeAfterOnboardDiscovery: [paulternate]
+Integrations/TheSslStoreAdaptableDrivers: [paulternate]
+Integrations/ThycoticAdaptableCredentials: [paulternate]
+Integrations/VenafiSlackConnector: [paulternate]
+Integrations/WinRM: [paulternate]
+Integrations/WriteVenafiDebug: [paulternate]
+Integrations/YubiKeyCertificateManagerForWindows: [paulternate]
+
+# Backfill for PR #26 (apply-integration-metadata-master.js + sheet edits): these
+# integrations had root-level fields (mostly SupportEmail/SupportUrl) touched by the
+# sheet apply, so this PR touches them without otherwise changing their content.
+Integrations/AWSCloudFront: [paulternate]
+Integrations/AWSPrivateCAWKeyUsageExtendedKeyUsage: [paulternate]
+Integrations/ApacheCertificateProvisioningConnector: [paulternate]
+Integrations/AscertiaADSSCA: [paulternate]
+Integrations/EJBCAEnterpriseWCustomSerialNumber: [paulternate]
+Integrations/EntrustCertificateServices: [paulternate]
+Integrations/F5BIGIPSSLO: [paulternate]
+Integrations/GigamonGigaVueOS: [paulternate]
+Integrations/GigamonTLSDecryption: [paulternate]
+Integrations/HIDPKIaaS: [paulternate]
+Integrations/PulumiCloudEngineeringPlatform: [paulternate]
+Integrations/PulumiCrossGuard: [paulternate]
+
+# Backfill for PR #26's externalDocsUrl/Label -> documentationLinks migration: these
+# integrations had that conversion applied, so this PR touches them without otherwise
+# changing their content.
+Integrations/AnsibleCollection: [paulternate]
+Integrations/CertManager: [paulternate]
+Integrations/EJBCAEnterprise: [paulternate]
+Integrations/GoogleCloudCAService: [paulternate]
+Integrations/HashiCorpTerraform: [paulternate]
+Integrations/MachineIdentityExtensionForAzureDevOps: [paulternate]
+# ...one entry per integration...

@@ -1,0 +1,17 @@
+{
+  "name": "pan-dev-mim-marketplace",
+  "version": "1.0.0",
+  "description": "MIM Marketplace — public integration repository",
+  "scripts": {
+    "validate": "node scripts/validate-integration.js",
+    "lint": "npm run validate",
+    "check:links": "node scripts/check-links.js",
+    "test": "node --test scripts/*.test.js"
+  },
+  "dependencies": {
+    "fs-extra": "^11.2.0"
+  },
+  "engines": {
+    "node": ">=20"
+  }
+}

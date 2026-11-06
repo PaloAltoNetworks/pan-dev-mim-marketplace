@@ -1,0 +1,28 @@
+{
+  "name": "Check Point NGFW",
+  "description": "Together, Check Point and Venafi help to solve that problem by fully automating the delivery and configuration of critical machine identities in use by organizations protected with Check Point NGFWs.",
+  "support": "Supported",
+  "currentVersion": "1.0",
+  "author": "Check Point",
+  "categories": [
+    "Firewall & Network Security"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Firewall"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "downloadFiles": [
+    "Check Point Adaptable App Driver.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "supportUrl": "https://supportcenter.checkpoint.com/",
+  "logoFile": "logo.svg",
+  "price": "Free",
+  "license": "MIT"
+}

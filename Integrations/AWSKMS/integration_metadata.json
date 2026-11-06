@@ -1,0 +1,60 @@
+{
+  "name": "AWS KMS",
+  "description": "A cert-manager external issuer implementation with AWS KMS as the backend certificate authority",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Skyscanner",
+  "categories": [
+    "HSM & Key Management"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Kubernetes",
+    "Open Source"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "KMS",
+    "PKCS#11"
+  ],
+  "logoFile": "AWS-Light.png",
+  "logoFileDark": "AWS-Dark.png",
+  "supportUrl": "https://github.com/Skyscanner/kms-issuer/issues/",
+  "primaryCta": {
+    "type": "link",
+    "label": "View Project Site",
+    "url": "https://skyscanner.github.io/kms-issuer/"
+  },
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "resources": {
+        "externalLinks": [
+          {
+            "title": "AWS KMS Documentation",
+            "description": "Official AWS KMS documentation",
+            "url": "https://docs.aws.amazon.com/kms",
+            "category": "Documentation"
+          },
+          {
+            "title": "cert-manager Documentation",
+            "description": "Learn more about cert-manager",
+            "url": "https://cert-manager.io/docs",
+            "category": "Documentation"
+          }
+        ]
+      }
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md"
+    }
+  ],
+  "price": "Free"
+}

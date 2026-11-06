@@ -1,0 +1,31 @@
+{
+  "name": "Acmetek Certificate Services",
+  "description": "Acmetek Certificate Services offers automated lifecycle management for HTTPS certificates, enhancing visibility, compliance, and risk reduction.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "QuantumPKI",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Certificate Services",
+    "Adaptable Framework - CA"
+  ],
+  "logoFile": "Acmetek.png",
+  "downloadFiles": [
+    "Acmetek.ps1",
+    "AcmetekCreateCustomFields.ps1"
+  ],
+  "supportUrl": "https://quantumpki.com/contact/",
+  "price": "Free",
+  "license": "MIT"
+}

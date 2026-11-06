@@ -1,0 +1,68 @@
+{
+  "name": "Microsoft IIS",
+  "description": "Enabling automated certificates management on Microsoft IIS",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Web Server"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Web Server"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "IIS",
+    "Other"
+  ],
+  "logoFile": "Microsoft.png",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Microsoft IIS Integration Guide",
+          "description": "Complete integration guide for Microsoft IIS",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/microsoft-iis/"
+        },
+        {
+          "title": "Provisioning Certificates to Microsoft IIS",
+          "description": "Step-by-step guide for certificate provisioning",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-microsoft-iis/"
+        }
+      ]
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Microsoft IIS Integration Guide",
+          "description": "Complete integration guide for Microsoft IIS",
+          "url": "https://docs.venafi.com/Docs/26.1/TopNav/Content/Drivers/cco-CAPI-AppDriverConfig-tpp.php"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Microsoft IIS Integration Guide",
+          "description": "Complete integration guide for Microsoft IIS",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/microsoft-iis"
+        }
+      ]
+    }
+  ],
+  "price": "Free"
+}

@@ -1,0 +1,36 @@
+{
+  "name": "EJBCA Enterprise w/ Custom Serial Number",
+  "description": "Customizable EJBCA driver for legacy certificates.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Secur Solutions Group",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Adaptable Framework"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "EJBCA Enterprise",
+    "Adaptable Framework - CA",
+    "Unicert CA Replacement"
+  ],
+  "downloadFiles": [
+    "Secur EJBCA script.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "logoFile": "EJBCA.png",
+  "price": "Paid (Contact Partner)",
+  "license": "MIT",
+  "supportEmail": "support@secursolutionsgroup.com",
+  "acquisition": {
+    "type": "contact-partner",
+    "url": "https://secursolutionsgroup.com/contact-us"
+  }
+}

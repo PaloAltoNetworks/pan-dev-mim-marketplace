@@ -1,0 +1,29 @@
+{
+  "name": "F5 Silverline",
+  "description": "HTTPS encryption is more prevalent than ever but can be difficult to scale. F5 Silverline and Venafi have teamed up to make it easy to automate the use of keys and certificates for application teams using the following products from Silverline:",
+  "support": "Supported",
+  "currentVersion": "1.0",
+  "author": "F5",
+  "categories": [
+    "Load Balancer & ADC"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "ADC/Load Balancing",
+    "Adaptable Framework"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "downloadFiles": [
+    "F5SilverlineAdaptableDriver.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "logoFile": "f5-silverline.png",
+  "supportUrl": "https://support.f5.com/",
+  "price": "Free",
+  "license": "MIT"
+}

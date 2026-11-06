@@ -1,0 +1,73 @@
+{
+  "name": "NGINX Web Server",
+  "description": "Enabling automated certificates management on NGINX Web Servers",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Web Server"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Web Server"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Web Server",
+    "Other"
+  ],
+  "logoFile": "NGINX.png",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Common Keystore Overview",
+          "description": "NGINX is supported via Certificate Manager SaaS's Common Keystore mechanism, not a native connector.",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/common-keystore/"
+        },
+        {
+          "title": "Provision Certificates via Common Keystore",
+          "description": "Provision certificates to an NGINX Web Server via Common Keystore.",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-common-keystore/"
+        }
+      ]
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "NGINX Web Server Integration Guide",
+          "description": "Complete integration guide for NGINX Web Server",
+          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/r-PEM_AppObjSettings.php"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Create a Common Keystore Machine",
+          "description": "NGINX is supported via NGTS's Common Keystore mechanism, not a native connector.",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/common-keystore"
+        },
+        {
+          "title": "Provision Certificates via Common Keystore",
+          "description": "Provision certificates to an NGINX Web Server via Common Keystore.",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/common-keystore/provision-certificates-common-keystore"
+        }
+      ]
+    }
+  ],
+  "price": "Free"
+}

@@ -1,0 +1,40 @@
+{
+  "name": "Palo Alto Panorama",
+  "description": "Unified certificate lifecycle management for Palo Alto Networks Panorama",
+  "support": "Supported",
+  "currentVersion": "1.5.1",
+  "author": "Venafi",
+  "categories": [
+    "Firewall & Network Security"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Automation/Orchestration",
+    "Firewall",
+    "Management Layer"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Panorama",
+    "Adaptable Framework - App"
+  ],
+  "logoFile": "Palo-Alto-Networks.png",
+  "downloadFiles": [
+    "PanoramaAdaptableApp_1.5.1.zip"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "price": "Free",
+  "license": "Software Tool License Agreement",
+  "licenseUrl": "https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/legal/software-tool-license-agreement.pdf",
+  "supportPrice": "Paid",
+  "supportAcquisition": {
+    "type": "contact-sales",
+    "label": "Contact Your Account Team",
+    "description": "This driver is free to download. Support is provided under a paid support subscription — contact your account team for details."
+  }
+}

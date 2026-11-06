@@ -1,0 +1,43 @@
+{
+  "name": "Oracle Wallet",
+  "description": "Automate the secure provisioning of SSL/TLS certificates and private keys from Certificate Manager directly into Oracle Wallets",
+  "categories": [
+    "Secrets Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted",
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Secret Store",
+    "Adaptable Framework"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Secur Solutions Group",
+  "supportEmail": "support@secursolutionsgroup.com",
+  "price": "Paid (Contact Partner)",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md"
+    },
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md"
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md"
+    }
+  ],
+  "acquisition": {
+    "type": "contact-partner",
+    "url": "https://secursolutionsgroup.com/contact-us"
+  }
+}

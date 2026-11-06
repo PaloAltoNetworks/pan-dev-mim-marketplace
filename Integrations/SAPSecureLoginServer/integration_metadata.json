@@ -1,0 +1,24 @@
+{
+  "name": "SAP Secure Login Server",
+  "description": "Venafi Control Plane is one of the two Remote CA SAP Secure Login Server supports",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "SAP",
+  "categories": [
+    "Identity & Access Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Authentication"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "SAP GUI",
+    "Other"
+  ],
+  "price": "Free"
+}

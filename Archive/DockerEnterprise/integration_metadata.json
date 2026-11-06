@@ -1,0 +1,43 @@
+{
+  "name": "Docker Enterprise",
+  "description": "Securely retrieve secrets required by the container/host/application to access sensitive credentials",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Docker",
+  "categories": [
+    "Kubernetes & Containers"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "DevOps",
+    "Open Source"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Docker",
+    "Other"
+  ],
+  "logoFile": "docker.png",
+  "supportUrl": "https://www.docker.com/support",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md"
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md"
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md"
+    }
+  ],
+  "price": "Free"
+}

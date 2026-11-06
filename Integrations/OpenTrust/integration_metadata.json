@@ -1,0 +1,37 @@
+{
+  "name": "OpenTrust",
+  "description": "OpenTrust, powered by Venafi, enhances enterprise encryption with visibility, automation, and robust machine identity management.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Atos",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "OpenTrust",
+    "Adaptable Framework - CA"
+  ],
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "OpenTrust Integration Guide",
+          "description": "Complete integration guide for OpenTrust",
+          "url": "https://docs.venafi.com/Docs/26.1/TopNav/Content/Drivers/cco-OpenTrust-CATemplate-tpp.php"
+        }
+      ]
+    }
+  ]
+}

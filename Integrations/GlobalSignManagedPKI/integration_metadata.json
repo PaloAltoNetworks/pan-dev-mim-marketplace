@@ -1,0 +1,63 @@
+{
+  "name": "GlobalSign Managed PKI",
+  "description": "GlobalSign Managed PKI integrates scalable PKI services with Venafi for automated certificate lifecycle management, ensuring enterprise-wide encryption and policy compliance.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Managed PKI",
+    "REST"
+  ],
+  "logoFile": "globalsign.png",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "GlobalSign Managed PKI Integration Guide",
+          "description": "Complete integration guide for GlobalSign Managed PKI",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/certificates/ca/adding-globalsign-mssl-ca/"
+        }
+      ]
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "GlobalSign Managed PKI Integration Guide",
+          "description": "Complete integration guide for GlobalSign Managed PKI",
+          "url": "https://docs.venafi.com/Docs/26.1/TopNav/Content/Drivers/cco-GlobalSign-CATemplate-tpp.php"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "GlobalSign Managed PKI Integration Guide",
+          "description": "Complete integration guide for GlobalSign Managed PKI",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/co-overview-issuing-certs/adding-a-certificate-authority/adding-globalsign-mssl-ca"
+        }
+      ]
+    }
+  ],
+  "price": "Free"
+}

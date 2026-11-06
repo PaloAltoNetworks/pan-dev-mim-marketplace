@@ -1,0 +1,58 @@
+{
+  "name": "CSC Global CA",
+  "description": "Automate certificate issuance, renewal, and lifecycle management while ensuring policy compliance and continuous visibility across all environments",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted",
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Secur Solutions Group",
+  "supportEmail": "support@secursolutionsgroup.com",
+  "logoFile": "logo.svg",
+  "price": "Paid (Contact Partner)",
+  "license": "MIT",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationFile": "DOCS-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "CSC Global CA Integration Guide",
+          "description": "Complete integration guide for CSC Global CA",
+          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/API-ApplicationIntegration/t-APIAppIntegrations-creating.php"
+        }
+      ],
+      "downloadFiles": [
+        "AdaptableCA-CSC.ps1",
+        "AdaptableCA-CSC.json",
+        "properties.json",
+        "CSCGlobal_Certificate_Import.ps1"
+      ]
+    },
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md"
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md"
+    }
+  ],
+  "acquisition": {
+    "type": "contact-partner",
+    "url": "https://secursolutionsgroup.com/contact-us"
+  }
+}

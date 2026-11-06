@@ -1,0 +1,28 @@
+{
+  "name": "Eviden IDnomic PKI",
+  "description": "This driver can be used to integrate with IDnomic RA REST API. The driver is written in PowerShell and uses the Invoke-RestMethod cmdlet to communicate with the API.",
+  "support": "Supported",
+  "currentVersion": "1.0",
+  "author": "Eviden",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority",
+    "Adaptable Framework"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "downloadFiles": [
+    "IDnomic-PKI-RA.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "supportUrl": "https://eviden.com/en/contact",
+  "price": "Free",
+  "license": "MIT"
+}

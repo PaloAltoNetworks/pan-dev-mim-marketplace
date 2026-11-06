@@ -1,0 +1,63 @@
+# Enforces the per-integration reviewer gate (.github/OWNER_APPROVAL_DESIGN.md).
+#
+# This is deliberately a SEPARATE workflow from the lint/validation checks: it
+# runs on `pull_request_target`, which grants a repo-scoped token even for fork
+# PRs. It therefore must NEVER check out or execute untrusted PR code — it only
+# reads PR metadata/reviews and runs our own scripts from the base branch.
+#
+# The `owner-approval` job name below is the context registered as a required
+# status check in the `marketplace-review` ruleset.
+name: owner-approval
+
+on:
+  pull_request_target:
+    branches: [main]
+    # labeled/unlabeled re-evaluates the gate the moment a maintainer applies
+    # or removes the admin-bulk bypass label (see BYPASS_LABEL in
+    # check_owner_approval.py), so merge doesn't stay blocked on a stale run.
+    types: [opened, reopened, synchronize, labeled, unlabeled]
+  pull_request_review:
+    types: [submitted, dismissed, edited]
+
+jobs:
+  owner-approval:
+    name: owner-approval
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      # Checks out the BASE ref — our own scripts + mapping file, never the PR
+      # head. Pinned explicitly: actions/checkout@v4's default ref checks out
+      # the base branch for pull_request_target, but for pull_request_review
+      # it defaults to the PR's merge ref instead, which only regenerates when
+      # the PR's head changes — not when the base branch advances on its own.
+      # That let a stale pre-merge mapping file get re-evaluated on review
+      # submission even after the real fix had landed on main (PR #40/#41).
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event.pull_request.base.sha }}
+
+      - name: Check required integration-reviewer approvals
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+        run: python3 .github/scripts/check_owner_approval.py "$PR"
+
+  request-reviewers:
+    name: request-reviewers
+    # Only when the PR changes (not on every review event); never blocks merge.
+    if: github.event_name == 'pull_request_target'
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Request mapped integration reviewers
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+        run: python3 .github/scripts/request_owner_reviewers.py "$PR"

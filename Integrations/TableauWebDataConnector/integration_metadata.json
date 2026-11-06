@@ -1,0 +1,25 @@
+{
+  "name": "Tableau Web Data Connector",
+  "description": "Streamline machine identity protection with Tableau Web Data Connector—gain insights, automate reporting, and enhance security visibility.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "The Information Lab-Marketplace",
+  "categories": [
+    "Data Platform & Storage"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Data Platform"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Tableau Web Data Connector",
+    "Other"
+  ],
+  "logoFile": "Tableau.png",
+  "price": "Free"
+}

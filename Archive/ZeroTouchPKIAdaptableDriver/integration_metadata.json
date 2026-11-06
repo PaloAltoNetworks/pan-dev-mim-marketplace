@@ -1,0 +1,35 @@
+{
+  "name": "Zero Touch PKI Adaptable Driver",
+  "description": "Adaptable CA driver for issuing, renewing, and importing certificates from CyberArk Zero Touch PKI (ZTPKI) into Certificate Manager, Self-Hosted.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "email": "support@venafi.com",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority",
+    "Adaptable Framework"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Zero Touch PKI",
+    "ztPKI",
+    "Adaptable Framework - CA"
+  ],
+  "scriptFiles": [
+    "ztPKI_Driver.ps1",
+    "ztPKI_Create_Custom_Fields.ps1",
+    "ztPKI_ImportOnly.ps1",
+    "ztPKI_Import_Guide.docx"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "logoFile": "CyberArk.png",
+  "price": "Free"
+}

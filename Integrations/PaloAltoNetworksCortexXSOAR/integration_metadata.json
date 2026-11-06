@@ -1,0 +1,40 @@
+{
+  "name": "Palo Alto Networks Cortex XSOAR",
+  "description": "Automating security operations on TLS certificates with Cortex XSOAR",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Palo Alto Networks",
+  "categories": [
+    "ITSM & Workflow"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "GRC",
+    "SOAR"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Cortex XSOAR",
+    "REST"
+  ],
+  "logoFile": "Palo-Alto-Networks.png",
+  "supportUrl": "https://support.paloaltonetworks.com/",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Palo Alto Networks Cortex XSOAR Integration Guide",
+          "description": "Complete integration guide for Palo Alto Networks Cortex XSOAR",
+          "url": "https://xsoar.pan.dev/docs/reference/integrations/venafi-tls-protect"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,35 @@
+name: Integration Validation
+
+on:
+  pull_request:
+    paths:
+      - 'Integrations/**'
+  push:
+    branches: [main]
+    paths:
+      - 'Integrations/**'
+
+jobs:
+  validate:
+    name: Validate integrations
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Validate integration metadata and assets
+        run: node scripts/validate-integration.js
+
+      - name: Check for cross-repo duplicates
+        run: node scripts/check-cross-repo-duplicates.js
+        env:
+          GITLAB_TOKEN: ${{ secrets.GITLAB_TOKEN }}
+          GITLAB_PROJECT_ID: ${{ secrets.PAID_REPO_PROJECT_ID }}
+        continue-on-error: false

@@ -1,0 +1,62 @@
+name: PR Checks
+
+on:
+  pull_request:
+    paths:
+      - 'Integrations/**'
+      - 'scripts/**'
+      - 'Config/**'
+
+jobs:
+  lint-json:
+    name: Lint JSON files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Validate all JSON files are parseable
+        run: |
+          # tsconfig*.json is JSONC by TypeScript convention (comments allowed) and isn't
+          # touched by anything this workflow's own path filters watch — exclude it rather
+          # than requiring strict JSON in a file that was never meant to be strict JSON.
+          find . -name "*.json" -not -path "*/node_modules/*" -not -path "*/.git/*" -not -name "tsconfig*.json" | while read f; do
+            python3 -m json.tool "$f" > /dev/null || { echo "Invalid JSON: $f"; exit 1; }
+          done
+          echo "All JSON files valid"
+
+  check-logo-size:
+    name: Check logo file sizes
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Warn on large logo files (> 500KB)
+        run: |
+          find Integrations -name "*.png" -o -name "*.jpg" -o -name "*.jpeg" | while read f; do
+            size=$(wc -c < "$f")
+            if [ "$size" -gt 512000 ]; then
+              echo "WARNING: Large logo file ($((size/1024))KB): $f — consider optimizing"
+            fi
+          done
+
+  check-naming:
+    name: Check integration directory naming
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Verify integration directories use PascalCase
+        run: |
+          fail=0
+          for dir in Integrations/*/; do
+            name=$(basename "$dir")
+            # Skip .template and hidden dirs
+            [[ "$name" == .* ]] && continue
+            # Check that name starts with uppercase
+            if [[ "$name" =~ ^[a-z] ]]; then
+              echo "ERROR: Integration directory should start with uppercase: $name"
+              fail=1
+            fi
+          done
+          [ "$fail" -eq 0 ] && echo "All integration names OK"
+          exit $fail

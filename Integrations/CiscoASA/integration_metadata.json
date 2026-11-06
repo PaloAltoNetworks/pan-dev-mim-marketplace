@@ -1,0 +1,29 @@
+{
+  "name": "Cisco ASA",
+  "description": "Automated Cisco ASA Certificate Provisioning for Certificate Manager (Self-Hosted)",
+  "categories": [
+    "Firewall & Network Security"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Firewall",
+    "Adaptable Framework"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Community",
+  "supportEmail": "cybr-mis.support@paloaltonetworks.com",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md"
+    }
+  ]
+}

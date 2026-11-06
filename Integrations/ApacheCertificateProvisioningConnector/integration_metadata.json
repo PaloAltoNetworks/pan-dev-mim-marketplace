@@ -1,0 +1,31 @@
+{
+  "name": "Apache Certificate Provisioning Connector",
+  "description": "Seamlessly provision and manage TLS certificates on Apache web servers with flexible automation, permissions, and custom post-deployment commands.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Secur Solutions Group",
+  "categories": [
+    "Web Server"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Web Server"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Apache",
+    "Other"
+  ],
+  "logoFile": "Apache.png",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "price": "Paid (Contact Partner)",
+  "acquisition": {
+    "type": "contact-partner",
+    "url": "https://secursolutionsgroup.com/contact-us"
+  }
+}

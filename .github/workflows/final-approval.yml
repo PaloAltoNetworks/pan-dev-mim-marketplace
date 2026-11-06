@@ -1,0 +1,51 @@
+# Enforces the always-on final-approver gate (.github/OWNER_APPROVAL_DESIGN.md).
+#
+# Replaces the native "Require review from specific teams" branch-ruleset
+# rule, which can't treat a PR's own author as satisfying the gate even when
+# they're the sole final approver — GitHub blocks literal self-approval with
+# no override. This is a required CI status check instead, same pattern as
+# owner-approval.yml, so it can apply the same self-attestation rule.
+#
+# Deliberately runs on `pull_request_target` (repo-scoped token, works for
+# fork PRs) and must NEVER check out or execute PR code — only reads PR
+# metadata/reviews and runs our own scripts from the base branch.
+#
+# The `final-approval` job name below is the context registered as a required
+# status check in the `marketplace-review` ruleset.
+name: final-approval
+
+on:
+  pull_request_target:
+    branches: [main]
+    # No `synchronize` here: the ruleset dismisses stale reviews on every push
+    # (dismiss_stale_reviews_on_push), so a synchronize-triggered run almost
+    # always fires before anyone has re-approved the new commit and reports a
+    # failure. That failing check run doesn't get superseded by the later
+    # pull_request_review-triggered pass for the same SHA — GitHub tracks them
+    # as separate check-suite entries under the same name — so it sits there
+    # requiring a manual re-run even after a valid approval exists. Leaving
+    # synchronize out means a push leaves the check "Expected" (no run yet)
+    # instead of falsely red; pull_request_review is the only trigger that
+    # actually reflects current review state, and it's anchored to the
+    # current head SHA either way.
+    types: [opened, reopened]
+  pull_request_review:
+    types: [submitted, dismissed, edited]
+
+jobs:
+  final-approval:
+    name: final-approval
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+      pull-requests: read
+    steps:
+      # Checks out the BASE ref (default on pull_request_target), i.e. our own
+      # scripts + approver list — never the PR head. Do not add `ref:` here.
+      - uses: actions/checkout@v4
+
+      - name: Check final-approver sign-off
+        env:
+          GH_TOKEN: ${{ github.token }}
+          PR: ${{ github.event.pull_request.number }}
+        run: python3 .github/scripts/check_final_approval.py "$PR"

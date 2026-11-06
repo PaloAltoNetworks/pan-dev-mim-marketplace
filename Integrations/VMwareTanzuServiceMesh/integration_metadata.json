@@ -1,0 +1,26 @@
+{
+  "name": "VMware Tanzu Service Mesh",
+  "description": "Achieve complete automation for machine identities in Kubernetes workloads using VMware Tanzu and Venafi",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "VMware",
+  "categories": [
+    "Kubernetes & Containers"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Kubernetes"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Tanzu Service Mesh",
+    "Other",
+    "Service Mesh"
+  ],
+  "logoFile": "VMware_Tanzu.png",
+  "price": "Free"
+}

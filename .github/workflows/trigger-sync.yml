@@ -1,0 +1,30 @@
+name: Sync Integrations to pan-dev-mim
+
+# When integration content lands on main, kick the GitLab pipeline that rsyncs Integrations/
+# into the pan-dev-mim docs repo (its `sync_from_marketplace` job, gated on the SYNC_TYPE /
+# SOURCE_REPO variables set below). Fires only on Integrations/ changes so unrelated commits —
+# workflow edits, Config/, docs — don't churn the docs site.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'Integrations/**'
+  workflow_dispatch: {}   # allow a manual re-sync from the Actions tab
+
+jobs:
+  trigger-sync:
+    name: Trigger GitLab sync pipeline
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger pan-dev-mim sync pipeline
+        # Print only the HTTP status; the job fails unless GitLab returns 201 Created.
+        run: |
+          status=$(curl --silent --output /dev/null --write-out '%{http_code}' -X POST \
+            -F "token=${{ secrets.GITLAB_TRIGGER_TOKEN }}" \
+            -F "ref=main" \
+            -F "variables[SOURCE_REPO]=marketplace" \
+            -F "variables[SYNC_TYPE]=integrations" \
+            "https://gitlab.com/api/v4/projects/venafi%2Fvaas%2Fua%2Fpan-dev-mim/trigger/pipeline")
+          echo "GitLab trigger returned HTTP $status"
+          [ "$status" = "201" ]

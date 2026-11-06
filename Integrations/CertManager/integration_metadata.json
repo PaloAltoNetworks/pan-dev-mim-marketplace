@@ -1,0 +1,67 @@
+{
+  "name": "cert-manager",
+  "description": "Certificate Manager Self-Hosted Prerequisites Check",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Kubernetes & Containers"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Automation/Orchestration",
+    "DevOps",
+    "Cloud",
+    "Kubernetes",
+    "Open Source"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "cert-manager",
+    "VCert Go"
+  ],
+  "logoFile": "cert-manager.png",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "cert-manager Integration Guide",
+          "description": "Complete integration guide for cert-manager",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/k8s-components/c-certmanager-overview/"
+        }
+      ]
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "cert-manager Integration Guide",
+          "description": "Complete integration guide for cert-manager",
+          "url": "https://cert-manager.io/docs/configuration/venafi/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "cert-manager Integration Guide",
+          "description": "Complete integration guide for cert-manager",
+          "url": "https://cert-manager.io/docs/configuration/venafi/"
+        }
+      ]
+    }
+  ],
+  "price": "Free"
+}

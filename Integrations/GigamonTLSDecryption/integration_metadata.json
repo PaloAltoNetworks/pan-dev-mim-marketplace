@@ -1,0 +1,32 @@
+{
+  "name": "Gigamon TLS Decryption",
+  "description": "Enhance traffic inspection with Gigamon TLS Decryption, automating machine identity management for improved security and threat detection.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Gigamon",
+  "categories": [
+    "Firewall & Network Security"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "TLS/SSL Inspection"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "TLS Decryption",
+    "Adaptable Framework - App"
+  ],
+  "logoFile": "Gigamon.png",
+  "downloadFiles": [
+    "GigamonGigaVUE-FM-root.ps1",
+    "GigamonGigaVUE-FM.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "supportUrl": "https://www.gigamon.com/support.html",
+  "price": "Free",
+  "license": "MIT"
+}

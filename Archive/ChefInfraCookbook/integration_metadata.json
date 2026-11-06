@@ -1,0 +1,40 @@
+{
+  "name": "Chef Infra Cookbook",
+  "description": "Automate certificate management with the Chef Infra Cookbook from Indellient, integrating Venafi for secure machine identities and seamless DevOps.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Levio-Marketplace",
+  "email": "support@yourdomain.com",
+  "categories": [
+    "CI/CD & DevOps"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Automation/Orchestration",
+    "DevOps",
+    "Open Source"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Chef",
+    "VCert Go"
+  ],
+  "logoFile": "Chef.png",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "README.md"
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "README.md"
+    }
+  ],
+  "price": "Free"
+}

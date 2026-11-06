@@ -1,0 +1,63 @@
+{
+  "name": "DigiCert CertCentral",
+  "description": "Native integration with DigiCert CertCentral for automated certificate lifecycle management across public trust and private PKI.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "CertCentral",
+    "Native CA"
+  ],
+  "logoFile": "DigiCert.png",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Using DigiCert",
+          "description": "Add DigiCert CertCentral as a certificate authority in Certificate Manager, SaaS.",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/certificates/ca/adding-digicert-ca/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Using DigiCert",
+          "description": "Add DigiCert CertCentral as a certificate authority in Next-Gen Trust Security.",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/co-overview-issuing-certs/adding-a-certificate-authority/adding-digicert-ca"
+        }
+      ]
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "DigiCert CertCentral Integration Guide",
+          "description": "Complete integration guide for DigiCert CertCentral",
+          "url": "https://docs.venafi.com/Docs/26.1/TopNav/Content/Drivers/cco-DigiCert-CATemplate-tpp.php"
+        }
+      ]
+    }
+  ]
+}

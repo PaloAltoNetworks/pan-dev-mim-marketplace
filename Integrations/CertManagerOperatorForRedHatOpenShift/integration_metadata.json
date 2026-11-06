@@ -1,0 +1,50 @@
+{
+  "name": "cert-manager-operator for Red Hat OpenShift",
+  "description": "Storage of certificates in a secure way",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "RedHat",
+  "categories": [
+    "Kubernetes & Containers"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "DevOps",
+    "Open Source"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "OpenShift",
+    "Other"
+  ],
+  "logoFile": "cert-manager.png",
+  "supportUrl": "https://access.redhat.com/products/red-hat-openshift-container-platform/",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "cert-manager-operator for Red Hat OpenShift Integration Guide",
+          "description": "Complete integration guide for cert-manager-operator for Red Hat OpenShift",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/k8s-components/c-osr-overview/"
+        }
+      ]
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md"
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md"
+    }
+  ],
+  "price": "Free"
+}

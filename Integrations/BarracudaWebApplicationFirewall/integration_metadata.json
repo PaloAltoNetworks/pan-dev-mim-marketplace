@@ -1,0 +1,31 @@
+{
+  "name": "Barracuda Web Application Firewall",
+  "description": "Integrate Barracuda WAF with Venafi for automated, secure certificate management, boosting efficiency and preventing downtime.",
+  "support": "Supported",
+  "currentVersion": "1.0.2",
+  "author": "Barracuda",
+  "categories": [
+    "API Gateway & WAF"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "WAF"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Web Application Firewall",
+    "Adaptable Framework - App"
+  ],
+  "logoFile": "Barracuda-Networks.png",
+  "downloadFiles": [
+    "Barracuda-Waf.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "supportUrl": "https://campus.barracuda.com/support",
+  "price": "Free",
+  "license": "MIT"
+}

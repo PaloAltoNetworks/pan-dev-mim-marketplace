@@ -1,0 +1,25 @@
+{
+  "name": "Blue Prism",
+  "description": "Automate certificate lifecycle workflows in Certificate Manager, Self-Hosted using Blue Prism RPA digital workers via the Web SDK",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Reveal Group",
+  "categories": [
+    "ITSM & Workflow"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "RPA"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Blue Prism",
+    "REST"
+  ],
+  "logoFile": "blue-prism.png",
+  "price": "Free"
+}

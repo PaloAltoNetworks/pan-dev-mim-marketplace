@@ -1,0 +1,39 @@
+{
+  "name": "The SSL Store Adaptable Drivers",
+  "description": "To generate the Partner Code and Auth Token from TheSSLstore.com, please see below:",
+  "support": "Supported",
+  "currentVersion": "1.1",
+  "author": "The SSL Store",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority",
+    "TLS/SSL",
+    "Adaptable Framework"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "downloadFiles": [
+    "TheSSLStore-ComodoEVMulti-Domain.ps1",
+    "TheSSLStore-ComodoEVSSL.ps1",
+    "TheSSLStore-ComodoMulti-DomainSSL.ps1",
+    "TheSSLStore-ComodoMulti-DomainWildcard.ps1",
+    "TheSSLStore-InstantSSL.ps1",
+    "TheSSLStore-InstantSSLPremiumWildcard.ps1",
+    "TheSSLStore-PositiveSSL.ps1",
+    "TheSSLStore-PositiveSSLMulti-Domain.ps1",
+    "TheSSLStore-PositiveSSLMulti-DomainWildcard.ps1",
+    "TheSSLStore-PositiveWildcard.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "logoFile": "SSL-Store.png",
+  "supportUrl": "https://www.thesslstore.com/support",
+  "price": "Free",
+  "license": "MIT"
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Google Certificate Manager",
+  "description": "Integrated solution of Venafi and Google Certificate Manager for automated certificate management",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Load Balancer & ADC"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Automation/Orchestration",
+    "Cloud"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Certificate Manager",
+    "REST"
+  ],
+  "logoFile": "Google-Cloud.png",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Google Certificate Manager Integration Guide",
+          "description": "Complete integration guide for Google Certificate Manager",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/certificates/ca/adding-google-cloud-private-ca/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Google Certificate Manager Integration Guide",
+          "description": "Complete integration guide for Google Certificate Manager",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/co-overview-issuing-certs/adding-a-certificate-authority/adding-google-cloud-private-ca"
+        }
+      ]
+    }
+  ],
+  "price": "Free"
+}

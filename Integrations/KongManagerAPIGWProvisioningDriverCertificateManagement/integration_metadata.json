@@ -1,0 +1,26 @@
+{
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Secur Solutions Group",
+  "supportEmail": "support@secursolutionsgroup.com",
+  "categories": [
+    "API Gateway & WAF"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "API Gateway"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "price": "Paid (Contact Partner)",
+  "name": "Kong Manager API GW Provisioning Driver Certificate Management",
+  "description": "Automate certificate lifecycles and SNI configurations for self-hosted Kong Gateway.",
+  "acquisition": {
+    "type": "contact-partner",
+    "url": "https://secursolutionsgroup.com/contact-us"
+  }
+}

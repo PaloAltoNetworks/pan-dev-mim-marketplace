@@ -1,0 +1,33 @@
+node_modules/
+.DS_Store
+*.log
+.env
+.env.*
+*.bak
+
+CLAUDE.md
+
+# Claude Code config is private by default; only the contributor-facing skill and the
+# generic agents it delegates to are published. Maintainer-only agents and local
+# settings stay ignored.
+.claude/*
+!.claude/skills/
+!.claude/agents/
+.claude/agents/bulk-migrator.md
+.claude/agents/integration-auditor.md
+
+# Admin-only working docs: setup checklists, verdicts, review notes, personal scratch.
+# Keep these OUT of the repo root and untracked — they are not part of the codebase.
+.admin/
+
+audit-output/
+migration_files/
+# npm run check:links output
+link-check-report.csv
+# Python bytecode
+__pycache__/
+*.pyc
+
+# Admin-only working docs: setup checklists, verdicts, review notes, personal scratch.
+# Keep these OUT of the repo root and untracked — they are not part of the codebase.
+.admin/

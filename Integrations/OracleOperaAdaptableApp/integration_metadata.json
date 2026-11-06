@@ -1,0 +1,22 @@
+{
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "SamaraTech",
+  "supportEmail": "cybr-mis.support@paloaltonetworks.com",
+  "categories": [
+    "Utilities & Extensions"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Adaptable Framework"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "price": "Free",
+  "name": "Oracle Opera Adaptable App",
+  "description": "Identity objects' lifecycle events automation for Oracle Opera system"
+}

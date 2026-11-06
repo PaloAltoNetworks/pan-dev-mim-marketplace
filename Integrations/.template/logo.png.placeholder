@@ -1,0 +1,6 @@
+Replace this file with your actual logo image (logo.png, logo.svg, etc.).
+Recommended: PNG or SVG, max 500KB, ideally 400x400px or similar square format.
+
+If your logo doesn't read well on a dark background, also add a
+`logo-dark.png` (see `logo-dark.png.placeholder`) and set `logoFileDark` in
+integration_metadata.json. If you skip it, the light logo is used everywhere.

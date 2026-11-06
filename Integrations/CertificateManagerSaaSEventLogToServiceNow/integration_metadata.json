@@ -1,0 +1,23 @@
+{
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Community",
+  "supportEmail": "cybr-mis.support@paloaltonetworks.com",
+  "categories": [
+    "ITSM & Workflow"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "ITSM",
+    "Automation/Orchestration"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "price": "Free",
+  "name": "Certificate Manager SaaS Event Log to ServiceNow",
+  "description": "Get notified in ServiceNow of events happening in Certificate Manager, SaaS"
+}

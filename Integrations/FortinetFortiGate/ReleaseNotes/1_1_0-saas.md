@@ -1,0 +1,2 @@
+- Added Certificate Manager, SaaS as a supported product.
+- Added official Certificate Manager, SaaS documentation links for Fortinet FortiGate machine setup and certificate provisioning.

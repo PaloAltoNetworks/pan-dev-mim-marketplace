@@ -1,0 +1,6 @@
+Optional. Replace this file with a dark-mode variant of your logo
+(logo-dark.png, logo-dark.svg, etc.) if the light logo doesn't read well on a
+dark background. Same size/format recommendations as logo.png.placeholder.
+
+If you don't need this, delete this file and remove `logoFileDark` from
+integration_metadata.json — the light logo will be used everywhere.

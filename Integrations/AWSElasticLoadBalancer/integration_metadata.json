@@ -1,0 +1,41 @@
+{
+  "name": "AWS Elastic Load Balancer",
+  "description": "Securely scale HTTPS with AWS Elastic Load Balancer, automating key management and eliminating outages for cloud agility.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Load Balancer & ADC"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "ADC/Load Balancing",
+    "Cloud"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Elastic Load Balancer",
+    "REST"
+  ],
+  "logoFile": "AWS-Light.png",
+  "logoFileDark": "AWS-Dark.png",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "AWS Elastic Load Balancer Integration Guide",
+          "description": "Complete integration guide for AWS Elastic Load Balancer",
+          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/r-drivers-Amazon-AWS-about.php"
+        }
+      ]
+    }
+  ]
+}

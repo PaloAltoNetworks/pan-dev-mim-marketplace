@@ -1,0 +1,39 @@
+{
+  "name": "QuoVadis Digital Certificate Services",
+  "description": "QuoVadis Digital Certificate Services automate the entire certificate lifecycle, offering visibility, control, and security for machine identities.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "QuoVadis-Marketplace",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "QuoVadis Digital Certificate Services",
+    "REST"
+  ],
+  "logoFile": "QuoVadis.png",
+  "supportUrl": "https://www.digicert.com/support",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "QuoVadis Digital Certificate Services Integration Guide",
+          "description": "Complete integration guide for QuoVadis Digital Certificate Services",
+          "url": "https://docs.venafi.com/Docs/26.1/TopNav/Content/Drivers/cco-QuoVadis-CATemplate-tpp.php"
+        }
+      ]
+    }
+  ]
+}

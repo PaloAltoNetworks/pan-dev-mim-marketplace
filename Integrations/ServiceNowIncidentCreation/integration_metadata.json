@@ -1,0 +1,26 @@
+{
+  "name": "ServiceNow Incident Creation",
+  "description": "Easily automate ServiceNow incident creation from Trust Protection Platform logs, customizing triggers and incident details for efficient ITSM.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "ITSM & Workflow"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Automation/Orchestration",
+    "ITSM"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "ServiceNow",
+    "Adaptable Framework - Log"
+  ],
+  "logoFile": "ServiceNow.png",
+  "price": "Free"
+}

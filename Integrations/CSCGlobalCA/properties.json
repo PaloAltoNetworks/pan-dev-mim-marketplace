@@ -1,0 +1,34 @@
+{
+    "additionalNotificationEmails": "sbanda2@cscglobal.com",
+    "applicantEmailAddress": "sbanda2@cscglobal.com",
+    "applicantFirstName": "config First Name",
+    "applicantLastName": "config Last Name",
+    "applicantPhoneNumber": "+11.12345678",
+    "businessUnit": "Account-level-bu",
+    "organizationContact": "sbanda2",
+    "term": "12",
+    "serverSoftware": "-1",
+    "email": "sbanda2@cscglobal.com",
+    "notificationEnabled": "false",
+    "showPrice": "false",
+    "country": "US",
+    "city": "Wilmington",
+    "state": "Delaware",
+    "dateOfIncorporation": "12/03/22",
+    "doingBusinessAs": "SSL",
+    "businessCategory": "SSL",
+    "customFields": [
+        {
+            "name": "UDF1",
+            "value": "test2"
+        },
+        {
+            "name": "UDF2",
+            "value": "test-3"
+        },
+		{
+            "name": "",
+            "value": ""
+        }
+    ]
+}

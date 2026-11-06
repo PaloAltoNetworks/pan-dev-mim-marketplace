@@ -1,0 +1,40 @@
+{
+  "name": "Splunk Enterprise",
+  "description": "Enhance security and compliance with Venafi's integration into Splunk Enterprise, providing visibility, tracking, and actionable intelligence for keys and certificates.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Splunk",
+  "categories": [
+    "SIEM & Observability"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "SIEM",
+    "GRC"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Splunk Enterprise",
+    "Other"
+  ],
+  "logoFile": "Splunk.png",
+  "supportUrl": "https://splunk.my.site.com/customer/s/",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Splunk Enterprise Integration Guide",
+          "description": "Complete integration guide for Splunk Enterprise",
+          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Logging/c-logging-sysLogChannelConfig-tpp.php"
+        }
+      ]
+    }
+  ]
+}

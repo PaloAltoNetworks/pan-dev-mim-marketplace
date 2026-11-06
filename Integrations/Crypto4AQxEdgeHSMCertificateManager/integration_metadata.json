@@ -1,0 +1,26 @@
+{
+  "name": "Crypto4A QxEdge HSM Certificate Manager",
+  "description": "Quantum ready HSM",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Crypto4A Technologies",
+  "categories": [
+    "HSM & Key Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "HSM"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "QxEDGE",
+    "PKCS#11"
+  ],
+  "logoFile": "Crypto4A.png",
+  "supportUrl": "https://crypto4a.com/about/contact",
+  "price": "Free"
+}

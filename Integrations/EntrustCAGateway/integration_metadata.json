@@ -1,0 +1,39 @@
+{
+  "name": "Entrust CA Gateway",
+  "description": "Entrust CA Gateway automates the lifecycle of public and private trust certificates, enhancing visibility, compliance, and risk management.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Entrust",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "CA Gateway",
+    "REST"
+  ],
+  "logoFile": "entrust.png",
+  "supportUrl": "https://www.entrust.com/contact-support",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Entrust CA Gateway Integration Guide",
+          "description": "Complete integration guide for Entrust CA Gateway",
+          "url": "https://docs.venafi.com/Docs/26.1/TopNav/Content/Drivers/cco-drivers-EntrustCAGateway-configuration.php"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,41 @@
+{
+  "name": "AWS CloudHSM",
+  "description": "Integrate AWS CloudHSM with Venafi for secure machine identity management, ensuring compliance and enhanced key protection.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "HSM & Key Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Cloud",
+    "HSM"
+  ],
+  "useCases": [
+    "Code Signing"
+  ],
+  "keywords": [
+    "CloudHSM",
+    "PKCS#11"
+  ],
+  "logoFile": "AWS-Light.png",
+  "logoFileDark": "AWS-Dark.png",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "AWS CloudHSM Integration Guide",
+          "description": "Complete integration guide for AWS CloudHSM",
+          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/EncryptionKeys/t-awscloudhsm-configuration.php"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,70 @@
+{
+  "name": "Microsoft Azure Key Vault",
+  "description": "Streamline certificate management in Azure with Venafi integration\u2014automate renewals, enhance security, and ensure compliance effortlessly.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Secrets Management"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Secret Store",
+    "DevOps",
+    "Cloud"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Azure Key Vault",
+    "REST"
+  ],
+  "logoFile": "Microsoft_Azure.png",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Microsoft Azure Key Vault Integration Guide",
+          "description": "Complete integration guide for Microsoft Azure Key Vault",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/microsoft-azure-key-vault/"
+        },
+        {
+          "title": "Provisioning Certificates to Microsoft Azure Key Vault",
+          "description": "Step-by-step guide for certificate provisioning",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-microsoft-azure-key-vault/"
+        }
+      ]
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Microsoft Azure Key Vault Integration Guide",
+          "description": "Complete integration guide for Microsoft Azure Key Vault",
+          "url": "https://docs.venafi.com/Docs/26.1/TopNav/Content/Azure/cco-Azure-AppDriverConfig-tpp.php"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Microsoft Azure Key Vault Integration Guide",
+          "description": "Complete integration guide for Microsoft Azure Key Vault",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/integrations-overview/cloud-providers-overview/azure-key-vault"
+        }
+      ]
+    }
+  ],
+  "price": "Free"
+}

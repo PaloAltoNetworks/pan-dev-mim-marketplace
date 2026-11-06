@@ -1,0 +1,25 @@
+{
+  "name": "Axiad Cloud",
+  "description": "Axiad Cloud simplifies machine identity management, automating certificate lifecycles and enhancing cybersecurity with seamless integration.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Axiad",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Axiad Cloud",
+    "REST"
+  ],
+  "logoFile": "Axiad.png",
+  "price": "Free"
+}

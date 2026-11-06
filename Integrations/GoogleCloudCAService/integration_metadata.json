@@ -1,0 +1,40 @@
+{
+  "name": "Google Cloud CA Service",
+  "description": "Seamless single sign-on (SSO) to PVWA using Google Cloud Identity",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority",
+    "Cloud"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Google Cloud",
+    "REST"
+  ],
+  "logoFile": "GoogleCAS.png",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Google Cloud CA Service Integration Guide",
+          "description": "Complete integration guide for Google Cloud CA Service",
+          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/cco-drivers-GoogleCloud-CA-Service-configuration.php"
+        }
+      ]
+    }
+  ]
+}

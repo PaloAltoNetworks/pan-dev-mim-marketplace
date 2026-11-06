@@ -1,0 +1,26 @@
+{
+  "name": "ServiceNow Event Creation",
+  "description": "Automate event creation in ServiceNow from Trust Protection Platform logs, enhancing visibility and streamlining alerts for teams.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "ITSM & Workflow"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Automation/Orchestration",
+    "ITSM"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "ServiceNow",
+    "Adaptable Framework - Log"
+  ],
+  "logoFile": "ServiceNow.png",
+  "price": "Free"
+}

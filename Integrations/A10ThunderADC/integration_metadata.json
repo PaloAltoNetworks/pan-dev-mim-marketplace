@@ -1,0 +1,80 @@
+{
+  "name": "A10 Thunder ADC",
+  "description": "A10 Thunder ADC delivers scalable load balancing for encrypted traffic, strengthening security while automating certificate lifecycle management.",
+  "support": "Supported",
+  "currentVersion": "1.1.0",
+  "author": "A10 Networks",
+  "supportEmail": "cybr-mis.support@paloaltonetworks.com",
+  "categories": [
+    "Load Balancer & ADC"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted",
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "ADC/Load Balancing"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "documentationFile": "DOCUMENTATION.md",
+  "logoFile": "a10-logo.png",
+  "price": "Free",
+  "license": "MIT",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "author": "A10 Networks",
+      "documentationLinks": [
+        {
+          "title": "A10 Thunder ADC Integration Guide",
+          "description": "Complete integration guide for A10 Thunder ADC",
+          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/cco-drivers-AdaptableApp-Overview.php"
+        }
+      ],
+      "downloadFiles": [
+        "A10-Thunder.ps1"
+      ],
+      "documentationFile": "DOCUMENTATION.md",
+      "supportUrl": "https://support.a10networks.com/"
+    },
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "author": "Venafi",
+      "documentationLinks": [
+        {
+          "title": "A10 Thunder ADC Machine Setup",
+          "description": "Create an A10 Thunder ADC machine in Certificate Manager, SaaS",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/a10-thunder-adc/"
+        },
+        {
+          "title": "Provision Certificates to A10 Thunder ADC",
+          "description": "Provision certificates to an A10 Thunder ADC machine",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-a10-thunder-adc/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "author": "Venafi",
+      "documentationLinks": [
+        {
+          "title": "A10 Thunder ADC Machine Setup",
+          "description": "Create an A10 Thunder ADC machine in Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/a10-thunder-adc"
+        },
+        {
+          "title": "Provision Certificates to A10 Thunder ADC",
+          "description": "Provision certificates to an A10 Thunder ADC machine",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/a10-thunder-adc/provision-certificates-a10-thunder-adc"
+        }
+      ]
+    }
+  ]
+}

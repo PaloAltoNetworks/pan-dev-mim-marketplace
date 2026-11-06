@@ -1,0 +1,31 @@
+{
+  "name": "Write-VenafiDebug",
+  "description": "A generic debug logging function for use in Adaptable scripts. Hashtables are supported and secret info (e.g. from $General) is logged as ***hidden***. Supports throwing an exception while logging, and uses a mutex to avoid 'file in use' errors across concurrent executions.",
+  "support": "Community",
+  "currentVersion": "1.0",
+  "author": "Community",
+  "supportEmail": "cybr-mis.support@paloaltonetworks.com",
+  "categories": [
+    "Utilities & Extensions"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Adaptable Framework"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Logging",
+    "Debug",
+    "Adaptable Framework"
+  ],
+  "downloadFiles": [
+    "Write-VenafiDebug.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "price": "Free",
+  "license": "MIT"
+}

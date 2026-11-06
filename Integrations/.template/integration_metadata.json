@@ -1,0 +1,127 @@
+{
+  "name": "My Integration Name",
+  "description": "One or two sentences describing what this integration does and the value it delivers.",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted",
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "TLS/SSL",
+    "Automation/Orchestration"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "PKI",
+    "Certificate Automation"
+  ],
+  "logoFile": "logo.png",
+  "logoFileDark": "logo-dark.png",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Your Name or Company",
+  "supportEmail": "support@yourdomain.com",
+  "supportUrl": "https://github.com/example/my-integration/issues",
+  "price": "Free",
+  "license": "MIT",
+  "resources": {
+    "videos": [
+      {
+        "title": "My Integration Overview",
+        "description": "A short walkthrough of what this integration does and how to set it up.",
+        "url": "https://www.youtube.com/watch?v=example",
+        "platform": "youtube"
+      }
+    ],
+    "otherResources": [
+      {
+        "title": "My Integration Partner Brief",
+        "description": "One-page overview of the partnership and integration value.",
+        "url": "MyIntegration-PartnerBrief.pdf",
+        "type": "pdf",
+        "resourceType": "file"
+      },
+      {
+        "title": "Community Forum",
+        "description": "Ask questions and share configurations with other users.",
+        "url": "https://community.example.com",
+        "category": "Community",
+        "resourceType": "link"
+      }
+    ]
+  },
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "downloadFiles": [
+        "MyIntegration-Driver.ps1"
+      ],
+      "documentationLinks": [
+        {
+          "title": "Provisioning Certificates to My Integration",
+          "description": "Step-by-step guide for certificate provisioning on Certificate Manager Self-Hosted.",
+          "url": "https://docs.example.com/self-hosted/provisioning"
+        }
+      ]
+    },
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationFile": "DOCS-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Add My Integration as a Machine",
+          "description": "Register My Integration as a machine in Certificate Manager, SaaS.",
+          "url": "https://docs.example.com/saas/add-machine"
+        },
+        {
+          "title": "My Integration API Reference",
+          "description": "Full API reference for advanced automation.",
+          "url": "https://docs.example.com/saas/api-reference"
+        }
+      ],
+      "downloadFiles": [],
+      "description": "SaaS-specific description override, used when this variant's value should differ from the top-level description.",
+      "resources": {
+        "videos": [
+          {
+            "title": "My Integration on Certificate Manager SaaS",
+            "description": "SaaS-specific setup walkthrough, shown in addition to the global resources above.",
+            "url": "https://www.youtube.com/watch?v=example-saas",
+            "platform": "youtube"
+          }
+        ]
+      },
+      "primaryCta": {
+        "type": "link",
+        "label": "Open in SaaS Marketplace",
+        "url": "https://marketplace.example.com/my-integration",
+        "description": "Opens the listing in the Certificate Manager SaaS in-app marketplace."
+      }
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "downloadFiles": [],
+      "currentVersion": "1.1.0",
+      "price": "Paid",
+      "acquisition": {
+        "type": "contact-sales",
+        "label": "Contact Your Account Team",
+        "description": "This product variant is available to customers with an active subscription. Contact your account team for access."
+      },
+      "supportPrice": "Paid",
+      "supportAcquisition": {
+        "type": "contact-sales",
+        "label": "Contact Support Sales",
+        "description": "Paid support plans for this variant are sold separately from the product license."
+      }
+    }
+  ]
+}

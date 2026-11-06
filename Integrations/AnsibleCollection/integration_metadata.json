@@ -1,0 +1,65 @@
+{
+  "name": "Ansible Collection",
+  "description": "Automate machine identity management with this Red Hat-certified Ansible collection for Venafi, enhancing security and compliance.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "CI/CD & DevOps"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Automation/Orchestration",
+    "Infrastructure-as-Code",
+    "DevOps"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Ansible",
+    "VCert Go"
+  ],
+  "logoFile": "Ansible.png",
+  "supportUrl": "https://github.com/Venafi/ansible-collection-venafi/issues",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Ansible Collection Integration Guide",
+          "description": "Complete integration guide for Ansible Collection",
+          "url": "https://github.com/Venafi/ansible-collection-venafi"
+        }
+      ]
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Ansible Collection Integration Guide",
+          "description": "Complete integration guide for Ansible Collection",
+          "url": "https://github.com/Venafi/ansible-collection-venafi"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Ansible Collection Integration Guide",
+          "description": "Complete integration guide for Ansible Collection",
+          "url": "https://github.com/Venafi/ansible-collection-venafi"
+        }
+      ]
+    }
+  ],
+  "price": "Free"
+}

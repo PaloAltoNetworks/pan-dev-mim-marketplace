@@ -1,0 +1,26 @@
+{
+  "name": "Check Point Quantum",
+  "description": "Check Point Quantum and Venafi automate machine identity management, enhancing threat detection in encrypted traffic for superior network security.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Checkpoint Systems",
+  "categories": [
+    "Firewall & Network Security"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "TLS/SSL Inspection",
+    "Firewall"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Quantum",
+    "Adaptable Framework - App"
+  ],
+  "logoFile": "Checkpoint.png",
+  "price": "Free"
+}

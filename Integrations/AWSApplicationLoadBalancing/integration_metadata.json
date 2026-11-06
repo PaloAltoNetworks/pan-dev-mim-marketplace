@@ -1,0 +1,28 @@
+{
+  "name": "AWS Application Load Balancing",
+  "description": "Easily scale and secure HTTPS for AWS Application Load Balancers with automated key and certificate management from Venafi.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Amazon",
+  "categories": [
+    "Load Balancer & ADC"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "ADC/Load Balancing",
+    "Cloud"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Application Load Balancing",
+    "REST"
+  ],
+  "logoFile": "AWS-Light.png",
+  "logoFileDark": "AWS-Dark.png",
+  "supportUrl": "https://aws.amazon.com/contact-us/",
+  "price": "Free"
+}

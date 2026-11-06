@@ -1,0 +1,62 @@
+{
+  "name": "Jamf Pro",
+  "description": "Jamf Pro streamlines machine identity security for Apple devices by automating certificate lifecycle operations through the Venafi Platform.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "JAMF Software LLC",
+  "categories": [
+    "Endpoint & Device Management"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security",
+    "Zero Touch PKI"
+  ],
+  "tags": [
+    "Endpoint",
+    "MDM"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "JAMF PRO",
+    "VCert Java"
+  ],
+  "logoFile": "Jamf.png",
+  "supportUrl": "https://www.jamf.com/support/",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md"
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Jamf Pro Integration Guide",
+          "description": "Complete integration guide for Jamf Pro",
+          "url": "https://learn.jamf.com/r/en-US/jamf-pki-proxy-install-guide/Configuring_the_Jamf_PKI_Proxy_and_Venafi_Connection"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md"
+    },
+    {
+      "product": "Zero Touch PKI",
+      "overviewFile": "OVERVIEW-ztpki.md",
+      "documentationLinks": [
+        {
+          "title": "Jamf Pro Integration Guide",
+          "description": "Complete integration guide for Jamf Pro",
+          "url": "https://docs.cyberark.com/mis-saas/ztpki/connectors/integrating-jamf-pro/"
+        }
+      ]
+    }
+  ],
+  "price": "Free"
+}

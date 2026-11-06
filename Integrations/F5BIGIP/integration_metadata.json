@@ -1,0 +1,105 @@
+{
+  "name": "F5 BIG-IP",
+  "description": "Automate and secure your SSL/TLS lifecycle with F5 BIG-IP and Venafi, ensuring scalability, visibility, and enhanced encryption management.",
+  "categories": [
+    "Load Balancer & ADC"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "ADC/Load Balancing"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "F5 Big-IP",
+    "REST"
+  ],
+  "logoFile": "F5.png",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "price": "Free",
+  "resources": {
+    "videos": [
+      {
+        "title": "F5 BIG-IP Integration Overview",
+        "description": "Learn how to integrate F5 BIG-IP with Venafi Certificate Manager",
+        "url": "https://www.youtube.com/watch?v=vgy6zaUEM2E",
+        "platform": "youtube"
+      },
+      {
+        "title": "SSL/TLS Automation with F5",
+        "description": "Automate certificate lifecycle management on F5 BIG-IP",
+        "url": "https://www.youtube.com/watch?v=XRUbNHSoi6k",
+        "platform": "youtube"
+      },
+      {
+        "title": "Advanced F5 Configuration",
+        "description": "Deep dive into advanced configuration options",
+        "url": "https://www.youtube.com/watch?v=y0r6b4tAPJw",
+        "platform": "youtube"
+      }
+    ],
+    "otherResources": [
+      {
+        "title": "F5 BIG-IP Partner Brief",
+        "description": "Venafi and F5 partnership overview",
+        "url": "Venafi-F5-PartnerBrief-1704.pdf",
+        "type": "pdf",
+        "resourceType": "file"
+      }
+    ]
+  },
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "F5 BIG-IP Integration Guide",
+          "description": "Complete integration guide for F5 BIG-IP",
+          "url": "https://docs.venafi.com/Docs/26.1/TopNav/Content/Drivers/cco-F5LTMAdvanced-AppDriverConfig-tpp.php"
+        }
+      ]
+    },
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "currentVersion": "1.0.1",
+      "documentationLinks": [
+        {
+          "title": "Provisioning Certificates to F5",
+          "description": "Step-by-step guide for certificate provisioning",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-f5/"
+        },
+        {
+          "title": "F5 BIG-IP LTM Integration Guide",
+          "description": "Complete integration guide for F5 BIG-IP Local Traffic Manager",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/f5-big-ip-ltm/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Provisioning Certificates to F5",
+          "description": "Step-by-step guide for certificate provisioning",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/f5-big-ip-ltm/provision-certificates-f5"
+        },
+        {
+          "title": "Create F5 BIG-IP LTM Machine",
+          "description": "Step-by-step guide for creating a new F5 BIG-IP LTM machine in NGTS",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/f5-big-ip-ltm"
+        }
+      ]
+    }
+  ]
+}

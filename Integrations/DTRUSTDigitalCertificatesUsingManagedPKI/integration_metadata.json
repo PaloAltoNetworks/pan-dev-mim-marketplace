@@ -1,0 +1,25 @@
+{
+  "name": "D-TRUST Digital Certificates using Managed PKI",
+  "description": "Automate and manage your digital certificate lifecycle with D-TRUST and Venafi—gain visibility, enforce policies, and boost efficiency.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "D-TRUST",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Digital Certificates",
+    "Adaptable Framework - CA"
+  ],
+  "logoFile": "d-trust.jpg",
+  "price": "Free"
+}

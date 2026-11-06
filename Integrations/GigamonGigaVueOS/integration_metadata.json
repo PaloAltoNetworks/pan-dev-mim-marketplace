@@ -1,0 +1,31 @@
+{
+  "name": "Gigamon GigaVue (OS)",
+  "description": "Gigamon GigaVue (OS) automates machine identity management, enhancing security and streamlining operations for Gigamon web interfaces.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Gigamon",
+  "categories": [
+    "Firewall & Network Security"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "TLS/SSL Inspection"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "GigaVUE",
+    "Adaptable Framework - App"
+  ],
+  "logoFile": "Gigamon.png",
+  "downloadFiles": [
+    "GigamonGigaVUE-HC-CLI.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "supportUrl": "https://www.gigamon.com/support.html",
+  "price": "Free",
+  "license": "MIT"
+}

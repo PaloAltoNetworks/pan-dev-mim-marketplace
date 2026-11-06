@@ -1,0 +1,37 @@
+{
+  "name": "Cloudflare Origin CA",
+  "description": "Provision custom SSL certificates to Clouflare Edge services.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "CloudFlare, Inc. - Marketplace",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Certificate Authority",
+    "Kubernetes"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "CloudFlare",
+    "Other"
+  ],
+  "logoFile": "cloudflare.png",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md"
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md"
+    }
+  ],
+  "price": "Free"
+}

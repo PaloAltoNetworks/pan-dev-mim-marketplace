@@ -1,0 +1,44 @@
+{
+  "name": "Pulumi Cloud Engineering Platform",
+  "description": "Pulumi's platform streamlines cloud deployments with IaC, integrating Venafi for secure certificate management across multiple environments.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Pulumi",
+  "categories": [
+    "CI/CD & DevOps"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "DevOps",
+    "Cloud",
+    "Open Source"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Cloud Engineering Platform",
+    "VCert Go"
+  ],
+  "logoFile": "Pulumi.svg",
+  "supportUrl": "https://www.pulumi.com/support/",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md"
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md"
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md"
+    }
+  ],
+  "price": "Free"
+}

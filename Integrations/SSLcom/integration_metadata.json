@@ -1,0 +1,64 @@
+{
+  "name": "SSL.com",
+  "description": "Automate the full lifecycle of publicly trusted SSL.com certificates — SSL/TLS, S/MIME, client, and code signing — within Certificate Manager.",
+  "support": "Supported",
+  "currentVersion": "1.0",
+  "author": "SSL.com",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted",
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Certificate Authority",
+    "TLS/SSL",
+    "Adaptable Framework"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "documentationFile": "DOCUMENTATION.md",
+  "logoFile": "ssl-com.png",
+  "supportUrl": "https://www.ssl.com/contact_us/",
+  "price": "Free",
+  "license": "MIT",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationFile": "DOCUMENTATION.md",
+      "downloadFiles": [
+        "SSL.com_Adaptable_Script.ps1"
+      ],
+      "primaryCta": {
+        "type": "download"
+      },
+      "author": "SSL.com",
+      "supportUrl": "https://www.ssl.com/contact_us/"
+    },
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Add SSL.com as a CA",
+          "description": "Add SSL.com as a certificate authority in Certificate Manager, SaaS",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/certificates/ca/adding-sslcom-ca/"
+        }
+      ],
+      "downloadFiles": [],
+      "primaryCta": {
+        "type": "docs"
+      }
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "downloadFiles": []
+    }
+  ]
+}

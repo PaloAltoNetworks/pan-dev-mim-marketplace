@@ -1,0 +1,29 @@
+{
+  "name": "Google CAS Import",
+  "description": "This Adaptable CA will import certificates from Google CAS to TPP.",
+  "support": "Community",
+  "currentVersion": "1.0",
+  "author": "Community",
+  "supportEmail": "cybr-mis.support@paloaltonetworks.com",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority",
+    "Cloud",
+    "Adaptable Framework"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "downloadFiles": [
+    "Google CAS Import.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "price": "Free",
+  "license": "MIT"
+}

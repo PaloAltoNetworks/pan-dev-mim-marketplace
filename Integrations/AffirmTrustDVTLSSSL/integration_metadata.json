@@ -1,0 +1,29 @@
+{
+  "name": "AffirmTrust DV TLS/SSL",
+  "description": "AffirmTrust DV TLS/SSL integration for Certificate Manager Self-Hosted.",
+  "support": "Supported",
+  "currentVersion": "1.0",
+  "author": "AffirmTrust",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority",
+    "TLS/SSL"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "downloadFiles": [
+    "AffirmTrustDV.ps1",
+    "AffirmTrustDVCreateCustomFields.ps1"
+  ],
+  "logoFile": "AffirmTrust.png",
+  "supportUrl": "https://www.digicert.com/support",
+  "price": "Free",
+  "license": "MIT"
+}

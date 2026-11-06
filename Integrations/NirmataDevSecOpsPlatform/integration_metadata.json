@@ -1,0 +1,64 @@
+{
+  "name": "Nirmata DevSecOps Platform",
+  "description": "Nirmata is the creator of Kyverno",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Nirmata",
+  "categories": [
+    "Kubernetes & Containers"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "DevOps",
+    "Kubernetes"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "DevSecOps Platform",
+    "Other",
+    "Kyverno"
+  ],
+  "supportUrl": "https://docs.nirmata.io",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Nirmata Documentation",
+          "description": "Nirmata's official product documentation",
+          "url": "https://docs.nirmata.io"
+        }
+      ]
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Nirmata Documentation",
+          "description": "Nirmata's official product documentation",
+          "url": "https://docs.nirmata.io"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Nirmata Documentation",
+          "description": "Nirmata's official product documentation",
+          "url": "https://docs.nirmata.io"
+        }
+      ]
+    }
+  ],
+  "price": "Free"
+}

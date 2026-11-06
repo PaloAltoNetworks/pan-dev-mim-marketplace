@@ -1,0 +1,26 @@
+{
+  "name": "UrbanCode Deploy",
+  "description": "UrbanCode Deploy integrates Venafi, enabling secure, automated key and certificate management in DevOps pipelines without coding for compliance.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "IBM Security Products - N America",
+  "categories": [
+    "CI/CD & DevOps"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "DevOps",
+    "Open Source"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "UrbanCode Deploy",
+    "REST"
+  ],
+  "logoFile": "UrbanCode.png",
+  "price": "Free"
+}

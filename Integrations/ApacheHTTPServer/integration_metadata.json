@@ -1,0 +1,49 @@
+{
+  "name": "Apache HTTP Server",
+  "description": "Enabling automated certificates management on Apache HTTP Servers",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "The Apache Software Foundation - Marketplace",
+  "categories": [
+    "Web Server"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Web Server"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "HTTP Server",
+    "Other"
+  ],
+  "logoFile": "Apache.png",
+  "supportUrl": "https://www.apache.org/foundation/mailinglists.html",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md"
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Apache HTTP Server Integration Guide",
+          "description": "Complete integration guide for Apache HTTP Server",
+          "url": "https://docs.venafi.com/Docs/26.1/TopNav/Content/Drivers/cco-Apache-AppDriverConfig-tpp.php"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md"
+    }
+  ],
+  "price": "Free"
+}

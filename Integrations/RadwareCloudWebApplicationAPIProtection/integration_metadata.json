@@ -1,0 +1,32 @@
+{
+  "name": "Radware Cloud Web Application API Protection",
+  "description": "Adaptable driver for Radware Cloud Web Application API Protection",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Radware",
+  "categories": [
+    "API Gateway & WAF"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Cloud",
+    "WAF"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Cloud Web Application API",
+    "Adaptable Framework - App"
+  ],
+  "logoFile": "Radware.png",
+  "downloadFiles": [
+    "CWAF.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "supportUrl": "https://support.radware.com/",
+  "price": "Free",
+  "license": "MIT"
+}

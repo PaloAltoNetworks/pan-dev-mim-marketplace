@@ -1,0 +1,27 @@
+{
+  "name": "Nameshield CA",
+  "description": "The purpose of this document is to provide information regarding the configuration of `Nameshield Connector` for integration with Venafi Trust Protection Platform (TPP).",
+  "support": "Supported",
+  "currentVersion": "1.0",
+  "author": "Nameshield",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "downloadFiles": [
+    "NameShield.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "supportUrl": "https://www.nameshield.com/en/contact/",
+  "price": "Free",
+  "license": "MIT"
+}

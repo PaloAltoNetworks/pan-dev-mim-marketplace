@@ -1,0 +1,24 @@
+{
+  "name": "Symphony for SAP",
+  "description": "Orchestrate all your SSL Renewal Automation with Symphony and Venafi Integration",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Basis Cloud Solutions",
+  "categories": [
+    "ITSM & Workflow"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Automation/Orchestration"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "SAP",
+    "REST"
+  ],
+  "price": "Free"
+}

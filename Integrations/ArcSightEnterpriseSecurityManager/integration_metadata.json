@@ -1,0 +1,27 @@
+{
+  "name": "ArcSight Enterprise Security Manager",
+  "description": "Enhance visibility and risk management with Venafi’s integration into ArcSight, ensuring timely updates on key and certificate events.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "OpenText/Micro Focus",
+  "categories": [
+    "SIEM & Observability"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "SIEM",
+    "GRC"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "ArcSight ESM",
+    "Other"
+  ],
+  "logoFile": "ArcSight.png",
+  "supportUrl": "https://www.microfocus.com/en-us/support",
+  "price": "Free"
+}

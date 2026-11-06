@@ -1,0 +1,45 @@
+{
+  "name": "OpenStack Heat",
+  "description": "OpenStack Heat plugin streamlines TLS certificate enrollment via Venafi, ensuring compliance and automating lifecycle operations.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "CI/CD & DevOps"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Automation/Orchestration",
+    "DevOps"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "OpenStack Heat",
+    "VCert Python"
+  ],
+  "logoFile": "OpenStack.png",
+  "externalDocsUrl": "https://github.com/Venafi/openstack-heat-plugin-venafi",
+  "externalDocsLabel": "Venafi Documentation",
+  "supportUrl": "https://github.com/Venafi/openstack-heat-plugin-venafi/issues",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md"
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md"
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md"
+    }
+  ],
+  "price": "Free"
+}

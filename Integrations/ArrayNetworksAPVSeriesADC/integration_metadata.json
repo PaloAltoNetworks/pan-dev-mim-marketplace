@@ -1,0 +1,27 @@
+{
+  "name": "Array Networks APV Series ADC",
+  "description": "Array Networks APV Series ADC integration for Certificate Manager Self-Hosted.",
+  "support": "Supported",
+  "currentVersion": "1.0",
+  "author": "Array Networks",
+  "categories": [
+    "Load Balancer & ADC"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "ADC/Load Balancing"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "downloadFiles": [
+    "ArrayNetworks_ADC_Driver.ps1"
+  ],
+  "logoFile": "Array_Networks.png",
+  "supportUrl": "https://support.arraynetworks.net",
+  "price": "Free",
+  "license": "MIT"
+}

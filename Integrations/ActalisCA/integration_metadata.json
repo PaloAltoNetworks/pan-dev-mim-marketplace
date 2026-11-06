@@ -1,0 +1,28 @@
+{
+  "name": "Actalis SSL",
+  "description": "This file has the basic functions supported by adaptable CA template:",
+  "support": "Supported",
+  "currentVersion": "1.0",
+  "author": "Actalis",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "downloadFiles": [
+    "Actalis_Adaptable_Script.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "logoFile": "actalis.png",
+  "supportUrl": "https://www.actalis.com/support",
+  "price": "Free",
+  "license": "MIT"
+}

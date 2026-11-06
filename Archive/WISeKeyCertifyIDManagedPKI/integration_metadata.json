@@ -1,0 +1,27 @@
+{
+  "name": "WISeKey CertifyID Managed PKI",
+  "description": "Leverage the Venafi Adaptable CA framework to request, retrieve, renew, and revoke certificates from WISeKey CertifyID Managed PKI via the CertifyID Universal Registration Authority (URA).",
+  "support": "Supported",
+  "currentVersion": "1.0",
+  "author": "WISeKey",
+  "email": "support@venafi.com",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "downloadFiles": [
+    "WisekeyUra.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "supportUrl": "https://www.certifyid.com",
+  "price": "Free"
+}

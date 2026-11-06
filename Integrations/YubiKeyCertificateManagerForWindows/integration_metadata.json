@@ -1,0 +1,26 @@
+{
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Secur Solutions Group",
+  "supportEmail": "support@secursolutionsgroup.com",
+  "categories": [
+    "Endpoint & Device Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Endpoint"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "price": "Paid (Contact Partner)",
+  "name": "YubiKey Certificate Manager for Windows",
+  "description": "Secur's Windows thick client for provisioning and installing certificate into your Yubikey device",
+  "acquisition": {
+    "type": "contact-partner",
+    "url": "https://secursolutionsgroup.com/contact-us"
+  }
+}

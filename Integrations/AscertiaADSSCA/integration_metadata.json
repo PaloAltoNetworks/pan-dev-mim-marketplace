@@ -1,0 +1,37 @@
+{
+  "name": "Ascertia ADSS CA",
+  "description": "Secur Solutions Group' Ascertia ADSS CA driver streamlines certificate management, enabling issuance, retrieval, and revocation with ease.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Secur Solutions Group",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Adaptable Framework"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "ADSS",
+    "Adaptable Framework - CA",
+    "Ascertia ADSS"
+  ],
+  "downloadFiles": [
+    "Secur Ascertia CA script.ps1",
+    "ADSS-Secur-Client.zip"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "logoFile": "logo.svg",
+  "price": "Paid (Contact Partner)",
+  "license": "MIT",
+  "supportEmail": "support@secursolutionsgroup.com",
+  "acquisition": {
+    "type": "contact-partner",
+    "url": "https://secursolutionsgroup.com/contact-us"
+  }
+}

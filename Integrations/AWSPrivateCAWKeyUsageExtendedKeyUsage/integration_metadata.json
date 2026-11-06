@@ -1,0 +1,37 @@
+{
+  "name": "AWS Private CA w/ Key Usage & Extended Key Usage",
+  "description": "AWS Private CA driver",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Secur Solutions Group",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Adaptable Framework"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Private CA",
+    "REST",
+    "AWS Private CA"
+  ],
+  "downloadFiles": [
+    "Secur AWS CA script.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "logoFile": "AWS-Light.png",
+  "logoFileDark": "AWS-Dark.png",
+  "price": "Paid (Contact Partner)",
+  "license": "MIT",
+  "supportEmail": "support@secursolutionsgroup.com",
+  "acquisition": {
+    "type": "contact-partner",
+    "url": "https://secursolutionsgroup.com/contact-us"
+  }
+}

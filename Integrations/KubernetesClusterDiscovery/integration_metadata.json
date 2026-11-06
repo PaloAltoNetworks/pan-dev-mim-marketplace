@@ -1,0 +1,40 @@
+{
+  "name": "Kubernetes Cluster Discovery",
+  "description": "Automated Kubernetes & OpenShift certificate discovery for Certificate Manager, Self-Hosted \u2014 removes blind spots across containerized infrastructure.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Community",
+  "categories": [
+    "Discovery & Asset Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Discovery"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Kubernetes",
+    "OpenShift",
+    "Other"
+  ],
+  "logoFile": "Kubernetes_logo.svg.webp",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Kubernetes Cluster Discovery Integration Guide",
+          "description": "Complete integration guide for Kubernetes Cluster Discovery",
+          "url": "https://docs.venafi.com/Docs/26.1/TopNav/Content/Discovery/cco-Discovery-Kubernetes-configuring-tpp.php"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "name": "Sectigo Certificate Manager",
+  "description": "Automate and control the entire certificate lifecycle with Sectigo Certificate Manager, enhancing visibility, security, and compliance.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted",
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Certificate Manager",
+    "REST"
+  ],
+  "logoFile": "sectigo.png",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Sectigo Certificate Manager Integration Guide",
+          "description": "Complete integration guide for Sectigo Certificate Manager",
+          "url": "https://docs.venafi.com/Docs/26.1/TopNav/Content/Drivers/cco-ComodoCCM-CATemplate-tpp.php"
+        }
+      ]
+    },
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Add Sectigo as a CA",
+          "description": "Add Sectigo Certificate Manager as a certificate authority in Certificate Manager, SaaS",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/certificates/ca/adding-sectigo-ca/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Add Sectigo as a CA",
+          "description": "Add Sectigo Certificate Manager as a certificate authority in Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/co-overview-issuing-certs/adding-a-certificate-authority/adding-sectigo-ca"
+        }
+      ]
+    }
+  ]
+}

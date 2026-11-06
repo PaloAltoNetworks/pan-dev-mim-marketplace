@@ -1,0 +1,59 @@
+{
+  "name": "F5 Distributed Cloud",
+  "description": "![Venafi Driver Diagram](readme-images/venafi-driver-diagram.png)",
+  "support": "Supported",
+  "currentVersion": "1.1.0",
+  "author": "F5",
+  "categories": [
+    "Load Balancer & ADC"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted",
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "ADC/Load Balancing"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "documentationFile": "DOCUMENTATION.md",
+  "logoFile": "F5.png",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "price": "Free",
+  "license": "MIT",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "downloadFiles": [
+        "F5DistributedCloudAdaptableAppDriver.ps1"
+      ],
+      "documentationFile": "DOCUMENTATION.md"
+    },
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "author": "Venafi",
+      "documentationLinks": [
+        {
+          "title": "F5 Distributed Cloud Machine Setup",
+          "description": "Create an F5 Distributed Cloud machine in Certificate Manager, SaaS",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/f5-distributed-cloud/"
+        },
+        {
+          "title": "Provision Certificates to F5 Distributed Cloud",
+          "description": "Provision certificates to an F5 Distributed Cloud machine",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-f5-distributed-cloud/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "author": "Venafi"
+    }
+  ]
+}

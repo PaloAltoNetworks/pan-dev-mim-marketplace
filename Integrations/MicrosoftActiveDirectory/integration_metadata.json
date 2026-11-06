@@ -1,0 +1,39 @@
+{
+  "name": "Microsoft Active Directory",
+  "description": "Streamline secure admin access with Microsoft Active Directory and Venafi, leveraging existing user hierarchy for policy enforcement.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Identity & Access Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Authentication"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Active Directory",
+    "Other"
+  ],
+  "logoFile": "MS-AD.png",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Microsoft Active Directory Integration Guide",
+          "description": "Complete integration guide for Microsoft Active Directory",
+          "url": "https://docs.venafi.com/Docs/26.1/TopNav/Content/Drivers/cco-MicrosoftCertServices-CATemplate-tpp.php"
+        }
+      ]
+    }
+  ]
+}

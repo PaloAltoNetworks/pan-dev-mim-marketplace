@@ -1,0 +1,45 @@
+{
+  "name": "Auto-Enrollment Connector",
+  "description": "Automate certificate issuance for Windows endpoints via Microsoft auto-enrollment, connecting Active Directory to CyberArk certificate management (Certificate Manager, Self-Hosted and Zero Touch PKI).",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted",
+    "Zero Touch PKI"
+  ],
+  "tags": [
+    "Certificate Authority",
+    "Endpoint"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Microsoft Certification Authority",
+    "REST"
+  ],
+  "logoFile": "Venafi.png",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md"
+    },
+    {
+      "product": "Zero Touch PKI",
+      "overviewFile": "OVERVIEW-ztpki.md",
+      "documentationLinks": [
+        {
+          "title": "Auto-Enrollment Connector Overview",
+          "description": "Complete integration guide for the Auto-Enrollment Connector",
+          "url": "https://docs.cyberark.com/mis-saas/ztpki/connectors/aec-overview/"
+        }
+      ]
+    }
+  ],
+  "price": "Free"
+}

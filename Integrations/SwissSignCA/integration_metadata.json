@@ -1,0 +1,47 @@
+{
+  "name": "SwissSign CA",
+  "description": "Obtain and manage SwissSign issued certificates from Certificate Manager.",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted",
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "SwissSign Managed PKI",
+    "Adaptable Framework - CA"
+  ],
+  "logoFile": "swisssign.png",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "SwissSign",
+  "supportUrl": "https://www.swisssign.com/en/support",
+  "price": "Free",
+  "license": "MIT",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationFile": "DOCS-selfhosted.md",
+      "downloadFiles": [
+        "SwissSign_Adaptable_Script.ps1"
+      ]
+    },
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md"
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md"
+    }
+  ]
+}

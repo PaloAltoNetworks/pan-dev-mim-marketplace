@@ -1,0 +1,27 @@
+{
+  "name": "HashiCorp Vault Credentials",
+  "description": "Automate secret retrieval from HashiCorp Vault with Venafi's Adaptable Credentials, enhancing security and team collaboration.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Secrets Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Secret Store",
+    "Authentication"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "HashiCorp Vault",
+    "Adaptable Framework - Credential"
+  ],
+  "logoFile": "HashiCorp-Light.png",
+  "logoFileDark": "HashiCorp-Dark.png",
+  "price": "Free"
+}

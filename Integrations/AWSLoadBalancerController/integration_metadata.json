@@ -1,0 +1,47 @@
+{
+  "name": "AWS Load Balancer Controller",
+  "description": "Integrate cert-manager with AWS Load Balancer Controller for automated and secure TLS certificate management in EKS clusters.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Kubernetes & Containers"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "ADC/Load Balancing",
+    "Kubernetes",
+    "Open Source",
+    "Ingress"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Load Balancer Controller",
+    "Other"
+  ],
+  "logoFile": "AWS-Light.png",
+  "logoFileDark": "AWS-Dark.png",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md"
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "AWS Load Balancer Controller Integration Guide",
+          "description": "Complete integration guide for AWS Load Balancer Controller",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/integrations-overview/cloud-providers-overview/aws-acm"
+        }
+      ]
+    }
+  ],
+  "price": "Free"
+}

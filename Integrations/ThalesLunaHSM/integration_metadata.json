@@ -1,0 +1,26 @@
+{
+  "name": "Thales Luna HSM",
+  "description": "Thales Luna HSM enhances digital transformation by securing machine identities and automating key/certificate management to prevent data breaches.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Thales Group",
+  "categories": [
+    "HSM & Key Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "HSM"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Luna Network HSM",
+    "PKCS#11"
+  ],
+  "logoFile": "Thales-Parent.png",
+  "supportUrl": "https://supportportal.thalesgroup.com/csm",
+  "price": "Free"
+}

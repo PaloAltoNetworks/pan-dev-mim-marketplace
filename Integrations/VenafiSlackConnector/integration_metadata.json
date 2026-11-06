@@ -1,0 +1,23 @@
+{
+  "name": "Venafi Slack Connector",
+  "description": "Venafi Slack Connector integration for Certificate Manager Self-Hosted.",
+  "support": "Supported",
+  "currentVersion": "1.0",
+  "author": "Cprime",
+  "categories": [
+    "ITSM & Workflow"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Automation/Orchestration"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "logoFile": "Slack.png",
+  "supportUrl": "https://www.cprime.com/support/",
+  "price": "Free"
+}

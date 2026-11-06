@@ -1,0 +1,30 @@
+{
+  "name": "Nexus Group PKI",
+  "description": "Nexus Group PKI streamlines and automates certificate management for enterprises, enhancing security while simplifying PKI processes.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Nexus Group",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Group PKI",
+    "REST"
+  ],
+  "logoFile": "nexus.png",
+  "downloadFiles": [
+    "Nexus.ps1"
+  ],
+  "supportUrl": "https://www.nexusgroup.com/support",
+  "price": "Free",
+  "license": "MIT"
+}

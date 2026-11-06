@@ -1,0 +1,39 @@
+{
+  "name": "Secrets Engine for HCP Vault (HashiCorp Cloud Platform)",
+  "description": "Enable Vault to request certificates through Venafi's 40+integrated CAs",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "HashiCorp",
+  "categories": [
+    "Secrets Management"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Certificate Authority",
+    "DevOps"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "HashiCorp Cloud Platform",
+    "VCert Go"
+  ],
+  "logoFile": "HashiCorp-Light.png",
+  "logoFileDark": "HashiCorp-Dark.png",
+  "supportUrl": "https://support.hashicorp.com/hc/en-us",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md"
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md"
+    }
+  ],
+  "price": "Free"
+}

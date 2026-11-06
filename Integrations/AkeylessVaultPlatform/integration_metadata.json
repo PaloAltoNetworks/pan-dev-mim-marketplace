@@ -1,0 +1,49 @@
+{
+  "name": "Akeyless Vault Platform",
+  "description": "Akeyless Vault Platform, in partnership with Venafi, automates machine identity management for ephemeral workloads, enhancing security and compliance.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Akeyless",
+  "categories": [
+    "Secrets Management"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Secret Store",
+    "DevOps"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Vault Platform",
+    "REST"
+  ],
+  "logoFile": "Akeyless.png",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md"
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Akeyless Vault Platform Integration Guide",
+          "description": "Complete integration guide for Akeyless Vault Platform",
+          "url": "https://docs.akeyless.io/docs/venafi-tpp"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md"
+    }
+  ],
+  "price": "Free"
+}

@@ -1,0 +1,34 @@
+{
+  "name": "Recursive Certificate Discovery",
+  "description": "Automated driver that performs recursive discovery of certificate files from a specified folder path",
+  "categories": [
+    "Discovery & Asset Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted",
+    "Certificate Manager SaaS"
+  ],
+  "tags": [
+    "Discovery",
+    "Adaptable Framework"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Community",
+  "supportEmail": "cybr-mis.support@paloaltonetworks.com",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md"
+    },
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md"
+    }
+  ]
+}

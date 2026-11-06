@@ -1,0 +1,15 @@
+# Normalize text files to LF in the repo, regardless of the contributor's OS
+# or git core.autocrlf setting. Prevents Windows checkouts from introducing
+# CRLF line endings that show up as full-file diffs on later edits.
+* text=auto eol=lf
+
+# Binary assets — never touch line endings
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.svg binary
+*.ico binary
+*.pdf binary
+*.woff binary
+*.woff2 binary

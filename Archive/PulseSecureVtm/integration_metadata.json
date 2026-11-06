@@ -1,0 +1,27 @@
+{
+  "name": "Ivanti Pulse Secure vTM",
+  "description": "Ivanti Pulse Secure vTM integration for Certificate Manager Self-Hosted.",
+  "support": "Supported",
+  "currentVersion": "1.0",
+  "author": "Ivanti",
+  "email": "support@venafi.com",
+  "categories": [
+    "Load Balancer"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Load Balancer"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "scriptFiles": [
+    "Pulse-Secure-vTM.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "supportUrl": "https://www.ivanti.com/support",
+  "price": "Free"
+}

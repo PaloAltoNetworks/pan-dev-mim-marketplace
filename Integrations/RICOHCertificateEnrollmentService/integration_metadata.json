@@ -1,0 +1,42 @@
+{
+  "name": "RICOH Certificate Enrollment Service",
+  "description": "Automate certificate provisioning for RICOH devices with RICOH Certificate Enrollment Service, enhancing security and efficiency via Venafi integration.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "RICOH JAPAN Corp.",
+  "categories": [
+    "Endpoint & Device Management"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Automation/Orchestration"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Certificate Enrolment Service",
+    "VCert Java",
+    "Auto-enrollment"
+  ],
+  "logoFile": "Ricoh.png",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md"
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md"
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md"
+    }
+  ],
+  "price": "Free"
+}

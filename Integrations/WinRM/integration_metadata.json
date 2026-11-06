@@ -1,0 +1,37 @@
+{
+  "name": "WinRM Certificate Deployment",
+  "description": "Adaptable Application Drivers for deploying certificates via Windows Remote Management (WinRM) in CRT/KEY, JKS, KDB, PEM, PFX, and SSRS workflow formats.",
+  "support": "Community",
+  "currentVersion": "1.0",
+  "author": "Community",
+  "supportEmail": "cybr-mis.support@paloaltonetworks.com",
+  "categories": [
+    "Endpoint & Device Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Endpoint",
+    "Adaptable Framework"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "WinRM",
+    "Windows",
+    "Adaptable Framework"
+  ],
+  "downloadFiles": [
+    "WinRM CRT-KEY.ps1",
+    "WinRM JKS.ps1",
+    "WinRM KDB.ps1",
+    "WinRM PEM.ps1",
+    "Aeyrix PFX WinRM Driver.ps1",
+    "WinRM SSRS Workflow.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "price": "Free",
+  "license": "MIT"
+}

@@ -1,0 +1,39 @@
+{
+  "name": "Futurex Vectera Plus HSM",
+  "description": "Futurex Vectera Plus HSM enhances security with robust key protection, rapid deployment, and compliance with key regulatory standards.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Futurex Inc",
+  "categories": [
+    "HSM & Key Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "HSM"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Vectera Plus",
+    "PKCS#11"
+  ],
+  "logoFile": "Futurex.png",
+  "supportUrl": "https://docs.futurex.com",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Futurex Documentation",
+          "description": "Futurex's official product documentation",
+          "url": "https://docs.futurex.com"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,39 @@
+{
+  "name": "NGINX Ingress Controller",
+  "description": "Automate TLS certificate management with NGINX Ingress Controller and cert-manager, ensuring secure, cloud-native HTTPs traffic for Kubernetes.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Kubernetes & Containers"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "DevOps",
+    "Kubernetes",
+    "Open Source",
+    "Ingress"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Ingress Controller",
+    "Other"
+  ],
+  "logoFile": "NGINX.png",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md"
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md"
+    }
+  ],
+  "price": "Free"
+}

@@ -1,0 +1,896 @@
+<#
+//---------------------------------------------------------------------------
+// TheSSLStore-ComodoEVSSL.ps1
+//---------------------------------------------------------------------------
+// Copyright (c) 2021 Venafi, Inc. All rights reserved.
+//
+// This software is licensed by The SSL Store, in addition to Venafi.
+// Additional license terms may apply. The software and its contents are
+// provided by Venafi to customers for the purposes of integrating with
+// services and platforms. Modification of this script is only allowed to
+// update any necessary configuration details. Any sharing of the software
+// outside your organization without consent from Venafi is strictly
+// prohibited. Without limiting the foregoing, the above copyright notice,
+// this paragraph and the following paragraph must appear in all copies,
+// modifications, reproductions, and distributions of this software.
+//
+// IN NO EVENT SHALL VENAFI, INC., ITS DIRECTORS, OFFICERS, EMPLOYEES,
+// AGENTS, OR AFFILIATES BE LIABLE TO ANY PARTY FOR DIRECT, INDIRECT,
+// SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, INCLUDING LOST PROFITS,
+// ARISING OUT OF THE USE OF THIS SOFTWARE OR ITS DOCUMENTATION, IF ANY,
+// EVEN IF VENAFI, INC. HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
+// VENAFI, INC. SPECIFICALLY DISCLAIMS ANY WARRANTIES, INCLUDING, BUT NOT
+// LIMITED TO, ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A
+// PARTICULAR PURPOSE. THIS SOFTWARE, ALONG WITH ITS DOCUMENTATION, IF ANY,
+// IS PROVIDED "AS IS". VENAFI, INC. HAS NO OBLIGATION TO PROVIDE
+// MAINTENANCE, SUPPORT, OR UPDATES FOR THE SOFTWARE OR ITS DOCUMENTATION,
+// IF ANY.
+//---------------------------------------------------------------------------
+#>
+
+$global:tss_base_live_url = "https://api.thesslstore.com/rest" 
+$global:tss_base_sandbox_url = "https://sandbox-wbapi.thesslstore.com/rest" 
+$global:tss_mode = "LIVE" ##Can be LIVE OR TEST
+$global:tss_UserAgent = 'TSS-VenafiAdaptableCA-v0.6'
+$global:tss_ProductCode = 'comodoevssl'
+$global:ResultSuccess = 'Success'
+$global:MinorStatusArr = @('ACTIVE','VALID','COMPLETED','START','ISSUED','COMPLETE')
+$global:MajorStatusArr  = @('ACTIVE')
+$global:PendingState  = 'Pending'
+$global:IssuedState  = 'Issued'
+$global:AdminEmail = "admin@yourdomain.com"   # REPLACE with your organization's admin contact email
+$global:AdminPhone = "5555550100"   # REPLACE with your organization's admin contact phone
+
+function Test-Settings
+{
+    Param(
+        [Parameter(Mandatory=$true,HelpMessage="General Parameters")]
+        [System.Collections.Hashtable]$General
+    )
+    return @{ Result=Get-TSSStatus}
+}
+
+
+function Get-ChainCertificates
+{
+    Param(
+        [Parameter(Mandatory=$true,HelpMessage="General Parameters")]
+        [System.Collections.Hashtable]$General
+    )
+    return @{ Result="NotUsed" }
+}
+
+
+function Prepare-ForRequest
+{
+    Param(
+        [Parameter(Mandatory=$true,HelpMessage="General Parameters")]
+        [System.Collections.Hashtable]$General,
+        [Parameter(Mandatory=$true,HelpMessage="Function Specific Parameters")]
+        [System.Collections.Hashtable]$Specific
+    )
+    $result =   Get-TSSStatus     
+    return @{ Result=$result}    
+}
+
+
+
+function  TSS-PlaceOrder(){
+    
+    param(
+        [Parameter(Mandatory = $true, HelpMessage = "General Parameters")]
+        [System.Collections.Hashtable]$General,
+        [Parameter(Mandatory = $true, HelpMessage = "Function Specific Parameters")]
+        [System.Collections.Hashtable]$Specific,
+        [Parameter(Mandatory = $true, HelpMessage = "For New or Renew Order")]
+        [System.Boolean]$IsRenew
+
+    )
+     $username = $General['UserName']
+     $userpass = $General['UserPass']
+    $state = 'NotUsed'
+     $transID = '{notset}'
+    if($Specific['SubjectDN']['CN'].IndexOf("*.") -eq 0)
+     {
+         throw 'Error: OPPS! Wildcard Domain name not allowed.'
+        #return @{ Result = 'Error: OPPS! Wildcard Domain name not allowed.'; TransId = $transID}        
+     }
+
+     $ApproverResult = GetApproverList  $username $userpass $global:tss_ProductCode  $Specific['SubjectDN']['CN'].ToString() $General['CustomFields']['Approver Email'].ToString()
+    #throw $IsRenew
+     $state = 'NotUsed'
+     $transID = '{notset}' 
+
+     if ($ApproverResult -eq $global:ResultSuccess) {
+
+
+        #TSS Order Params
+        $orderparam = Get-OrderParams
+        $orderparam.AuthRequest.PartnerCode = $username
+        $orderparam.AuthRequest.AuthToken = $userpass
+        $orderparam.AuthRequest.ReplayToken = [System.Guid]::NewGuid().ToString()
+        $orderparam.AuthRequest.UserAgent = $global:tss_UserAgent
+        $orderparam.CustomOrderID = [System.Guid]::NewGuid().ToString()
+        $orderparam.ProductCode = $global:tss_ProductCode 
+        $orderparam.OrganizationInfo.OrganizationName = $Specific['SubjectDN']['O']
+        $orderparam.OrganizationInfo.DUNS = '' 
+        $orderparam.OrganizationInfo.Division =  @{$true = $Specific['SubjectDN']['OU'][0]; $false = ''}[$Specific['SubjectDN']['OU'].Length -gt 0]
+        $orderparam.OrganizationInfo.IncorporatingAgency = '' ##NEED TO GET INFO
+        $orderparam.OrganizationInfo.RegistrationNumber = '' ##NEED TO GET INFO
+        $orderparam.OrganizationInfo.JurisdictionCity = $Specific['SubjectDN']['L']
+        $orderparam.OrganizationInfo.JurisdictionRegion = $Specific['SubjectDN']['ST']
+        $orderparam.OrganizationInfo.JurisdictionCountry = $Specific['SubjectDN']['C']
+        $orderparam.OrganizationInfo.OrganizationAddress.AddressLine1 = $Specific['SubjectDN']['L']
+        $orderparam.OrganizationInfo.OrganizationAddress.AddressLine2 = '' 
+        $orderparam.OrganizationInfo.OrganizationAddress.AddressLine3 = '' 
+        $orderparam.OrganizationInfo.OrganizationAddress.City = $Specific['SubjectDN']['L'] 
+        $orderparam.OrganizationInfo.OrganizationAddress.Region = $Specific['SubjectDN']['ST']
+        $orderparam.OrganizationInfo.OrganizationAddress.PostalCode = $General['CustomFields']['Postal Code'].ToString() 
+        $orderparam.OrganizationInfo.OrganizationAddress.Country = $Specific['SubjectDN']['C']
+        $orderparam.OrganizationInfo.OrganizationAddress.Phone = @{$true = $General['CustomFields']['Phone']; $false = $global:AdminPhone}[$General['CustomFields']['Phone'].Length -gt 0]        
+        $orderparam.OrganizationInfo.OrganizationAddress.Fax = ''
+        $orderparam.OrganizationInfo.OrganizationAddress.LocalityName = $Specific['SubjectDN']['L']
+        $orderparam.ValidityPeriod = $General['CustomFields']['Validity Period'] 
+
+        $orderparam.ServerCount = 1
+	
+        $CSR = $Specific['Pkcs10']
+        $CSR = $CSR.replace("`n", "").replace("`r", "")	
+        $orderparam.CSR = $CSR 
+	
+        $orderparam.DomainName = $Specific['SubjectDN']['CN']
+		$orderparam.ApproverEmail = $General['CustomFields']['Approver Email'] 
+        $orderparam.WebServerType = 'OTHER'
+        $orderparam.DNSNames = $Specific['SubjAltNames']['DNS']
+        $orderparam.isCUOrder = $false
+        $orderparam.isRenewalOrder = $IsRenew
+
+        $fullname = $General['CustomFields']['Full Name'].ToString()
+        $f = ($fullname -split " ",2)       
+
+        $orderparam.AdminContact.Title = "Mr"
+        $orderparam.AdminContact.FirstName = $f[0]
+        $orderparam.AdminContact.LastName = $f[1]
+        $orderparam.AdminContact.Email = $global:AdminEmail
+        $orderparam.AdminContact.Phone = $global:AdminPhone
+        $orderparam.AdminContact.Fax = '' ##NEED TO GET INFO	      
+
+        $orderparam.AdminContact.OrganizationName = $Specific['SubjectDN']['O']
+        $orderparam.AdminContact.AddressLine1 = $Specific['SubjectDN']['L']
+        $orderparam.AdminContact.AddressLine2 = '' ##NEED TO GET INFO
+        $orderparam.AdminContact.City = $Specific['SubjectDN']['L']
+        $orderparam.AdminContact.Region = $Specific['SubjectDN']['ST']
+        $orderparam.AdminContact.PostalCode =  $General['CustomFields']['Postal Code'].ToString() 
+        $orderparam.AdminContact.Country = $Specific['SubjectDN']['C']
+	
+        $orderparam.TechnicalContact.Title = $orderparam.AdminContact.Title
+        $orderparam.TechnicalContact.FirstName = $orderparam.AdminContact.FirstName
+        $orderparam.TechnicalContact.LastName = $orderparam.AdminContact.LastName
+        $orderparam.TechnicalContact.Email = $orderparam.AdminContact.Email
+        $orderparam.TechnicalContact.Phone = $orderparam.AdminContact.Phone
+        $orderparam.TechnicalContact.Fax = '' ##NEED TO GET INFO
+	
+        $orderparam.TechnicalContact.OrganizationName = '' ##NEED TO GET INFO
+        $orderparam.TechnicalContact.AddressLine1 = '' ##NEED TO GET INFO
+        $orderparam.TechnicalContact.AddressLine2 = '' ##NEED TO GET INFO
+        $orderparam.TechnicalContact.City = '' ##NEED TO GET INFO
+        $orderparam.TechnicalContact.Region = '' ##NEED TO GET INFO
+        $orderparam.TechnicalContact.PostalCode = '' ##NEED TO GET INFO
+        $orderparam.TechnicalContact.Country = '' ##NEED TO GET INFO
+
+    
+        
+
+        $orderparam.ReserveSANCount = 0 ## NEED TO GET INFO
+        $orderparam.AddInstallationSupport = $false
+        $orderparam.EmailLanguageCode = 'en'
+        $orderparam.FileAuthDVIndicator = $false ##NEED TO GET INFO
+        $orderparam.CNAMEAuthDVIndicator = $false ##NEED TO GET INFO
+        $orderparam.HTTPSFileAuthDVIndicator = $false ##NEED TO GET INFO
+        $orderparam.SignatureHashAlgorithm = '' # API will decide automatically best mode
+        $orderparam.CertTransparencyIndicator = $true
+        $orderparam.RenewalDays = 30
+
+        $body = (ConvertTo-Json $orderparam) 	
+    
+        # TSS Ordering
+        $uri = BaseURL 
+        $uri += '/order/neworder'
+       
+        try {
+            $response = Invoke-RestMethod -Uri $uri -Method Post -Body $body -ContentType 'application/json; charset=utf-8' 
+        } 
+        catch {
+            Write-Host "StatusCode:" $_.Exception.Response.StatusCode.value__ 
+            Write-Host "StatusDescription:" $_.Exception.Response.StatusDescription
+        }
+
+        if ($response -eq $null) {
+            $state = 'Not Valid HTTP'
+			throw $state
+        }
+        else {
+            if ($response.AuthResponse.isError -eq $true) {
+                $state = $response.AuthResponse.Message
+                throw $state                
+            }
+            else {
+                $state = $global:ResultSuccess
+                $transID = $response.TheSSLStoreOrderID
+            }
+        }
+        return @{ Result = $state; TransId = $transID}
+    }
+    else {
+        throw $ApproverResult        
+        return @{ Result = $ApproverResult; TransId = $transID}                  
+    }
+}
+
+function Submit-CsrAsNew
+{
+    Param(
+        [Parameter(Mandatory = $true, HelpMessage = "General Parameters")]
+        [System.Collections.Hashtable]$General,
+        [Parameter(Mandatory = $true, HelpMessage = "Function Specific Parameters")]
+        [System.Collections.Hashtable]$Specific
+    )
+    return TSS-PlaceOrder  $General $Specific $false
+}
+
+
+
+function Submit-CsrAsRenewal
+{
+    Param(
+        [Parameter(Mandatory=$true,HelpMessage="General Parameters")]
+        [System.Collections.Hashtable]$General,
+        [Parameter(Mandatory=$true,HelpMessage="Function Specific Parameters")]
+        [System.Collections.Hashtable]$Specific
+    )
+
+    return TSS-PlaceOrder  $General $Specific $true
+}
+
+
+function Submit-CsrAsReplacement
+{
+    Param(
+        [Parameter(Mandatory=$true,HelpMessage="General Parameters")]
+        [System.Collections.Hashtable]$General,
+        [Parameter(Mandatory=$true,HelpMessage="Function Specific Parameters")]
+        [System.Collections.Hashtable]$Specific
+    )
+  
+     
+    $username = $General['UserName']
+    $userpass = $General['UserPass']   
+   
+    $ApproverResult = GetApproverList  $username $userpass $global:tss_ProductCode  $Specific['SubjectDN']['CN'].ToString() $General['CustomFields']['Approver Email'].ToString()
+   
+    $transID = "Not Set"
+    if ($ApproverResult -eq $global:ResultSuccess) {
+    
+        $reissueParam = Get-ReissueParam
+        
+        $reissueParam.AuthRequest.PartnerCode  = $username
+	    $reissueParam.AuthRequest.AuthToken = $userpass
+	    $reissueParam.AuthRequest.ReplayToken = [System.Guid]::NewGuid().ToString()
+	    $reissueParam.AuthRequest.UserAgent = $global:tss_UserAgent	    
+     
+        $reissueParam.TheSSLStoreOrderID = $Specific['CertId'].ToString()
+        $CSR = $Specific['Pkcs10']
+        $CSR = $CSR.replace("`n", "").replace("`r", "")	
+        $reissueParam.CSR = $CSR 
+        
+        $reissueParam.WebServerType = 'OTHER'
+        $reissueParam.DNSNames = "" #$Specific['SubjAltNames']['DNS']
+        $reissueParam.isRenewalOrder = $false
+        $reissueParam.SpecialInstructions = ""
+        $reissueParam.isWildCard = $false
+        $reissueParam.ReissueEmail = $General['CustomFields']['Approver Email'].ToString()
+        $reissueParam.PreferEnrollmentLink = $false
+        $reissueParam.SignatureHashAlgorithm = ""
+        $reissueParam.FileAuthDVIndicator = $false
+        $reissueParam.HTTPSFileAuthDVIndicator = $false
+        $reissueParam.CNAMEAuthDVIndicator = $false
+        $reissueParam.ApproverEmails = $General['CustomFields']['Approver Email'].ToString()
+        $reissueParam.DateTimeCulture = "en-US"
+
+               
+        $body = (ConvertTo-Json $reissueParam) 	            
+        # TSS Reissue
+        $uri = BaseURL 
+        $uri += '/order/reissue'
+       
+
+        try {
+            $response = Invoke-RestMethod -Uri $uri -Method Post -Body $body -ContentType 'application/json; charset=utf-8' 
+        } 
+        catch {
+            Write-Host "StatusCode:" $_.Exception.Response.StatusCode.value__ 
+            Write-Host "StatusDescription:" $_.Exception.Response.StatusDescription
+        }
+
+        if ($response -eq $null) {
+            $state = 'Not Valid HTTP' 
+        }
+        else {
+            if ($response.AuthResponse.isError -eq $true) {
+                $state = $response.AuthResponse.Message
+                throw $state
+            }
+            else {
+                $state = $global:ResultSuccess
+                $transID = $response.TheSSLStoreOrderID
+            }
+        }
+        return @{ Result = $state; TransId = $transID}
+    }
+    else
+    {
+         throw $ApproverResult
+        # break
+         return @{ Result = $ApproverResult; TransId = $transID}
+    }
+    
+    return @{ Result="NotSuccess";TransId="" }
+}
+
+
+
+function Approve-Request
+{
+    Param(
+        [Parameter(Mandatory=$true,HelpMessage="General Parameters")]
+        [System.Collections.Hashtable]$General,
+        [Parameter(Mandatory=$true,HelpMessage="Function Specific Parameters")]
+        [System.Collections.Hashtable]$Specific
+    )
+    return @{ Result="Success" }
+}
+
+
+function Retrieve-Certificate {
+    Param(
+        [Parameter(Mandatory = $true, HelpMessage = "General Parameters")]
+        [System.Collections.Hashtable]$General,
+        [Parameter(Mandatory = $true, HelpMessage = "Function Specific Parameters")]
+        [System.Collections.Hashtable]$Specific
+    )
+    $username = $General['UserName']
+    $userpass = $General['UserPass']  
+   
+    $stat = $global:PendingState
+    if ( $Specific.CertId -gt 0) {
+
+        $stat = Get-OrderStatus $username $userpass $Specific.CertId
+        if ($stat -eq $global:IssuedState) {
+            return $(GetCertificate $username $userpass $Specific.CertId)
+        }
+        else {           
+        $enc = [system.Text.Encoding]::UTF8        
+        $bytes = $enc.GetBytes("Opps! Certiticate status is pending...")
+		Return @{ Result="NotSuccess";Status=$global:PendingState;Pkcs7=$bytes; }		   
+        }      
+    }
+    else {
+        throw "NotSuccess: Opps! the required CertId was not provided."
+        #return @{ Result = "NorSuccess: Opps! the required CertId was not provided"; Status = $global:PendingState; }        
+        break
+    }
+    if ($stat -ne $global:IssuedState) {
+        return @{ Result = "NotSuccess"; Status = $global:PendingState; }
+    }   
+   
+}
+
+
+function Revoke-Certificate
+{
+    Param(
+        [Parameter(Mandatory=$true,HelpMessage="General Parameters")]
+        [System.Collections.Hashtable]$General,
+        [Parameter(Mandatory=$true,HelpMessage="Function Specific Parameters")]
+        [System.Collections.Hashtable]$Specific
+    )
+
+    $username = $General['UserName']
+    $userpass = $General['UserPass']  
+    
+    if ($Specific.CertId -gt 0)
+    {
+          $stat =  Get-RevokeCertificate $username $userpass $Specific.CertId
+          if($stat -eq $global:ResultSuccess)
+          {
+              return @{ Result=$global:ResultSuccess }
+          }
+          else {              
+              return @{ Result=$stat }
+          }
+    }    
+    return @{ Result="Success" }
+}
+
+
+
+function BaseURL()
+{
+	if($global:tss_mode -eq "TEST")
+	{return $global:tss_base_sandbox_url}
+	else {return $global:tss_base_live_url}
+}
+
+
+function Get-TSSStatus()
+{
+	$uri = BaseURL 
+    $uri += "/health/status"    
+    
+	$response = Invoke-RestMethod -Uri $uri -Method Get  -ContentType 'application/json; charset=utf-8' 
+	$state = ""
+	if($response.isError -eq $true)
+	{
+		$state = "NotUsed"
+	}
+	else
+	{
+		$state = "Success"
+	}
+	return $state
+}
+
+
+
+function Get-OrderParams()
+{
+
+$orderinput = @"
+{
+	"AuthRequest":{
+		"PartnerCode":"",
+		"AuthToken":"",
+		"ReplayToken":"",
+		"UserAgent":"",
+                "IPAddress":"",
+		"IsUsedForTokenSystem":false,
+                "Token":""
+	},
+	"CustomOrderID":"",
+	"ProductCode":"",
+	"ExtraProductCodes":"",
+	"OrganizationInfo":{
+		"OrganizationName":"",
+		"DUNS":"",
+		"Division":"",
+		"IncorporatingAgency":"",
+		"RegistrationNumber":"",
+		"JurisdictionCity":"",
+		"JurisdictionRegion":"",
+		"JurisdictionCountry":"",
+		"OrganizationAddress":{
+			"AddressLine1":"",
+			"AddressLine2":"",
+			"AddressLine3":"",
+			"City":"",
+			"Region":"",
+			"PostalCode":"",
+			"Country":"",
+			"Phone":"",
+			"Fax":"",
+			"LocalityName":""
+		}
+	},
+	"ValidityPeriod":0,
+	"ServerCount":0,
+	"CSR":"",
+	"DomainName":"",
+	"WebServerType":"",
+	"DNSNames":[""],
+	"isCUOrder":false,
+	"isRenewalOrder":false,
+	"SpecialInstructions":"",
+	"RelatedTheSSLStoreOrderID":"",
+	"isTrialOrder":false,
+	"AdminContact":{
+		"FirstName":"",
+		"LastName":"",
+		"Phone":"",
+		"Fax":"",
+		"Email":"",
+		"Title":"",
+		"OrganizationName":"",
+		"AddressLine1":"",
+		"AddressLine2":"",
+		"City":"",
+		"Region":"",
+		"PostalCode":"",
+		"Country":""
+	},
+	"TechnicalContact":{
+		"FirstName":"",
+		"LastName":"",
+		"Phone":"",
+		"Fax":"",
+		"Email":"",
+		"Title":"",
+		"OrganizationName":"",
+		"AddressLine1":"",
+		"AddressLine2":"",
+		"City":"",
+		"Region":"",
+		"PostalCode":"",
+		"Country":""
+	},
+	"ApproverEmail":"",
+	"ReserveSANCount":0,
+	"AddInstallationSupport":false,
+	"EmailLanguageCode":"",
+	"FileAuthDVIndicator":false,
+	"CNAMEAuthDVIndicator":false,
+    "HTTPSFileAuthDVIndicator":false,	
+	"SignatureHashAlgorithm":"",
+    "CertTransparencyIndicator":true,
+	"RenewalDays":0,
+	"DateTimeCulture":""
+}
+
+
+"@ |  ConvertFrom-Json 
+
+
+ return $orderinput
+
+}
+
+function GetApproverList ($username1,$userpass1,$productcode1,$domain1,$userApproverEmail) {
+    
+    $orderparam1 = Get-ApprovarParams    
+	$orderparam1.AuthRequest.PartnerCode  = $username1
+	$orderparam1.AuthRequest.AuthToken = $userpass1
+	$orderparam1.AuthRequest.ReplayToken = [System.Guid]::NewGuid().ToString()
+	$orderparam1.AuthRequest.UserAgent = $global:tss_UserAgent
+	$orderparam1.ProductCode = $productcode1
+	$orderparam1.DomainName = $domain1
+
+	$apbody = (ConvertTo-Json $orderparam1) 	
+    
+    $uri = BaseURL 
+    $uri += '/order/approverlist'
+	$state = 'NotUsed'
+	 
+	try 
+	{
+		$response = Invoke-RestMethod -Uri $uri -Method Post -Body $apbody -ContentType 'application/json; charset=utf-8' 
+	} 
+	catch 
+	{
+		Write-Host "StatusCode:" $_.Exception.Response.StatusCode.value__ 
+		Write-Host "StatusDescription:" $_.Exception.Response.StatusDescription
+	}
+
+	if($response -eq $null)
+	{
+		$ApprovarList = 'Not Valid HTTP'
+	}
+	else
+	{
+		if($response.AuthResponse.isError -eq $true)
+		{
+			return $response.AuthResponse.Message                        
+		}
+		else
+		{			
+            if($response.ApproverEmailList.Length -gt 0)
+            {
+                for ($i = 0; $i -lt $response.ApproverEmailList.Length - 1; $i++) {
+                      $ApprovarList += " `n => "+ $response.ApproverEmailList[$i]
+                }
+
+              if($response.ApproverEmailList -contains  $userApproverEmail)
+              {
+                    return  $global:ResultSuccess
+              }
+              else {
+                    return "OPPS! Approver email does not match. Please insert one of the below `n" + $ApprovarList
+              }                           
+            }			            
+		}
+	}
+    return $ApprovarList
+}
+
+function Get-ApprovarParams()
+{
+
+$Approvarinput = @"
+{ 
+	 "AuthRequest":{
+        "PartnerCode":"",
+        "AuthToken":"",
+        "ReplayToken":"",
+        "UserAgent":""
+    },
+    "DomainName":"",
+    "ProductCode":""
+}
+
+
+"@ |  ConvertFrom-Json 
+ return $Approvarinput
+
+}
+
+function Get-ReissueParam () {
+
+$reissueInputs = @"
+{
+
+    "AuthRequest":
+	{
+	    "PartnerCode":"",
+	    "AuthToken":"",
+	    "ReplayToken":"",
+	    "UserAgent":""	  
+	},
+	"TheSSLStoreOrderID":"",
+	"CSR":"",
+	"WebServerType":"",
+	"DNSNames":[""],
+	"isRenewalOrder":true,
+	"SpecialInstructions":"",
+	"EditSAN":[{
+		"OldValue":"",
+		"NewValue":""
+	}],
+	"DeleteSAN":[{
+		"OldValue":"",
+		"NewValue":""
+	}],
+	"AddSAN":[{
+		"OldValue":"",
+		"NewValue":""
+	}],
+	"isWildCard":false,
+	"ReissueEmail":"",
+	"PreferEnrollmentLink":false,
+	"SignatureHashAlgorithm":"",
+	"FileAuthDVIndicator":false,
+	"HTTPSFileAuthDVIndicator":false,
+	"CNAMEAuthDVIndicator":false,
+	"ApproverEmails":"",
+	"DateTimeCulture":""
+
+}
+
+"@ | ConvertFrom-Json
+
+return $reissueInputs
+
+}
+
+function  Get-DownloadCertParam () {
+    
+
+$Approvarinput = @"
+{ 
+	 "AuthRequest":{
+        "PartnerCode":"",
+        "AuthToken":"",
+        "ReplayToken":"",
+        "UserAgent":""
+    },
+    "TheSSLStoreOrderID":"",
+    "ReturnPKCS7Cert":""
+}
+
+
+"@ |  ConvertFrom-Json 
+ return $Approvarinput
+
+}
+
+function  GetCertificate ($username1,$userpass1,$TheSSLStoreID) {
+    
+    $DownloadPara = Get-DownloadCertParam    
+	$DownloadPara.AuthRequest.PartnerCode  = $username1
+	$DownloadPara.AuthRequest.AuthToken = $userpass1
+	$DownloadPara.AuthRequest.ReplayToken = [System.Guid]::NewGuid().ToString()
+	$DownloadPara.AuthRequest.UserAgent = $global:tss_UserAgent
+	$DownloadPara.TheSSLStoreOrderID = $TheSSLStoreID
+	$DownloadPara.ReturnPKCS7Cert = $true
+
+    $apbody = (ConvertTo-Json $DownloadPara) 	
+    
+    $uri = BaseURL 
+    $uri += '/order/download'
+	
+       
+    try 
+	{
+		$response = Invoke-RestMethod -Uri $uri -Method Post -Body $apbody -ContentType 'application/json; charset=utf-8' 
+	} 
+	catch 
+	{
+		Write-Host "StatusCode:" $_.Exception.Response.StatusCode.value__ 
+		Write-Host "StatusDescription:" $_.Exception.Response.StatusDescription
+	}
+    $stat = ""
+    
+	if($response -eq $null)
+	{
+		$stat = 'Not Valid HTTP'
+	}
+	else
+	{
+		if($response.AuthResponse.isError -eq $true)
+		{
+			$stat = $response.AuthResponse.Message    
+            Return @{ Result="NotSuccess" + $stat;Status="Pending" }
+            break
+		}
+		else
+		{
+
+             foreach($k in $response.Certificates)
+                {
+                    if($k.FileName -eq "PKCS7Certificate.p7b")
+                    {
+                        $cdata = $k.FileContent
+                        break
+                    }
+                }
+        <#throw $bytes
+        $vrld =  [System.Text.Encoding]::UTF8.GetString($bytes)        
+        $vrld | Out-File ($MyInvocation.MyCommand.Path +  "PKCS7Certificate_v.p7b")
+        $cdata | Out-File ($MyInvocation.MyCommand.Path +  "PKCS7Certificate.p7b") #>
+        $enc = [system.Text.Encoding]::UTF8        
+        $bytes = $enc.GetBytes($cdata)             
+        #Return @{ Result="Success";Status="Issued";Pkcs7=$bytes;DiscardPrivateKeyAndCsr=$true }
+		Return @{ Result="Success";Status="Issued";Pkcs7=$bytes; }
+        
+		}
+	}
+
+}
+
+function  Get-OrderStatusParam () {
+    
+
+$OrderStatusinput = @"
+{ 
+	 "AuthRequest":{
+        "PartnerCode":"",
+        "AuthToken":"",
+        "ReplayToken":"",
+        "UserAgent":""
+    },
+    "TheSSLStoreOrderID":""    
+}
+
+
+"@ |  ConvertFrom-Json 
+ return $OrderStatusinput
+
+}
+
+function Get-OrderStatus($username1,$userpass1,$TheSSLStoreOrderID) {
+    
+    $OrderStatusinput = Get-OrderStatusParam    
+	$OrderStatusinput.AuthRequest.PartnerCode  = $username1
+	$OrderStatusinput.AuthRequest.AuthToken = $userpass1
+	$OrderStatusinput.AuthRequest.ReplayToken = [System.Guid]::NewGuid().ToString()
+	$OrderStatusinput.AuthRequest.UserAgent = $global:tss_UserAgent
+	$OrderStatusinput.TheSSLStoreOrderID = $TheSSLStoreOrderID
+	
+
+    $apbody = (ConvertTo-Json $OrderStatusinput) 	
+    
+    $uri = BaseURL 
+    $uri += '/order/status'
+	$state = 'NotUsed'
+       
+    try 
+	{
+		$response = Invoke-RestMethod -Uri $uri -Method Post -Body $apbody -ContentType 'application/json; charset=utf-8' 
+	} 
+	catch 
+	{
+		Write-Host "StatusCode:" $_.Exception.Response.StatusCode.value__ 
+		Write-Host "StatusDescription:" $_.Exception.Response.StatusDescription
+	}
+    $stat = ""
+    
+	if($response -eq $null)
+	{
+		$stat = 'Not Valid HTTP'
+	}
+	else
+	{
+		if($response.AuthResponse.isError -eq $true)
+		{
+			throw $stat = $response.AuthResponse.Message            
+            break
+		}
+		else
+		{
+    
+        if($global:MinorStatusArr -contains ($response.OrderStatus.MinorStatus.ToString().ToUpper()) -and $global:MajorStatusArr -contains $response.OrderStatus.MajorStatus.ToString().ToUpper())
+        {
+            return $global:IssuedState
+        }
+        else        
+        {
+            return $response.OrderStatus.MinorStatus.ToString()
+        }
+
+		}
+	}
+
+}
+
+
+function  Get-RevokeOrderParam () {
+    
+
+$OrderStatusinput = @"
+{ 
+	 "AuthRequest":{
+        "PartnerCode":"",
+        "AuthToken":"",
+        "ReplayToken":"",
+        "UserAgent":""
+    },
+    "TheSSLStoreOrderID":"",
+    "RefundReason":""
+}
+
+
+"@ |  ConvertFrom-Json 
+ return $OrderStatusinput
+
+}
+
+function Get-RevokeCertificate ($username1,$userpass1,$TheSSLStoreOrderID) {
+     $OrderRevokeinput = Get-RevokeOrderParam    
+	$OrderRevokeinput.AuthRequest.PartnerCode  = $username1
+	$OrderRevokeinput.AuthRequest.AuthToken = $userpass1
+	$OrderRevokeinput.AuthRequest.ReplayToken = [System.Guid]::NewGuid().ToString()
+	$OrderRevokeinput.AuthRequest.UserAgent = $global:tss_UserAgent
+	$OrderRevokeinput.TheSSLStoreOrderID = $TheSSLStoreOrderID
+	$OrderRevokeinput.RefundReason = ""
+
+    $apbody = (ConvertTo-Json $OrderRevokeinput) 	
+    
+    $uri = BaseURL 
+    $uri += '/order/refundrequest'
+	$state = 'NotUsed'
+       
+    try 
+	{
+		$response = Invoke-RestMethod -Uri $uri -Method Post -Body $apbody -ContentType 'application/json; charset=utf-8' 
+	} 
+	catch 
+	{
+		Write-Host "StatusCode:" $_.Exception.Response.StatusCode.value__ 
+		Write-Host "StatusDescription:" $_.Exception.Response.StatusDescription
+	}
+    $stat = ""
+    
+	if($response -eq $null)
+	{
+		$stat = 'Not Valid HTTP'
+		return $stat
+	}
+	else
+	{
+		if($response.AuthResponse.isError -eq $true)
+		{
+			return $response.AuthResponse.Message                        
+		}
+		else
+		{    
+            return $global:ResultSuccess
+		}
+	}
+}

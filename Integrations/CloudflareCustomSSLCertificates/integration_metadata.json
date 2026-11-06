@@ -1,0 +1,56 @@
+{
+  "name": "Cloudflare Custom SSL Certificates",
+  "description": "Set Cloudflare's private CA as K8s cluster private CA to enable multiple signing keys",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Load Balancer & ADC"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Automation/Orchestration",
+    "CDN"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "CloudFlare",
+    "Adaptable Framework - CA"
+  ],
+  "logoFile": "cloudflare.png",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Cloudflare Custom SSL Certificates Integration Guide",
+          "description": "Complete integration guide for Cloudflare Custom SSL Certificates",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/cloudflare/"
+        },
+        {
+          "title": "Provisioning Certificates to Cloudflare",
+          "description": "Step-by-step guide for certificate provisioning",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-cloudflare/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Cloudflare Custom SSL Certificates Integration Guide",
+          "description": "Complete integration guide for Cloudflare Custom SSL Certificates",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/cloudflare"
+        }
+      ]
+    }
+  ],
+  "price": "Free"
+}

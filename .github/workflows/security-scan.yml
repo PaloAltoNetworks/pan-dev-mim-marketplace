@@ -1,0 +1,156 @@
+# Content-level security scanning for contributed integration files.
+#
+# Contributors ship real scripts inside Integrations/*/ (PowerShell adaptable
+# drivers, Python/shell helpers) — .ps1 is the dominant file type in this repo.
+# Nothing else in CI inspects file *contents* — pr-checks.yml only checks JSON
+# validity / logo size / directory naming, and validate-integration.js only
+# blocks a fixed list of forbidden *filenames*. This workflow adds four
+# read-only scanners on top of that.
+#
+# Deliberately runs on `pull_request` (checks out PR head), same trust model
+# as pr-checks.yml: every tool here only reads file bytes, none of them ever
+# execute the scripts being scanned, so it's safe to run against untrusted
+# fork content.
+#
+# All three jobs are WARN-ONLY for now (`continue-on-error: true` on the scan
+# step): findings show up in the job log and step summary but do not fail the
+# check run or block merge. This is intentional while the team calibrates for
+# false positives. To promote a job to blocking later: drop its
+# `continue-on-error: true`, then add that job name as a required status
+# check in the branch ruleset (a separate repo-admin action, not part of this
+# workflow file).
+name: security-scan
+
+on:
+  pull_request:
+    paths:
+      - 'Integrations/**'
+      - 'scripts/**'
+      - 'Config/**'
+
+jobs:
+  secret-scan:
+    name: secret-scan (gitleaks)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install gitleaks
+        run: |
+          GITLEAKS_VERSION=$(curl -sSf https://api.github.com/repos/gitleaks/gitleaks/releases/latest | grep '"tag_name"' | cut -d '"' -f4 | sed 's/^v//')
+          curl -sSfL "https://github.com/gitleaks/gitleaks/releases/download/v${GITLEAKS_VERSION}/gitleaks_${GITLEAKS_VERSION}_linux_x64.tar.gz" -o gitleaks.tar.gz
+          tar -xzf gitleaks.tar.gz gitleaks
+          chmod +x gitleaks
+
+      # Not the gitleaks-action wrapper: that gates on a paid license for
+      # org-owned repos. The CLI itself is MIT-licensed and free.
+      - name: Scan for hardcoded secrets
+        continue-on-error: true
+        run: |
+          ./gitleaks detect --source=. --no-git -v \
+            --report-format=json --report-path=gitleaks-report.json \
+            | tee -a "$GITHUB_STEP_SUMMARY"
+
+  malware-scan:
+    name: malware-scan (ClamAV)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ClamAV
+        # continue-on-error so a flaky install/update doesn't hard-fail this warn-only job (see
+        # file header) — clamscan just runs against whatever signature DB freshclam managed to get.
+        continue-on-error: true
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y clamav
+          # apt's postinst auto-starts the clamav-freshclam service, which immediately starts
+          # fetching definitions in the background and holds the lock on its own log file. The
+          # explicit freshclam call below races that service for the lock and loses
+          # ("Failed to lock the log file ... Resource temporarily unavailable") — stop it first.
+          sudo systemctl stop clamav-freshclam
+          sudo freshclam
+
+      - name: Scan for known malware signatures
+        continue-on-error: true
+        run: |
+          clamscan -r --no-summary -i Integrations scripts \
+            | tee -a "$GITHUB_STEP_SUMMARY"
+
+  static-analysis:
+    name: static-analysis (Semgrep)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.x'
+
+      - name: Install semgrep
+        run: pip install semgrep
+
+      # Semgrep's PowerShell ruleset is thin, so this mainly covers .py/.sh/.js
+      # contributions. .ps1 (the dominant file type here) is covered instead
+      # by the powershell-scan job below.
+      - name: Scan for suspicious code patterns
+        continue-on-error: true
+        run: |
+          semgrep scan --config=p/security-audit --config=p/secrets \
+            --disable-version-check \
+            Integrations scripts \
+            | tee -a "$GITHUB_STEP_SUMMARY"
+
+  powershell-scan:
+    name: powershell-scan (PSScriptAnalyzer + indicators)
+    runs-on: ubuntu-latest
+    permissions:
+      contents: read
+    steps:
+      - uses: actions/checkout@v4
+
+      # pwsh ships preinstalled on GitHub-hosted ubuntu-latest runners.
+      - name: Run PSScriptAnalyzer (security-relevant rules)
+        shell: pwsh
+        continue-on-error: true
+        run: |
+          if (-not (Get-PackageProvider -Name NuGet -ErrorAction SilentlyContinue)) {
+            Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201 -Force | Out-Null
+          }
+          Install-Module -Name PSScriptAnalyzer -Force -Scope CurrentUser -Repository PSGallery
+
+          $securityRules = @(
+            'PSAvoidUsingInvokeExpression',
+            'PSAvoidUsingPlainTextForPassword',
+            'PSAvoidUsingConvertToSecureStringWithPlainText',
+            'PSAvoidUsingUserNameAndPasswordParams',
+            'PSUsePSCredentialType',
+            'PSAvoidUsingComputerNameHardcoded',
+            'PSAvoidUsingWMICmdlet'
+          )
+
+          $files = Get-ChildItem -Path Integrations, scripts -Recurse -Filter *.ps1 -ErrorAction SilentlyContinue
+          if ($files) {
+            $results = Invoke-ScriptAnalyzer -Path $files.FullName -IncludeRule $securityRules -Severity Warning, Error
+            $results | Format-Table -AutoSize | Out-String | Add-Content -Path $env:GITHUB_STEP_SUMMARY
+            $results | Format-Table -AutoSize
+          } else {
+            "No .ps1 files changed" | Add-Content -Path $env:GITHUB_STEP_SUMMARY
+          }
+
+      # Grep-level check for known dropper/obfuscation indicators that
+      # PSScriptAnalyzer's lint rules don't cover (it's a style linter, not a
+      # malware scanner): dynamic code execution, download-and-run, encoded
+      # payloads, AMSI/Defender tampering, hidden-window execution.
+      - name: Scan for known dropper/obfuscation indicators
+        continue-on-error: true
+        run: |
+          PATTERN='Invoke-Expression|IEX[( ]|DownloadString|DownloadFile|FromBase64String|-[Ee]ncodedCommand|AmsiUtils|DisableRealtimeMonitoring|Add-MpPreference|Reflection\.Assembly\]::Load|Invoke-Mimikatz|WindowStyle[ ]+Hidden|bitsadmin|certutil.*-decode|Net\.WebClient'
+          echo "## PowerShell suspicious-pattern scan" >> "$GITHUB_STEP_SUMMARY"
+          grep -RInE "$PATTERN" --include="*.ps1" Integrations scripts | tee -a "$GITHUB_STEP_SUMMARY" || echo "No matches" >> "$GITHUB_STEP_SUMMARY"

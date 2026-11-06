@@ -1,0 +1,25 @@
+{
+  "name": "Apache Kafka",
+  "description": "The Venafi Kafka Connector enables real-time extraction and processing of security events from the Venafi Platform within the Kafka ecosystem.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Open Credo",
+  "categories": [
+    "Data Platform & Storage"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Data Platform"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Kafka",
+    "Other"
+  ],
+  "logoFile": "Kafka.png",
+  "price": "Free"
+}

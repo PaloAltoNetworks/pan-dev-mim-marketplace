@@ -1,0 +1,2 @@
+- Added Next-Gen Trust Security as a supported product.
+- Added official Next-Gen Trust Security documentation links for Fortinet FortiGate machine setup and certificate provisioning.

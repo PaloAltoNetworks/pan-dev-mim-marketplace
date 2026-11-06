@@ -1,0 +1,29 @@
+{
+  "name": "IdenTrust Certificate Management",
+  "description": "Inside the `IdenTrustCustomFields.ps1` script you will need to add the login information for the Venafi Trust Protection Platform server.",
+  "support": "Supported",
+  "currentVersion": "1.0",
+  "author": "IdenTrust",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "downloadFiles": [
+    "IdenTrust.ps1",
+    "IdenTrustCustomFields.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "logoFile": "IdenTrust.png",
+  "supportUrl": "https://www.identrust.com/support",
+  "price": "Free",
+  "license": "MIT"
+}

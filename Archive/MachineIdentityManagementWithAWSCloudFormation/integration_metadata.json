@@ -1,0 +1,44 @@
+{
+  "name": "Machine Identity Management with AWS CloudFormation",
+  "description": "A serverless infrastructure-as-code solution for managing policies and delivering machine identities, whenever and wherever they're needed inside your AWS accounts.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "CI/CD & DevOps"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "ADC/Load Balancing",
+    "API Gateway",
+    "Automation/Orchestration",
+    "Infrastructure-as-Code",
+    "DevOps",
+    "Cloud",
+    "CDN",
+    "Open Source"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "AWS Cloud Formation",
+    "Other"
+  ],
+  "logoFile": "AWS-Light.png",
+  "logoFileDark": "AWS-Dark.png",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md"
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md"
+    }
+  ],
+  "price": "Free"
+}

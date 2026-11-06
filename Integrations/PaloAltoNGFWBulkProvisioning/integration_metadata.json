@@ -1,0 +1,40 @@
+{
+  "name": "Palo Alto NGFW Bulk Provisioning",
+  "description": "This is an adaptable bulk provisioning driver for Palo Alto Networks NGFW. The purpose is to provision many certificates from a source Policy Folder to a target device.",
+  "support": "Community",
+  "currentVersion": "1.0",
+  "author": "Community",
+  "supportEmail": "cybr-mis.support@paloaltonetworks.com",
+  "categories": [
+    "Firewall & Network Security"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Firewall"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "documentationFile": "DOCUMENTATION.md",
+  "price": "Free",
+  "license": "MIT",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Palo Alto NGFW Bulk Provisioning Integration Guide",
+          "description": "Complete integration guide for Palo Alto NGFW Bulk Provisioning",
+          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Provision/t-Provision-BulkProvisioning-Job-creating.php?tocpath=TLS%20Protect%7CCertificate%20Management%20Guide%7CCertificate%20installation%7CInstalling%20(provisioning"
+        }
+      ],
+      "downloadFiles": [
+        "Palo Alto Networks NGFW.ps1"
+      ]
+    }
+  ]
+}

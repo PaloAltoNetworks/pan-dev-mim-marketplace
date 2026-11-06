@@ -1,0 +1,40 @@
+{
+  "name": "Octopus Deploy Step Templates",
+  "description": "Securely deploy Venafi certificates using Octopus Deploy",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Octopus Deploy",
+  "categories": [
+    "CI/CD & DevOps"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Automation/Orchestration",
+    "DevOps"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Octopus Deploy",
+    "REST"
+  ],
+  "logoFile": "OctopusDeploy.png",
+  "supportUrl": "https://octopus.com/support",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Octopus Deploy Step Templates Integration Guide",
+          "description": "Complete integration guide for Octopus Deploy Step Templates",
+          "url": "https://octopus.com/integrations/venafi"
+        }
+      ]
+    }
+  ]
+}

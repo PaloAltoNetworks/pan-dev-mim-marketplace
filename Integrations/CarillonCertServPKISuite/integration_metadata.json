@@ -1,0 +1,25 @@
+{
+  "name": "Carillon CertServ PKI Suite",
+  "description": "Automate x.509 certificate lifecycle management for IoT devices with Device Authority KeyScaler and Venafi. Enhance security, reduce costs, and streamline compliance.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Carillon Information Security",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Authority"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "CertServ PKI Suite",
+    "Adaptable Framework - CA"
+  ],
+  "logoFile": "Carillon.png",
+  "price": "Free"
+}

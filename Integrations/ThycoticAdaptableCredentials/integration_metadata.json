@@ -1,0 +1,28 @@
+{
+  "name": "Thycotic Adaptable Credentials",
+  "description": "This driver allows users to create an Adaptable Credential object in Trust Protection Platform that references `username/password` or `password` credentials stored in Thycotic Secret Store.",
+  "support": "Community",
+  "currentVersion": "1.0",
+  "author": "Community",
+  "supportEmail": "cybr-mis.support@paloaltonetworks.com",
+  "categories": [
+    "Secrets Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Secret Store",
+    "Adaptable Framework"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "downloadFiles": [
+    "ThycoticAdaptableCredential.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "price": "Free",
+  "license": "MIT"
+}

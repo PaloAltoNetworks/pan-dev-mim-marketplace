@@ -1,0 +1,26 @@
+{
+  "name": "Quantum-safe VCert",
+  "description": "ISARA's Quantum-safe VCert extends the Venafi Platform with hybrid certificates, enhancing crypto agility and protecting assets from quantum threats.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Isara",
+  "categories": [
+    "Utilities & Extensions"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Open Source",
+    "Post-Quantum Ready (PQC)"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Quantum-safe",
+    "VCert Go"
+  ],
+  "logoFile": "Venafi.png",
+  "price": "Free"
+}

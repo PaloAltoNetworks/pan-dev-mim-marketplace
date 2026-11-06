@@ -1,0 +1,26 @@
+{
+  "name": "Broadcom SSL Visibility Appliance",
+  "description": "Enhance SSL/TLS security with Broadcom's Visibility Appliance and Venafi's automated key distribution for seamless traffic inspection.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Broadcom",
+  "categories": [
+    "Firewall & Network Security"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "TLS/SSL Inspection"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "SSL Visibility Appliance",
+    "REST"
+  ],
+  "logoFile": "Broadcom.png",
+  "supportUrl": "https://support.broadcom.com",
+  "price": "Free"
+}

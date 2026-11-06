@@ -1,0 +1,26 @@
+{
+  "name": "Netscout Arbor Edge Defense",
+  "description": "Netscout Arbor Edge Defense enhances Layer 7 DDoS protection by integrating with Venafi for full traffic analysis and automated key management.",
+  "support": "Supported",
+  "currentVersion": "1.0",
+  "author": "Netscout",
+  "email": "support@venafi.com",
+  "categories": [
+    "Automation"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "scriptFiles": [
+    "Arbor-Edge-Defense.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "logoFile": "Netscout.png",
+  "supportUrl": "https://www.netscout.com/support",
+  "price": "Free"
+}

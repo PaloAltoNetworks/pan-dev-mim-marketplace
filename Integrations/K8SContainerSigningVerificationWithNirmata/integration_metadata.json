@@ -1,0 +1,52 @@
+{
+  "name": "K8S Container Signing Verification with Nirmata",
+  "description": "Enhance Kubernetes security with Nirmata's automated image verification, ensuring only verified images are deployed in your clusters.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Nirmata",
+  "categories": [
+    "Kubernetes & Containers"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Kubernetes"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Enterprise Kyverno",
+    "Other",
+    "Kyverno"
+  ],
+  "logoFile": "Kubernetes.png",
+  "supportUrl": "https://docs.nirmata.io",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Nirmata Documentation",
+          "description": "Nirmata's official product documentation",
+          "url": "https://docs.nirmata.io"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Nirmata Documentation",
+          "description": "Nirmata's official product documentation",
+          "url": "https://docs.nirmata.io"
+        }
+      ]
+    }
+  ],
+  "price": "Free"
+}

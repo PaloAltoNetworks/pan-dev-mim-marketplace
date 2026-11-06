@@ -1,0 +1,25 @@
+{
+  "name": "Axonius Cybersecurity Asset Management",
+  "description": "Axonius Cybersecurity Asset Management streamlines asset inventory, revealing unprotected devices and expired certificates to reduce cyber risks.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Axonius",
+  "categories": [
+    "Discovery & Asset Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Discovery"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Cybersecurity Asset Management",
+    "REST"
+  ],
+  "logoFile": "Axonius.png",
+  "price": "Free"
+}

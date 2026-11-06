@@ -1,0 +1,39 @@
+{
+  "name": "Palo Alto Networks Cortex Xpanse",
+  "description": "Prioritize digital certificates as a top cybersecurity asset in attack surface management",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Palo Alto Networks",
+  "categories": [
+    "Discovery & Asset Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Certificate Manager"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Cortex Xpanse",
+    "REST"
+  ],
+  "logoFile": "cortex-xpanse.png",
+  "supportUrl": "https://support.paloaltonetworks.com/",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Palo Alto Networks Cortex Xpanse Integration Guide",
+          "description": "Complete integration guide for Palo Alto Networks Cortex Xpanse",
+          "url": "https://xsoar.pan.dev/docs/reference/integrations/venafi-tls-protect"
+        }
+      ]
+    }
+  ]
+}

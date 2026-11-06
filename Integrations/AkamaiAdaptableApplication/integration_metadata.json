@@ -1,0 +1,41 @@
+{
+  "name": "Akamai Adaptable Application",
+  "description": "Automate certificate discovery and provisioning",
+  "support": "Supported",
+  "currentVersion": "4.2.6",
+  "author": "Venafi",
+  "categories": [
+    "Load Balancer & ADC"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Discovery",
+    "Automation/Orchestration",
+    "CDN"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Certificate Provisioning System",
+    "Adaptable Framework - App",
+    "Provisioning"
+  ],
+  "logoFile": "Akamai.png",
+  "downloadFiles": [
+    "AkamaiApplicationDriver_4.2.6.zip"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "price": "Free",
+  "license": "Software Tool License Agreement",
+  "licenseUrl": "https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/legal/software-tool-license-agreement.pdf",
+  "supportPrice": "Paid",
+  "supportAcquisition": {
+    "type": "contact-sales",
+    "label": "Contact Your Account Team",
+    "description": "This driver is free to download. Support is provided under a paid support subscription — contact your account team for details."
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "name": "Microsoft Intune",
+  "description": "Enhance enterprise security with Venafi and Microsoft Intune's seamless machine identity integration.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Endpoint & Device Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted",
+    "Zero Touch PKI"
+  ],
+  "tags": [
+    "Automation/Orchestration",
+    "MDM"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Intune",
+    "Other"
+  ],
+  "logoFile": "Microsoft_Azure.png",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Microsoft Intune Integration Guide",
+          "description": "Complete integration guide for Microsoft Intune",
+          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/ClientProtect/t-EntMob-intune.php"
+        }
+      ]
+    },
+    {
+      "product": "Zero Touch PKI",
+      "overviewFile": "OVERVIEW-ztpki.md",
+      "documentationLinks": [
+        {
+          "title": "Microsoft Intune Integration Guide",
+          "description": "Complete integration guide for Microsoft Intune",
+          "url": "https://docs.cyberark.com/mis-saas/ztpki/connectors/integrating-microsoft-intune/"
+        }
+      ]
+    }
+  ],
+  "price": "Free"
+}

@@ -1,0 +1,26 @@
+{
+  "name": "Mainframe Enterprise Connector",
+  "description": "Automates machine identities management on mainframe systems",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "BMC Software, Inc. - Technology Partner",
+  "categories": [
+    "Data Platform & Storage"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Data Platform"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "OS/390 (Z/OS)",
+    "Adaptable Framework - App"
+  ],
+  "logoFile": "Venafi.png",
+  "supportUrl": "https://www.bmc.com/support/support-central.html",
+  "price": "Free"
+}

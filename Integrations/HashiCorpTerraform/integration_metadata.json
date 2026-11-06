@@ -1,0 +1,64 @@
+{
+  "name": "HashiCorp Terraform",
+  "description": "A Terraform Provider that helps DevOps go faster by reducing time spent on machine identity processes",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "CI/CD & DevOps"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Infrastructure-as-Code",
+    "DevOps"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "HashiCorp Terraform",
+    "VCert Go"
+  ],
+  "logoFile": "Terraform.png",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "HashiCorp Terraform Integration Guide",
+          "description": "Complete integration guide for HashiCorp Terraform",
+          "url": "https://registry.terraform.io/providers/Venafi/venafi/latest/docs"
+        }
+      ]
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "HashiCorp Terraform Integration Guide",
+          "description": "Complete integration guide for HashiCorp Terraform",
+          "url": "https://registry.terraform.io/providers/Venafi/venafi/latest/docs"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "HashiCorp Terraform Integration Guide",
+          "description": "Complete integration guide for HashiCorp Terraform",
+          "url": "https://registry.terraform.io/providers/Venafi/venafi/latest/docs"
+        }
+      ]
+    }
+  ],
+  "price": "Free"
+}

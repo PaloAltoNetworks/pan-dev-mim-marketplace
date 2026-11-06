@@ -1,0 +1,27 @@
+{
+  "name": "Check Point GAIA Portal Management",
+  "description": "Check Point GAIA Portal Management integration for Certificate Manager Self-Hosted.",
+  "support": "Supported",
+  "currentVersion": "1.0",
+  "author": "Check Point",
+  "categories": [
+    "Firewall & Network Security"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Firewall"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "downloadFiles": [
+    "CheckPoint-GAIA-Portal-AdaptableApp.ps1"
+  ],
+  "supportUrl": "https://supportcenter.checkpoint.com/",
+  "logoFile": "logo.svg",
+  "price": "Free",
+  "license": "MIT"
+}

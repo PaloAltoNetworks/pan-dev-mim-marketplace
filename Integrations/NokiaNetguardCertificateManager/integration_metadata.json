@@ -1,0 +1,38 @@
+{
+  "name": "Nokia Netguard Certificate Manager",
+  "description": "Nokia Netguard Certificate Manager is an open-source Kubernetes CA for issuing and managing secure certificates in cloud-native environments.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Nokia NA",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Certificate Authority",
+    "DevOps",
+    "Kubernetes",
+    "Open Source"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Netguard Certificate Manager",
+    "Other"
+  ],
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md"
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md"
+    }
+  ],
+  "price": "Free"
+}

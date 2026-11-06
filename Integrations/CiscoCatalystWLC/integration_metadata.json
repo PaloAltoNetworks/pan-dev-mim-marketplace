@@ -1,0 +1,22 @@
+{
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Community",
+  "supportEmail": "cybr-mis.support@paloaltonetworks.com",
+  "categories": [
+    "Firewall & Network Security"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Network Infrastructure"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [],
+  "price": "Free",
+  "name": "Cisco Catalyst WLC Integration",
+  "description": "Automated Cisco Catalyst Certificate Provisioning for Certificate Manager (Self-Hosted)"
+}

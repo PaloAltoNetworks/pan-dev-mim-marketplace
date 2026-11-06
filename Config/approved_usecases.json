@@ -1,0 +1,8 @@
+{
+  "description": "Approved useCases for integration_metadata.json. This describes the machine-identity workflow the integration participates in, not the kind of system it connects to — that is `categories`. Deliberately small: almost every listing is Certificate Lifecycle Management. Unknown values are a warning, not an error, so new ones can be proposed in a PR; a CODEOWNER must approve additions here.",
+  "approved_list": [
+    "Certificate Lifecycle Management",
+    "Code Signing",
+    "SSH Key Management"
+  ]
+}

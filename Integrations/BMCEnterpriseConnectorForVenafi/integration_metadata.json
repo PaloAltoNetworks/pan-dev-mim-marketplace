@@ -1,0 +1,41 @@
+{
+  "name": "BMC Enterprise Connector for Venafi",
+  "description": "Adaptable Driver for BMC's Enterprise Connector for Venafi, providing certificate management for RACF, TSS, and ACF2 environments on z/OS.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "BMC Software",
+  "categories": [
+    "Data Platform & Storage"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Data Platform"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "OS/390 (Z/OS)",
+    "RACF",
+    "TSS",
+    "ACF2",
+    "Adaptable Framework - App"
+  ],
+  "supportUrl": "https://www.bmc.com/support/support-central.html",
+  "price": "Free",
+  "license": "MIT",
+  "downloadFiles": [
+    "EC for Venafi SPE2304.ps1",
+    "EC for Venafi SPE2307.ps1",
+    "EC for Venafi SPE2310.ps1",
+    "EC for Venafi SPE2401.ps1",
+    "EC for Venafi SPE2404.ps1",
+    "EC for Venafi SPE2407.ps1",
+    "EC for Venafi SPE2410.ps1",
+    "EC for Venafi SPE2501.ps1",
+    "EC for Venafi SPE2504.ps1",
+    "EC for Venafi SPE2507.ps1"
+  ]
+}

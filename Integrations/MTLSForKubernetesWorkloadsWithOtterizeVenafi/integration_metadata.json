@@ -1,0 +1,65 @@
+{
+  "name": "mTLS for Kubernetes workloads with Otterize & Venafi",
+  "description": "Venafi & Otterize Integration for secure identity management",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Otterize",
+  "categories": [
+    "Kubernetes & Containers"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Authentication",
+    "Automation/Orchestration",
+    "Kubernetes"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Workloads",
+    "Other"
+  ],
+  "logoFile": "Otterize.png",
+  "supportUrl": "https://docs.otterize.com",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Otterize Documentation",
+          "description": "Otterize's official product documentation",
+          "url": "https://docs.otterize.com"
+        }
+      ]
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Otterize Documentation",
+          "description": "Otterize's official product documentation",
+          "url": "https://docs.otterize.com"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Otterize Documentation",
+          "description": "Otterize's official product documentation",
+          "url": "https://docs.otterize.com"
+        }
+      ]
+    }
+  ],
+  "price": "Free"
+}

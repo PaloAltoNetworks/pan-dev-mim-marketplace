@@ -1,0 +1,44 @@
+{
+  "name": "Oracle HTTP Server",
+  "description": "Automate TLS identity management for Oracle HTTP Server, ensuring high availability and eliminating risks from human error.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Oracle",
+  "categories": [
+    "Web Server"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "Web Server"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "HTTP Server",
+    "Adaptable Framework - App"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "logoFile": "Oracle.png",
+  "supportUrl": "https://support.oracle.com",
+  "price": "Free",
+  "license": "MIT",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Oracle HTTP Server Integration Guide",
+          "description": "Complete integration guide for Oracle HTTP Server",
+          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/cco-drivers-AdaptableApp-Overview.php?Highlight=adaptable%20app"
+        }
+      ],
+      "downloadFiles": [
+        "Oracle HTTP Server.ps1"
+      ]
+    }
+  ]
+}

@@ -1,0 +1,25 @@
+{
+  "name": "APIIDA API Gateway Manager",
+  "description": "APIIDA API Gateway Manager simplifies API operations with scalable management, traffic prioritization, and seamless integration for secure, automated deployments.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Boomi",
+  "categories": [
+    "API Gateway & WAF"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "API Gateway"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "API Gateway Manager",
+    "REST"
+  ],
+  "logoFile": "APIIDA.png",
+  "price": "Free"
+}

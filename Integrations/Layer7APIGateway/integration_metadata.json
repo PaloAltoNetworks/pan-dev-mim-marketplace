@@ -1,0 +1,30 @@
+{
+  "name": "Layer7 API Gateway",
+  "description": "Integrate and automate machine identity management with Broadcom Layer7 API Gateway for enhanced security, scalability, and reduced costs.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Broadcom",
+  "categories": [
+    "API Gateway & WAF"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "API Gateway"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "API Gateway",
+    "Adaptable Framework - App"
+  ],
+  "downloadFiles": [
+    "Broadcom Layer7 API Gateway.ps1"
+  ],
+  "documentationFile": "DOCUMENTATION.md",
+  "logoFile": "Broadcom.png",
+  "price": "Free",
+  "license": "MIT"
+}

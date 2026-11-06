@@ -1,0 +1,68 @@
+{
+  "name": "NetScaler ADC",
+  "description": "Seamlessly automate HTTPS key and certificate management with Venafi Control Plane integration for NetScaler ADC, enhancing security and scalability.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Load Balancer & ADC"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "ADC/Load Balancing"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Netscaler",
+    "REST"
+  ],
+  "logoFile": "netscaler.png",
+  "supportUrl": "https://community.cyberark.com/s/",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "NetScaler ADC Integration Guide",
+          "description": "Complete integration guide for NetScaler ADC",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/citrix-adc/"
+        },
+        {
+          "title": "Provisioning Certificates \u2014 NetScaler ADC",
+          "description": "Step-by-step guide for certificate provisioning",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-citrix-adc/"
+        }
+      ]
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "NetScaler ADC Integration Guide",
+          "description": "Complete integration guide for NetScaler ADC",
+          "url": "https://docs.venafi.com/Docs/26.1/TopNav/Content/Drivers/cco-Netscaler-AppDriverConfig-tpp.php"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "NetScaler ADC Integration Guide",
+          "description": "Complete integration guide for NetScaler ADC",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/citrix-adc"
+        }
+      ]
+    }
+  ],
+  "price": "Free"
+}

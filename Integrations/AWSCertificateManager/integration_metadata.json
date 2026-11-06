@@ -1,0 +1,58 @@
+{
+  "name": "AWS Certificate Manager",
+  "description": "Streamline TLS/SSL certificate management in AWS with Venafi integration, ensuring automated lifecycle management and enhanced security compliance.",
+  "support": "Supported",
+  "currentVersion": "1.0.1",
+  "author": "Amazon",
+  "categories": [
+    "Certificate Authority"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Certificate Manager Self-Hosted",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Certificate Authority",
+    "Cloud"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Certificate Manager",
+    "REST"
+  ],
+  "logoFile": "AWS-Light.png",
+  "logoFileDark": "AWS-Dark.png",
+  "supportUrl": "https://aws.amazon.com/contact-us/",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "AWS Certificate Manager Integration Guide",
+          "description": "Complete integration guide for AWS Certificate Manager",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/integrations/Aws/aws-acm/"
+        }
+      ]
+    },
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "AWS Certificate Manager CA Template Driver",
+          "description": "Driver documentation for using AWS Certificate Manager as a CA template in the Self-Hosted platform",
+          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/cco-Amazon-AWSCertMngr-CATemplate-about.php"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md"
+    }
+  ],
+  "price": "Free"
+}

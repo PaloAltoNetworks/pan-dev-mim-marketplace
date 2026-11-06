@@ -1,0 +1,26 @@
+{
+  "name": "Swimlane",
+  "description": "Swimlane and Venafi integrate to automate machine identity management, streamlining alert responses and reducing security risks with customizable workflows.",
+  "support": "Community",
+  "currentVersion": "1.0.0",
+  "author": "Swimlane Inc",
+  "categories": [
+    "ITSM & Workflow"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted"
+  ],
+  "tags": [
+    "GRC",
+    "SOAR"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Swimlane Platform",
+    "REST"
+  ],
+  "logoFile": "Swimlane.png",
+  "price": "Free"
+}
