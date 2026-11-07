@@ -109,10 +109,13 @@ function resolveField(meta, field) {
 // `defaults` is a retired schema tier (see resolveField above) — warn rather than error, since
 // a stray `defaults` block is harmless (just silently unread), and an in-flight PR opened before
 // the retirement shouldn't suddenly fail validation.
-function warnOnDeprecatedDefaults(dir, meta) {
-  if (meta.defaults && typeof meta.defaults === 'object') {
-    warn(dir, `"defaults" is deprecated and no longer read — move its keys (${Object.keys(meta.defaults).join(', ')}) to the top level`);
-  }
+// The site generator resolves each field as productVariants entry, then root, then its own
+// default, and never reads a `defaults` object, so anything in one is silently dropped.
+function rejectDefaultsBlock(dir, meta) {
+  if (meta.defaults === undefined) return;
+  const keys = meta.defaults && typeof meta.defaults === 'object' ? Object.keys(meta.defaults) : [];
+  const moved = keys.length ? ` (${keys.join(', ')})` : '';
+  error(dir, `"defaults" is not supported and the site ignores it — move its fields${moved} to the root level (shared by all products) or into a productVariants entry`);
 }
 
 // Validates a supportPrice/supportAcquisition pair — the "who pays for support" analog of
@@ -398,7 +401,7 @@ function validateDirectory(dir) {
   }
 
   acceptLegacyVocabulary(dir, meta);
-  warnOnDeprecatedDefaults(dir, meta);
+  rejectDefaultsBlock(dir, meta);
   validateMetadata(dir, meta);
   validateVersioning(dir, meta);
 
