@@ -1,6 +1,6 @@
 # MIM Marketplace — Integration Repository
 
-This is the single repository for all integrations listed on the [MIM Marketplace](https://pan.dev/mim).
+This is the single repository for all integrations listed on the [MIM Marketplace](https://mim.pan.dev/marketplace).
 
 ## What lives here
 
@@ -75,10 +75,6 @@ All integrations live in this repository. The `price` field and optional `acquis
 | Free | `"Free"` | Download or documentation link |
 | Paid (Contact Partner) | `"Paid"` + `acquisition.type: "contact-partner"` | Partner contact button |
 | Paid (Contact Sales) | `"Paid"` + `acquisition.type: "contact-sales"` | Sales contact button |
-
-## Sync
-
-Changes merged to `main` automatically sync to the MIM Marketplace site within 30 minutes via a webhook to the internal build pipeline.
 
 ## License
 
