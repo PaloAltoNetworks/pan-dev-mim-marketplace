@@ -332,3 +332,14 @@ test('licenseUrl without license errors', () => {
     cleanup(dir);
   }
 });
+
+test('a "defaults" object errors and names its fields', () => {
+  const dir = makeFixture({ defaults: { supportUrl: 'https://example.com/support' } });
+  try {
+    const { status, stdout } = runValidator(dir);
+    assert.notEqual(status, 0);
+    assert.match(stdout, /"defaults" is not supported.*\(supportUrl\)/);
+  } finally {
+    cleanup(dir);
+  }
+});
