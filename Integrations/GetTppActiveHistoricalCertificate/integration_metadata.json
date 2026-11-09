@@ -1,12 +1,13 @@
 {
   "name": "Get-TppActiveHistoricalCertificate",
+  "listingType": "tool",
   "description": "**Note: this script can be used, but it has been added to VenafiPS as Search-TppHistory with the ability to search on all attributes, not just active.**",
   "support": "Community",
   "currentVersion": "1.0",
   "author": "Community",
   "supportEmail": "cybr-mis.support@paloaltonetworks.com",
   "categories": [
-    "Utilities & Extensions"
+    "Discovery & Asset Management"
   ],
   "products": [
     "Certificate Manager Self-Hosted"

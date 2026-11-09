@@ -45,6 +45,7 @@ const approvedCategories = loadApproved('approved_categories.json');
 const approvedTags = loadApproved('approved_tags.json');
 const approvedUseCases = loadApproved('approved_usecases.json');
 const approvedProducts = loadApproved('approved_products.json');
+const approvedListingTypes = loadApproved('approved_listing_types.json');
 
 const REQUIRED_FIELDS = ['name', 'description', 'products', 'price'];
 const VALID_PRICES = ['Free', 'Paid', 'Paid (Contact Partner)', 'Paid (Contact Sales)'];
@@ -270,6 +271,23 @@ function validateMetadata(dir, meta) {
         error(dir, `Category "${cat}" is not in approved_categories.json`);
       }
     }
+  }
+
+  // listingType: what kind of listing this is. Absent means "integration". Root-level only,
+  // because the type describes the whole listing, not one product's variant of it.
+  if (meta.listingType !== undefined) {
+    if (typeof meta.listingType !== 'string') {
+      error(dir, '"listingType" must be a string, e.g. "tool"');
+    } else if (approvedListingTypes && !approvedListingTypes.has(meta.listingType)) {
+      error(dir, `listingType "${meta.listingType}" is not in approved_listing_types.json (accepted: ${[...approvedListingTypes].join(', ')})`);
+    }
+  }
+  if (Array.isArray(meta.productVariants)) {
+    meta.productVariants.forEach((v, i) => {
+      if (v && v.listingType !== undefined) {
+        warn(dir, `productVariants[${i}] sets "listingType", which is root-level only and ignored per variant`);
+      }
+    });
   }
 
   // useCases stay a warning so contributors can propose new ones.

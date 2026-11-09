@@ -1,12 +1,13 @@
 {
   "name": "Auto-Approve by CA Template",
+  "listingType": "tool",
   "description": "The CAAutoApproval.ps1 PowerShell script is used by an Adaptable Workflow object in TPP. The script evaluates the location of an X509 certificate object's CA template to determine if the residing parent policy folder DN matches the designated CA t...",
   "support": "Community",
   "currentVersion": "1.0",
   "author": "Community",
   "supportEmail": "cybr-mis.support@paloaltonetworks.com",
   "categories": [
-    "Utilities & Extensions"
+    "ITSM & Workflow"
   ],
   "products": [
     "Certificate Manager Self-Hosted"
