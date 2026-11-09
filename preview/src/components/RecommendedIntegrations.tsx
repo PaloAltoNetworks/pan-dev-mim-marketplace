@@ -3,12 +3,13 @@ import Link from "@docusaurus/Link";
 import { ProductContext } from "./IntegrationDetail";
 import integrationsData from "../data/integrations.json";
 import { IntegrationMetadata } from "../types";
+import { integrationId } from "../utils/integrationId";
 import styles from "./RecommendedIntegrations.module.css";
 
 const integrations = integrationsData as IntegrationMetadata[];
 
 function getIntegrationRoute(integration: IntegrationMetadata): string {
-    return `/marketplace/${integration.name.replace(/[^a-zA-Z0-9]/g, "")}`;
+    return `/marketplace/${integrationId(integration)}`;
 }
 
 function calculateSimilarity(
@@ -47,7 +48,7 @@ function getRecommendations(
     maxResults: number = 4
 ): IntegrationMetadata[] {
     const current = allIntegrations.find(
-        i => i.name.replace(/[^a-zA-Z0-9]/g, "") === currentIntegrationId
+        i => integrationId(i) === currentIntegrationId
     );
 
     if (!current) return [];
