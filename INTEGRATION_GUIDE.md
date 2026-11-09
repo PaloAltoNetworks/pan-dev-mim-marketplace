@@ -39,15 +39,15 @@ Use PascalCase for integration directory names. Match the integration's official
 | `author` | No | string | Author or company name |
 | `supportEmail` | No | string | Support email. Only one of `supportUrl`/`supportEmail` is ever shown — set the one that applies; if both are set at the same level, `supportUrl` wins |
 | `price` | Yes | string | `Free` or `Paid` |
-| `categories` | No | string[] | Must be from `Config/approved_categories.json` |
+| `categories` | Yes | string[] | Exactly one value from `Config/approved_categories.json`. See [Categories, tags, and keywords](#categories-tags-and-keywords) |
 | `products` | Yes | string[] | Venafi product(s) this integration supports. Must be from `Config/approved_products.json` |
-| `tags` | No | string[] | Must be from `Config/approved_tags.json` |
+| `tags` | No | string[] | Should be from `Config/approved_tags.json` (other values are a warning). See [Categories, tags, and keywords](#categories-tags-and-keywords) |
 | `useCases` | No | string[] | Use case labels |
 | `supportUrl` | No | string | Link to issue tracker or support portal |
 | `keywords` | No | string[] | Extra search terms not shown as facets (unlike `tags`/`useCases`), useful for search-only synonyms |
 | `logoFile` | No | string | Filename of the logo image in this folder (e.g. `logo.png`). Falls back to a generic marketplace logo if omitted |
 | `logoFileDark` | No | string | Filename of a dark-mode logo variant. Falls back to `logoFile` if omitted |
-| `documentationFile` | No | string | Filename of a longer-form Documentation-tab markdown file (auto-detected as `DOCUMENTATION.md` if present) |
+| `documentationFile` | No | string | Filename of a longer-form Documentation-tab markdown file. A `DOCS-<suffix>.md` file is picked up without it, but a plain `DOCUMENTATION.md` is only used when this field names it |
 | `documentationLinks` | No | object[] | List of `{title, description?, url}` external doc links shown on the Documentation tab |
 | `resources` | No | object | Optional videos and other resources (PDFs, external links) shown on the listing. See [Resources](#resources) below |
 | `license` | No | string | Name of the license covering any `downloadFiles` in this folder, shown as the "License" row in the listing's Info sidebar, e.g. `"MIT"` or `"Software Tool License Agreement"`. See [License](#license). Root-level only |
@@ -57,6 +57,40 @@ Use PascalCase for integration directory names. Match the integration's official
 | `supportAcquisition` | Conditional | object | **Required** when `supportPrice` is `"Paid"`. Same shape as `acquisition`. See [Paid support](#paid-support) below |
 | `productVariants` | No | object[] | Per-product overrides. See [Product variants](#product-variants) |
 | `language` | No | string | ISO 639-1 code (e.g. `"ja"`) for an integration whose content is only in a non-English language. Omit for English. Shows a "`<Language>` Language Only" badge on the gallery card and detail page title — a short-term measure, not full localization. If `name` is non-ASCII, the directory name is still used for the page URL, so it must stay ASCII |
+
+### Categories, tags, and keywords
+
+These three fields look similar but do different jobs:
+
+- **`categories`** answers "what kind of system does this connect to?" Set exactly one value from the closed list below. It drives the Categories filter on the marketplace and is the highest-weighted signal in "Recommended Integrations", so a wrong value hurts discovery more than a missing one. `validate-integration.js` errors on a missing, multiple, or unrecognized category.
+- **`tags`** are secondary facets: a technology, protocol, or delivery model that cuts across categories (`Cloud`, `Kubernetes`, `Adaptable Framework`, `Open Source`). Every distinct tag becomes a row in the Tags filter, so only use one that more than one listing could plausibly carry. Unrecognized tags are a warning.
+- **`keywords`** are free-text search terms: vendor names, product names, model numbers, and anything too specific to be a facet (`ONTAP`, `PKCS#11`, `nShield`). They're searchable but never shown as a filter. When in doubt between a tag and a keyword, use a keyword.
+
+| Category | Use it for |
+|----------|------------|
+| `API Gateway & WAF` | API gateways, web application firewalls |
+| `CI/CD & DevOps` | Pipelines, config management, IaC tooling |
+| `Certificate Authority` | Public and private CAs, PKI services |
+| `Data Platform & Storage` | Databases, warehouses, storage, streaming |
+| `Discovery & Asset Management` | Scanners, inventory, attack-surface tools |
+| `Endpoint & Device Management` | MDM, endpoint agents, printers, workstations |
+| `Firewall & Network Security` | Firewalls, NGFW, TLS inspection, network gear |
+| `HSM & Key Management` | HSMs, KMS, key stores |
+| `ITSM & Workflow` | Ticketing, SOAR, notifications, RPA |
+| `Identity & Access Management` | Directories, SSO, MFA, authentication |
+| `IoT & OT` | IoT platforms, PLCs, industrial systems |
+| `Kubernetes & Containers` | Clusters, ingress controllers, admission control |
+| `Load Balancer & ADC` | Load balancers, ADCs, CDN and edge delivery |
+| `SIEM & Observability` | SIEM, logging, analytics, monitoring |
+| `Secrets Management` | Vaults, secret stores, credential providers |
+| `Utilities & Extensions` | Helper scripts, drivers, reporting add-ons |
+| `Web Server` | Apache, IIS, NGINX, Oracle HTTP Server |
+
+If your integration seems to fit two categories, choose the system it actually talks to. A Kubernetes ingress controller is `Kubernetes & Containers`, not `Load Balancer & ADC`. A code-signing integration is categorized by where it runs (CI/CD, HSM, IoT), with `Code Signing` as its use case.
+
+**`useCases`** describes the machine-identity workflow the integration takes part in, not the kind of system it connects to. The approved values are `Certificate Lifecycle Management`, `Code Signing`, and `SSH Key Management`, and almost every listing is `Certificate Lifecycle Management`. Discovery tooling is found through the `Discovery & Asset Management` category and the `Discovery` tag, not a use case. Unrecognized use cases are a warning.
+
+The approved lists live in `Config/approved_categories.json`, `Config/approved_tags.json`, and `Config/approved_usecases.json`. To add a value, open a PR against the relevant file; a CODEOWNER must approve. A new category should be able to hold at least about four listings; otherwise it belongs as a tag.
 
 ### Paid integrations
 
@@ -161,14 +195,59 @@ An integration supporting more than one product can override per-product content
 
 A variant may also override `description`, `currentVersion`, `support`, `author`, `supportUrl`,
 `supportEmail`, `price`, `supportPrice`, `supportAcquisition`, `documentationFile`, `documentationLinks`,
-`resources`, `downloadFiles`, and `primaryCta`. Anything it does not set falls back to the top level — except `documentationLinks`
-and `resources`, which are variant-only and never inherited (a shared link or video would
-otherwise show under every product tab).
+`resources`, `downloadFiles`, and `primaryCta`. Anything it does not set falls back to the top level — except `documentationLinks`,
+which is variant-only and never inherited (a shared link would otherwise show under every
+product tab), and `resources`, which is additive (see [Field resolution](#field-resolution)).
 
 `supportUrl`/`supportEmail` fall back as a single unit, not field-by-field: a variant that sets
 *either* one fully overrides the root's support contact (both of the root's fields are ignored
 for that variant). A product can only have one company behind it, so set whichever of
 `supportUrl`/`supportEmail` applies to that variant's support owner — never both.
+
+#### Field resolution
+
+For each product tab, the site resolves a field in this order:
+
+1. The value on that product's `productVariants[]` entry.
+2. The root-level value, shared by every product.
+3. A site default, when neither is set.
+
+| Field | Site default when unset |
+|-------|-------------------------|
+| `support` | `Unknown` |
+| `author` | `Unknown` |
+| `currentVersion` | `1.0.0` (the validator also warns when it's missing) |
+| `price` | `Free` |
+| `supportPrice` | `Free` |
+
+Exceptions to the simple chain:
+
+- `supportUrl` and `supportEmail` resolve as one unit, as described above.
+- `documentationLinks` is read only from a `productVariants[]` entry. It has no root fallback, and a root-level value is not shown.
+- `resources` is merged rather than overridden: root-level resources appear under every product tab, followed by that variant's own.
+- `downloadFiles` set to `[]` on a variant stops the fallback, so that variant has no download.
+- `license` and `licenseUrl` are root-level only. Values on a variant are ignored, and the validator warns.
+
+The overview and Documentation-tab files resolve by filename first:
+
+- **Overview**: `OVERVIEW-<suffix>.md`, then the variant's `overviewFile`, then `README.md`. If none exists, the tab shows "No overview documentation provided for this product."
+- **Documentation**: `DOCS-<suffix>.md`, then the variant's `documentationFile`. For a listing without `productVariants`, the root `documentationFile` counts as the variant's. A `DOCUMENTATION.md` is used only when a `documentationFile` names it.
+
+In this example, the SaaS tab shows version `2.0.0` and the Self-Hosted tab inherits `1.0.0` and `Supported` from the root:
+
+```json
+{
+  "products": ["Certificate Manager SaaS", "Certificate Manager Self-Hosted"],
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "productVariants": [
+    { "product": "Certificate Manager SaaS", "currentVersion": "2.0.0" },
+    { "product": "Certificate Manager Self-Hosted" }
+  ]
+}
+```
+
+Put values that apply to every product at the root and only the differences on each variant. [`Integrations/.template/integration_metadata.json`](Integrations/.template/integration_metadata.json) is a complete multi-product example.
 
 #### Documentation (`documentationFile` and `documentationLinks`)
 
@@ -185,8 +264,9 @@ both:
 }
 ```
 
-`documentationFile` is also auto-detected: a `DOCS-<suffix>.md` or `DOCUMENTATION.md` file in the
-folder is picked up automatically even if you don't set the field. `documentationLinks` is the
+`documentationFile` is also auto-detected: a `DOCS-<suffix>.md` file in the folder is picked up
+automatically even if you don't set the field. A plain `DOCUMENTATION.md` is not; name it in
+`documentationFile` on each variant it documents. `documentationLinks` is the
 way to list external doc links.
 
 #### Downloads (`downloadFiles`) per variant
@@ -230,9 +310,7 @@ Both fields are root-level only; a single license covers all of an integration's
 validator errors when `licenseUrl` isn't an `https` URL, when `licenseUrl` is set without `license`,
 and when a `license` other than `"MIT"` has no `licenseUrl`.
 
-PDM admins (not contributors) can also temporarily disable downloads for a specific variant via
-`docs/config/marketplace-downloads.json` in the site repo — a disabled variant shows a notice to
-contact the account team instead of its download buttons. Contributors don't edit that file.
+Marketplace admins can temporarily disable downloads for a specific variant. A disabled variant shows a notice to contact the account team instead of its download buttons.
 
 #### Primary call-to-action (`primaryCta`)
 
@@ -286,12 +364,26 @@ for that product only.
   - `resourceType: "link"` — an external link. Fields: `title`, `url`, optional `description` and
     `category` (e.g. `"Documentation"`, `"Training"`, `"Community"`).
 
+Typical uses for each type:
+
+- **Videos**: demos, setup tutorials, and overview walkthroughs.
+- **Files**: solution guides, partner briefs, and deployment or best-practice PDFs. Put a local file in the integration folder and set `url` to its filename; the site copies it and rewrites the link.
+- **Links**: product websites, support portals, and community forums.
+
+Older listings may use `resources.solutionGuides[]` and `resources.externalLinks[]`. The site still renders them, as `otherResources` entries with `resourceType` `"file"` and `"link"` respectively, but they're deprecated. Use `otherResources` for new work.
+
 ## Logos
 
 - Preferred format: PNG or SVG
 - Minimum width: 200px
 - Maximum file size: 500KB (optimize with tools like [Squoosh](https://squoosh.app/) if larger)
 - Name it `logo.png`, `logo.svg`, or use the product name (e.g., `MyProduct.png`)
+- Set `logoFile` to the filename. The site only uses the file `logoFile` names; without it the listing shows the generic marketplace logo, even if a logo image is in the folder.
+- Use a transparent background, and check that the logo is still readable at small sizes.
+
+The site normalizes every logo so the gallery looks consistent. It trims the empty border, scales the image to fit within 160x92px while keeping its aspect ratio, applies light sharpening, adds 8px of transparent padding on every side, and outputs a PNG. You don't need to pre-size your logo, but tight cropping and a transparent background give the best result.
+
+**Dark mode (optional).** If your logo is hard to read on a dark background, add a dark-mode variant (e.g. `logo-dark.png`) and set `logoFileDark` to its filename. It's normalized the same way and shown when the visitor uses the dark theme. The filename alone does nothing; without `logoFileDark` the light logo is used in both themes.
 
 ## Documentation files
 
@@ -300,7 +392,12 @@ for that product only.
 | `OVERVIEW-selfhosted.md` | Overview for self-hosted (on-prem) users |
 | `OVERVIEW-saas.md` | Overview for SaaS users |
 | `OVERVIEW-ngts.md` | Overview for Next-Gen Trust Security users |
+| `OVERVIEW-ztpki.md` | Overview for Zero Touch PKI users |
 | `README.md` | Fallback if no OVERVIEW-*.md files exist |
+| `DOCS-<suffix>.md` | Documentation-tab content for one product (same suffixes as `OVERVIEW-<suffix>.md`) |
+| `DOCUMENTATION.md` | Documentation-tab content, used only when a `documentationFile` names it |
+
+See [Field resolution](#field-resolution) for how the site picks a file for each product tab. The site drops the first line of each overview and documentation file when it's a heading, because the listing already shows the integration name as the page title.
 
 At least one documentation file is required. It should include:
 - What the integration does
@@ -308,6 +405,8 @@ At least one documentation file is required. It should include:
 - Installation steps
 - Configuration
 - Example usage
+
+For suggested structure and writing guidance, see [Writing your overview](CONTRIBUTING.md#writing-your-overview) and [Writing your documentation](CONTRIBUTING.md#writing-your-documentation) in `CONTRIBUTING.md`.
 
 ## Versioning
 

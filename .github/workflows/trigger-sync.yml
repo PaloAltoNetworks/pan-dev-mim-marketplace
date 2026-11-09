@@ -10,6 +10,8 @@ on:
     branches: [main]
     paths:
       - 'Integrations/**'
+      - 'CONTRIBUTING.md'
+      - 'INTEGRATION_GUIDE.md'
   workflow_dispatch: {}   # allow a manual re-sync from the Actions tab
 
 jobs:

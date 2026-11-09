@@ -2,6 +2,14 @@
 
 Thank you for contributing! This guide walks you through submitting a new integration or updating an existing one.
 
+## Why contribute
+
+- **Visibility**: your integration is listed and searchable alongside integrations from leading vendors and technology partners.
+- **Less to build**: the marketplace hosts your downloads, normalizes your logo, renders your docs, and handles per-product variants for you.
+- **Community**: you join the authors building the machine identity security ecosystem.
+
+You don't need to list an integration here to use it. Build for your own environment first, then share it if it's useful to others.
+
 ## Prerequisites
 
 - Node.js 20+
@@ -54,7 +62,6 @@ Acceptance records the contributor's entity name and authorized signatory. For
 contributors who work for an employer, it also records an employer counter-signature.
 Acceptance covers your later contributions too, until you end it in writing.
 
-<!-- TODO: signing link (DocuSign) -->
 Signing instructions coming soon.
 
 ### Before you submit
@@ -89,15 +96,15 @@ Every integration directory must contain:
 | `integration_metadata.json` | Yes | See schema in INTEGRATION_GUIDE.md |
 | `OVERVIEW-*.md` or `README.md` | Yes | Documentation shown on the marketplace page |
 | Logo image (`.png`, `.svg`, `.jpg`, etc.) | No | Recommended: PNG, min 200px wide — falls back to a generic logo if absent |
-| Downloadable file(s) (`scriptFiles`) | Optional | e.g. an Adaptable driver `.ps1`; can be scoped per product variant |
+| Downloadable file(s) (`downloadFiles`) | Optional | e.g. an Adaptable driver `.ps1`; can be scoped per product variant |
 | `ReleaseNotes/<version>.md` (or `ReleaseNotes/CHANGELOG.md`) | Yes | Required for a brand-new integration's initial version, and for every subsequent update — see [Writing your first release note](#writing-your-first-release-note) and [Updating an existing integration](#updating-an-existing-integration) |
 
 Each product variant always renders one **primary call-to-action**, inline next to the PRODUCT
 selector. By default it's **Download** when the variant ships a downloadable file
-(`scriptFiles`) and **View Documentation Tab** when it has documentation — clicking it switches
+(`downloadFiles`) and **View Documentation Tab** when it has documentation — clicking it switches
 to the in-page Documentation tab rather than opening a duplicate link. Override it per variant
 with `primaryCta` (`{ "type": "download|docs|link|contact-sales|contact-partner", "label": "…", "url": "…" }`).
-To ship a download on one variant but not another, set `"scriptFiles": []` on the variant that
+To ship a download on one variant but not another, set `"downloadFiles": []` on the variant that
 should have none. See [INTEGRATION_GUIDE.md](INTEGRATION_GUIDE.md) for details.
 
 ## Metadata requirements
@@ -115,9 +122,62 @@ should have none. See [INTEGRATION_GUIDE.md](INTEGRATION_GUIDE.md) for details.
 - If your integration's content is only available in a non-English language, set `language` to
   its ISO 639-1 code (e.g. `"ja"` for Japanese) — this shows a "Language Only" badge. Keep `name`
   non-ASCII if needed, but keep the directory name ASCII. See [the schema reference](INTEGRATION_GUIDE.md#field-reference).
-- Downloads can be temporarily disabled per variant by a PDM admin (not by contributors) via a
-  site-repo config file — if you see a "Downloads temporarily unavailable" notice instead of your
-  download button, that's why.
+- Marketplace admins can temporarily disable downloads for a variant. If you see a "Downloads temporarily unavailable" notice instead of your download button, that's why.
+
+## Writing your overview
+
+The overview (`OVERVIEW-<suffix>.md`, or `README.md` as a fallback) is the first thing a customer reads on your listing. It should make clear what value the integration provides and why someone would use it. Save setup steps for the Documentation tab.
+
+Focus on customer outcomes rather than feature lists. Answer what problem the integration solves, what customers can achieve with it, and what they gain. For example, write "Eliminate outages with automated certificate renewal" rather than "Supports certificate renewal."
+
+A structure that works well:
+
+1. **Opening narrative** (one or two paragraphs): the problem or opportunity, framed from the customer's point of view.
+2. **Solution highlights** (four to six bullets): the most important part. Start each bullet with an action verb (Eliminate, Streamline, Automate, Accelerate, Scale) and keep it to one or two lines. Lead with the benefit, not the implementation: "Gain visibility into certificate inventory across your infrastructure" works; "Uses REST API for communication" and "Compatible with version 2.0+" don't.
+3. **Optional sections**, as they apply:
+   - **Applicability**: the use cases or customer segments the integration fits.
+   - **Solution components**: the products involved (e.g. Certificate Manager Self-Hosted and the target system).
+   - **How it works**: a short explanation, linking to the Documentation tab or external docs for detail.
+   - **About the vendor**: a sentence or two about the company or technology, with a link.
+
+```markdown
+Organizations rely on load balancers to decrypt and inspect HTTPS traffic. As TLS use grows, managing certificates across network infrastructure gets harder. This integration automates certificate lifecycle management so security teams keep control and operations teams avoid outages.
+
+**SOLUTION HIGHLIGHTS**
+
+- **Eliminate outages** with automated certificate renewal
+- **Streamline workflows** by removing manual certificate provisioning
+- **Enforce policy** on every certificate deployed to the load balancer
+- **Gain visibility** into certificate inventory across your infrastructure
+
+**About Example Networks**
+
+Example Networks builds application delivery and security products. Learn more at [example.com](https://example.com).
+```
+
+The same customer-value focus applies to the `description` field, which appears on the gallery card. "Automate certificate lifecycle management for F5 BIG-IP load balancers using the REST API" tells a reader what they get; "Integration for F5" doesn't.
+
+## Writing your documentation
+
+Setup and configuration instructions go on the Documentation tab, in a `DOCS-<suffix>.md` file per product or a file named by `documentationFile` (see [Field resolution](INTEGRATION_GUIDE.md#field-resolution)). You can link to external documentation instead with `documentationLinks`, or do both. Suggested headings:
+
+- **Prerequisites**: versions, accounts, permissions, and network access needed.
+- **Installation**: numbered steps.
+- **Configuration**: each setting, what it does, and its default.
+- **Testing**: how to confirm the integration works.
+- **Troubleshooting**: common issues and how to resolve them.
+
+If your integration supports more than one product, make each product's documentation reflect how that product works. For example, Next-Gen Trust Security authenticates with OAuth 2.0 client credentials (a service account's client ID and secret) rather than the API key Certificate Manager SaaS uses, and the Application and Team concepts in Certificate Manager SaaS don't apply to Next-Gen Trust Security. Leave steps that don't apply out of that product's file.
+
+### Markdown that breaks rendering
+
+The site renders overviews, documentation, and release notes through MDX. It escapes curly braces, angle brackets, and unknown tags outside code automatically, but some valid-looking HTML still breaks the page:
+
+- HTML comments. Delete them.
+- Unclosed tags such as `<br>` or `<img src="...">`. Self-close them (`<br />`) or use markdown instead.
+- String `style` attributes such as `style="color: red"`. Remove them.
+
+Wrap code, placeholders, and tag names in backticks or fenced code blocks so they render as you wrote them. Previewing your integration locally (see [Preview locally](#preview-locally)) is the quickest way to catch these.
 
 ## Writing your first release note
 
@@ -200,21 +260,49 @@ node scripts/validate-integration.js Integrations/MyTool   # Validate one
 
 ## Preview locally
 
-This repo has no site build — the marketplace UI lives in the separate `pan-dev-mim` repo. To see your integration rendered on the actual site before opening a PR, clone `pan-dev-mim` as a sibling of this checkout, then sync your `Integrations/` content into it and run the docs site locally:
+The `preview/` folder runs the same rendering engine as the live marketplace against your local `Integrations/` folder, including uncommitted edits. It needs Node 20 or 22 LTS:
 
 ```bash
-# from the pan-dev-mim/docs directory
-npm run sync:local   # rsyncs ../pan-dev-mim-marketplace/Integrations/ into pan-dev-mim, uncommitted changes included
-npm start            # http://localhost:3000/marketplace
+cd preview
+npm install   # one time
+npm start     # http://localhost:3000/marketplace
 ```
 
-`sync:local` runs [`sync-integrations-local.sh`](https://github.com/PaloAltoNetworks/pan-dev-mim/blob/main/.gitlab/scripts/sync-integrations-local.sh) and mirrors whatever is on disk in your marketplace checkout right now — including uncommitted edits and any branch. This is local-dev-only: it's overwritten the next time the real sync pipeline runs, and it's separate from `npm run validate`, which you should still run here first.
+Restart `npm start` after editing your integration's files. See [preview/README.md](preview/README.md) for details. Run `npm run validate` here as well, because the preview doesn't check the schema.
+
+## Testing checklist
+
+Before you open a PR, run the validator and check your integration in a local preview:
+
+- [ ] `node scripts/validate-integration.js Integrations/MyIntegration` reports no errors
+- [ ] The integration appears in the marketplace gallery with the right category and tags
+- [ ] The logo displays correctly in the light theme, and in the dark theme if you set `logoFileDark`
+- [ ] The Overview tab renders without errors for every product
+- [ ] The Documentation tab shows the right content for every product
+- [ ] The product selector switches correctly (multi-product integrations)
+- [ ] Downloads, resources, and release notes appear where expected
+- [ ] All links work and no images are broken
 
 ## Review process
 
 1. Automated CI validates your integration (schema, logo, markdown); external contributors must have accepted the [Contributor Terms](#contributor-terms) before their PR is reviewed
 2. The `owner-approval` check auto-requests review from your integration's designated reviewer (see [Reviewer approval required to merge](#reviewer-approval-required-to-merge)); a marketplace maintainer separately reviews and approves every PR
-3. On merge, your integration syncs to the live site within ~30 minutes
+3. After merge, your integration appears on the live marketplace
+
+Reviewers commonly check:
+
+- **Metadata**: the category and tags fit (see [Categories, tags, and keywords](INTEGRATION_GUIDE.md#categories-tags-and-keywords)), the description is clear, and versions follow semantic versioning.
+- **Logo**: good quality, transparent background, readable at small sizes.
+- **Documentation**: the overview focuses on customer value, prerequisites are complete, configuration steps are clear, and troubleshooting is covered.
+- **Rendering**: every tab renders, links work, and there are no MDX errors.
+
+Address feedback by pushing more commits to the same branch; the PR updates automatically.
+
+## After your integration is merged
+
+- **Support your users.** Users may reach you through your `supportUrl` or `supportEmail`, or through GitHub issues. Aim to respond within one or two business days, and update your documentation when the same question keeps coming up.
+- **Ship updates.** Fix bugs and keep up with product API changes. Follow [Updating an existing integration](#updating-an-existing-integration) for each change.
+- **Retire it cleanly.** If you can no longer support the integration, open an issue or PR saying so, and point users to an alternative if one exists. Unsupported integrations are moved to `Archive/`, which removes them from the marketplace while keeping their history; see [Archive/README.md](Archive/README.md).
 
 ## Code of conduct
 
