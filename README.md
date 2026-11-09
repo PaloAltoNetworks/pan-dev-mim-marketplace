@@ -79,3 +79,4 @@ All integrations live in this repository. The `price` field and optional `acquis
 ## License
 
 See [LICENSE](LICENSE).
+
