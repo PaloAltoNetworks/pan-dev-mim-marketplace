@@ -12,11 +12,21 @@ Like `Archive/`, anything here sits outside `Integrations/`, so it is not synced
 git mv Integrations/<Name> Unlisted/<Name>
 ```
 
+Then add a redirect for its page to `Integrations/.route-aliases.json`, so the old URL doesn't stay live:
+
+```json
+{ "from": "/marketplace/<RouteId>", "to": "/marketplace", "reason": "unlisted — remove this entry when the listing returns" }
+```
+
+`<RouteId>` is the listing's `name` with every character that isn't a letter or digit removed.
+
 ## How to list it
 
 ```
 git mv Unlisted/<Name> Integrations/<Name>
 ```
+
+Remove its entry from `Integrations/.route-aliases.json`.
 
 Commit and merge to `main`; the next sync adds it to the site.
 
@@ -26,6 +36,7 @@ Commit and merge to `main`; the next sync adds it to the site.
 - `IDnomicAdaptableCA` (Eviden IDnomic PKI): held back pending partner confirmation. Its
   supportUrl already points at https://eviden.com/en/contact.
 - `NousNCert`: held back until the partner's site and support details are confirmed.
+- `OracleOperaAdaptableApp`: held back for now. When it returns, also remove its `/marketplace/OracleOperaAdaptableApp` entry from `Integrations/.route-aliases.json`.
 
 ## Unlisted variants
 
