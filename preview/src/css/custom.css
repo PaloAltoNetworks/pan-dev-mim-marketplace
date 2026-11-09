@@ -66,6 +66,19 @@
   width: 100%;
 }
 
+/* Phones: "Machine Identity Management" doesn't fit beside the search box, so the visible title
+   becomes "MIM". The full name stays in the DOM (font-size 0), so screen readers still get it. */
+@media (max-width: 600px) {
+  .navbar__title {
+    font-size: 0;
+  }
+
+  .navbar__title::after {
+    content: "MIM";
+    font-size: 1rem;
+  }
+}
+
 /* Documentation page layout - align with navbar */
 .main-wrapper {
   max-width: 1920px;
@@ -506,6 +519,26 @@
   margin: 0.15rem 0 0 0;
 }
 
+/* "<Language> Language Only" badge (see src/utils/languageLabel.ts) — card and detail title. */
+.language-only-badge {
+  display: inline-block;
+  margin-top: 0.3rem;
+  padding: 0.1rem 0.5rem;
+  border: 1px solid var(--ifm-color-emphasis-400);
+  border-radius: 999px;
+  font-size: 0.72rem;
+  font-weight: 600;
+  line-height: 1.4;
+  color: var(--ifm-color-content-secondary);
+  white-space: nowrap;
+}
+
+.language-only-badge--detail {
+  margin: 0 0 0 0.75rem;
+  font-size: 0.8rem;
+  vertical-align: middle;
+}
+
 /* No flex-grow here: stretching a -webkit-box past its clamped height makes Chrome draw the
    ellipsis after line 2 *and* still paint line 3. .card-pill-stack absorbs the slack instead. */
 .card-desc {
@@ -723,7 +756,9 @@
 
 .filter-pill-group {
   display: flex;
-  flex-wrap: wrap;
+  /* One pill per line (Type and Certification) */
+  flex-direction: column;
+  align-items: flex-start;
   gap: 0.4rem;
   padding-bottom: 0.85rem;
 }
@@ -1237,11 +1272,53 @@ a.detail-info-badge--paid-support {
   text-decoration: none;
 }
 
-.detail-info-badge-description {
+/* Paid Support pill tooltip: the listing's supportAcquisition.description, shown on hover or
+   keyboard focus. Right-aligned to the pill because the pill sits at the sidebar's right edge. */
+.detail-info-tooltip {
+  position: relative;
+  display: inline-flex;
+}
+
+.detail-info-badge--paid-support[tabindex],
+a.detail-info-badge--paid-support {
+  cursor: help;
+}
+
+.detail-info-tooltip__bubble {
+  position: absolute;
+  top: calc(100% + 0.4rem);
+  right: 0;
+  z-index: 10;
+  width: max-content;
+  max-width: 16rem;
+  padding: 0.5rem 0.65rem;
+  border-radius: 6px;
+  background: var(--ifm-color-emphasis-900);
+  color: var(--ifm-background-color);
   font-size: 0.78rem;
-  color: var(--ifm-color-emphasis-700);
-  margin: 0.2rem 0 0;
+  font-weight: 400;
   line-height: 1.4;
+  text-align: left;
+  text-transform: none;
+  letter-spacing: normal;
+  white-space: normal;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.12s ease, visibility 0.12s ease;
+  pointer-events: none;
+}
+
+.detail-info-tooltip:hover .detail-info-tooltip__bubble,
+.detail-info-tooltip:focus-within .detail-info-tooltip__bubble {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .detail-info-tooltip__bubble {
+    transition: none;
+  }
 }
 
 .primary-cta__description {
@@ -2922,4 +2999,99 @@ a.detail-info-badge--paid-support {
 .footer a:has(> .footer__logo),
 .footer a:has(> picture > .footer__logo) {
   opacity: 1;
+}
+
+/* API code-sample language icons. docusaurus-theme-openapi-docs hotlinks these from
+   raw.githubusercontent.com/devicons, which serves SVG as text/plain with nosniff, so browsers
+   don't render them. Local copies from the devicon npm package (MIT, see
+   static/img/code-tabs/DEVICON-LICENSE.txt). The doubled class beats the theme's selector
+   regardless of stylesheet order; the relative url() lets webpack bundle the file, so it works
+   under any baseUrl. */
+[class*='openapi-tabs__code-item--']::after {
+  background-size: contain;
+  background-position: center;
+}
+
+.openapi-tabs__code-item--python.openapi-tabs__code-item--python::after {
+  background-image: url('../../static/img/code-tabs/python-original.svg');
+}
+.openapi-tabs__code-item--go.openapi-tabs__code-item--go::after {
+  background-image: url('../../static/img/code-tabs/go-original-wordmark.svg');
+}
+.openapi-tabs__code-item--dart.openapi-tabs__code-item--dart::after {
+  background-image: url('../../static/img/code-tabs/dart-original.svg');
+}
+.openapi-tabs__code-item--javascript.openapi-tabs__code-item--javascript::after {
+  background-image: url('../../static/img/code-tabs/javascript-original.svg');
+}
+.openapi-tabs__code-item--curl.openapi-tabs__code-item--curl::after {
+  background-image: url('../../static/img/code-tabs/bash-plain.svg');
+}
+.openapi-tabs__code-item--ruby.openapi-tabs__code-item--ruby::after {
+  background-image: url('../../static/img/code-tabs/ruby-plain.svg');
+}
+.openapi-tabs__code-item--csharp.openapi-tabs__code-item--csharp::after {
+  background-image: url('../../static/img/code-tabs/csharp-original.svg');
+}
+.openapi-tabs__code-item--r.openapi-tabs__code-item--r::after {
+  background-image: url('../../static/img/code-tabs/r-original.svg');
+}
+.openapi-tabs__code-item--swift.openapi-tabs__code-item--swift::after {
+  background-image: url('../../static/img/code-tabs/swift-original.svg');
+}
+.openapi-tabs__code-item--c.openapi-tabs__code-item--c::after {
+  background-image: url('../../static/img/code-tabs/c-original.svg');
+}
+.openapi-tabs__code-item--objective-c.openapi-tabs__code-item--objective-c::after {
+  background-image: url('../../static/img/code-tabs/objectivec-plain.svg');
+}
+.openapi-tabs__code-item--ocaml.openapi-tabs__code-item--ocaml::after {
+  background-image: url('../../static/img/code-tabs/ocaml-original.svg');
+}
+.openapi-tabs__code-item--nodejs.openapi-tabs__code-item--nodejs::after {
+  background-image: url('../../static/img/code-tabs/nodejs-original.svg');
+}
+.openapi-tabs__code-item--php.openapi-tabs__code-item--php::after {
+  background-image: url('../../static/img/code-tabs/php-original.svg');
+}
+.openapi-tabs__code-item--kotlin.openapi-tabs__code-item--kotlin::after {
+  background-image: url('../../static/img/code-tabs/kotlin-original.svg');
+}
+.openapi-tabs__code-item--rust.openapi-tabs__code-item--rust::after {
+  background-image: url('../../static/img/code-tabs/rust-original.svg');
+}
+.openapi-tabs__code-item--java.openapi-tabs__code-item--java::after {
+  background-image: url('../../static/img/code-tabs/java-original.svg');
+}
+.openapi-tabs__code-item--powershell.openapi-tabs__code-item--powershell::after {
+  background-image: url('../../static/img/code-tabs/windows8-original.svg');
+}
+
+/* Tools & Utilities pill (listingType "tool") on marketplace cards and the detail-page title */
+.tool-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.3rem;
+  width: fit-content;
+  margin-top: 0.35rem;
+  padding: 0.12rem 0.55rem;
+  border-radius: 999px;
+  background: #fff1e0;
+  color: #a3510b;
+  font-size: 0.7rem;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  line-height: 1.4;
+  white-space: nowrap;
+}
+
+[data-theme='dark'] .tool-badge {
+  background: rgba(250, 140, 40, 0.18);
+  color: #ffb066;
+}
+
+.tool-badge--detail {
+  margin: 0 0 0 0.75rem;
+  font-size: 0.8rem;
+  vertical-align: middle;
 }

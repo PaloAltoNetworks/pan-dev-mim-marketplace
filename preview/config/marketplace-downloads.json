@@ -1,0 +1,11 @@
+{
+  "default": false,
+  "enabled": {
+    "ACME": ["Certificate Manager Self-Hosted"],
+    "AkamaiAdaptableApplication": ["*"],
+    "FortinetFortiGate": ["Certificate Manager Self-Hosted"],
+    "FortinetFortiManager": ["*"],
+    "FortinetFortiWeb": ["Certificate Manager Self-Hosted"],
+    "PaloAltoPanorama": ["*"]
+  }
+}

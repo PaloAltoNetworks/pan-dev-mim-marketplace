@@ -1,4 +1,5 @@
 import { IntegrationMetadata } from '../types';
+import { listingTypeOf, LISTING_TYPE_NAMES } from '../components/ListingType';
 
 function escapeCsvCell(value: string | undefined | null): string {
     if (!value) return '';
@@ -15,7 +16,8 @@ function escapeCsvCell(value: string | undefined | null): string {
 
 function generateCsvContent(integrations: IntegrationMetadata[]): string {
     const headers = [
-        'Integration Name',
+        'Name',
+        'Type',
         'Short Description',
         'Certification Status',
         'Developed By',
@@ -36,6 +38,7 @@ function generateCsvContent(integrations: IntegrationMetadata[]): string {
         products.forEach(product => {
             const row = [
                 escapeCsvCell(integration.name),
+                escapeCsvCell(LISTING_TYPE_NAMES[listingTypeOf(integration)]),
                 escapeCsvCell(integration.description),
                 escapeCsvCell(certStatus),
                 escapeCsvCell(integration.author),

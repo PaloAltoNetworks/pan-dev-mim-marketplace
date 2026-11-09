@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { IntegrationMetadata } from '../types';
 import Link from '@docusaurus/Link';
+import { integrationId } from '../utils/integrationId';
 
 interface ListBuilderItemProps {
   integration: IntegrationMetadata;
@@ -54,7 +55,7 @@ export default function ListBuilderItem({
 
       <div className="list-builder-item-content">
         <Link
-          to={`/marketplace/${integration.name.replace(/[^a-zA-Z0-9]/g, '')}`}
+          to={`/marketplace/${integrationId(integration)}`}
           className="list-builder-item-title"
         >
           {integration.name}

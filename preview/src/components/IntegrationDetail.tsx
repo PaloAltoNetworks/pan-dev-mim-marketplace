@@ -7,6 +7,10 @@ import { SHOW_LAST_UPDATED } from "../featureFlags";
 import ListBuilderSidebar from "./ListBuilderSidebar";
 import RecommendedIntegrations from "./RecommendedIntegrations";
 import { PrimaryCTA } from "./PrimaryCTA";
+import MarketplaceAnnouncements from "./MarketplaceAnnouncements";
+import { listingTypeOf, LISTING_TYPE_NAMES, ToolBadge } from "./ListingType";
+import { languageOnlyLabel } from "../utils/languageLabel";
+import { integrationId } from "../utils/integrationId";
 
 const integrations = integrationsData as IntegrationMetadata[];
 
@@ -39,6 +43,55 @@ function resolveSupportContact(
     return { supportUrl: undefined, supportEmail: undefined };
 }
 
+// license/licenseUrl are root-level only, so they're read straight off metadata rather than
+// resolved per variant. Each listing links to its own terms (Legal guidance, 2026-11-02): PS tools
+// use the PANW Software Tool License Agreement, partners MIT or their own license, community
+// listings the Marketplace TOU, all via licenseUrl. A bare "MIT" keeps pointing at the
+// marketplace repo's LICENSE (MIT). Any other license without a licenseUrl gets no link, so it can
+// never be shown as MIT by mistake.
+const MARKETPLACE_LICENSE_URL = 'https://github.com/PaloAltoNetworks/pan-dev-mim-marketplace/blob/main/LICENSE';
+
+function licenseHref(metadata: IntegrationMetadata): string | null {
+    if (metadata.licenseUrl) return metadata.licenseUrl;
+    return metadata.license?.trim().toUpperCase() === 'MIT' ? MARKETPLACE_LICENSE_URL : null;
+}
+
+const PAID_SUPPORT_TOOLTIP_ID = 'paid-support-tooltip';
+
+// The Paid Support pill. When the listing gives a supportAcquisition.description, it shows as a
+// tooltip on hover or keyboard focus instead of a paragraph under the Price row. A pill with a
+// url is a link (focusable on its own); a plain pill gets tabIndex=0 so keyboard and touch users
+// can still reach the tooltip.
+function PaidSupportBadge({ acquisition }: { acquisition?: { url?: string; label?: string; description?: string } }) {
+    const description = acquisition?.description;
+    const describedBy = description ? PAID_SUPPORT_TOOLTIP_ID : undefined;
+    const className = "detail-info-badge detail-info-badge--paid-support";
+    const badge = acquisition?.url ? (
+        <a
+            href={acquisition.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className={className}
+            aria-describedby={describedBy}
+        >
+            {acquisition.label || 'Paid Support'}
+        </a>
+    ) : (
+        <span className={className} tabIndex={description ? 0 : undefined} aria-describedby={describedBy}>
+            Paid Support
+        </span>
+    );
+    if (!description) return badge;
+    return (
+        <span className="detail-info-tooltip">
+            {badge}
+            <span role="tooltip" id={PAID_SUPPORT_TOOLTIP_ID} className="detail-info-tooltip__bubble">
+                {description}
+            </span>
+        </span>
+    );
+}
+
 function getVariantData(
     metadata: IntegrationMetadata,
     selectedProduct: string
@@ -62,6 +115,8 @@ function getVariantData(
         supportPrice: variant?.supportPrice ?? metadata.supportPrice ?? 'Free',
         supportAcquisition: variant?.supportAcquisition ?? metadata.supportAcquisition,
         primaryCta: variant?.primaryCta ?? metadata.primaryCta ?? null,
+        // Only the generator knows a variant's downloads are admin-disabled (it sets _resolved).
+        downloadsDisabled: false,
         downloadUrls: undefined,
     };
 }
@@ -106,7 +161,7 @@ export default function IntegrationDetail({
     children: React.ReactNode;
 }) {
     const metadata = integrations.find(
-        (i) => i.name.replace(/[^a-zA-Z0-9]/g, "") === id,
+        (i) => integrationId(i) === id,
     );
 
     const firstProduct = metadata?.productVariants?.[0]?.product ?? ALL_PRODUCTS[0];
@@ -121,22 +176,25 @@ export default function IntegrationDetail({
         setActiveTab("");
     };
 
+    // Collapsed by default. Only an explicit toggle is saved, so a visitor who never opened the
+    // list keeps getting the default. The key has a -v2 suffix because the old key was written on
+    // every page load, which pinned every past visitor to "expanded".
     const [listBuilderCollapsed, setListBuilderCollapsed] = useState(() => {
         if (typeof window !== 'undefined') {
-            const stored = localStorage.getItem('list-builder-collapsed-detail');
-            return stored === 'true';
+            const stored = localStorage.getItem('list-builder-collapsed-detail-v2');
+            return stored === null ? true : stored === 'true';
         }
-        return false;
+        return true;
     });
 
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            localStorage.setItem('list-builder-collapsed-detail', String(listBuilderCollapsed));
-        }
-    }, [listBuilderCollapsed]);
-
     const toggleListBuilder = () => {
-        setListBuilderCollapsed(!listBuilderCollapsed);
+        const next = !listBuilderCollapsed;
+        setListBuilderCollapsed(next);
+        try {
+            localStorage.setItem('list-builder-collapsed-detail-v2', String(next));
+        } catch {
+            // Storage blocked: the choice lasts for this page view only.
+        }
     };
 
     const variantData = metadata ? getVariantData(metadata, selectedProduct) : null;
@@ -165,7 +223,15 @@ export default function IntegrationDetail({
         <div className="integration-detail-wrapper">
             <div className="integration-detail-header">
                 {metadata && (
-                    <h1 className="integration-detail-title">{metadata.name}</h1>
+                    <h1 className="integration-detail-title">
+                        {metadata.name}
+                        {listingTypeOf(metadata) === "tool" && <ToolBadge variant="detail" />}
+                        {languageOnlyLabel(metadata.language) && (
+                            <span className="language-only-badge language-only-badge--detail">
+                                {languageOnlyLabel(metadata.language)}
+                            </span>
+                        )}
+                    </h1>
                 )}
                 {listBuilderCollapsed && (
                     <button
@@ -186,6 +252,10 @@ export default function IntegrationDetail({
             <ProductContext.Provider value={selectedProduct}>
             <TabContext.Provider value={{ activeTab, setActiveTab }}>
                 <div className="integration-detail-content">
+                    {/* Keyed by product so switching to a variant with downloads off re-reads the config. */}
+                    {variantData?.downloadsDisabled && (
+                        <MarketplaceAnnouncements key={selectedProduct} placement="downloads-disabled" />
+                    )}
                     <div className="product-cta-row">
                         <div className="product-selector">
                             <span className="product-selector-label">PRODUCT</span>
@@ -273,6 +343,10 @@ export default function IntegrationDetail({
                     <DetailSection heading="Info">
                         <div className="detail-info-rows">
                             <div className="detail-info-row">
+                                <span className="detail-info-label">Type</span>
+                                <span className="detail-info-value">{LISTING_TYPE_NAMES[listingTypeOf(metadata)]}</span>
+                            </div>
+                            <div className="detail-info-row">
                                 <span className="detail-info-label">Support</span>
                                 <span className="detail-info-value">
                                     {variantData.supportUrl ? (
@@ -313,25 +387,28 @@ export default function IntegrationDetail({
                                 <span className="detail-info-value">
                                     {variantData.price}
                                     {variantData.supportPrice === 'Paid' && (
-                                        variantData.supportAcquisition?.url ? (
-                                            <a
-                                                href={variantData.supportAcquisition.url}
-                                                target="_blank"
-                                                rel="noopener noreferrer"
-                                                className="detail-info-badge detail-info-badge--paid-support"
-                                            >
-                                                {variantData.supportAcquisition.label || 'Paid Support'}
-                                            </a>
-                                        ) : (
-                                            <span className="detail-info-badge detail-info-badge--paid-support">Paid Support</span>
-                                        )
+                                        <PaidSupportBadge acquisition={variantData.supportAcquisition} />
                                     )}
                                 </span>
                             </div>
-                            {variantData.supportPrice === 'Paid' && variantData.supportAcquisition?.description && (
-                                <p className="detail-info-badge-description">
-                                    {variantData.supportAcquisition.description}
-                                </p>
+                            {metadata.license && (
+                                <div className="detail-info-row">
+                                    <span className="detail-info-label">License</span>
+                                    <span className="detail-info-value">
+                                        {licenseHref(metadata) ? (
+                                            <a
+                                                href={licenseHref(metadata)!}
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                                className="detail-info-link"
+                                            >
+                                                {metadata.license}
+                                            </a>
+                                        ) : (
+                                            metadata.license
+                                        )}
+                                    </span>
+                                </div>
                             )}
                         </div>
                     </DetailSection>
@@ -363,7 +440,7 @@ export default function IntegrationDetail({
                     <DetailSection heading="Disclaimer">
                         <p className="detail-disclaimer-text">
                             By downloading or using Marketplace content, you agree to the applicable{' '}
-                            <Link to="/marketplace/terms-of-use">Terms of Use</Link> and End User License Agreement.
+                            <Link href="https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/legal/panw-marketplace-terms-of-use-for-cortex-and-mim.pdf">Terms of Use</Link> and End User License Agreement.
                             Third-party content is provided by its publisher, and Palo Alto Networks does not warrant, endorse, support, or assume responsibility for content not expressly identified as owned by Palo Alto Networks.
                         </p>
                     </DetailSection>
