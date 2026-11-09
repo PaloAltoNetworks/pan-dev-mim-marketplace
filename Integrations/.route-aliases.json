@@ -203,5 +203,10 @@
     "from": "/marketplace/AutoEnrollmentConnector",
     "to": "/marketplace",
     "reason": "archived — no longer supported"
+  },
+  {
+    "from": "/marketplace/QuantumsafeVCert",
+    "to": "/marketplace",
+    "reason": "archived — no longer supported"
   }
 ]
