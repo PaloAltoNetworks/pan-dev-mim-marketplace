@@ -10,6 +10,10 @@ import ExportButton from "../components/ExportButton";
 import ListBuilderSidebar from "../components/ListBuilderSidebar";
 import { useListBuilder } from "../contexts/ListBuilderContext";
 import FilterDropdown from "../components/FilterDropdown";
+import MarketplaceAnnouncements from "../components/MarketplaceAnnouncements";
+import { languageOnlyLabel } from "../utils/languageLabel";
+import { integrationId } from "../utils/integrationId";
+import { LISTING_TYPES, LISTING_TYPE_LABELS, listingTypeOf, ToolIcon, IntegrationIcon, ToolBadge } from "../components/ListingType";
 
 function CertifiedIcon() {
     return (
@@ -108,6 +112,7 @@ export default function MarketplaceGallery() {
     const [selectedCategories, setSelectedCategories] = useState<string[]>(() => paramList("category"));
     const [selectedAuthors, setSelectedAuthors] = useState<string[]>(() => paramList("author"));
     const [selectedSupport, setSelectedSupport] = useState<string[]>(() => paramList("support"));
+    const [selectedType, setSelectedType] = useState<string[]>(() => paramList("type"));
     const [draggingCard, setDraggingCard] = useState<string | null>(null);
 
     // Filter links across the site point at /marketplace?category=…, ?tag=…, and so on.
@@ -124,14 +129,17 @@ export default function MarketplaceGallery() {
         setSelectedCategories(paramList("category"));
         setSelectedAuthors(paramList("author"));
         setSelectedSupport(paramList("support"));
+        setSelectedType(paramList("type"));
     }, [location.search]);
 
+    // Collapsed by default; only an explicit toggle is saved. The -v2 key ignores the old value,
+    // which was written on every page load and pinned every past visitor to "expanded".
     const [listBuilderCollapsed, setListBuilderCollapsed] = useState<boolean>(() => {
         if (typeof window !== 'undefined') {
-            const stored = localStorage.getItem('list-builder-collapsed');
-            return stored ? JSON.parse(stored) : false;
+            const stored = localStorage.getItem('list-builder-collapsed-v2');
+            return stored === null ? true : stored === 'true';
         }
-        return false;
+        return true;
     });
 
     const [sortBy, setSortBy] = useState<SortOption>(() => {
@@ -161,17 +169,19 @@ export default function MarketplaceGallery() {
         const listParam = params.get('list');
         if (listParam) {
             loadListFromUrl(listParam);
+            // A shared list link should show the list, without saving that as the visitor's choice.
+            setListBuilderCollapsed(false);
         }
     }, [location.search, loadListFromUrl]);
 
-    useEffect(() => {
-        if (typeof window !== 'undefined') {
-            localStorage.setItem('list-builder-collapsed', JSON.stringify(listBuilderCollapsed));
-        }
-    }, [listBuilderCollapsed]);
-
     const toggleListBuilder = () => {
-        setListBuilderCollapsed(!listBuilderCollapsed);
+        const next = !listBuilderCollapsed;
+        setListBuilderCollapsed(next);
+        try {
+            localStorage.setItem('list-builder-collapsed-v2', String(next));
+        } catch {
+            // Storage blocked: the choice lasts for this page view only.
+        }
     };
 
     const allCategories = useMemo(() => {
@@ -282,9 +292,16 @@ export default function MarketplaceGallery() {
             const matchesSupport =
                 selectedSupport.length === 0 ||
                 selectedSupport.includes(supportOf(i));
-            return matchesProduct && matchesTag && matchesUseCase && matchesCategory && matchesAuthor && matchesSupport;
+            const matchesType = selectedType.length === 0 || selectedType.includes(listingTypeOf(i));
+            return matchesProduct && matchesTag && matchesUseCase && matchesCategory && matchesAuthor && matchesSupport && matchesType;
         });
-    }, [integrations, selectedProducts, selectedTags, selectedUseCases, selectedCategories, selectedAuthors, selectedSupport]);
+    }, [integrations, selectedProducts, selectedTags, selectedUseCases, selectedCategories, selectedAuthors, selectedSupport, selectedType]);
+
+    const typeCounts = useMemo(() => {
+        const counts: Record<string, number> = { integration: 0, tool: 0 };
+        integrations.forEach((i) => { counts[listingTypeOf(i)] += 1; });
+        return counts;
+    }, [integrations]);
 
     // Undated listings always sink to the bottom, whichever direction the date sort runs —
     // "oldest first" shouldn't be a showcase for entries that simply have no date yet.
@@ -309,7 +326,8 @@ export default function MarketplaceGallery() {
         selectedUseCases.length > 0 ||
         selectedCategories.length > 0 ||
         selectedAuthors.length > 0 ||
-        selectedSupport.length > 0;
+        selectedSupport.length > 0 ||
+        selectedType.length > 0;
 
     function clearAllFilters() {
         setSelectedProducts([]);
@@ -318,6 +336,7 @@ export default function MarketplaceGallery() {
         setSelectedCategories([]);
         setSelectedAuthors([]);
         setSelectedSupport([]);
+        setSelectedType([]);
     }
 
     const handleDragStart = (e: React.DragEvent, integration: IntegrationMetadata) => {
@@ -348,6 +367,29 @@ export default function MarketplaceGallery() {
                         ☰ {filtersOpen ? "Hide Filters" : "Show Filters"}
                     </button>
                     <div className={`marketplace-sidebar-inner${filtersOpen ? " open" : ""}`}>
+                        {/* Type filter — Integrations vs Tools & Utilities (listingType) */}
+                        <div className="filter-dropdown filter-dropdown--static">
+                            <div className="filter-dropdown-header filter-dropdown-header--static">
+                                <span className="filter-section-label">Type</span>
+                            </div>
+                            <div className="filter-pill-group">
+                                {LISTING_TYPES.map((t) => (
+                                    <button
+                                        key={t}
+                                        className={`filter-pill-toggle${selectedType.includes(t) ? " active" : ""}`}
+                                        onClick={() => toggleItem(setSelectedType, t)}
+                                        aria-pressed={selectedType.includes(t)}
+                                    >
+                                        <span className="filter-pill-toggle-icon">
+                                            {t === "tool" ? <ToolIcon /> : <IntegrationIcon />}
+                                        </span>
+                                        {LISTING_TYPE_LABELS[t]}
+                                        <span className="filter-count"> ({typeCounts[t]})</span>
+                                    </button>
+                                ))}
+                            </div>
+                        </div>
+
                         {/* Certification Filter — pill toggles rather than checkboxes, since
                             there are only ever two or three values */}
                         {allSupportLevels.length > 0 && (
@@ -435,12 +477,13 @@ export default function MarketplaceGallery() {
 
                 {/* Right Content: Card Grid */}
                 <main className="marketplace-main">
+                    <MarketplaceAnnouncements />
                     <div className="marketplace-header margin-bottom--md">
                         <div className="marketplace-header-top">
                             <p>
                                 Displaying{" "}
                                 <strong>{filteredIntegrations.length}</strong> of{" "}
-                                <strong>{integrations.length}</strong> integrations
+                                <strong>{integrations.length}</strong> listings
                             </p>
 
                             <div className="marketplace-header-actions">
@@ -494,6 +537,12 @@ export default function MarketplaceGallery() {
                         {/* Active filter pills */}
                         {hasActiveFilters && (
                             <div className="active-filters">
+                                {selectedType.map((t) => (
+                                    <span key={t} className="filter-pill">
+                                        {LISTING_TYPE_LABELS[t as keyof typeof LISTING_TYPE_LABELS] ?? t}
+                                        <button onClick={() => toggleItem(setSelectedType, t)}>×</button>
+                                    </span>
+                                ))}
                                 {selectedSupport.map((s) => (
                                     <span key={s} className="filter-pill">
                                         {SUPPORT_LABELS[s] ?? s}
@@ -556,7 +605,7 @@ export default function MarketplaceGallery() {
                         {sortedIntegrations.map((int, index) => (
                             <Link
                                 key={index}
-                                to={`/marketplace/${int.name.replace(/[^a-zA-Z0-9]/g, "")}`}
+                                to={`/marketplace/${integrationId(int)}`}
                                 className={`integration-card${draggingCard === int.name ? ' dragging' : ''}`}
                                 draggable={true}
                                 onDragStart={(e) => handleDragStart(e, int)}
@@ -582,6 +631,10 @@ export default function MarketplaceGallery() {
                                     <div className="card-title-stack">
                                         <h3 className="card-title">{int.name}</h3>
                                         <p className="card-meta">By: {int.author}</p>
+                                        {listingTypeOf(int) === "tool" && <ToolBadge />}
+                                        {languageOnlyLabel(int.language) && (
+                                            <span className="language-only-badge">{languageOnlyLabel(int.language)}</span>
+                                        )}
                                     </div>
                                     <SupportBadge support={supportOf(int)} />
                                 </div>

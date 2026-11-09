@@ -5,6 +5,106 @@ const { execFileSync } = require("child_process");
 const { v4: uuidv4 } = require("uuid");
 const sharp = require('sharp');
 const downloadsBaseDir = path.join(__dirname, "static/downloads");
+// Name of a per-build download folder (uuidv4), the only entries the cleanup below may delete.
+const UUID_DIR = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
+
+// Per-variant download switch, owned by PDM admins (contributors never edit it, so it is
+// not under Integrations/). Keyed by Integrations/ folder name, then by the variant's exact
+// `product` string, or "*" for every variant. A disabled variant resolves to no
+// downloadFiles: nothing is copied or published, no <DownloadButton> is emitted, a download
+// primary CTA falls through to the next type, and the Release Notes tab shows
+// DOWNLOADS_DISABLED_NOTICE where the buttons would be. Missing file = everything enabled.
+const downloadsConfigPath = path.join(__dirname, "config/marketplace-downloads.json");
+// Keep the link in step with the "downloads-moving-here" banner in
+// config/marketplace-announcements.json, which shows on the same pages.
+const CYBERARK_MARKETPLACE_URL =
+    "https://community.cyberark.com/marketplace/s/#---CyberArk_Solution__c-Certificate%20Lifecycle%20Management";
+const DOWNLOADS_DISABLED_NOTICE =
+    `:::info\n\nDownloads are moving to this Marketplace soon. For now, download this integration from the [CyberArk Marketplace](${CYBERARK_MARKETPLACE_URL}).\n\n:::`;
+
+function loadDownloadsConfig() {
+    if (!fs.existsSync(downloadsConfigPath)) {
+        return { default: true, enabled: {}, disabled: {} };
+    }
+    const raw = JSON.parse(fs.readFileSync(downloadsConfigPath, "utf8"));
+    return {
+        default: raw.default !== false,
+        enabled: raw.enabled ?? {},
+        disabled: raw.disabled ?? {},
+    };
+}
+
+const downloadsConfig = loadDownloadsConfig();
+
+// The listed-variant map that overrides `default`: `disabled` when downloads default on,
+// `enabled` when they default off.
+const downloadsOverrides = () =>
+    downloadsConfig.default ? downloadsConfig.disabled : downloadsConfig.enabled;
+
+function isDownloadEnabled(folder, product) {
+    const listed = downloadsOverrides()[folder];
+    const isListed = Array.isArray(listed) && (listed.includes("*") || listed.includes(product));
+    return isListed ? !downloadsConfig.default : downloadsConfig.default;
+}
+
+// Warn on config entries that match nothing, so a typo can't silently leave downloads on.
+function warnUnknownDownloadsConfigKeys(productsByFolder) {
+    for (const [folder, products] of Object.entries(downloadsOverrides())) {
+        const known = productsByFolder[folder];
+        if (!known) {
+            console.warn(`⚠️  marketplace-downloads.json: unknown integration folder "${folder}"`);
+            continue;
+        }
+        for (const product of products) {
+            if (product !== "*" && !known.has(product)) {
+                console.warn(`⚠️  marketplace-downloads.json: "${folder}" has no product "${product}"`);
+            }
+        }
+    }
+}
+
+// Marketplace announcement banners (config/marketplace-announcements.json) are read by the
+// MarketplaceAnnouncements component in the browser, not generated here. This only checks the
+// file at build time so an admin's typo shows up as a warning instead of a banner that silently
+// never appears. Invalid entries are skipped by the component.
+function warnInvalidAnnouncements() {
+    const file = path.join(__dirname, "config/marketplace-announcements.json");
+    if (!fs.existsSync(file)) return;
+    const list = JSON.parse(fs.readFileSync(file, "utf8")).announcements ?? [];
+    const seen = new Set();
+    const warn = (i, msg) => console.warn(`⚠️  marketplace-announcements.json [${i}]: ${msg}`);
+    list.forEach((a, i) => {
+        if (!a.id) warn(i, 'missing "id"');
+        else if (seen.has(a.id)) warn(i, `duplicate id "${a.id}"`);
+        seen.add(a.id);
+        if (!a.message) warn(i, 'missing "message"');
+        if (a.severity && !["info", "warning", "critical"].includes(a.severity)) {
+            warn(i, `unknown severity "${a.severity}", showing as "info"`);
+        }
+        for (const key of ["start", "end"]) {
+            if (a[key] !== undefined && Number.isNaN(Date.parse(a[key]))) {
+                warn(i, `"${key}" is not a valid date: "${a[key]}" (entry will not show)`);
+            }
+        }
+        if (a.start && a.end && Date.parse(a.end) <= Date.parse(a.start)) {
+            warn(i, '"end" is not after "start" (entry will not show)');
+        }
+        if (a.end && Date.parse(a.end) <= Date.now()) {
+            warn(i, `"${a.id}" expired at ${a.end}; you can delete it`);
+        }
+        if (a.link && !a.link.href) warn(i, 'link has no "href"');
+        if (a.placements !== undefined) {
+            if (!Array.isArray(a.placements) || a.placements.length === 0) {
+                warn(i, '"placements" must be a non-empty array (entry will not show)');
+            } else {
+                for (const pl of a.placements) {
+                    if (!["gallery", "downloads-disabled"].includes(pl)) warn(i, `unknown placement "${pl}"`);
+                }
+            }
+        }
+    });
+}
+warnInvalidAnnouncements();
 
 const integrationsDir = path.join(__dirname, "../Integrations");
 const integrationDatesPath = path.join(integrationsDir, ".integration-dates.json");
@@ -415,7 +515,7 @@ const PAID_CTA_TYPES = new Set(['contact-sales', 'contact-partner']);
  * on disk — the same signal the MDX generator uses to decide whether to emit the
  * Documentation tab at all, so the two stay in lockstep. Returns null when nothing applies.
  */
-function resolvePrimaryCta(variant, resolved, root, hasLocalDoc) {
+function resolvePrimaryCta(variant, resolved, root, hasLocalDoc, downloadsEnabled = true) {
     const applyLabel = (cta) => {
         if (!cta.label) cta.label = DEFAULT_CTA_LABELS[cta.type] || 'Learn More';
         return cta;
@@ -426,6 +526,8 @@ function resolvePrimaryCta(variant, resolved, root, hasLocalDoc) {
     if (explicit && explicit.type) {
         if (explicit.type === 'link' && !explicit.url) {
             console.warn(`⚠️  primaryCta type "link" requires a url — ignoring for product "${variant.product}"`);
+        } else if (explicit.type === 'download' && !downloadsEnabled) {
+            // Downloads are admin-disabled — fall through rather than point at a tab with no buttons.
         } else {
             return applyLabel({ ...explicit });
         }
@@ -470,7 +572,7 @@ function resolveSupportContact(variant, root) {
     return { supportUrl: undefined, supportEmail: undefined };
 }
 
-function resolveVariantFields(variant, root, hasLocalDoc) {
+function resolveVariantFields(variant, root, hasLocalDoc, downloadsEnabled = true) {
     const resolved = {
         support: variant.support ?? root?.support ?? 'Unknown',
         currentVersion: variant.currentVersion ?? root?.currentVersion ?? '1.0.0',
@@ -496,13 +598,24 @@ function resolveVariantFields(variant, root, hasLocalDoc) {
         downloadFiles: variant.downloadFiles ?? root?.downloadFiles ?? [],
     };
 
-    resolved.primaryCta = resolvePrimaryCta(variant, resolved, root, hasLocalDoc);
+    // Admin-disabled downloads: keep the list aside (for the missing-file check and the
+    // Release Notes notice) and resolve as if the variant had none.
+    if (!downloadsEnabled && resolved.downloadFiles.length > 0) {
+        resolved.suppressedDownloadFiles = resolved.downloadFiles;
+        resolved.downloadFiles = [];
+        // Shipped to the client (unlike the file list) so the detail page can show banners
+        // placed on "downloads-disabled" (see MarketplaceAnnouncements).
+        resolved.downloadsDisabled = true;
+    }
+
+    resolved.primaryCta = resolvePrimaryCta(variant, resolved, root, hasLocalDoc, downloadsEnabled);
 
     return resolved;
 }
 
 async function generateGalleryData() {
     const gallery = [];
+    const productsByFolder = {}; // for warnUnknownDownloadsConfigKeys
     const integrationDates = loadIntegrationDates();
 
     if (!fs.existsSync(path.dirname(outputJsonPath))) {
@@ -512,11 +625,14 @@ async function generateGalleryData() {
         fs.mkdirSync(outputDocsDir, { recursive: true });
     }
 
-    // Clean up old downloads directory to remove previous UUID-based paths
-    if (fs.existsSync(downloadsBaseDir)) {
-        fs.rmSync(downloadsBaseDir, { recursive: true, force: true });
-    }
+    // Remove only this generator's per-build UUID folders. Other build steps also write here
+    // (copy-openapi-specs.js -> static/downloads/openapi/), and a full wipe deleted their output.
     fs.mkdirSync(downloadsBaseDir, { recursive: true });
+    for (const entry of fs.readdirSync(downloadsBaseDir)) {
+        if (UUID_DIR.test(entry)) {
+            fs.rmSync(path.join(downloadsBaseDir, entry), { recursive: true, force: true });
+        }
+    }
 
     const folders = fs.readdirSync(integrationsDir).filter((file) => {
         return !file.startsWith('.') && fs.statSync(path.join(integrationsDir, file)).isDirectory();
@@ -534,10 +650,13 @@ async function generateGalleryData() {
 
             // Normalize metadata for backward compatibility
             metadata = normalizeMetadata(metadata);
+            productsByFolder[folder] = new Set((metadata.productVariants ?? []).map((v) => v.product));
 
             metadata.lastUpdated = resolveLastUpdated(metadata, folder, integrationDates);
 
-            const routeId = metadata.name.replace(/[^a-zA-Z0-9]/g, "");
+            // A name with no ASCII letters or digits (e.g. Japanese) would strip to "", so fall
+            // back to the folder name. Existing ids are unchanged.
+            const routeId = metadata.name.replace(/[^a-zA-Z0-9]/g, "") || folder.replace(/[^a-zA-Z0-9]/g, "");
 
             // Process main logo
             if (metadata.logoFile) {
@@ -648,7 +767,9 @@ async function generateGalleryData() {
                     variant._docPath = resolveVariantDocPath(intPath, suffix, variant);
 
                     // Resolve variant fields with fallback chain
-                    variant._resolved = resolveVariantFields(variant, metadata, !!variant._docPath);
+                    variant._resolved = resolveVariantFields(
+                        variant, metadata, !!variant._docPath, isDownloadEnabled(folder, variant.product)
+                    );
 
                     // Release Notes tab content — computed once here (reusing `suffix`) and
                     // reused verbatim both for the needsTabs/import check and the tab emission
@@ -736,12 +857,19 @@ async function generateGalleryData() {
             // every variant's resolved downloadFiles into one per-integration UUID dir, then hand
             // each variant only its own download URLs. A file shared across variants is copied
             // once and reused via the filename→url map.
-            const downloadFileUnion = new Set(
-                Array.isArray(metadata.downloadFiles) ? metadata.downloadFiles : []
-            );
+            // The top-level list is not added directly: every variant already resolves through
+            // it, and adding it would publish files for variants whose downloads are disabled.
+            const downloadFileUnion = new Set();
             if (metadata.productVariants) {
                 metadata.productVariants.forEach((variant) => {
                     (variant._resolved?.downloadFiles ?? []).forEach((f) => downloadFileUnion.add(f));
+                    // Disabled downloads are not copied, but still flag missing files so the
+                    // contributor finds out before an admin re-enables them.
+                    (variant._resolved?.suppressedDownloadFiles ?? []).forEach((f) => {
+                        if (!fs.existsSync(path.join(intPath, f))) {
+                            console.warn(`⚠️  download file not found: ${f} in ${folder}`);
+                        }
+                    });
                 });
             }
 
@@ -828,6 +956,7 @@ async function generateGalleryData() {
                 }
             }
 
+            metadata.routeId = routeId;
             gallery.push(metadata);
 
             // --- productVariants: per-product content switching ---
@@ -1076,7 +1205,9 @@ ${imports}
                     // directory read — now that downloadUrls are resolved; the releaseNotesBlock/
                     // hasReleaseNotes above (no download markup) exist only for the has-notes
                     // check and stay untouched.
-                    const downloadButtonsMarkup = buildDownloadButtonsMarkup(variant._resolved?.downloadUrls);
+                    const downloadButtonsMarkup = variant._resolved?.suppressedDownloadFiles
+                        ? DOWNLOADS_DISABLED_NOTICE
+                        : buildDownloadButtonsMarkup(variant._resolved?.downloadUrls);
                     let releaseNotesTabContent = buildReleaseNotes(releaseNotesDir, suffix, downloadButtonsMarkup);
                     if (!releaseNotesTabContent && downloadButtonsMarkup) {
                         // Defensive fallback: every integration is expected to have a release
@@ -1184,6 +1315,8 @@ ${imports}
         }
     }
 
+    warnUnknownDownloadsConfigKeys(productsByFolder);
+
     // downloadUrls holds per-build UUID download paths, used only while emitting MDX
     // (<DownloadButton>). No component reads the list directly, so strip it from both the
     // top level and each variant's _resolved to keep it out of the shipped bundle. The
@@ -1193,7 +1326,7 @@ ${imports}
         if (Array.isArray(rest.productVariants)) {
             rest.productVariants = rest.productVariants.map((v) => {
                 if (v && v._resolved) {
-                    const { downloadUrls: _drop, ...resolvedRest } = v._resolved;
+                    const { downloadUrls: _drop, suppressedDownloadFiles: _dropSuppressed, ...resolvedRest } = v._resolved;
                     return { ...v, _resolved: resolvedRest };
                 }
                 return v;
@@ -1226,7 +1359,7 @@ function pruneStalePages(cleanGallery) {
         return;
     }
 
-    const live = new Set(cleanGallery.map(i => `${i.name.replace(/[^a-zA-Z0-9]/g, "")}.mdx`));
+    const live = new Set(cleanGallery.map(i => `${i.routeId}.mdx`));
     const stale = fs.readdirSync(outputDocsDir).filter(f => f.endsWith('.mdx') && !live.has(f));
     for (const f of stale) fs.unlinkSync(path.join(outputDocsDir, f));
     if (stale.length) console.log(`🧹 Removed ${stale.length} stale marketplace page(s)`);
@@ -1251,7 +1384,7 @@ function writeRouteRedirects(cleanGallery) {
         return;
     }
 
-    const known = new Set(cleanGallery.map(i => `/marketplace/${i.name.replace(/[^a-zA-Z0-9]/g, "")}`));
+    const known = new Set(cleanGallery.map(i => `/marketplace/${i.routeId}`));
 
     // The alias file arrives from the marketplace repo via rsync, so malformed content is an
     // upstream problem, not a reason to fail this build — ship without redirects and say so.

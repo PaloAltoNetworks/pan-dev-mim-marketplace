@@ -129,6 +129,8 @@ export interface ProductVariant {
         supportAcquisition?: AcquisitionInfo;
         primaryCta?: PrimaryCTA | null;
         downloadFiles?: string[];
+        /** True when this variant ships downloadFiles but marketplace-downloads.json turns them off. */
+        downloadsDisabled?: boolean;
         /** Scratch only: per-build UUID download URLs. Stripped from integrations.json. */
         downloadUrls?: { name: string; url: string }[];
     };
@@ -137,6 +139,10 @@ export interface ProductVariant {
 export interface IntegrationMetadata {
     name: string;
     description: string;
+    /** ISO 639-1 code of the content's only language, when not English (see utils/languageLabel). */
+    language?: string;
+    /** Page id / slug, written by generate-gallery.js (see utils/integrationId). */
+    routeId?: string;
     categories: string[];
     products: string[];
     tags: string[];
@@ -169,6 +175,14 @@ export interface IntegrationMetadata {
     acquisition?: AcquisitionInfo;
     supportPrice?: string;
     supportAcquisition?: AcquisitionInfo;
+    /** Root-level only (no per-variant override). Display name, e.g. "MIT" or
+     *  "Software Tool License Agreement". See licenseHref() in IntegrationDetail.tsx. */
+    license?: string;
+    /** Root-level only. Absolute https URL of the license terms. Required for any license other
+     *  than "MIT"; without it the License row shows plain text with no link. */
+    licenseUrl?: string;
+    /** Root-level only. "tool" marks a Tools & Utilities listing; missing means "integration". */
+    listingType?: 'integration' | 'tool';
 
     // NEW: Unified primary CTA (also valid at top level for backward-compat resolution)
     primaryCta?: PrimaryCTA;

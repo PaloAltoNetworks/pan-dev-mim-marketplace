@@ -1,0 +1,19 @@
+{
+  "announcements": [
+    {
+      "id": "downloads-moving-here",
+      "severity": "info",
+      "title": "Downloads are moving here soon.",
+      "message": "We're still working on making downloads available directly from this Marketplace. For now, please keep using the CyberArk Marketplace to download integrations.",
+      "link": {
+        "label": "CyberArk Marketplace",
+        "href": "https://community.cyberark.com/marketplace/s/#---CyberArk_Solution__c-Certificate%20Lifecycle%20Management"
+      },
+      "placements": [
+        "gallery",
+        "downloads-disabled"
+      ],
+      "dismissible": false
+    }
+  ]
+}
