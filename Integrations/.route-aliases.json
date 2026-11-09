@@ -208,5 +208,10 @@
     "from": "/marketplace/QuantumsafeVCert",
     "to": "/marketplace",
     "reason": "archived — no longer supported"
+  },
+  {
+    "from": "/marketplace/OracleOperaAdaptableApp",
+    "to": "/marketplace",
+    "reason": "unlisted — remove this entry when the listing returns"
   }
 ]
