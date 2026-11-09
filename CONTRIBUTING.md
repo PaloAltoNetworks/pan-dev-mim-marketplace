@@ -110,6 +110,7 @@ should have none. See [INTEGRATION_GUIDE.md](INTEGRATION_GUIDE.md) for details.
 ## Metadata requirements
 
 - `name`, `description`, `products`, and `price` are required fields
+- Scripts and utilities that support the products, rather than connecting them to another system, set `"listingType": "tool"`. See [Listing type](INTEGRATION_GUIDE.md#listing-type)
 - `price` must be `"Free"` or `"Paid"`
 - Paid integrations must include an `acquisition` object with `type`, `label`, and `url`
   - `type` is either `"contact-sales"` or `"contact-partner"`

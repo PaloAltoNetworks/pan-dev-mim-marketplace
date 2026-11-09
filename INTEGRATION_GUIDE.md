@@ -40,6 +40,7 @@ Use PascalCase for integration directory names. Match the integration's official
 | `supportEmail` | No | string | Support email. Only one of `supportUrl`/`supportEmail` is ever shown — set the one that applies; if both are set at the same level, `supportUrl` wins |
 | `price` | Yes | string | `Free` or `Paid` |
 | `categories` | Yes | string[] | Exactly one value from `Config/approved_categories.json`. See [Categories, tags, and keywords](#categories-tags-and-keywords) |
+| `listingType` | No | string | `"tool"` for a script or utility that supports the products without connecting them to another system. Omit for an integration. See [Listing type](#listing-type). Root-level only |
 | `products` | Yes | string[] | Venafi product(s) this integration supports. Must be from `Config/approved_products.json` |
 | `tags` | No | string[] | Should be from `Config/approved_tags.json` (other values are a warning). See [Categories, tags, and keywords](#categories-tags-and-keywords) |
 | `useCases` | No | string[] | Use case labels |
@@ -77,13 +78,13 @@ These three fields look similar but do different jobs:
 | `Firewall & Network Security` | Firewalls, NGFW, TLS inspection, network gear |
 | `HSM & Key Management` | HSMs, KMS, key stores |
 | `ITSM & Workflow` | Ticketing, SOAR, notifications, RPA |
+| `Installation & Operations` | Installing, upgrading, troubleshooting and operating the products themselves |
 | `Identity & Access Management` | Directories, SSO, MFA, authentication |
 | `IoT & OT` | IoT platforms, PLCs, industrial systems |
 | `Kubernetes & Containers` | Clusters, ingress controllers, admission control |
 | `Load Balancer & ADC` | Load balancers, ADCs, CDN and edge delivery |
 | `SIEM & Observability` | SIEM, logging, analytics, monitoring |
 | `Secrets Management` | Vaults, secret stores, credential providers |
-| `Utilities & Extensions` | Helper scripts, drivers, reporting add-ons |
 | `Web Server` | Apache, IIS, NGINX, Oracle HTTP Server |
 
 If your integration seems to fit two categories, choose the system it actually talks to. A Kubernetes ingress controller is `Kubernetes & Containers`, not `Load Balancer & ADC`. A code-signing integration is categorized by where it runs (CI/CD, HSM, IoT), with `Code Signing` as its use case.
@@ -91,6 +92,18 @@ If your integration seems to fit two categories, choose the system it actually t
 **`useCases`** describes the machine-identity workflow the integration takes part in, not the kind of system it connects to. The approved values are `Certificate Lifecycle Management`, `Code Signing`, and `SSH Key Management`, and almost every listing is `Certificate Lifecycle Management`. Discovery tooling is found through the `Discovery & Asset Management` category and the `Discovery` tag, not a use case. Unrecognized use cases are a warning.
 
 The approved lists live in `Config/approved_categories.json`, `Config/approved_tags.json`, and `Config/approved_usecases.json`. To add a value, open a PR against the relevant file; a CODEOWNER must approve. A new category should be able to hold at least about four listings; otherwise it belongs as a tag.
+
+### Listing type
+
+The marketplace lists two kinds of entries. An **integration** connects a Palo Alto Networks machine identity product to another system, such as a CA, load balancer, or ITSM tool. A **tool** is a script or utility that helps you run the products themselves, such as a prerequisites checker, a reporting script, or a debug helper. Tools are often built by Palo Alto Networks Professional Services or product teams.
+
+Set `"listingType": "tool"` at the root level for a tool. Leave it out for an integration. The only accepted values are in `Config/approved_listing_types.json`.
+
+```json
+"listingType": "tool"
+```
+
+On the marketplace, tools carry a "Tools & Utilities" badge and have their own Type filter. A tool still needs exactly one category that describes what it works with, for example `Installation & Operations` for a prerequisites checker or `Discovery & Asset Management` for an inventory export script. Everything else about a tool listing, including downloads, release notes, and [License](#license), works the same as for an integration.
 
 ### Paid integrations
 

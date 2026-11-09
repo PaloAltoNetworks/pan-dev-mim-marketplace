@@ -1,12 +1,13 @@
 {
   "name": "Export from Venafi Cloud into TPP",
+  "listingType": "tool",
   "description": "A command line utility that exports certificates from a Venafi Cloud (OutagePREDICT) account inventory and imports them into Certificate Manager, Self-Hosted using the WebSDK POST discovery/import method. Source is provided as a buildable Go project.",
   "support": "Community",
   "currentVersion": "1.0",
   "author": "Community",
   "supportEmail": "cybr-mis.support@paloaltonetworks.com",
   "categories": [
-    "Utilities & Extensions"
+    "Discovery & Asset Management"
   ],
   "products": [
     "Certificate Manager Self-Hosted"

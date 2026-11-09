@@ -1,0 +1,7 @@
+{
+  "description": "Approved listingType values for integration_metadata.json. A listing without listingType is an integration. \"tool\" marks scripts and utilities that support the products but don't connect them to another system; the marketplace shows them under Tools & Utilities. validate-integration.js errors on anything else.",
+  "approved_list": [
+    "integration",
+    "tool"
+  ]
+}

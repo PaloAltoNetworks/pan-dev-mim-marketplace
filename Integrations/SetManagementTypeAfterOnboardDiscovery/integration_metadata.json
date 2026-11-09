@@ -1,12 +1,13 @@
 {
   "name": "Set Management Type After Onboard Discovery",
+  "listingType": "tool",
   "description": "An Adaptable Log that sets the 'Management Type' attribute for certificates to desired state after an Onboard Discovery event.",
   "support": "Community",
   "currentVersion": "1.0",
   "author": "Community",
   "supportEmail": "cybr-mis.support@paloaltonetworks.com",
   "categories": [
-    "Utilities & Extensions"
+    "Discovery & Asset Management"
   ],
   "products": [
     "Certificate Manager Self-Hosted"

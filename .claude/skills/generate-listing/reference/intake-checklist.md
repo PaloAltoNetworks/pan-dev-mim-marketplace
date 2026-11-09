@@ -9,6 +9,7 @@ covers fields worth stopping for — the full schema lives in `INTEGRATION_GUIDE
   `Certificate Manager SaaS`, `Next-Gen Trust Security`, `Zero Touch PKI` does this integration
   actually support? An incorrect value is a hard validator error and controls which
   `OVERVIEW-<suffix>.md` renders.
+- **`listingType`** — set `"tool"` when the submission is a script or utility for running the products (checker, report, debug helper) rather than a connection to another system. Omit it for integrations. See the Listing type section in `INTEGRATION_GUIDE.md`.
 - **`categories[]`** (closed vocabulary, one axis: what kind of system it connects to) — see
   `Config/approved_categories.json` for the full list. Ask if nothing in the source material maps
   cleanly to one of the ~17 approved categories.

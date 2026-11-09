@@ -343,3 +343,24 @@ test('a "defaults" object errors and names its fields', () => {
     cleanup(dir);
   }
 });
+
+test('"listingType": "tool" passes', () => {
+  const dir = makeFixture({ listingType: 'tool' });
+  try {
+    const { status, stdout } = runValidator(dir);
+    assert.equal(status, 0, stdout);
+  } finally {
+    cleanup(dir);
+  }
+});
+
+test('an unknown listingType errors', () => {
+  const dir = makeFixture({ listingType: 'widget' });
+  try {
+    const { status, stdout } = runValidator(dir);
+    assert.notEqual(status, 0);
+    assert.match(stdout, /listingType "widget" is not in approved_listing_types\.json/);
+  } finally {
+    cleanup(dir);
+  }
+});
