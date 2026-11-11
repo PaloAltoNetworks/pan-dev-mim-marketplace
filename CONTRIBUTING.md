@@ -99,7 +99,7 @@ Every integration directory must contain:
 
 | File | Required | Notes |
 |------|----------|-------|
-| `integration_metadata.json` | Yes | See schema in INTEGRATION_GUIDE.md |
+| `integration_metadata.json` | Yes | See the [schema reference](INTEGRATION_GUIDE.md#integration_metadatajson-schema) in INTEGRATION_GUIDE.md |
 | `OVERVIEW-*.md` or `README.md` | Yes | Documentation shown on the marketplace page |
 | Logo image (`.png`, `.svg`, `.jpg`, etc.) | No | Recommended: PNG, min 200px wide — falls back to a generic logo if absent |
 | Downloadable file(s) (`downloadFiles`) | Optional | e.g. an Adaptable driver `.ps1`; can be scoped per product variant |
@@ -265,6 +265,8 @@ Run validation locally before opening a PR:
 node scripts/validate-integration.js                        # Validate all
 node scripts/validate-integration.js Integrations/MyTool   # Validate one
 ```
+
+The validator prints `[ERROR]` and `[WARN]` lines. Fix every error before opening a pull request, because reviewers won't approve a PR with validation errors. Warnings don't block approval. They flag something a reviewer will look at, such as a tag that isn't on the approved list, so fix them where you can or explain them in the PR description.
 
 ## Preview locally
 
