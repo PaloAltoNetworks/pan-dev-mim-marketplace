@@ -1,6 +1,8 @@
 import React, { createContext, useState, useEffect } from "react";
 import Link from "@docusaurus/Link";
 import useDocusaurusContext from "@docusaurus/useDocusaurusContext";
+import { useHistory, useLocation } from "@docusaurus/router";
+import useIsBrowser from "@docusaurus/useIsBrowser";
 import integrationsData from "../data/integrations.json";
 import { IntegrationMetadata } from "../types";
 import { SHOW_LAST_UPDATED } from "../featureFlags";
@@ -11,6 +13,7 @@ import MarketplaceAnnouncements from "./MarketplaceAnnouncements";
 import { listingTypeOf, LISTING_TYPE_NAMES, ToolBadge } from "./ListingType";
 import { languageOnlyLabel } from "../utils/languageLabel";
 import { integrationId } from "../utils/integrationId";
+import { byProductPriority, clearVariantPending, productParamValue, readProductParam } from "../utils/productParam";
 
 const integrations = integrationsData as IntegrationMetadata[];
 
@@ -121,11 +124,9 @@ function getVariantData(
     };
 }
 
-const ALL_PRODUCTS = [
-    "Certificate Manager Self-Hosted",
-    "Certificate Manager SaaS",
-    "Next-Gen Trust Security"
-];
+// Only reached for a listing with no variants, which generate-gallery.js never emits (it
+// synthesizes one, defaulting to the same product).
+const FALLBACK_PRODUCT = "Certificate Manager Self-Hosted";
 
 // The gallery lives at /marketplace, not at the landing page — `/` ignores these params.
 function filterLink(type: string, value: string) {
@@ -164,28 +165,71 @@ export default function IntegrationDetail({
         (i) => integrationId(i) === id,
     );
 
-    const firstProduct = metadata?.productVariants?.[0]?.product ?? ALL_PRODUCTS[0];
-    const [selectedProduct, setSelectedProduct] = useState(firstProduct);
+    // Offer only the products this listing has variants for. Listing every product let users
+    // pick one and land on the "Product Not Supported" card, because `platforms` in the metadata
+    // often claims a product with no variant. Ordered by PRODUCT_NAMES (NGTS, Self-Hosted,
+    // SaaS) so the dropdown reads the same on every listing, and the listing opens on the
+    // highest-priority product it supports.
+    const supportedProducts = metadata?.productVariants?.map(v => v.product) || [FALLBACK_PRODUCT];
+    const selectableProducts = byProductPriority(supportedProducts);
+    const firstProduct = selectableProducts[0];
     const { siteConfig: { baseUrl } } = useDocusaurusContext();
+    const location = useLocation();
+    const history = useHistory();
 
-    // Cleared on every product switch so the freshly-mounted IntegrationTabs falls back to
-    // its own default tab rather than carrying over the previous variant's selection.
-    const [activeTab, setActiveTab] = useState("");
+    // The URL is the only source of the selected variant: `?product=` picks it, so a variant is
+    // linkable, and an unknown or unsupported value falls back to the default. Ignored until
+    // hydration (isBrowser is false during SSR and the hydrating render) so the first client
+    // render matches the static HTML, which was built with no query string. Client-side
+    // navigation to a ?product= link renders the right variant straight away.
+    const isBrowser = useIsBrowser();
+    const selectedProduct =
+        (isBrowser ? readProductParam(location.search, supportedProducts) : undefined) ?? firstProduct;
+
+    // The active IntegrationTabs tab, remembered per variant: switching variant reads as "" so the
+    // new variant's tabs fall back to their own default rather than carrying over the old choice.
+    const [tabState, setTabState] = useState({ product: selectedProduct, tab: "" });
+    const activeTab = tabState.product === selectedProduct ? tabState.tab : "";
+    const setActiveTab = (tab: string) => setTabState({ product: selectedProduct, tab });
+
+    // The inline head script hides the variant area on a ?product= page load (see
+    // variantPendingScript). Unhide once the URL's variant has rendered.
+    useEffect(() => {
+        if (isBrowser) clearVariantPending();
+    }, [isBrowser, selectedProduct]);
+
+    // The dropdown writes the choice to the URL, which re-renders with that variant, so the
+    // address bar is always a shareable link. replace, not push, so Back leaves the page instead
+    // of stepping through dropdown changes. The default variant leaves the param off. Other
+    // params and the hash are kept.
     const handleProductChange = (product: string) => {
-        setSelectedProduct(product);
-        setActiveTab("");
+        const params = new URLSearchParams(location.search);
+        if (product === firstProduct) {
+            params.delete("product");
+        } else {
+            params.set("product", productParamValue(product));
+        }
+        const search = params.toString();
+        history.replace({
+            pathname: location.pathname,
+            search: search ? `?${search}` : "",
+            hash: location.hash,
+        });
     };
 
     // Collapsed by default. Only an explicit toggle is saved, so a visitor who never opened the
     // list keeps getting the default. The key has a -v2 suffix because the old key was written on
     // every page load, which pinned every past visitor to "expanded".
-    const [listBuilderCollapsed, setListBuilderCollapsed] = useState(() => {
-        if (typeof window !== 'undefined') {
-            const stored = localStorage.getItem('list-builder-collapsed-detail-v2');
-            return stored === null ? true : stored === 'true';
+    // Read after hydration, not in the initializer, so the first client render matches the
+    // static HTML (otherwise React error #418 and a full re-render).
+    const [listBuilderCollapsed, setListBuilderCollapsed] = useState(true);
+    useEffect(() => {
+        try {
+            if (localStorage.getItem('list-builder-collapsed-detail-v2') === 'false') setListBuilderCollapsed(false);
+        } catch {
+            // Storage blocked: keep the default.
         }
-        return true;
-    });
+    }, []);
 
     const toggleListBuilder = () => {
         const next = !listBuilderCollapsed;
@@ -205,19 +249,6 @@ export default function IntegrationDetail({
             return iAuthor === authorName;
         }).length
         : 0;
-
-    const supportedProducts = metadata?.productVariants?.map(v => v.product) || [ALL_PRODUCTS[0]];
-    const isProductSupported = supportedProducts.includes(selectedProduct);
-
-    // Offer only the products this integration actually supports. Listing all of ALL_PRODUCTS
-    // let users pick a product and land on the "Product Not Supported" card — which many
-    // listings hit, because `platforms` in the metadata frequently claims a platform that has
-    // no corresponding variant. Ordered by ALL_PRODUCTS so the dropdown reads the same way on
-    // every listing, with any unrecognised product appended rather than silently dropped.
-    const selectableProducts = [
-        ...ALL_PRODUCTS.filter(p => supportedProducts.includes(p)),
-        ...supportedProducts.filter(p => !ALL_PRODUCTS.includes(p)),
-    ];
 
     return (
         <div className="integration-detail-wrapper">
@@ -275,20 +306,12 @@ export default function IntegrationDetail({
                         <PrimaryCTA cta={variantData?.primaryCta ?? null} />
                     </div>
 
-                    {isProductSupported ? (
-                        children
-                    ) : (
-                        <div className="integration-content-card">
-                            <div className="product-unsupported">
-                                <div className="product-unsupported-icon">⚠️</div>
-                                <h3>Product Not Supported</h3>
-                                <p>This integration doesn't support <strong>{selectedProduct}</strong> yet.</p>
-                            </div>
-                        </div>
-                    )}
+                    {/* selectedProduct always comes from this listing's own variants, so there
+                        is no "Product Not Supported" state to render. */}
+                    {children}
 
                     {/* Recommended Integrations Section - TODO: Enable when algorithm is refined */}
-                    {/* {isProductSupported && metadata && (
+                    {/* {metadata && (
                         <RecommendedIntegrations currentIntegrationId={id} />
                     )} */}
                 </div>

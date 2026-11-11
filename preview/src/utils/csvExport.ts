@@ -19,7 +19,7 @@ function generateCsvContent(integrations: IntegrationMetadata[]): string {
         'Name',
         'Type',
         'Short Description',
-        'Certification Status',
+        'Support Level',
         'Developed By',
         'Supported By',
         'Product'
@@ -32,15 +32,16 @@ function generateCsvContent(integrations: IntegrationMetadata[]): string {
             ? integration.products
             : [''];
 
-        const certStatus = integration.support === 'Supported' ? 'Certified' :
-                          integration.support === 'Community' ? 'Community' : '';
+        const supportLevel = integration.support === 'Supported' || integration.support === 'Community'
+            ? integration.support
+            : '';
 
         products.forEach(product => {
             const row = [
                 escapeCsvCell(integration.name),
                 escapeCsvCell(LISTING_TYPE_NAMES[listingTypeOf(integration)]),
                 escapeCsvCell(integration.description),
-                escapeCsvCell(certStatus),
+                escapeCsvCell(supportLevel),
                 escapeCsvCell(integration.author),
                 escapeCsvCell(integration.supported_by || ''),
                 escapeCsvCell(product)

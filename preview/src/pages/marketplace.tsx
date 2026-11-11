@@ -13,9 +13,10 @@ import FilterDropdown from "../components/FilterDropdown";
 import MarketplaceAnnouncements from "../components/MarketplaceAnnouncements";
 import { languageOnlyLabel } from "../utils/languageLabel";
 import { integrationId } from "../utils/integrationId";
+import { byProductPriority, matchProductParam, PRODUCT_NAMES, productParamValue } from "../utils/productParam";
 import { LISTING_TYPES, LISTING_TYPE_LABELS, listingTypeOf, ToolIcon, IntegrationIcon, ToolBadge } from "../components/ListingType";
 
-function CertifiedIcon() {
+function SupportedIcon() {
     return (
         <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
             <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
@@ -33,31 +34,64 @@ function CommunityIcon() {
 
 function SupportBadge({ support }: { support?: string }) {
     if (support !== "Supported" && support !== "Community") return null;
-    const certified = support === "Supported";
+    const supported = support === "Supported";
     return (
-        <div className={`card-badge card-badge--${certified ? "certified" : "community"}`}>
+        <div className={`card-badge card-badge--${supported ? "certified" : "community"}`}>
             <span className="card-badge-icon">
-                {certified ? <CertifiedIcon /> : <CommunityIcon />}
+                {supported ? <SupportedIcon /> : <CommunityIcon />}
             </span>
-            <span className="card-badge-label">{certified ? "Certified" : "Community"}</span>
+            <span className="card-badge-label">{supported ? "Supported" : "Community"}</span>
         </div>
     );
 }
 
-const PRODUCTS = [
-    "Next-Gen Trust Security",
-    "Certificate Manager SaaS",
-    "Certificate Manager Self-Hosted",
-    "Zero Touch PKI",
-];
+const SUPPORT_LEVEL_TOOLTIP_ID = "support-level-tooltip";
 
-// The `support` field is stored as "Supported"/"Community"/"Partner", but the cards have always
-// labelled "Supported" as Certified. Filter on the stored value, show the card's wording.
-const SUPPORT_LABELS: Record<string, string> = {
-    Supported: "Certified",
-    Community: "Community",
-    Partner: "Partner",
-};
+// The "i" next to the SUPPORT LEVEL heading. Opens on hover or keyboard focus. The button gives
+// keyboard and touch users something to focus; it has no click action of its own.
+function SupportLevelInfo() {
+    return (
+        <span className="filter-info-tooltip">
+            <button
+                type="button"
+                className="filter-info-tooltip__icon"
+                aria-label="What support levels mean"
+                aria-describedby={SUPPORT_LEVEL_TOOLTIP_ID}
+            >
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                    <path d="M12 2a10 10 0 100 20 10 10 0 000-20zm1 15h-2v-6h2v6zm0-8h-2V7h2v2z" />
+                </svg>
+            </button>
+            <span role="tooltip" id={SUPPORT_LEVEL_TOOLTIP_ID} className="filter-info-tooltip__bubble">
+                <strong>Supported:</strong> support is offered by Palo Alto Networks or the partner.
+                Each listing shows which.
+                <br />
+                <strong>Community:</strong> best-effort support from the community.
+            </span>
+        </span>
+    );
+}
+
+// The stored `support` values, in filter order, shown as-is. "Supported" was labelled "Certified"
+// until 2026-11-11, and "Partner" was dropped as a value the same day.
+const SUPPORT_LEVELS = ["Supported", "Community"];
+
+// A card's product pills: the first two by priority, the rest folded into a "+N" pill.
+function ProductPills({ products }: { products: string[] }) {
+    const sorted = byProductPriority(products);
+    return (
+        <div className="card-pills">
+            {sorted.slice(0, 2).map((p) => (
+                <span key={p} className="card-pill">{p}</span>
+            ))}
+            {sorted.length > 2 && (
+                <span className="card-pill card-pill--more" title={sorted.slice(2).join(", ")}>
+                    +{sorted.length - 2}
+                </span>
+            )}
+        </div>
+    );
+}
 
 const ALL_SORT_OPTIONS = [
     { value: "name-asc", label: "Name (A–Z)" },
@@ -70,7 +104,7 @@ type SortOption = (typeof ALL_SORT_OPTIONS)[number]["value"];
 
 // Sorting by a date the listings don't display would only surface the bulk-import ordering.
 // The date sorts come back with the rest of the feature — see SHOW_LAST_UPDATED. A stale
-// "updated-*" in localStorage is rejected by the sortBy initializer below, which validates
+// "updated-*" in localStorage is rejected by the saved-preferences effect below, which validates
 // against this filtered list.
 const SORT_OPTIONS: readonly { value: SortOption; label: string }[] = SHOW_LAST_UPDATED
     ? ALL_SORT_OPTIONS
@@ -99,31 +133,34 @@ export default function MarketplaceGallery() {
         return val ? [decodeURIComponent(val)] : [];
     }
 
+    // `?product=` takes a full name or the short suffix (ngts, saas, selfhosted, ztpki), any case,
+    // the same as the listing detail page. Both resolve to the canonical name the filter matches
+    // on. An unrecognised value is kept as-is, so it still shows as an active filter.
+    function productsFromUrl(): string[] {
+        return paramList("product").map((v) => matchProductParam(v, PRODUCT_NAMES) ?? v);
+    }
+
+    // Every piece of state below that depends on the URL or localStorage starts at its default
+    // and is filled in by an effect. The static HTML was built with no query string and no
+    // storage, so React's first client render has to match that or hydration fails (React
+    // error #418) and the whole page is thrown away and re-rendered.
     const [filtersOpen, setFiltersOpen] = useState(false);
-    // `?platform=` is the pre-rename spelling of `?product=`. Links using it live outside this
-    // repo — bookmarks, decks, partner emails — and cannot be updated, so it is accepted
-    // indefinitely. Nothing here emits it. `?product=` wins when both are present.
-    const [selectedProducts, setSelectedProducts] = useState<string[]>(() => {
-        const products = paramList("product");
-        return products.length > 0 ? products : paramList("platform");
-    });
-    const [selectedTags, setSelectedTags] = useState<string[]>(() => paramList("tag"));
-    const [selectedUseCases, setSelectedUseCases] = useState<string[]>(() => paramList("useCase"));
-    const [selectedCategories, setSelectedCategories] = useState<string[]>(() => paramList("category"));
-    const [selectedAuthors, setSelectedAuthors] = useState<string[]>(() => paramList("author"));
-    const [selectedSupport, setSelectedSupport] = useState<string[]>(() => paramList("support"));
-    const [selectedType, setSelectedType] = useState<string[]>(() => paramList("type"));
+    const [selectedProducts, setSelectedProducts] = useState<string[]>([]);
+    const [selectedTags, setSelectedTags] = useState<string[]>([]);
+    const [selectedUseCases, setSelectedUseCases] = useState<string[]>([]);
+    const [selectedCategories, setSelectedCategories] = useState<string[]>([]);
+    const [selectedAuthors, setSelectedAuthors] = useState<string[]>([]);
+    const [selectedSupport, setSelectedSupport] = useState<string[]>([]);
+    const [selectedType, setSelectedType] = useState<string[]>([]);
     const [draggingCard, setDraggingCard] = useState<string | null>(null);
 
-    // Filter links across the site point at /marketplace?category=…, ?tag=…, and so on.
-    // When one is followed from a page that is already /marketplace — a category pill on a
-    // card, for instance — the component does not remount, so the useState initializers
-    // above never re-run and the click would appear to do nothing. Re-derive the selections
-    // whenever the query string changes. Nothing writes to the URL programmatically, so this
-    // only fires on real navigation.
+    // Filters come from the query string: on mount, and again whenever it changes. Filter links
+    // across the site point at /marketplace?category=…, ?tag=…, and so on, and when one is
+    // followed from a page that is already /marketplace (a category pill on a card, for
+    // instance) the component does not remount. Nothing writes to the URL programmatically, so
+    // this only fires on real navigation.
     useEffect(() => {
-        const products = paramList("product");
-        setSelectedProducts(products.length > 0 ? products : paramList("platform"));
+        setSelectedProducts(productsFromUrl());
         setSelectedTags(paramList("tag"));
         setSelectedUseCases(paramList("useCase"));
         setSelectedCategories(paramList("category"));
@@ -134,21 +171,20 @@ export default function MarketplaceGallery() {
 
     // Collapsed by default; only an explicit toggle is saved. The -v2 key ignores the old value,
     // which was written on every page load and pinned every past visitor to "expanded".
-    const [listBuilderCollapsed, setListBuilderCollapsed] = useState<boolean>(() => {
-        if (typeof window !== 'undefined') {
-            const stored = localStorage.getItem('list-builder-collapsed-v2');
-            return stored === null ? true : stored === 'true';
-        }
-        return true;
-    });
+    const [listBuilderCollapsed, setListBuilderCollapsed] = useState<boolean>(true);
+    const [sortBy, setSortBy] = useState<SortOption>('name-asc');
 
-    const [sortBy, setSortBy] = useState<SortOption>(() => {
-        if (typeof window !== 'undefined') {
+    // Saved preferences are applied after hydration (see the note above the filter state).
+    // Declared before the ?list= effect below so a shared list link still wins and opens the list.
+    useEffect(() => {
+        try {
+            if (localStorage.getItem('list-builder-collapsed-v2') === 'false') setListBuilderCollapsed(false);
             const stored = localStorage.getItem('marketplace-sort') as SortOption | null;
-            if (stored && SORT_OPTIONS.some((o) => o.value === stored)) return stored;
+            if (stored && SORT_OPTIONS.some((o) => o.value === stored)) setSortBy(stored);
+        } catch {
+            // Storage blocked: keep the defaults.
         }
-        return 'name-asc';
-    });
+    }, []);
 
     const handleSortChange = (value: SortOption) => {
         setSortBy(value);
@@ -234,14 +270,14 @@ export default function MarketplaceGallery() {
         return counts;
     }, [integrations]);
 
-    // Ordered by the taxonomy, not alphabetically, so the pills read Certified → Community.
+    // Ordered by the taxonomy, not alphabetically, so the pills read Supported → Community.
     const allSupportLevels = useMemo(() => {
         const present = new Set<string>();
         integrations.forEach((i) => {
             const support = supportOf(i);
             if (support) present.add(support);
         });
-        return Object.keys(SUPPORT_LABELS).filter((s) => present.has(s));
+        return SUPPORT_LEVELS.filter((s) => present.has(s));
     }, [integrations]);
 
     const supportCounts = useMemo(() => {
@@ -302,6 +338,13 @@ export default function MarketplaceGallery() {
         integrations.forEach((i) => { counts[listingTypeOf(i)] += 1; });
         return counts;
     }, [integrations]);
+
+    // With exactly one product filter on, the card link carries it so the click lands on that
+    // variant. A listing that claims the product without a matching variant falls back to its
+    // default on the detail page.
+    const cardProductQuery = selectedProducts.length === 1
+        ? `?product=${encodeURIComponent(productParamValue(selectedProducts[0]))}`
+        : "";
 
     // Undated listings always sink to the bottom, whichever direction the date sort runs —
     // "oldest first" shouldn't be a showcase for entries that simply have no date yet.
@@ -367,6 +410,42 @@ export default function MarketplaceGallery() {
                         ☰ {filtersOpen ? "Hide Filters" : "Show Filters"}
                     </button>
                     <div className={`marketplace-sidebar-inner${filtersOpen ? " open" : ""}`}>
+                        {/* Product Filter */}
+                        <FilterDropdown
+                            title="Product"
+                            items={PRODUCT_NAMES}
+                            selected={selectedProducts}
+                            onToggle={(v) => toggleItem(setSelectedProducts, v)}
+                            counts={productCounts}
+                        />
+
+                        {/* Support Level filter — pill toggles rather than checkboxes, since
+                            there are only ever two or three values */}
+                        {allSupportLevels.length > 0 && (
+                            <div className="filter-dropdown filter-dropdown--static">
+                                <div className="filter-dropdown-header filter-dropdown-header--static">
+                                    <span className="filter-section-label">Support Level</span>
+                                    <SupportLevelInfo />
+                                </div>
+                                <div className="filter-pill-group">
+                                    {allSupportLevels.map((level) => (
+                                        <button
+                                            key={level}
+                                            className={`filter-pill-toggle${selectedSupport.includes(level) ? " active" : ""}`}
+                                            onClick={() => toggleItem(setSelectedSupport, level)}
+                                            aria-pressed={selectedSupport.includes(level)}
+                                        >
+                                            <span className="filter-pill-toggle-icon">
+                                                {level === "Community" ? <CommunityIcon /> : <SupportedIcon />}
+                                            </span>
+                                            {level}
+                                            <span className="filter-count"> ({supportCounts[level]})</span>
+                                        </button>
+                                    ))}
+                                </div>
+                            </div>
+                        )}
+
                         {/* Type filter — Integrations vs Tools & Utilities (listingType) */}
                         <div className="filter-dropdown filter-dropdown--static">
                             <div className="filter-dropdown-header filter-dropdown-header--static">
@@ -389,41 +468,6 @@ export default function MarketplaceGallery() {
                                 ))}
                             </div>
                         </div>
-
-                        {/* Certification Filter — pill toggles rather than checkboxes, since
-                            there are only ever two or three values */}
-                        {allSupportLevels.length > 0 && (
-                            <div className="filter-dropdown filter-dropdown--static">
-                                <div className="filter-dropdown-header filter-dropdown-header--static">
-                                    <span className="filter-section-label">Certification</span>
-                                </div>
-                                <div className="filter-pill-group">
-                                    {allSupportLevels.map((level) => (
-                                        <button
-                                            key={level}
-                                            className={`filter-pill-toggle${selectedSupport.includes(level) ? " active" : ""}`}
-                                            onClick={() => toggleItem(setSelectedSupport, level)}
-                                            aria-pressed={selectedSupport.includes(level)}
-                                        >
-                                            <span className="filter-pill-toggle-icon">
-                                                {level === "Community" ? <CommunityIcon /> : <CertifiedIcon />}
-                                            </span>
-                                            {SUPPORT_LABELS[level]}
-                                            <span className="filter-count"> ({supportCounts[level]})</span>
-                                        </button>
-                                    ))}
-                                </div>
-                            </div>
-                        )}
-
-                        {/* Product Filter */}
-                        <FilterDropdown
-                            title="Product"
-                            items={PRODUCTS}
-                            selected={selectedProducts}
-                            onToggle={(v) => toggleItem(setSelectedProducts, v)}
-                            counts={productCounts}
-                        />
 
                         {/* Category Filter */}
                         {allCategories.length > 0 && (
@@ -545,7 +589,7 @@ export default function MarketplaceGallery() {
                                 ))}
                                 {selectedSupport.map((s) => (
                                     <span key={s} className="filter-pill">
-                                        {SUPPORT_LABELS[s] ?? s}
+                                        {s}
                                         <button onClick={() => toggleItem(setSelectedSupport, s)}>×</button>
                                     </span>
                                 ))}
@@ -605,7 +649,7 @@ export default function MarketplaceGallery() {
                         {sortedIntegrations.map((int, index) => (
                             <Link
                                 key={index}
-                                to={`/marketplace/${integrationId(int)}`}
+                                to={`/marketplace/${integrationId(int)}${cardProductQuery}`}
                                 className={`integration-card${draggingCard === int.name ? ' dragging' : ''}`}
                                 draggable={true}
                                 onDragStart={(e) => handleDragStart(e, int)}
@@ -643,21 +687,7 @@ export default function MarketplaceGallery() {
                                     vertical space, so the pills pin to the card's bottom
                                     without stretching (and un-clamping) .card-desc. */}
                                 <div className="card-pill-stack">
-                                    {int.products?.length > 0 && (
-                                        <div className="card-pills">
-                                            {int.products.slice(0, 2).map((p) => (
-                                                <span key={p} className="card-pill">{p}</span>
-                                            ))}
-                                            {int.products.length > 2 && (
-                                                <span
-                                                    className="card-pill card-pill--more"
-                                                    title={int.products.slice(2).join(", ")}
-                                                >
-                                                    +{int.products.length - 2}
-                                                </span>
-                                            )}
-                                        </div>
-                                    )}
+                                    {int.products?.length > 0 && <ProductPills products={int.products} />}
                                     {int.categories?.length > 0 && (
                                         <div className="card-pills">
                                             <span className="card-pill card-pill--category">

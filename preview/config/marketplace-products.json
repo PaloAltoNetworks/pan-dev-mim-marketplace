@@ -1,0 +1,9 @@
+{
+  "description": "The marketplace's products, in display priority. The order sets the gallery's Product filter, card pills (the first two show, the rest fold into +N), the detail page's PRODUCT dropdown, and which variant a listing opens on by default. `suffix` picks a variant's OVERVIEW-<suffix>.md and DOCS-<suffix>.md files (generate-gallery.js) and is the short form of the ?product= query param (src/utils/productParam.ts). Names must match the approved product vocabulary in the marketplace repo's Config/approved_products.json.",
+  "products": [
+    { "name": "Next-Gen Trust Security", "suffix": "ngts" },
+    { "name": "Certificate Manager Self-Hosted", "suffix": "selfhosted" },
+    { "name": "Certificate Manager SaaS", "suffix": "saas" },
+    { "name": "Zero Touch PKI", "suffix": "ztpki" }
+  ]
+}
