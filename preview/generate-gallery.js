@@ -15,6 +15,8 @@ const UUID_DIR = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$
 // primary CTA falls through to the next type, and the Release Notes tab shows
 // DOWNLOADS_DISABLED_NOTICE where the buttons would be. Missing file = everything enabled.
 const downloadsConfigPath = path.join(__dirname, "config/marketplace-downloads.json");
+// Product names and file suffixes, shared with the site's ?product= handling (src/utils/productParam.ts).
+const { products: MARKETPLACE_PRODUCTS } = require("./config/marketplace-products.json");
 // Keep the link in step with the "downloads-moving-here" banner in
 // config/marketplace-announcements.json, which shows on the same pages.
 const CYBERARK_MARKETPLACE_URL =
@@ -211,18 +213,14 @@ function stripFrontmatter(text) {
  * Convert product name to file suffix for auto-detection
  */
 function getProductSuffix(productName) {
-    const mapping = {
-        'Certificate Manager SaaS': 'saas',
-        'Certificate Manager Self-Hosted': 'selfhosted',
-        'Next-Gen Trust Security': 'ngts',
-        'Zero Touch PKI': 'ztpki'
-    };
-    if (!mapping[productName]) {
+    const suffix = MARKETPLACE_PRODUCTS.find((p) => p.name === productName)?.suffix;
+    if (!suffix) {
         // Falling through here serves that variant the SaaS overview, silently. The marketplace
         // repo's approved_products.json is what actually prevents it; this is the tripwire.
+        // Add new products to config/marketplace-products.json.
         console.warn(`⚠️  Unrecognized product "${productName}" — falling back to the "saas" file suffix`);
     }
-    return mapping[productName] || 'saas';
+    return suffix || 'saas';
 }
 
 /**
