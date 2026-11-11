@@ -203,7 +203,9 @@ regardless of whether the product itself is free or paid, and independently over
 - `"Zero Touch PKI"` — Zero Touch PKI
 
 To propose a new product, open a PR against `Config/approved_products.json`; a CODEOWNER
-must approve it, and it also requires a matching change in the site repo.
+must approve it, and it also requires a matching change in the site repo: add the product to
+pan-dev-mim's `docs/config/marketplace-products.json`, which sets its name, its `?product=`
+suffix, and its display order.
 
 ### Product variants
 
@@ -217,6 +219,8 @@ An integration supporting more than one product can override per-product content
   { "product": "Next-Gen Trust Security", "overviewFile": "OVERVIEW-ngts.md" }
 ]
 ```
+
+The order of `productVariants[]` doesn't set the default variant. A listing opens on the highest-priority product it supports, in this order: Next-Gen Trust Security, Certificate Manager Self-Hosted, Certificate Manager SaaS, Zero Touch PKI. The PRODUCT dropdown and the gallery card's product pills use the same order.
 
 A variant may also override `description`, `currentVersion`, `support`, `author`, `supportUrl`,
 `supportEmail`, `price`, `supportPrice`, `supportAcquisition`, `documentationFile`, `documentationLinks`,
