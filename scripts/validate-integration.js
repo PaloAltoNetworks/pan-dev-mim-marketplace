@@ -488,6 +488,7 @@ function validateDirectory(dir) {
     'Certificate Manager Self-Hosted': 'selfhosted',
     'Certificate Manager SaaS': 'saas',
     'Next-Gen Trust Security': 'ngts',
+    'Zero Touch PKI': 'ztpki',
   };
   if (Array.isArray(meta.productVariants) && meta.productVariants.length > 1
     && fs.existsSync(path.join(dir, 'DOCUMENTATION.md'))) {
