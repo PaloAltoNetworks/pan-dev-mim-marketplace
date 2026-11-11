@@ -41,8 +41,14 @@ git add Integrations/MyIntegration
 git commit -m "feat: add MyIntegration"
 git push origin add-my-integration
 
-# 7. Open a pull request on GitHub
+# 7. Open a pull request against main
+#    GitHub shows a "Compare & pull request" button on your fork after the push,
+#    or start one at https://github.com/PaloAltoNetworks/pan-dev-mim-marketplace/compare
+#    With the GitHub CLI:
+gh pr create --repo PaloAltoNetworks/pan-dev-mim-marketplace --base main --fill
 ```
+
+In the pull request, say what the integration does and which products it supports, and confirm you've worked through the [Testing checklist](#testing-checklist). For a new integration, include its `.github/owner-reviewers.yml` entry in the same PR (see [Reviewer approval required to merge](#reviewer-approval-required-to-merge)). External contributors also need to accept the [Contributor Terms](#contributor-terms). The [Review process](#review-process) section explains what happens next.
 
 ## Optional: AI-assisted listing generation
 
@@ -93,7 +99,7 @@ Every integration directory must contain:
 
 | File | Required | Notes |
 |------|----------|-------|
-| `integration_metadata.json` | Yes | See schema in INTEGRATION_GUIDE.md |
+| `integration_metadata.json` | Yes | See the [schema reference](INTEGRATION_GUIDE.md#integration_metadatajson-schema) in INTEGRATION_GUIDE.md |
 | `OVERVIEW-*.md` or `README.md` | Yes | Documentation shown on the marketplace page |
 | Logo image (`.png`, `.svg`, `.jpg`, etc.) | No | Recommended: PNG, min 200px wide — falls back to a generic logo if absent |
 | Downloadable file(s) (`downloadFiles`) | Optional | e.g. an Adaptable driver `.ps1`; can be scoped per product variant |
@@ -111,7 +117,7 @@ should have none. See [INTEGRATION_GUIDE.md](INTEGRATION_GUIDE.md) for details.
 
 - `name`, `description`, `products`, and `price` are required fields
 - Scripts and utilities that support the products, rather than connecting them to another system, set `"listingType": "tool"`. See [Listing type](INTEGRATION_GUIDE.md#listing-type)
-- `support` sets the support level: `"Supported"` means Palo Alto Networks or the partner offers support, and the listing shows which. `"Community"` means support is best-effort, from the community. See [Support level](INTEGRATION_GUIDE.md#support-level)
+- `support` sets the support level: `"Supported"` means Palo Alto Networks or the partner offers support, and the listing shows which. `"Community"` means support is best-effort, from the community, and the listing is not maintained by Palo Alto Networks. See [Support level](INTEGRATION_GUIDE.md#support-level)
 - `price` must be `"Free"` or `"Paid"`
 - Paid integrations must include an `acquisition` object with `type`, `label`, and `url`
   - `type` is either `"contact-sales"` or `"contact-partner"`
@@ -259,6 +265,8 @@ Run validation locally before opening a PR:
 node scripts/validate-integration.js                        # Validate all
 node scripts/validate-integration.js Integrations/MyTool   # Validate one
 ```
+
+The validator prints `[ERROR]` and `[WARN]` lines. Fix every error before opening a pull request, because reviewers won't approve a PR with validation errors. Warnings don't block approval. They flag something a reviewer will look at, such as a tag that isn't on the approved list, so fix them where you can or explain them in the PR description.
 
 ## Preview locally
 

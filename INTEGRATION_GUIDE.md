@@ -4,9 +4,10 @@ This document is the reference for creating and maintaining integrations in the 
 
 ## Directory naming
 
-Use PascalCase for integration directory names. Match the integration's official product name with spaces removed.
+Use PascalCase for directory names.
 
-**Examples**: `HashiCorpVault`, `AWSCertificateManager`, `FortinetFortiGate`
+- **Integrations**: match the official name of the product the integration connects to, with spaces removed. Examples: `HashiCorpVault`, `AWSCertificateManager`, `FortinetFortiGate`
+- **Tools & Utilities**: describe what the tool does, starting with a verb where it reads naturally. Examples: `WriteVenafiDebug`, `GetTppActiveHistoricalCertificate`, `AutoApproveByCaTemplate`
 
 ## integration_metadata.json schema
 
@@ -42,7 +43,7 @@ Use PascalCase for integration directory names. Match the integration's official
 | `categories` | Yes | string[] | Exactly one value from `Config/approved_categories.json`. See [Categories, tags, and keywords](#categories-tags-and-keywords) |
 | `listingType` | No | string | `"tool"` for a script or utility that supports the products without connecting them to another system. Omit for an integration. See [Listing type](#listing-type). Root-level only |
 | `products` | Yes | string[] | Venafi product(s) this integration supports. Must be from `Config/approved_products.json` |
-| `tags` | No | string[] | Should be from `Config/approved_tags.json` (other values are a warning). See [Categories, tags, and keywords](#categories-tags-and-keywords) |
+| `tags` | No | string[] | Should be from `Config/approved_tags.json`. Other values pass validation with a warning. See [Categories, tags, and keywords](#categories-tags-and-keywords) |
 | `useCases` | No | string[] | Use case labels |
 | `supportUrl` | No | string | Link to issue tracker or support portal |
 | `keywords` | No | string[] | Extra search terms not shown as facets (unlike `tags`/`useCases`), useful for search-only synonyms |
@@ -64,7 +65,7 @@ Use PascalCase for integration directory names. Match the integration's official
 These three fields look similar but do different jobs:
 
 - **`categories`** answers "what kind of system does this connect to?" Set exactly one value from the closed list below. It drives the Categories filter on the marketplace and is the highest-weighted signal in "Recommended Integrations", so a wrong value hurts discovery more than a missing one. `validate-integration.js` errors on a missing, multiple, or unrecognized category.
-- **`tags`** are secondary facets: a technology, protocol, or delivery model that cuts across categories (`Cloud`, `Kubernetes`, `Adaptable Framework`, `Open Source`). Every distinct tag becomes a row in the Tags filter, so only use one that more than one listing could plausibly carry. Unrecognized tags are a warning.
+- **`tags`** are secondary facets: a technology, protocol, or delivery model that cuts across categories (`Cloud`, `Kubernetes`, `Adaptable Framework`, `Open Source`). Every distinct tag becomes a row in the Tags filter, so only use one that more than one listing could plausibly carry. A tag that isn't in `Config/approved_tags.json` doesn't fail validation, but the validator prints a `[WARN]` line for it and the marketplace shows it as a new Tags filter option. Use an approved tag where one fits. To propose a new one, add it to `Config/approved_tags.json` in the same PR and say why in the PR description.
 - **`keywords`** are free-text search terms: vendor names, product names, model numbers, and anything too specific to be a facet (`ONTAP`, `PKCS#11`, `nShield`). They're searchable but never shown as a filter. When in doubt between a tag and a keyword, use a keyword.
 
 | Category | Use it for |
@@ -89,7 +90,7 @@ These three fields look similar but do different jobs:
 
 If your integration seems to fit two categories, choose the system it actually talks to. A Kubernetes ingress controller is `Kubernetes & Containers`, not `Load Balancer & ADC`. A code-signing integration is categorized by where it runs (CI/CD, HSM, IoT), with `Code Signing` as its use case.
 
-**`useCases`** describes the machine-identity workflow the integration takes part in, not the kind of system it connects to. The approved values are `Certificate Lifecycle Management`, `Code Signing`, and `SSH Key Management`, and almost every listing is `Certificate Lifecycle Management`. Discovery tooling is found through the `Discovery & Asset Management` category and the `Discovery` tag, not a use case. Unrecognized use cases are a warning.
+**`useCases`** describes the machine-identity workflow the integration takes part in, not the kind of system it connects to. The approved values are `Certificate Lifecycle Management`, `Code Signing`, and `SSH Key Management`. Discovery tooling is found through the `Discovery & Asset Management` category and the `Discovery` tag, not a use case. A use case that isn't in `Config/approved_usecases.json` doesn't fail validation, but the validator prints a `[WARN]` line for it and the marketplace shows it as a new Use Cases filter option. To propose a new one, add it to `Config/approved_usecases.json` in the same PR and say why in the PR description.
 
 The approved lists live in `Config/approved_categories.json`, `Config/approved_tags.json`, and `Config/approved_usecases.json`. To add a value, open a PR against the relevant file; a CODEOWNER must approve. A new category should be able to hold at least about four listings; otherwise it belongs as a tag.
 
@@ -112,7 +113,7 @@ On the marketplace, tools carry a "Tools & Utilities" badge and have their own T
 | Value | Meaning |
 | --- | --- |
 | `Supported` | Support is offered by Palo Alto Networks or by the partner. The listing shows which, through its author and its `supportUrl` or `supportEmail`. |
-| `Community` | Support is best-effort, from the community. |
+| `Community` | Support is best-effort, from the community. Not maintained by Palo Alto Networks. |
 
 The validator rejects any other value.
 
@@ -146,7 +147,7 @@ Set `price: "Paid"` and add an `acquisition` object:
 #### Acquisition types
 
 - **`contact-partner`** — The CTA links to a partner's own contact or sales page. Use this when a third-party partner owns the commercial relationship.
-- **`contact-sales`** — The CTA links to an internal sales flow. Use this for integrations sold directly through the MIM Marketplace team.
+- **`contact-sales`** — The CTA reads "Contact Your Account Team". Use this for paid integrations that require purchase through a Palo Alto Networks account team.
 
 Example with `contact-sales`:
 
@@ -578,4 +579,4 @@ npm ci
 node scripts/validate-integration.js Integrations/MyIntegration
 ```
 
-Fix any errors before opening a pull request. Warnings are informational.
+The validator prints `[ERROR]` and `[WARN]` lines. Fix every error before opening a pull request, because reviewers won't approve a PR with validation errors. Warnings don't block approval. They flag something a reviewer will look at, such as a tag that isn't on the approved list, so fix them where you can or explain them in the PR description.
