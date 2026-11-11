@@ -113,7 +113,7 @@ On the marketplace, tools carry a "Tools & Utilities" badge and have their own T
 | Value | Meaning |
 | --- | --- |
 | `Supported` | Support is offered by Palo Alto Networks or by the partner. The listing shows which, through its author and its `supportUrl` or `supportEmail`. |
-| `Community` | Support is best-effort, from the community. |
+| `Community` | Support is best-effort, from the community. Not maintained by Palo Alto Networks. |
 
 The validator rejects any other value.
 
