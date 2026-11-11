@@ -44,7 +44,7 @@
   --ngts-orange-light: var(--ngts-primary-light);
   --ngts-orange-xlight: var(--ngts-primary-xlight);
 
-  /* Semantic green - used by the "Certified" marketplace badge, which needs to read as
+  /* Semantic green - used by the "Supported" marketplace badge, which needs to read as
      distinct from the indigo "Community" badge rather than as another brand accent. */
   --ngts-success: #17825A;        /* green-600 - icon/text on light backgrounds */
   --ngts-success-xlight: #DCF3E8; /* green-100 - very light backgrounds */
@@ -414,7 +414,7 @@
   text-decoration: none;
 }
 
-/* Certification badge — a small rounded icon chip in the card's top-right corner, with the
+/* Support level badge — a small rounded icon chip in the card's top-right corner, with the
    full label revealed on hover. Shared by the grid and list layouts. */
 .card-badge {
   position: relative;
@@ -634,6 +634,79 @@
   color: var(--ngts-primary);
 }
 
+/* Support Level "i" tooltip. The bubble spans the filter column's width, anchored to the
+   section header, because the column clips anything that overflows it. */
+.filter-dropdown-header--static {
+  position: relative;
+}
+
+.filter-info-tooltip {
+  display: inline-flex;
+  margin-left: 0.35rem;
+  vertical-align: middle;
+}
+
+.filter-info-tooltip__icon {
+  display: inline-flex;
+  padding: 0;
+  border: 0;
+  background: none;
+  color: var(--ifm-color-emphasis-600);
+  cursor: help;
+}
+
+.filter-info-tooltip__icon:hover,
+.filter-info-tooltip__icon:focus-visible {
+  color: var(--ngts-primary);
+}
+
+/* Shared info-tooltip bubble: the Support Level "i" in the gallery filters and the Paid Support
+   pill on detail pages. Each sets only its own anchoring. emphasis-900/emphasis-0 flip with the
+   theme; --ifm-background-color can't be the text color because it is transparent in light mode. */
+.filter-info-tooltip__bubble,
+.detail-info-tooltip__bubble {
+  position: absolute;
+  z-index: 10;
+  padding: 0.55rem 0.7rem;
+  border-radius: 6px;
+  background: var(--ifm-color-emphasis-900);
+  color: var(--ifm-color-emphasis-0);
+  font-size: 0.78rem;
+  font-weight: 400;
+  line-height: 1.45;
+  text-align: left;
+  text-transform: none;
+  letter-spacing: normal;
+  white-space: normal;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.12s ease, visibility 0.12s ease;
+  pointer-events: none;
+}
+
+.filter-info-tooltip:hover .filter-info-tooltip__bubble,
+.filter-info-tooltip:focus-within .filter-info-tooltip__bubble,
+.detail-info-tooltip:hover .detail-info-tooltip__bubble,
+.detail-info-tooltip:focus-within .detail-info-tooltip__bubble {
+  opacity: 1;
+  visibility: visible;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .filter-info-tooltip__bubble,
+  .detail-info-tooltip__bubble {
+    transition: none;
+  }
+}
+
+/* Spans the filter column, which clips anything wider. */
+.filter-info-tooltip__bubble {
+  top: calc(100% - 0.35rem);
+  left: 0;
+  right: 0;
+}
+
 .filter-section-label {
   font-size: 0.8rem;
   font-weight: 700;
@@ -747,16 +820,18 @@
   text-decoration: underline;
 }
 
-/* --- Certification pill toggles --- */
+/* --- Support Level and Type pill toggles --- */
 
 /* A header for a section with no collapse control, so it lines up with the dropdown headers */
 .filter-dropdown-header--static {
   cursor: default;
+  /* Keeps the Support Level info icon next to its label instead of at the far edge */
+  justify-content: flex-start;
 }
 
 .filter-pill-group {
   display: flex;
-  /* One pill per line (Type and Certification) */
+  /* One pill per line (Type and Support Level) */
   flex-direction: column;
   align-items: flex-start;
   gap: 0.4rem;
@@ -872,6 +947,12 @@
   margin: 0;
   line-height: 1.2;
   flex: 1;
+}
+
+/* Set by the inline head script while a ?product= variant is pending (see productParam.ts).
+   visibility, not display, so the layout doesn't shift when it's revealed. */
+html[data-mim-variant-pending] .integration-detail-layout {
+  visibility: hidden;
 }
 
 .integration-detail-layout {
@@ -1190,31 +1271,6 @@
   box-shadow: 0 0 0 3px rgba(var(--ngts-primary-rgb), 0.2);
 }
 
-/* --- Product Unsupported Message --- */
-
-.product-unsupported {
-  text-align: center;
-  padding: 3rem 2rem;
-  color: var(--ifm-color-emphasis-700);
-}
-
-.product-unsupported-icon {
-  font-size: 3rem;
-  margin-bottom: 1rem;
-}
-
-.product-unsupported h3 {
-  font-size: 1.5rem;
-  margin-bottom: 0.75rem;
-  color: var(--ifm-font-color-base);
-}
-
-.product-unsupported p {
-  font-size: 1rem;
-  color: var(--ifm-color-emphasis-700);
-  margin: 0;
-}
-
 /* --- Primary CTA (unified download / docs / paid call-to-action) --- */
 /* Compact, single-line by design: it sits inline with the PRODUCT selector in
    .product-cta-row rather than as its own full-width banner block. */
@@ -1284,41 +1340,13 @@ a.detail-info-badge--paid-support {
   cursor: help;
 }
 
+/* Right-aligned to the pill, which sits at the sidebar's right edge. Shared styling is with
+   .filter-info-tooltip__bubble. */
 .detail-info-tooltip__bubble {
-  position: absolute;
   top: calc(100% + 0.4rem);
   right: 0;
-  z-index: 10;
   width: max-content;
   max-width: 16rem;
-  padding: 0.5rem 0.65rem;
-  border-radius: 6px;
-  background: var(--ifm-color-emphasis-900);
-  color: var(--ifm-background-color);
-  font-size: 0.78rem;
-  font-weight: 400;
-  line-height: 1.4;
-  text-align: left;
-  text-transform: none;
-  letter-spacing: normal;
-  white-space: normal;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.18);
-  opacity: 0;
-  visibility: hidden;
-  transition: opacity 0.12s ease, visibility 0.12s ease;
-  pointer-events: none;
-}
-
-.detail-info-tooltip:hover .detail-info-tooltip__bubble,
-.detail-info-tooltip:focus-within .detail-info-tooltip__bubble {
-  opacity: 1;
-  visibility: visible;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .detail-info-tooltip__bubble {
-    transition: none;
-  }
 }
 
 .primary-cta__description {
