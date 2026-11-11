@@ -59,11 +59,10 @@ MAPPING_FILE = ".github/owner-reviewers.yml"
 # be ignored when computing the latest state per reviewer.
 IGNORED_STATES = {"COMMENTED", "PENDING"}
 
-# Mirrors the product -> file-suffix convention used across the site/repo:
-# docs/generate-gallery.js's getProductSuffix() (authoritative), and partially
-# scripts/validate-integration.js's DOC_SUFFIX_BY_PRODUCT (missing "Zero Touch
-# PKI" there — a pre-existing gap, not this module's job to fix). Keep this in
-# sync with those if a product's suffix or the approved list ever changes.
+# Mirrors the product -> file-suffix convention. The authoritative list is
+# docs/config/marketplace-products.json in pan-dev-mim; scripts/validate-integration.js's
+# DOC_SUFFIX_BY_PRODUCT is another copy. Keep this in sync with those if a
+# product's suffix or the approved list ever changes.
 PRODUCT_SUFFIX = {
     "Certificate Manager SaaS": "saas",
     "Certificate Manager Self-Hosted": "selfhosted",

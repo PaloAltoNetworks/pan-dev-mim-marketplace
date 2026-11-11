@@ -49,6 +49,8 @@ const approvedListingTypes = loadApproved('approved_listing_types.json');
 
 const REQUIRED_FIELDS = ['name', 'description', 'products', 'price'];
 const VALID_PRICES = ['Free', 'Paid', 'Paid (Contact Partner)', 'Paid (Contact Sales)'];
+// Support level, shown as the card badge and the gallery's Support Level filter.
+const VALID_SUPPORT = ['Supported', 'Community'];
 const VALID_SUPPORT_PRICES = ['Free', 'Paid'];
 const LOGO_EXTENSIONS = ['.png', '.svg', '.jpg', '.jpeg', '.webp'];
 const OVERVIEW_PATTERNS = [/^OVERVIEW.*\.md$/i, /^README\.md$/i];
@@ -163,6 +165,17 @@ function validateMetadata(dir, meta) {
   // price validation
   if (price && !VALID_PRICES.includes(price) && !price.startsWith('Free')) {
     error(dir, `Invalid price "${price}" — accepted values: ${VALID_PRICES.join(', ')}`);
+  }
+
+  // support: optional, but an unknown value matches no Support Level filter option.
+  const supportLevels = [['', meta.support]];
+  if (Array.isArray(meta.productVariants)) {
+    for (const v of meta.productVariants) supportLevels.push([`productVariants["${v.product}"].`, v.support]);
+  }
+  for (const [label, value] of supportLevels) {
+    if (value !== undefined && !VALID_SUPPORT.includes(value)) {
+      error(dir, `Invalid ${label}support "${value}" — accepted values: ${VALID_SUPPORT.join(', ')}`);
+    }
   }
 
   // Optional releaseDate. Left unset, the marketplace dates the listing from this folder's
@@ -475,6 +488,7 @@ function validateDirectory(dir) {
     'Certificate Manager Self-Hosted': 'selfhosted',
     'Certificate Manager SaaS': 'saas',
     'Next-Gen Trust Security': 'ngts',
+    'Zero Touch PKI': 'ztpki',
   };
   if (Array.isArray(meta.productVariants) && meta.productVariants.length > 1
     && fs.existsSync(path.join(dir, 'DOCUMENTATION.md'))) {

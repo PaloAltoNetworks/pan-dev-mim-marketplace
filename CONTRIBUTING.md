@@ -111,6 +111,7 @@ should have none. See [INTEGRATION_GUIDE.md](INTEGRATION_GUIDE.md) for details.
 
 - `name`, `description`, `products`, and `price` are required fields
 - Scripts and utilities that support the products, rather than connecting them to another system, set `"listingType": "tool"`. See [Listing type](INTEGRATION_GUIDE.md#listing-type)
+- `support` sets the support level: `"Supported"` means Palo Alto Networks or the partner offers support, and the listing shows which. `"Community"` means support is best-effort, from the community. See [Support level](INTEGRATION_GUIDE.md#support-level)
 - `price` must be `"Free"` or `"Paid"`
 - Paid integrations must include an `acquisition` object with `type`, `label`, and `url`
   - `type` is either `"contact-sales"` or `"contact-partner"`
