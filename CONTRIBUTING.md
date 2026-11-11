@@ -41,8 +41,14 @@ git add Integrations/MyIntegration
 git commit -m "feat: add MyIntegration"
 git push origin add-my-integration
 
-# 7. Open a pull request on GitHub
+# 7. Open a pull request against main
+#    GitHub shows a "Compare & pull request" button on your fork after the push,
+#    or start one at https://github.com/PaloAltoNetworks/pan-dev-mim-marketplace/compare
+#    With the GitHub CLI:
+gh pr create --repo PaloAltoNetworks/pan-dev-mim-marketplace --base main --fill
 ```
+
+In the pull request, say what the integration does and which products it supports, and confirm you've worked through the [Testing checklist](#testing-checklist). For a new integration, include its `.github/owner-reviewers.yml` entry in the same PR (see [Reviewer approval required to merge](#reviewer-approval-required-to-merge)). External contributors also need to accept the [Contributor Terms](#contributor-terms). The [Review process](#review-process) section explains what happens next.
 
 ## Optional: AI-assisted listing generation
 

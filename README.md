@@ -43,7 +43,7 @@ git commit -m "feat: add MyIntegration"
 git push origin add-my-integration
 ```
 
-Open a pull request when ready.
+Then open a pull request against `main`, either from the "Compare & pull request" button GitHub shows on your fork or at https://github.com/PaloAltoNetworks/pan-dev-mim-marketplace/compare. See [Review process](CONTRIBUTING.md#review-process) for what happens next.
 
 ## Repository structure
 
