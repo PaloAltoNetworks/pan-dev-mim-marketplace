@@ -1,14 +1,17 @@
 # MIM Marketplace — Integration Repository
 
-This is the single repository for all integrations listed on the [MIM Marketplace](https://mim.pan.dev/marketplace).
+This is the single repository for all listings on the [MIM Marketplace](https://mim.pan.dev/marketplace).
 
 ## What lives here
 
-- **Free integrations** — open-source and community-supported
-- **Paid integrations (Contact Partner)** — commercial products listed with a partner CTA
-- **Paid integrations (Contact Sales)** — products available through the internal sales team
+The marketplace has two types of listing:
 
-## Contributing a new integration
+- **Integrations** connect a Palo Alto Networks machine identity product to another system, such as a CA, load balancer, or ITSM tool.
+- **Tools & Utilities** are scripts and utilities that help you run the products themselves, such as a prerequisites checker, a reporting script, or a debug helper. They set `"listingType": "tool"` and carry a "Tools & Utilities" badge on the marketplace. See [Listing type](INTEGRATION_GUIDE.md#listing-type).
+
+Either type can be free or paid. See [Pricing](#pricing).
+
+## Contributing a listing
 
 See [CONTRIBUTING.md](CONTRIBUTING.md) for the full guide. If you use Claude Code, see
 [Optional: AI-assisted listing generation](CONTRIBUTING.md#optional-ai-assisted-listing-generation)
@@ -45,7 +48,7 @@ Open a pull request when ready.
 ## Repository structure
 
 ```
-Integrations/
+Integrations/                       # Every listing, integrations and tools alike
 ├── .template/                  # Template for new integrations
 ├── MyIntegration/
 │   ├── integration_metadata.json   # Required: display name, tags, products, price
@@ -55,6 +58,7 @@ Integrations/
 │   └── scripts/                    # Optional: PowerShell or other scripts
 Config/
 ├── approved_categories.json        # Allowed category values
+├── approved_listing_types.json     # Allowed listingType values
 ├── approved_tags.json              # Allowed tag values
 ├── approved_products.json          # Allowed product values
 └── approved_usecases.json          # Allowed use-case values
@@ -66,9 +70,9 @@ scripts/
 
 See [INTEGRATION_GUIDE.md](INTEGRATION_GUIDE.md) for the full schema reference.
 
-## Where integrations go
+## Pricing
 
-All integrations live in this repository. The `price` field and optional `acquisition` object control how each integration appears on the marketplace:
+The `price` field and optional `acquisition` object control how each listing appears on the marketplace:
 
 | Type | Price | CTA on site |
 |------|-------|-------------|
