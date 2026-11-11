@@ -14,7 +14,7 @@ Use PascalCase for integration directory names. Match the integration's official
 {
   "name": "Human-readable integration name",
   "description": "One or two sentences. What does this integration do? What value does it deliver?",
-  "support": "Community | Supported | Partner",
+  "support": "Supported | Community",
   "currentVersion": "1.0.0",
   "author": "Your Name or Company",
   "supportEmail": "support@yourdomain.com",
@@ -33,7 +33,7 @@ Use PascalCase for integration directory names. Match the integration's official
 |-------|----------|------|-------------|
 | `name` | Yes | string | Display name shown on the marketplace |
 | `description` | Yes | string | Short description (1–2 sentences) |
-| `support` | No | string | `Community`, `Supported`, or `Partner` |
+| `support` | No | string | `Supported` or `Community`. Sets the listing's support level. See [Support level](#support-level) |
 | `currentVersion` | No | string | Semver version string |
 | `releaseDate` | No | string | ISO date (`YYYY-MM-DD`). Overrides the date the marketplace otherwise derives from this folder's last commit — set it only when the two should differ |
 | `author` | No | string | Author or company name |
@@ -104,6 +104,17 @@ Set `"listingType": "tool"` at the root level for a tool. Leave it out for an in
 ```
 
 On the marketplace, tools carry a "Tools & Utilities" badge and have their own Type filter. A tool still needs exactly one category that describes what it works with, for example `Installation & Operations` for a prerequisites checker or `Discovery & Asset Management` for an inventory export script. Everything else about a tool listing, including downloads, release notes, and [License](#license), works the same as for an integration.
+
+### Support level
+
+`support` sets the listing's support level, which the marketplace shows on the card badge and as the Support Level filter.
+
+| Value | Meaning |
+| --- | --- |
+| `Supported` | Support is offered by Palo Alto Networks or by the partner. The listing shows which, through its author and its `supportUrl` or `supportEmail`. |
+| `Community` | Support is best-effort, from the community. |
+
+The validator rejects any other value.
 
 ### Paid integrations
 
