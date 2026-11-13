@@ -28,7 +28,6 @@
   "supportEmail": "support@yourdomain.com",
   "supportUrl": "https://github.com/example/my-integration/issues",
   "price": "Free",
-  "license": "MIT",
   "resources": {
     "videos": [
       {
@@ -62,6 +61,7 @@
       "downloadFiles": [
         "MyIntegration-Driver.ps1"
       ],
+      "license": "MIT",
       "documentationLinks": [
         {
           "title": "Provisioning Certificates to My Integration",

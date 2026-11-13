@@ -52,8 +52,8 @@ Use PascalCase for directory names.
 | `documentationFile` | No | string | Filename of a longer-form Documentation-tab markdown file. A `DOCS-<suffix>.md` file is picked up without it, but a plain `DOCUMENTATION.md` is only used when this field names it |
 | `documentationLinks` | No | object[] | List of `{title, description?, url}` external doc links shown on the Documentation tab |
 | `resources` | No | object | Optional videos and other resources (PDFs, external links) shown on the listing. See [Resources](#resources) below |
-| `license` | No | string | Name of the license covering any `downloadFiles` in this folder, shown as the "License" row in the listing's Info sidebar, e.g. `"MIT"` or `"Software Tool License Agreement"`. See [License](#license). Root-level only |
-| `licenseUrl` | Conditional | string | Absolute `https` URL of the license terms; the License row links here. Required for any `license` other than `"MIT"`, which links to the repo's root `LICENSE` file when `licenseUrl` is unset. Root-level only |
+| `license` | No | string | Name of the license covering any `downloadFiles` in this folder, shown as the "License" row in the listing's Info sidebar, e.g. `"MIT"` or `"Software Tool License Agreement"`. See [License](#license). Set it where `downloadFiles` is set: at the root for a single-product listing, on each `productVariants[]` entry that has downloads otherwise. Omit it on a listing with no downloads |
+| `licenseUrl` | Conditional | string | Absolute `https` URL of the license terms; the License row links here. Required for any `license` other than `"MIT"`, which links to the repo's root `LICENSE` file when `licenseUrl` is unset. Set it next to `license` |
 | `acquisition` | Conditional | object | **Required** when `price` is `"Paid"`. See [Paid Integrations](#paid-integrations) below |
 | `supportPrice` | No | string | `Free` or `Paid`. Defaults to `Free`. Independent of `price` — a free product can still have paid support. See [Paid support](#paid-support) below |
 | `supportAcquisition` | Conditional | object | **Required** when `supportPrice` is `"Paid"`. Same shape as `acquisition`. See [Paid support](#paid-support) below |
@@ -224,7 +224,7 @@ The order of `productVariants[]` doesn't set the default variant. A listing open
 
 A variant may also override `description`, `currentVersion`, `support`, `author`, `supportUrl`,
 `supportEmail`, `price`, `supportPrice`, `supportAcquisition`, `documentationFile`, `documentationLinks`,
-`resources`, `downloadFiles`, and `primaryCta`. Anything it does not set falls back to the top level — except `documentationLinks`,
+`resources`, `downloadFiles`, `license`, `licenseUrl`, and `primaryCta`. Anything it does not set falls back to the top level — except `documentationLinks`,
 which is variant-only and never inherited (a shared link would otherwise show under every
 product tab), and `resources`, which is additive (see [Field resolution](#field-resolution)).
 
@@ -255,7 +255,7 @@ Exceptions to the simple chain:
 - `documentationLinks` is read only from a `productVariants[]` entry. It has no root fallback, and a root-level value is not shown.
 - `resources` is merged rather than overridden: root-level resources appear under every product tab, followed by that variant's own.
 - `downloadFiles` set to `[]` on a variant stops the fallback, so that variant has no download.
-- `license` and `licenseUrl` are root-level only. Values on a variant are ignored, and the validator warns.
+- `license` and `licenseUrl` resolve as one unit. A variant that sets `license` uses only its own `licenseUrl` (or the MIT fallback), never the root one.
 
 The overview and Documentation-tab files resolve by filename first:
 
@@ -316,17 +316,18 @@ variant but **not** another, set an explicit empty array on the variant that sho
 
 Every filename listed must exist in the folder (the validator errors otherwise); `[]` is valid.
 
-Any integration with a non-empty `downloadFiles` should also set the root-level `license` field.
-The validator warns if it's missing. See [License](#license) for which license applies.
+Wherever you set a non-empty `downloadFiles`, set `license` alongside it: at the root for a single-product listing, on the same variant otherwise. The validator warns if it's missing. See [License](#license) for which license applies.
 
 ### License
 
-The Info sidebar shows a "License" row on variants that have downloads, driven by the root-level
-`license` (display name) and `licenseUrl` (link) fields. Native, in-product variants (for example
-the Certificate Manager SaaS and Next-Gen Trust Security variants of a mixed listing) have nothing
-to download, so they don't show the row, even when another variant of the same listing sets
-`license`. A variant whose downloads an admin has disabled still shows it. Pick the license by who
-developed the downloads:
+The Info sidebar shows a "License" row only on variants that have downloads, driven by `license` (display name) and `licenseUrl` (link). Native, in-product variants, for example the Certificate Manager SaaS and Next-Gen Trust Security variants that Palo Alto Networks builds into the product, have nothing to download, so they carry no license and show no row. A variant whose downloads an admin has disabled still shows it.
+
+Set the fields where `downloadFiles` is set:
+
+- **Single-product listing (no `productVariants`)**: at the root, next to the root `downloadFiles`.
+- **Listing with `productVariants`**: on each variant that has a non-empty `downloadFiles`, and not at the root. A root license would read as covering the native variants too.
+
+Pick the license by who developed the downloads:
 
 | Who developed the downloads | `license` | `licenseUrl` |
 |---|---|---|
@@ -335,15 +336,23 @@ developed the downloads:
 | Community | `"Marketplace Terms of Use"` | `https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/legal/panw-marketplace-terms-of-use-for-cortex-and-mim.pdf` |
 
 ```json
-"license": "Software Tool License Agreement",
-"licenseUrl": "https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/legal/software-tool-license-agreement.pdf"
+"productVariants": [
+  {
+    "product": "Certificate Manager Self-Hosted",
+    "downloadFiles": ["MyDriver.ps1"],
+    "license": "Software Tool License Agreement",
+    "licenseUrl": "https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/legal/software-tool-license-agreement.pdf"
+  },
+  { "product": "Certificate Manager SaaS" }
+]
 ```
 
-Both fields are root-level only; a single license covers all of an integration's downloads. The
-validator errors when `licenseUrl` isn't an `https` URL, when `licenseUrl` is set without `license`,
-and when a `license` other than `"MIT"` has no `licenseUrl`.
+The validator errors, at the root or on a variant, when `licenseUrl` isn't an `https` URL, when `licenseUrl` is set without `license`, and when a `license` other than `"MIT"` has no `licenseUrl`. It warns when:
 
-Leave `license` and `licenseUrl` out of a listing that has no downloads in any variant.
+- `license` is set but no variant has downloads. Remove `license` and `licenseUrl` from a native-only listing.
+- A variant sets `license` but has no `downloadFiles`.
+- A root `license` sits alongside `productVariants`. Move it onto each variant that has downloads.
+- A listing or variant has `downloadFiles` but no `license`.
 
 Marketplace admins can temporarily disable downloads for a specific variant. A disabled variant shows a notice to contact the account team instead of its download buttons.
 

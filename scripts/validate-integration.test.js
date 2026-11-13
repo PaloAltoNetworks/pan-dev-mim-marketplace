@@ -305,7 +305,7 @@ test('a non-MIT license without licenseUrl errors', () => {
   try {
     const { status, stdout } = runValidator(dir);
     assert.notEqual(status, 0);
-    assert.match(stdout, /needs a root-level "licenseUrl"/);
+    assert.match(stdout, /needs a "licenseUrl" pointing at its terms/);
   } finally {
     cleanup(dir);
   }
@@ -360,6 +360,150 @@ test('an unknown listingType errors', () => {
     const { status, stdout } = runValidator(dir);
     assert.notEqual(status, 0);
     assert.match(stdout, /listingType "widget" is not in approved_listing_types\.json/);
+  } finally {
+    cleanup(dir);
+  }
+});
+
+// License placement: license/licenseUrl sit next to downloadFiles (root for single-product,
+// per variant for productVariants), and the License row only shows on variants with downloads.
+
+function makeFixtureWithFiles(metaOverrides, files) {
+  const dir = makeFixture(metaOverrides);
+  for (const f of files) fs.writeFileSync(path.join(dir, f), '# fixture');
+  return dir;
+}
+
+const NATIVE_ONLY_RE = /"license" is set but no variant has downloadFiles/;
+const ROOT_WITH_VARIANTS_RE = /root-level "license"\/"licenseUrl" alongside "productVariants"/;
+
+test('a root license with no downloadFiles anywhere warns, does not error', () => {
+  const dir = makeFixture({ license: 'MIT' });
+  try {
+    const { status, stdout } = runValidator(dir);
+    assert.equal(status, 0, stdout);
+    assert.match(stdout, NATIVE_ONLY_RE);
+  } finally {
+    cleanup(dir);
+  }
+});
+
+test('a root license on a productVariants listing with no downloads warns as native-only', () => {
+  const dir = makeFixture({
+    license: 'MIT',
+    productVariants: [{ product: APPROVED_PRODUCT }],
+  });
+  try {
+    const { status, stdout } = runValidator(dir);
+    assert.equal(status, 0, stdout);
+    assert.match(stdout, NATIVE_ONLY_RE);
+    assert.doesNotMatch(stdout, ROOT_WITH_VARIANTS_RE);
+  } finally {
+    cleanup(dir);
+  }
+});
+
+test('a single-product root license with root downloadFiles passes without a license warning', () => {
+  const dir = makeFixtureWithFiles({ license: 'MIT', downloadFiles: ['script.ps1'] }, ['script.ps1']);
+  try {
+    const { status, stdout } = runValidator(dir);
+    assert.equal(status, 0, stdout);
+    assert.doesNotMatch(stdout, /license/i);
+  } finally {
+    cleanup(dir);
+  }
+});
+
+test('root downloadFiles with no license still warns', () => {
+  const dir = makeFixtureWithFiles({ downloadFiles: ['script.ps1'] }, ['script.ps1']);
+  try {
+    const { status, stdout } = runValidator(dir);
+    assert.equal(status, 0, stdout);
+    assert.match(stdout, /has downloadFiles but no root-level "license" field/);
+  } finally {
+    cleanup(dir);
+  }
+});
+
+test('a root license alongside productVariants with downloads warns to move it onto the variant', () => {
+  const dir = makeFixtureWithFiles({
+    license: 'MIT',
+    productVariants: [{ product: APPROVED_PRODUCT, downloadFiles: ['script.ps1'] }],
+  }, ['script.ps1']);
+  try {
+    const { status, stdout } = runValidator(dir);
+    assert.equal(status, 0, stdout);
+    assert.match(stdout, ROOT_WITH_VARIANTS_RE);
+    assert.doesNotMatch(stdout, NATIVE_ONLY_RE);
+  } finally {
+    cleanup(dir);
+  }
+});
+
+test('a license on the variant that has downloadFiles passes without a license warning', () => {
+  const dir = makeFixtureWithFiles({
+    products: ['Certificate Manager Self-Hosted', 'Certificate Manager SaaS'],
+    productVariants: [
+      { product: 'Certificate Manager Self-Hosted', downloadFiles: ['script.ps1'], license: 'Software Tool License Agreement', licenseUrl: STLA_URL },
+      { product: 'Certificate Manager SaaS' },
+    ],
+  }, ['script.ps1']);
+  try {
+    const { status, stdout } = runValidator(dir);
+    assert.equal(status, 0, stdout);
+    assert.doesNotMatch(stdout, /license/i);
+  } finally {
+    cleanup(dir);
+  }
+});
+
+test('a license on a variant without downloadFiles warns', () => {
+  const dir = makeFixture({
+    productVariants: [{ product: APPROVED_PRODUCT, license: 'MIT' }],
+  });
+  try {
+    const { status, stdout } = runValidator(dir);
+    assert.equal(status, 0, stdout);
+    assert.match(stdout, /productVariants\[".*"\] sets "license" but has no downloadFiles/);
+  } finally {
+    cleanup(dir);
+  }
+});
+
+test('a variant with downloadFiles and no license anywhere warns', () => {
+  const dir = makeFixtureWithFiles({
+    productVariants: [{ product: APPROVED_PRODUCT, downloadFiles: ['script.ps1'] }],
+  }, ['script.ps1']);
+  try {
+    const { status, stdout } = runValidator(dir);
+    assert.equal(status, 0, stdout);
+    assert.match(stdout, /productVariants\[".*"\] has downloadFiles but no "license"/);
+  } finally {
+    cleanup(dir);
+  }
+});
+
+test('a variant non-MIT license without licenseUrl errors', () => {
+  const dir = makeFixtureWithFiles({
+    productVariants: [{ product: APPROVED_PRODUCT, downloadFiles: ['script.ps1'], license: 'Software Tool License Agreement' }],
+  }, ['script.ps1']);
+  try {
+    const { status, stdout } = runValidator(dir);
+    assert.notEqual(status, 0);
+    assert.match(stdout, /productVariants\[".*"\] license "Software Tool License Agreement" needs a "licenseUrl"/);
+  } finally {
+    cleanup(dir);
+  }
+});
+
+test('a variant non-https licenseUrl errors', () => {
+  const dir = makeFixtureWithFiles({
+    productVariants: [{ product: APPROVED_PRODUCT, downloadFiles: ['script.ps1'], license: 'X', licenseUrl: 'http://example.com/t.pdf' }],
+  }, ['script.ps1']);
+  try {
+    const { status, stdout } = runValidator(dir);
+    assert.notEqual(status, 0);
+    assert.match(stdout, /productVariants\[".*"\] licenseUrl must use https/);
   } finally {
     cleanup(dir);
   }
