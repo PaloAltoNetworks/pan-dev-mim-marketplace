@@ -321,8 +321,12 @@ The validator warns if it's missing. See [License](#license) for which license a
 
 ### License
 
-Each listing shows its applicable license terms in a "License" row in the Info sidebar, driven by
-the root-level `license` (display name) and `licenseUrl` (link) fields:
+The Info sidebar shows a "License" row on variants that have downloads, driven by the root-level
+`license` (display name) and `licenseUrl` (link) fields. Native, in-product variants (for example
+the Certificate Manager SaaS and Next-Gen Trust Security variants of a mixed listing) have nothing
+to download, so they don't show the row, even when another variant of the same listing sets
+`license`. A variant whose downloads an admin has disabled still shows it. Pick the license by who
+developed the downloads:
 
 | Who developed the downloads | `license` | `licenseUrl` |
 |---|---|---|
@@ -338,6 +342,8 @@ the root-level `license` (display name) and `licenseUrl` (link) fields:
 Both fields are root-level only; a single license covers all of an integration's downloads. The
 validator errors when `licenseUrl` isn't an `https` URL, when `licenseUrl` is set without `license`,
 and when a `license` other than `"MIT"` has no `licenseUrl`.
+
+Leave `license` and `licenseUrl` out of a listing that has no downloads in any variant.
 
 Marketplace admins can temporarily disable downloads for a specific variant. A disabled variant shows a notice to contact the account team instead of its download buttons.
 
