@@ -23,7 +23,6 @@
   "logoFile": "F5.png",
   "supportUrl": "https://community.cyberark.com/s/",
   "price": "Free",
-  "license": "MIT",
   "productVariants": [
     {
       "product": "Certificate Manager Self-Hosted",
@@ -31,6 +30,7 @@
       "downloadFiles": [
         "F5DistributedCloudAdaptableAppDriver.ps1"
       ],
+      "license": "MIT",
       "documentationFile": "DOCUMENTATION.md"
     },
     {

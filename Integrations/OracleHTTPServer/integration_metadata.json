@@ -24,7 +24,6 @@
   "logoFile": "Oracle.png",
   "supportUrl": "https://support.oracle.com",
   "price": "Free",
-  "license": "MIT",
   "productVariants": [
     {
       "product": "Certificate Manager Self-Hosted",
@@ -38,7 +37,8 @@
       ],
       "downloadFiles": [
         "Oracle HTTP Server.ps1"
-      ]
+      ],
+      "license": "MIT"
     }
   ]
 }

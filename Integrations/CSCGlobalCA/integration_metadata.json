@@ -22,7 +22,6 @@
   "supportEmail": "support@secursolutionsgroup.com",
   "logoFile": "logo.svg",
   "price": "Paid (Contact Partner)",
-  "license": "MIT",
   "productVariants": [
     {
       "product": "Certificate Manager Self-Hosted",
@@ -40,7 +39,8 @@
         "AdaptableCA-CSC.json",
         "properties.json",
         "CSCGlobal_Certificate_Import.ps1"
-      ]
+      ],
+      "license": "MIT"
     },
     {
       "product": "Certificate Manager SaaS",

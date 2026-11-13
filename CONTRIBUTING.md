@@ -311,6 +311,7 @@ Address feedback by pushing more commits to the same branch; the PR updates auto
 ## After your integration is merged
 
 - **Support your users.** Users may reach you through your `supportUrl` or `supportEmail`, or through GitHub issues. Aim to respond within one or two business days, and update your documentation when the same question keeps coming up.
+- **Link to one product's version.** To send someone straight to one product's version of your listing, for example from your own docs or an announcement, add `?product=` to the listing URL with `ngts`, `selfhosted`, `saas`, or `ztpki`. For example: `/marketplace/FortinetFortiGate?product=selfhosted`. The full product name also works, and case doesn't matter.
 - **Ship updates.** Fix bugs and keep up with product API changes. Follow [Updating an existing integration](#updating-an-existing-integration) for each change.
 - **Retire it cleanly.** If you can no longer support the integration, open an issue or PR saying so, and point users to an alternative if one exists. Unsupported integrations are moved to `Archive/`, which removes them from the marketplace while keeping their history; see [Archive/README.md](Archive/README.md).
 

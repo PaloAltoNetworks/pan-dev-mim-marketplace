@@ -26,7 +26,6 @@
   "documentationFile": "DOCUMENTATION.md",
   "logoFile": "logo.svg",
   "price": "Free",
-  "license": "MIT",
   "productVariants": [
     {
       "product": "Certificate Manager Self-Hosted",
@@ -40,7 +39,8 @@
       ],
       "downloadFiles": [
         "Pulse-Secure-vTM.ps1"
-      ]
+      ],
+      "license": "MIT"
     }
   ]
 }

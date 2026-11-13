@@ -537,46 +537,63 @@ function validateDirectory(dir) {
     error(dir, 'root-level "downloadFiles" is not allowed alongside "productVariants" — scope it to the specific productVariants entry (or entries) that use it');
   }
 
-  // license: any integration that ships a downloadFiles asset should say what license covers
-  // it. Root-level only (one license covers the whole repo's distributed assets).
-  const hasAnyDownloadFiles =
-    (Array.isArray(meta.downloadFiles) && meta.downloadFiles.length > 0) ||
-    (Array.isArray(meta.productVariants) &&
-      meta.productVariants.some(v => Array.isArray(v.downloadFiles) && v.downloadFiles.length > 0));
-  if (hasAnyDownloadFiles && !meta.license) {
-    warn(dir, 'has downloadFiles but no root-level "license" field — set e.g. "license": "MIT" so the listing can show what covers the download');
-  }
+  // license / licenseUrl live next to downloadFiles, because the site shows the License row
+  // only on variants that have downloads. Single-product listings set them at the root; a
+  // listing with productVariants sets them on each variant that has downloadFiles (the same
+  // scoping rule as downloadFiles itself), so a native, in-product variant carries no license.
+  // A variant's license/licenseUrl resolve as a pair: when the variant sets "license", its own
+  // "licenseUrl" (or none) applies, never the root one.
+  const nonEmptyList = list => Array.isArray(list) && list.length > 0;
+  const variants = Array.isArray(meta.productVariants) ? meta.productVariants.filter(v => v && typeof v === 'object') : [];
+  const hasVariants = variants.length > 0;
+  const hasAnyDownloadFiles = nonEmptyList(meta.downloadFiles) || variants.some(v => nonEmptyList(v.downloadFiles));
 
-  // licenseUrl: where the listing's License row links. Without it the site links "MIT" to this
-  // repo's root LICENSE and shows any other license as unlinked text, so every non-MIT license
-  // must name its own terms URL.
-  if (meta.licenseUrl !== undefined) {
-    if (typeof meta.licenseUrl !== 'string' || !meta.licenseUrl) {
-      error(dir, '"licenseUrl" must be a non-empty string');
-    } else {
-      let parsed = null;
-      try { parsed = new URL(meta.licenseUrl); } catch { /* reported below */ }
-      if (!parsed) {
-        error(dir, `licenseUrl is not a valid URL: "${meta.licenseUrl}"`);
-      } else if (parsed.protocol !== 'https:') {
-        error(dir, `licenseUrl must use https: "${meta.licenseUrl}"`);
+  const checkLicense = (where, owner) => {
+    const at = where ? `${where} ` : '';
+    if (owner.licenseUrl !== undefined) {
+      if (typeof owner.licenseUrl !== 'string' || !owner.licenseUrl) {
+        error(dir, `${at}"licenseUrl" must be a non-empty string`);
+      } else {
+        let parsed = null;
+        try { parsed = new URL(owner.licenseUrl); } catch { /* reported below */ }
+        if (!parsed) {
+          error(dir, `${at}licenseUrl is not a valid URL: "${owner.licenseUrl}"`);
+        } else if (parsed.protocol !== 'https:') {
+          error(dir, `${at}licenseUrl must use https: "${owner.licenseUrl}"`);
+        }
+      }
+      if (!owner.license) {
+        error(dir, `${at}"licenseUrl" is set but "license" is not — set "license" to the name shown on the listing`);
       }
     }
-    if (!meta.license) {
-      error(dir, '"licenseUrl" is set but "license" is not — set "license" to the name shown on the listing');
+    if (owner.license !== undefined && typeof owner.license !== 'string') {
+      error(dir, `${at}"license" must be a string, e.g. "MIT"`);
+    } else if (owner.license && owner.license !== 'MIT' && !owner.licenseUrl) {
+      error(dir, `${at}license "${owner.license}" needs a "licenseUrl" pointing at its terms — only "MIT" falls back to the repo's LICENSE file`);
     }
+  };
+
+  checkLicense('', meta);
+  const rootHasLicense = meta.license !== undefined || meta.licenseUrl !== undefined;
+  if (rootHasLicense && !hasAnyDownloadFiles) {
+    warn(dir, '"license" is set but no variant has downloadFiles — the site shows the License row only on variants with downloads, so remove "license"/"licenseUrl" from this native-only listing');
+  } else if (rootHasLicense && hasVariants) {
+    warn(dir, 'root-level "license"/"licenseUrl" alongside "productVariants" — move them onto each productVariants entry that has downloadFiles, so native variants carry no license');
   }
-  if (meta.license !== undefined && typeof meta.license !== 'string') {
-    error(dir, '"license" must be a string, e.g. "MIT"');
-  } else if (meta.license && meta.license !== 'MIT' && !meta.licenseUrl) {
-    error(dir, `license "${meta.license}" needs a root-level "licenseUrl" pointing at its terms — only "MIT" falls back to the repo's LICENSE file`);
-  }
-  if (Array.isArray(meta.productVariants)) {
-    meta.productVariants.forEach((v, i) => {
-      if (v && (v.license !== undefined || v.licenseUrl !== undefined)) {
-        warn(dir, `productVariants[${i}] sets "license"/"licenseUrl", which are root-level only and ignored per variant`);
-      }
-    });
+  variants.forEach(v => {
+    const label = `productVariants["${v.product || 'unknown product'}"]`;
+    checkLicense(label, v);
+    const variantHasLicense = v.license !== undefined || v.licenseUrl !== undefined;
+    const variantHasDownloads = nonEmptyList(v.downloadFiles);
+    if (variantHasLicense && !variantHasDownloads) {
+      warn(dir, `${label} sets "license" but has no downloadFiles — the License row only shows on variants with downloads, so remove it from this variant`);
+    }
+    if (variantHasDownloads && !v.license && !meta.license) {
+      warn(dir, `${label} has downloadFiles but no "license" — set e.g. "license": "MIT" on this variant so the listing can show what covers the download`);
+    }
+  });
+  if (!hasVariants && nonEmptyList(meta.downloadFiles) && !meta.license) {
+    warn(dir, 'has downloadFiles but no root-level "license" field — set e.g. "license": "MIT" so the listing can show what covers the download');
   }
 
   // primaryCta: the per-variant call-to-action (also accepted at the top level).

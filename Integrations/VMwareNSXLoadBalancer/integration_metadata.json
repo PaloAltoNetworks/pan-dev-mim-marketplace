@@ -49,6 +49,7 @@
       "downloadFiles": [
         "Avi Vantage.ps1"
       ],
+      "license": "MIT",
       "supportUrl": "https://support.broadcom.com/"
     },
     {
@@ -57,6 +58,5 @@
       "author": "Venafi"
     }
   ],
-  "price": "Free",
-  "license": "MIT"
+  "price": "Free"
 }
