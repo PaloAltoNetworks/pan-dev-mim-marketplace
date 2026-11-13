@@ -46,17 +46,26 @@ function resolveSupportContact(
     return { supportUrl: undefined, supportEmail: undefined };
 }
 
-// license/licenseUrl are root-level only, so they're read straight off metadata rather than
-// resolved per variant. Each listing links to its own terms (Legal guidance, 2026-11-02): PS tools
-// use the PANW Software Tool License Agreement, partners MIT or their own license, community
-// listings the Marketplace TOU, all via licenseUrl. A bare "MIT" keeps pointing at the
-// marketplace repo's LICENSE (MIT). Any other license without a licenseUrl gets no link, so it can
-// never be shown as MIT by mistake.
+// license/licenseUrl sit next to downloadFiles: on the root for single-product listings, on each
+// variant with downloads for multi-product ones. Resolved per variant as a pair: when the variant
+// sets license, only its own licenseUrl is used, so a variant license never borrows a root URL.
+// Each listing links to its own terms (Legal guidance, 2026-11-02): PS tools use the PANW Software
+// Tool License Agreement, partners MIT or their own license, community listings the Marketplace
+// TOU, all via licenseUrl. A bare "MIT" keeps pointing at the marketplace repo's LICENSE (MIT).
+// Any other license without a licenseUrl gets no link, so it can never be shown as MIT by mistake.
 const MARKETPLACE_LICENSE_URL = 'https://github.com/PaloAltoNetworks/pan-dev-mim-marketplace/blob/main/LICENSE';
 
-function licenseHref(metadata: IntegrationMetadata): string | null {
-    if (metadata.licenseUrl) return metadata.licenseUrl;
-    return metadata.license?.trim().toUpperCase() === 'MIT' ? MARKETPLACE_LICENSE_URL : null;
+type ResolvedLicense = { license?: string; licenseUrl?: string };
+
+function resolveLicense(metadata: IntegrationMetadata, selectedProduct: string): ResolvedLicense {
+    const variant = metadata.productVariants?.find(v => v.product === selectedProduct);
+    if (variant?.license) return { license: variant.license, licenseUrl: variant.licenseUrl };
+    return { license: metadata.license, licenseUrl: metadata.licenseUrl };
+}
+
+function licenseHref({license, licenseUrl}: ResolvedLicense): string | null {
+    if (licenseUrl) return licenseUrl;
+    return license?.trim().toUpperCase() === 'MIT' ? MARKETPLACE_LICENSE_URL : null;
 }
 
 const PAID_SUPPORT_TOOLTIP_ID = 'paid-support-tooltip';
@@ -118,6 +127,7 @@ function getVariantData(
         supportPrice: variant?.supportPrice ?? metadata.supportPrice ?? 'Free',
         supportAcquisition: variant?.supportAcquisition ?? metadata.supportAcquisition,
         primaryCta: variant?.primaryCta ?? metadata.primaryCta ?? null,
+        downloadFiles: variant?.downloadFiles ?? metadata.downloadFiles ?? [],
         // Only the generator knows a variant's downloads are admin-disabled (it sets _resolved).
         downloadsDisabled: false,
         downloadUrls: undefined,
@@ -242,6 +252,7 @@ export default function IntegrationDetail({
     };
 
     const variantData = metadata ? getVariantData(metadata, selectedProduct) : null;
+    const variantLicense: ResolvedLicense = metadata ? resolveLicense(metadata, selectedProduct) : {};
     const authorName = variantData?.author;
     const authorCount = metadata && authorName
         ? integrations.filter(i => {
@@ -414,21 +425,28 @@ export default function IntegrationDetail({
                                     )}
                                 </span>
                             </div>
-                            {metadata.license && (
+                            {/* The license covers the variant's downloads, so a native (in-product)
+                                variant with nothing to download gets no License row. An
+                                admin-disabled variant keeps it: its files are still licensed, just
+                                not published yet (the generator empties downloadFiles and sets
+                                downloadsDisabled). */}
+                            {variantLicense.license
+                                && ((variantData.downloadFiles?.length ?? 0) > 0 || variantData.downloadsDisabled)
+                                && (
                                 <div className="detail-info-row">
                                     <span className="detail-info-label">License</span>
                                     <span className="detail-info-value">
-                                        {licenseHref(metadata) ? (
+                                        {licenseHref(variantLicense) ? (
                                             <a
-                                                href={licenseHref(metadata)!}
+                                                href={licenseHref(variantLicense)!}
                                                 target="_blank"
                                                 rel="noopener noreferrer"
                                                 className="detail-info-link"
                                             >
-                                                {metadata.license}
+                                                {variantLicense.license}
                                             </a>
                                         ) : (
-                                            metadata.license
+                                            variantLicense.license
                                         )}
                                     </span>
                                 </div>
