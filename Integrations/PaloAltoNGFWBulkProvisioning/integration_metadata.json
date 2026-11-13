@@ -20,7 +20,6 @@
   "keywords": [],
   "documentationFile": "DOCUMENTATION.md",
   "price": "Free",
-  "license": "MIT",
   "productVariants": [
     {
       "product": "Certificate Manager Self-Hosted",
@@ -34,7 +33,8 @@
       ],
       "downloadFiles": [
         "Palo Alto Networks NGFW.ps1"
-      ]
+      ],
+      "license": "MIT"
     }
   ]
 }

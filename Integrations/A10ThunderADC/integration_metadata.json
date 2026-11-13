@@ -23,7 +23,6 @@
   "documentationFile": "DOCUMENTATION.md",
   "logoFile": "a10-logo.png",
   "price": "Free",
-  "license": "MIT",
   "productVariants": [
     {
       "product": "Certificate Manager Self-Hosted",
@@ -39,6 +38,7 @@
       "downloadFiles": [
         "A10-Thunder.ps1"
       ],
+      "license": "MIT",
       "documentationFile": "DOCUMENTATION.md",
       "supportUrl": "https://support.a10networks.com/"
     },

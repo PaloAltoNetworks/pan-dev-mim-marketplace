@@ -38,6 +38,8 @@
       "downloadFiles": [
         "FortiWeb_2.3.0.zip"
       ],
+      "license": "Software Tool License Agreement",
+      "licenseUrl": "https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/legal/software-tool-license-agreement.pdf",
       "documentationFile": "DOCS-selfhosted.md",
       "supportPrice": "Paid",
       "supportAcquisition": {
@@ -51,7 +53,5 @@
       "overviewFile": "OVERVIEW-ngts.md"
     }
   ],
-  "price": "Free",
-  "license": "Software Tool License Agreement",
-  "licenseUrl": "https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/legal/software-tool-license-agreement.pdf"
+  "price": "Free"
 }

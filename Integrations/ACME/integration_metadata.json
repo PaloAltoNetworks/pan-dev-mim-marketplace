@@ -5,8 +5,6 @@
   "currentVersion": "1.0.0",
   "author": "Venafi",
   "price": "Free",
-  "license": "Software Tool License Agreement",
-  "licenseUrl": "https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/legal/software-tool-license-agreement.pdf",
   "categories": [
     "Certificate Authority"
   ],
@@ -34,6 +32,8 @@
       "downloadFiles": [
         "AcmeAdaptableCA_2.2.zip"
       ],
+      "license": "Software Tool License Agreement",
+      "licenseUrl": "https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/legal/software-tool-license-agreement.pdf",
       "documentationFile": "DOCS-selfhosted.md",
       "supportPrice": "Paid",
       "supportAcquisition": {

@@ -24,7 +24,6 @@
   "documentationFile": "DOCUMENTATION.md",
   "supportUrl": "https://docs.futurex.com",
   "price": "Free",
-  "license": "MIT",
   "productVariants": [
     {
       "product": "Certificate Manager Self-Hosted",
@@ -39,7 +38,8 @@
       "downloadFiles": [
         "Futurex KMES CA.ps1",
         "FuturexCreateCustomFields.ps1"
-      ]
+      ],
+      "license": "MIT"
     }
   ]
 }

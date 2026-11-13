@@ -27,8 +27,6 @@
   "logoFileDark": "Fortinet-Dark.png",
   "supportUrl": "https://community.cyberark.com/s/",
   "price": "Free",
-  "license": "Software Tool License Agreement",
-  "licenseUrl": "https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/legal/software-tool-license-agreement.pdf",
   "productVariants": [
     {
       "product": "Certificate Manager Self-Hosted",
@@ -37,6 +35,8 @@
       "downloadFiles": [
         "FortiGateAdaptableApp_1.4.2.zip"
       ],
+      "license": "Software Tool License Agreement",
+      "licenseUrl": "https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/legal/software-tool-license-agreement.pdf",
       "documentationFile": "DOCS-selfhosted.md",
       "supportPrice": "Paid",
       "supportAcquisition": {

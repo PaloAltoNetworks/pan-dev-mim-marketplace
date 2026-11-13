@@ -25,7 +25,6 @@
   "logoFile": "ssl-com.png",
   "supportUrl": "https://www.ssl.com/contact_us/",
   "price": "Free",
-  "license": "MIT",
   "productVariants": [
     {
       "product": "Certificate Manager Self-Hosted",
@@ -34,6 +33,7 @@
       "downloadFiles": [
         "SSL.com_Adaptable_Script.ps1"
       ],
+      "license": "MIT",
       "primaryCta": {
         "type": "download"
       },

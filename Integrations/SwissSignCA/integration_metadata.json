@@ -25,7 +25,6 @@
   "author": "SwissSign",
   "supportUrl": "https://www.swisssign.com/en/support",
   "price": "Free",
-  "license": "MIT",
   "productVariants": [
     {
       "product": "Certificate Manager Self-Hosted",
@@ -33,7 +32,8 @@
       "documentationFile": "DOCS-selfhosted.md",
       "downloadFiles": [
         "SwissSign_Adaptable_Script.ps1"
-      ]
+      ],
+      "license": "MIT"
     },
     {
       "product": "Certificate Manager SaaS",

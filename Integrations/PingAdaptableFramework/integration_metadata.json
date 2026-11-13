@@ -20,7 +20,6 @@
   "documentationFile": "DOCUMENTATION.md",
   "supportUrl": "https://www.idmworks.com/contact/",
   "price": "Free",
-  "license": "MIT",
   "productVariants": [
     {
       "product": "Certificate Manager Self-Hosted",
@@ -34,7 +33,8 @@
       ],
       "downloadFiles": [
         "ping_adaptable_driver.ps1"
-      ]
+      ],
+      "license": "MIT"
     }
   ],
   "logoFile": "logo.svg"

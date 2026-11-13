@@ -20,7 +20,6 @@
   "documentationFile": "DOCUMENTATION.md",
   "supportUrl": "https://docs.axiad.com",
   "price": "Free",
-  "license": "MIT",
   "productVariants": [
     {
       "product": "Certificate Manager Self-Hosted",
@@ -35,7 +34,8 @@
       "downloadFiles": [
         "ID_PKI_Adaptable_Script.ps1",
         "ID_PKI_Adaptable_ScriptRA.ps1"
-      ]
+      ],
+      "license": "MIT"
     }
   ]
 }
