@@ -9,7 +9,7 @@ import { SHOW_LAST_UPDATED } from "../featureFlags";
 import ListBuilderSidebar from "./ListBuilderSidebar";
 import RecommendedIntegrations from "./RecommendedIntegrations";
 import { PrimaryCTA } from "./PrimaryCTA";
-import { SupportBadge } from "./SupportLevel";
+import { communityIssueUrl } from "../utils/communityIssue";
 import MarketplaceAnnouncements from "./MarketplaceAnnouncements";
 import { listingTypeOf, LISTING_TYPE_NAMES, ToolBadge } from "./ListingType";
 import { languageOnlyLabel } from "../utils/languageLabel";
@@ -122,6 +122,7 @@ function getVariantData(
         currentVersion: variant?.currentVersion ?? metadata.currentVersion ?? '1.0.0',
         author: variant?.author ?? metadata.author ?? 'Unknown',
         ...resolveSupportContact(variant, metadata),
+        issuesUrl: variant?.issuesUrl ?? metadata.issuesUrl,
         description: variant?.description ?? metadata.description,
         price: variant?.price ?? metadata.price ?? 'Free',
         acquisition: variant?.acquisition ?? metadata.acquisition,
@@ -184,7 +185,7 @@ export default function IntegrationDetail({
     const supportedProducts = metadata?.productVariants?.map(v => v.product) || [FALLBACK_PRODUCT];
     const selectableProducts = byProductPriority(supportedProducts);
     const firstProduct = selectableProducts[0];
-    const { siteConfig: { baseUrl } } = useDocusaurusContext();
+    const { siteConfig: { baseUrl, url: siteUrl } } = useDocusaurusContext();
     const location = useLocation();
     const history = useHistory();
 
@@ -384,7 +385,25 @@ export default function IntegrationDetail({
                             <div className="detail-info-row">
                                 <span className="detail-info-label">Support</span>
                                 <span className="detail-info-value">
-                                    {variantData.supportUrl ? (
+                                    {/* Community variants show the level itself, linked to the
+                                        listing's issue tracker or a pre-filled, community-labeled
+                                        issue on the marketplace repo. Others show who supports it.
+                                        Both follow the product dropdown. */}
+                                    {variantData.support === 'Community' ? (
+                                        <a
+                                            href={variantData.issuesUrl ?? communityIssueUrl({
+                                                name: metadata.name,
+                                                folder: metadata.folder,
+                                                product: selectedProduct,
+                                                pageUrl: `${siteUrl}${baseUrl}marketplace/${integrationId(metadata)}?product=${encodeURIComponent(productParamValue(selectedProduct))}`,
+                                            })}
+                                            target="_blank"
+                                            rel="noopener noreferrer"
+                                            className="detail-info-link"
+                                        >
+                                            Community
+                                        </a>
+                                    ) : variantData.supportUrl ? (
                                         <a
                                             href={variantData.supportUrl}
                                             target="_blank"
@@ -403,8 +422,6 @@ export default function IntegrationDetail({
                                     ) : (
                                         <span>—</span>
                                     )}
-                                    {/* Per variant, so it follows the product dropdown. */}
-                                    <SupportBadge support={variantData.support} inline />
                                 </span>
                             </div>
                             <div className="detail-info-row">

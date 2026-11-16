@@ -97,6 +97,8 @@ export interface ProductVariant {
     author?: string;
     supportUrl?: string;
     supportEmail?: string;
+    /** Community variants: issue tracker the "Community" support link opens. */
+    issuesUrl?: string;
     price?: string;
     /** @deprecated Use primaryCta instead */
     acquisition?: AcquisitionInfo;
@@ -123,6 +125,7 @@ export interface ProductVariant {
         author: string;
         supportUrl?: string;
         supportEmail?: string;
+        issuesUrl?: string;
         externalDocsUrl?: string;
         externalDocsLabel?: string;
         documentationLinks?: DocumentationLink[];
@@ -148,6 +151,8 @@ export interface IntegrationMetadata {
     language?: string;
     /** Page id / slug, written by generate-gallery.js (see utils/integrationId). */
     routeId?: string;
+    /** The Integrations/ folder name (set by generate-gallery.js). */
+    folder?: string;
     categories: string[];
     products: string[];
     tags: string[];
@@ -168,6 +173,8 @@ export interface IntegrationMetadata {
     // Root-level fields, shared across every product variant unless a variant overrides them.
     support?: string;
     supportUrl?: string;
+    /** Community listings: issue tracker the "Community" support link opens. Variants can override. */
+    issuesUrl?: string;
     currentVersion?: string;
     author?: string;
     supportEmail?: string;
