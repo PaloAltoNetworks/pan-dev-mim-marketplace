@@ -35,8 +35,7 @@
       "downloadFiles": [
         "EJBCA_REST.ps1"
       ],
-      "license": "Software Tool License Agreement",
-      "licenseUrl": "https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/legal/software-tool-license-agreement.pdf"
+      "license": "MIT"
     },
     {
       "product": "Certificate Manager SaaS",
