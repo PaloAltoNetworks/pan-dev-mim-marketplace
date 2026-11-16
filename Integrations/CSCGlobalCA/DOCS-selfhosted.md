@@ -42,7 +42,7 @@ This configuration file stores information regarding how the driver communicates
 - **credentails_path** = Full DN path to the username credentials object that stores the Venafi TPP
   Oauth token and refresh token used to authenticate to TPP by the adaptable CA script. 
   All \ characters shoudl be escaped with a \ to ensure they are JSON compliant. 
-	- ex) `\\VED\\Policy\\Partner Dev\\CSC\\Administration\\CSC credential\\Venafi_api_key_token`
+	- ex) `\\VED\\Policy\\CSC\\Administration\\CSC credential\\Venafi_api_key_token`
   - Note: The format of the credentials stored in the Username credential object should be the access token, a pipe symbol "|", and the refresh token. Do not add spaces.
     - ex: `Access Token|Refresh Token`
 - **client_id** = the clientid to use to identify which TPP API integration the script is authenticating as. 
