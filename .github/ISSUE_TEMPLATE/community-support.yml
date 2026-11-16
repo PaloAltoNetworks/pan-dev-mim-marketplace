@@ -1,0 +1,38 @@
+name: Community support
+description: Ask for help with a Community-supported Marketplace listing. Community listings are supported on a best-effort basis and are not maintained by Palo Alto Networks.
+title: "[Community] "
+labels: [community]
+body:
+  - type: markdown
+    attributes:
+      value: |
+        This listing has Community support. Help is best-effort, from the community, and the listing is not maintained by Palo Alto Networks. Please don't include credentials, private keys or other secrets.
+  - type: input
+    id: integration
+    attributes:
+      label: Integration
+      description: The listing's folder name under Integrations/.
+      placeholder: EJBCAEnterprise
+    validations:
+      required: true
+  - type: input
+    id: product
+    attributes:
+      label: Product variant
+      description: The product tab you're using.
+      placeholder: Certificate Manager Self-Hosted
+    validations:
+      required: true
+  - type: input
+    id: page
+    attributes:
+      label: Marketplace page
+      description: The listing URL.
+      placeholder: https://mim.pan.dev/marketplace/EJBCAEnterprise?product=selfhosted
+  - type: textarea
+    id: description
+    attributes:
+      label: What's the issue?
+      description: What you tried, what happened and what you expected. Include the integration version and any error text.
+    validations:
+      required: true
