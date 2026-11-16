@@ -1,0 +1,1 @@
+Replaced environment-specific values in the sample `AdaptableCA-CSC.json` and `properties.json` with placeholders. Set the TPP URLs, credential path and contact details for your environment before use.

@@ -25,6 +25,7 @@
   "productVariants": [
     {
       "product": "Certificate Manager Self-Hosted",
+      "currentVersion": "1.0.1",
       "overviewFile": "OVERVIEW-selfhosted.md",
       "documentationFile": "DOCS-selfhosted.md",
       "documentationLinks": [
