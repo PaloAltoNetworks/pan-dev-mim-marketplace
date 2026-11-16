@@ -33,9 +33,12 @@ Commit and merge to `main`; the next sync adds it to the site.
 ## Currently unlisted
 
 - `AcmetekCertificateServices`: held back until the partner's support details are confirmed.
+- `DigiCertCertCentralAdaptable` (DigiCert CertCentral Adaptable): held back for now. `DigiCertCertCentral` stays listed. When it returns, also remove its `/marketplace/DigiCertCertCentralAdaptable` entry from `Integrations/.route-aliases.json`.
 - `IDnomicAdaptableCA` (Eviden IDnomic PKI): held back pending partner confirmation. Its
   supportUrl already points at https://eviden.com/en/contact.
+- `Layer7APIGateway` (Broadcom Layer7 API Gateway): held back for now. When it returns, also remove its `/marketplace/Layer7APIGateway` entry from `Integrations/.route-aliases.json`.
 - `NousNCert`: held back until the partner's site and support details are confirmed.
+- `OracleHTTPServer` (Oracle HTTP Server): held back for now. When it returns, also remove its `/marketplace/OracleHTTPServer` entry from `Integrations/.route-aliases.json`.
 - `OracleOperaAdaptableApp`: held back for now. When it returns, also remove its `/marketplace/OracleOperaAdaptableApp` entry from `Integrations/.route-aliases.json`.
 
 ## Unlisted variants
