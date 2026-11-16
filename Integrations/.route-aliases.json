@@ -213,5 +213,10 @@
     "from": "/marketplace/OracleOperaAdaptableApp",
     "to": "/marketplace",
     "reason": "unlisted — remove this entry when the listing returns"
+  },
+  {
+    "from": "/marketplace/AffirmTrustDVTLSSSL",
+    "to": "/marketplace",
+    "reason": "archived — no longer supported"
   }
 ]

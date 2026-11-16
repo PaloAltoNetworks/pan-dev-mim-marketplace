@@ -146,7 +146,6 @@ Integrations/TencentCloudLoadBalancer: [paulternate]
 # without otherwise changing their content. Replace with the actual product owner as
 # each gets one.
 Integrations/ActalisCA: [paulternate]
-Integrations/AffirmTrustDVTLSSSL: [paulternate]
 Integrations/ArrayNetworksAPVSeriesADC: [paulternate]
 Integrations/AutoApproveByCaTemplate: [paulternate]
 Integrations/CarillonCA: [paulternate]
