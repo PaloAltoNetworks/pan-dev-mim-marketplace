@@ -66,7 +66,7 @@ function SupportLevelInfo() {
                 <strong>Supported:</strong> support is offered by Palo Alto Networks or the partner.
                 Each listing shows which.
                 <br />
-                <strong>Community:</strong> best-effort support from the community.
+                <strong>Community:</strong> best-effort support from the community. Not maintained by PANW.
             </span>
         </span>
     );
