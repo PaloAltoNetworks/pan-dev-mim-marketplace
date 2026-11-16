@@ -34,7 +34,7 @@ Use PascalCase for directory names.
 |-------|----------|------|-------------|
 | `name` | Yes | string | Display name shown on the marketplace |
 | `description` | Yes | string | Short description (1–2 sentences) |
-| `support` | No | string | `Supported` or `Community`. Sets the listing's support level. See [Support level](#support-level) |
+| `support` | No | string | `Supported` or `Community`. Sets the listing's support level. A variant can override it for its product. See [Support level](#support-level) |
 | `currentVersion` | No | string | Semver version string |
 | `releaseDate` | No | string | ISO date (`YYYY-MM-DD`). Overrides the date the marketplace otherwise derives from this folder's last commit — set it only when the two should differ |
 | `author` | No | string | Author or company name |
@@ -108,7 +108,7 @@ On the marketplace, tools carry a "Tools & Utilities" badge and have their own T
 
 ### Support level
 
-`support` sets the listing's support level, which the marketplace shows on the card badge and as the Support Level filter.
+`support` sets the listing's support level. The marketplace shows it as a Supported or Community pill in the detail page's Support row, next to the author link, on the gallery card badge, and as the Support Level filter.
 
 | Value | Meaning |
 | --- | --- |
@@ -116,6 +116,23 @@ On the marketplace, tools carry a "Tools & Utilities" badge and have their own T
 | `Community` | Support is best-effort, from the community. Not maintained by Palo Alto Networks. |
 
 The validator rejects any other value.
+
+A `productVariants` entry can set its own `support`, which overrides the root value for that product only. Use it when one product's download is community-maintained while the native variants are supported:
+
+```json
+"support": "Supported",
+"productVariants": [
+  { "product": "Certificate Manager Self-Hosted", "support": "Community", "downloadFiles": ["MyDriver.ps1"] },
+  { "product": "Certificate Manager SaaS" }
+]
+```
+
+For a listing whose variants differ:
+
+- The detail page pill follows the product picked in the PRODUCT dropdown.
+- The gallery card badge shows that product's level when exactly one Product filter is selected, and the root level otherwise.
+- The Support Level filter matches a listing when any of its variants has the selected level, counting only the filtered products' variants when a Product filter is on. A mixed listing counts under each of its levels.
+- The marketplace CSV export has one row per product, each with that product's level.
 
 ### Paid integrations
 
