@@ -17,12 +17,10 @@ const UUID_DIR = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$
 const downloadsConfigPath = path.join(__dirname, "config/marketplace-downloads.json");
 // Product names and file suffixes, shared with the site's ?product= handling (src/utils/productParam.ts).
 const { products: MARKETPLACE_PRODUCTS } = require("./config/marketplace-products.json");
-// Keep the link in step with the "downloads-moving-here" banner in
+// Keep the wording in step with the "downloads-contact-account-team" banner in
 // config/marketplace-announcements.json, which shows on the same pages.
-const CYBERARK_MARKETPLACE_URL =
-    "https://community.cyberark.com/marketplace/s/#---CyberArk_Solution__c-Certificate%20Lifecycle%20Management";
 const DOWNLOADS_DISABLED_NOTICE =
-    `:::info\n\nDownloads are moving to this Marketplace soon. For now, download this integration from the [CyberArk Marketplace](${CYBERARK_MARKETPLACE_URL}).\n\n:::`;
+    `:::info\n\nIf you need access to this download, please contact your account team.\n\n:::`;
 
 function loadDownloadsConfig() {
     if (!fs.existsSync(downloadsConfigPath)) {
@@ -663,12 +661,14 @@ async function generateGalleryData() {
                     if (!fs.existsSync(logoDestDir)) {
                         fs.mkdirSync(logoDestDir, { recursive: true });
                     }
-                    const logoExt = path.extname(metadata.logoFile);
-                    const outputPath = path.join(logoDestDir, `${routeId}${logoExt}`);
+                    // normalizeLogo always encodes PNG, so the output is .png whatever the source
+                    // format. Keeping the source extension shipped PNG bytes as logo.svg, which
+                    // browsers parse as SVG and render as a broken image.
+                    const outputPath = path.join(logoDestDir, `${routeId}.png`);
 
                     // Normalize logo with Sharp instead of copying
                     const success = await normalizeLogo(logoSrcPath, outputPath);
-                    metadata.logoUrl = success ? `/img/integrations/${routeId}${logoExt}` : '/img/integration-fallback.svg';
+                    metadata.logoUrl = success ? `/img/integrations/${routeId}.png` : '/img/integration-fallback.svg';
                 } else {
                     metadata.logoUrl = '/img/integration-fallback.svg';
                 }
@@ -683,12 +683,11 @@ async function generateGalleryData() {
                     if (!fs.existsSync(logoDestDir)) {
                         fs.mkdirSync(logoDestDir, { recursive: true });
                     }
-                    const darkExt = path.extname(metadata.logoFileDark);
-                    const outputPath = path.join(logoDestDir, `${routeId}-dark${darkExt}`);
+                    const outputPath = path.join(logoDestDir, `${routeId}-dark.png`);
 
                     // Normalize dark logo with Sharp instead of copying
                     const success = await normalizeLogo(darkSrcPath, outputPath);
-                    metadata.logoUrlDark = success ? `/img/integrations/${routeId}-dark${darkExt}` : metadata.logoUrl;
+                    metadata.logoUrlDark = success ? `/img/integrations/${routeId}-dark.png` : metadata.logoUrl;
                 } else {
                     metadata.logoUrlDark = metadata.logoUrl;
                 }

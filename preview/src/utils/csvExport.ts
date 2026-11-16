@@ -1,5 +1,6 @@
 import { IntegrationMetadata } from '../types';
 import { listingTypeOf, LISTING_TYPE_NAMES } from '../components/ListingType';
+import { supportForProduct } from './supportLevel';
 
 function escapeCsvCell(value: string | undefined | null): string {
     if (!value) return '';
@@ -32,11 +33,10 @@ function generateCsvContent(integrations: IntegrationMetadata[]): string {
             ? integration.products
             : [''];
 
-        const supportLevel = integration.support === 'Supported' || integration.support === 'Community'
-            ? integration.support
-            : '';
-
+        // One row per product, so each row carries that product's own support level.
         products.forEach(product => {
+            const level = supportForProduct(integration, product || undefined);
+            const supportLevel = level === 'Supported' || level === 'Community' ? level : '';
             const row = [
                 escapeCsvCell(integration.name),
                 escapeCsvCell(LISTING_TYPE_NAMES[listingTypeOf(integration)]),

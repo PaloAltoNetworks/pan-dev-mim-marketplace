@@ -15,35 +15,8 @@ import { languageOnlyLabel } from "../utils/languageLabel";
 import { integrationId } from "../utils/integrationId";
 import { byProductPriority, matchProductParam, PRODUCT_NAMES, productParamValue } from "../utils/productParam";
 import { LISTING_TYPES, LISTING_TYPE_LABELS, listingTypeOf, ToolIcon, IntegrationIcon, ToolBadge } from "../components/ListingType";
-
-function SupportedIcon() {
-    return (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M12 1L3 5v6c0 5.55 3.84 10.74 9 12 5.16-1.26 9-6.45 9-12V5l-9-4zm-2 16l-4-4 1.41-1.41L10 14.17l6.59-6.59L18 9l-8 8z"/>
-        </svg>
-    );
-}
-
-function CommunityIcon() {
-    return (
-        <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
-            <path d="M16 11c1.66 0 2.99-1.34 2.99-3S17.66 5 16 5c-1.66 0-3 1.34-3 3s1.34 3 3 3zm-8 0c1.66 0 2.99-1.34 2.99-3S9.66 5 8 5C6.34 5 5 6.34 5 8s1.34 3 3 3zm0 2c-2.33 0-7 1.17-7 3.5V19h14v-2.5c0-2.33-4.67-3.5-7-3.5zm8 0c-.29 0-.62.02-.97.05 1.16.84 1.97 1.97 1.97 3.45V19h6v-2.5c0-2.33-4.67-3.5-7-3.5z"/>
-        </svg>
-    );
-}
-
-function SupportBadge({ support }: { support?: string }) {
-    if (support !== "Supported" && support !== "Community") return null;
-    const supported = support === "Supported";
-    return (
-        <div className={`card-badge card-badge--${supported ? "certified" : "community"}`}>
-            <span className="card-badge-icon">
-                {supported ? <SupportedIcon /> : <CommunityIcon />}
-            </span>
-            <span className="card-badge-label">{supported ? "Supported" : "Community"}</span>
-        </div>
-    );
-}
+import { SupportBadge, SupportedIcon, CommunityIcon } from "../components/SupportLevel";
+import { supportForProduct, supportLevelsOf } from "../utils/supportLevel";
 
 const SUPPORT_LEVEL_TOOLTIP_ID = "support-level-tooltip";
 
@@ -117,10 +90,6 @@ function toggleItem(
     setter((prev) =>
         prev.includes(value) ? prev.filter((x) => x !== value) : [...prev, value],
     );
-}
-
-function supportOf(integration: IntegrationMetadata): string | undefined {
-    return integration.support;
 }
 
 export default function MarketplaceGallery() {
@@ -273,19 +242,15 @@ export default function MarketplaceGallery() {
     // Ordered by the taxonomy, not alphabetically, so the pills read Supported → Community.
     const allSupportLevels = useMemo(() => {
         const present = new Set<string>();
-        integrations.forEach((i) => {
-            const support = supportOf(i);
-            if (support) present.add(support);
-        });
+        integrations.forEach((i) => supportLevelsOf(i).forEach((l) => present.add(l)));
         return SUPPORT_LEVELS.filter((s) => present.has(s));
     }, [integrations]);
 
     const supportCounts = useMemo(() => {
         const counts: Record<string, number> = {};
-        integrations.forEach((i) => {
-            const support = supportOf(i);
-            if (support) counts[support] = (counts[support] || 0) + 1;
-        });
+        // A listing counts once under each level any of its variants resolves to, so a listing
+        // with mixed levels (EJBCA Enterprise) counts under both.
+        integrations.forEach((i) => supportLevelsOf(i).forEach((l) => { counts[l] = (counts[l] || 0) + 1; }));
         return counts;
     }, [integrations]);
 
@@ -325,9 +290,11 @@ export default function MarketplaceGallery() {
             const matchesAuthor =
                 selectedAuthors.length === 0 ||
                 developersOf(i).some((a) => selectedAuthors.includes(a));
+            // Matches when any variant resolves to a selected level. With a Product filter on,
+            // only the selected products' variants count.
             const matchesSupport =
                 selectedSupport.length === 0 ||
-                selectedSupport.includes(supportOf(i));
+                supportLevelsOf(i, selectedProducts).some((l) => selectedSupport.includes(l));
             const matchesType = selectedType.length === 0 || selectedType.includes(listingTypeOf(i));
             return matchesProduct && matchesTag && matchesUseCase && matchesCategory && matchesAuthor && matchesSupport && matchesType;
         });
@@ -680,7 +647,7 @@ export default function MarketplaceGallery() {
                                             <span className="language-only-badge">{languageOnlyLabel(int.language)}</span>
                                         )}
                                     </div>
-                                    <SupportBadge support={supportOf(int)} />
+                                    <SupportBadge support={supportForProduct(int, selectedProducts.length === 1 ? selectedProducts[0] : undefined)} />
                                 </div>
                                 <p className="card-desc">{int.description}</p>
                                 {/* The stack — not the description — takes the leftover
