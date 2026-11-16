@@ -508,3 +508,58 @@ test('a variant non-https licenseUrl errors', () => {
     cleanup(dir);
   }
 });
+
+test('issuesUrl on a Community variant passes', () => {
+  const dir = makeFixture({
+    support: 'Supported',
+    productVariants: [{ product: APPROVED_PRODUCT, support: 'Community', issuesUrl: 'https://github.com/example/repo/issues' }],
+  });
+  try {
+    const { status, stdout } = runValidator(dir);
+    assert.equal(status, 0, stdout);
+    assert.doesNotMatch(stdout, /issuesUrl/);
+  } finally {
+    cleanup(dir);
+  }
+});
+
+test('an invalid issuesUrl errors, root or variant', () => {
+  const dir = makeFixture({
+    support: 'Community',
+    issuesUrl: 'not a url',
+    productVariants: [{ product: APPROVED_PRODUCT, issuesUrl: 'also not a url' }],
+  });
+  try {
+    const { status, stdout } = runValidator(dir);
+    assert.notEqual(status, 0, stdout);
+    assert.match(stdout, /issuesUrl is not a valid URL: "not a url"/);
+    assert.match(stdout, /productVariants\[".*"\]\.issuesUrl is not a valid URL/);
+  } finally {
+    cleanup(dir);
+  }
+});
+
+test('issuesUrl on a variant that resolves to Supported only warns', () => {
+  const dir = makeFixture({
+    support: 'Supported',
+    productVariants: [{ product: APPROVED_PRODUCT, issuesUrl: 'https://github.com/example/repo/issues' }],
+  });
+  try {
+    const { status, stdout } = runValidator(dir);
+    assert.equal(status, 0, stdout);
+    assert.match(stdout, /issuesUrl is set but that variant's support is "Supported"/);
+  } finally {
+    cleanup(dir);
+  }
+});
+
+test('a root issuesUrl with no Community product only warns', () => {
+  const dir = makeFixture({ support: 'Supported', issuesUrl: 'https://github.com/example/repo/issues' });
+  try {
+    const { status, stdout } = runValidator(dir);
+    assert.equal(status, 0, stdout);
+    assert.match(stdout, /issuesUrl is set at the root but no product/);
+  } finally {
+    cleanup(dir);
+  }
+});

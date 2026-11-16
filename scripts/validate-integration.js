@@ -323,6 +323,33 @@ function validateMetadata(dir, meta) {
     }
   }
 
+  // issuesUrl: where a Community variant's "Community" support link points (the marketplace
+  // falls back to this repo's community-support issue form). Root or per variant, variant wins.
+  // Only Community variants use it, so setting it where support resolves to anything else warns.
+  const variants = Array.isArray(meta.productVariants) ? meta.productVariants.filter(Boolean) : [];
+  const issuesUrls = [['', meta.issuesUrl]];
+  for (const v of variants) issuesUrls.push([`productVariants["${v.product}"].`, v.issuesUrl]);
+  for (const [label, value] of issuesUrls) {
+    if (value === undefined) continue;
+    try {
+      new URL(value);
+    } catch {
+      error(dir, `${label}issuesUrl is not a valid URL: "${value}"`);
+    }
+  }
+  for (const v of variants) {
+    const level = v.support ?? meta.support;
+    if (v.issuesUrl !== undefined && level !== 'Community') {
+      warn(dir, `productVariants["${v.product}"].issuesUrl is set but that variant's support is "${level ?? 'unset'}" — issuesUrl is only used for Community support`);
+    }
+  }
+  if (meta.issuesUrl !== undefined) {
+    const levels = variants.length ? variants.map((v) => v.issuesUrl === undefined && (v.support ?? meta.support)) : [meta.support];
+    if (!levels.includes('Community')) {
+      warn(dir, `issuesUrl is set at the root but no product without its own issuesUrl resolves to "Community" support — it is never used`);
+    }
+  }
+
   // A product can only have one company behind its support contact — supportUrl and
   // supportEmail are mutually exclusive per level (root or a single productVariants[] entry).
   // Only supportUrl is ever displayed when both are set, so the other is silently unused.

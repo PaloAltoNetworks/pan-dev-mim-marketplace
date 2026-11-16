@@ -46,6 +46,7 @@ Use PascalCase for directory names.
 | `tags` | No | string[] | Should be from `Config/approved_tags.json`. Other values pass validation with a warning. See [Categories, tags, and keywords](#categories-tags-and-keywords) |
 | `useCases` | No | string[] | Use case labels |
 | `supportUrl` | No | string | Link to issue tracker or support portal |
+| `issuesUrl` | No | string | Where the "Community" support link points for a Community listing or variant. Defaults to this repo's community support issue form. See [Support level](#support-level) |
 | `keywords` | No | string[] | Extra search terms not shown as facets (unlike `tags`/`useCases`), useful for search-only synonyms |
 | `logoFile` | No | string | Filename of the logo image in this folder (e.g. `logo.png`). Falls back to a generic marketplace logo if omitted |
 | `logoFileDark` | No | string | Filename of a dark-mode logo variant. Falls back to `logoFile` if omitted |
@@ -108,28 +109,30 @@ On the marketplace, tools carry a "Tools & Utilities" badge and have their own T
 
 ### Support level
 
-`support` sets the listing's support level. The marketplace shows it as a Supported or Community pill in the detail page's Support row, next to the author link, on the gallery card badge, and as the Support Level filter.
+`support` sets the listing's support level. The marketplace shows it on the gallery card badge, as the Support Level filter, and in the detail page's Support row.
 
 | Value | Meaning |
 | --- | --- |
-| `Supported` | Support is offered by Palo Alto Networks or by the partner. The listing shows which, through its author and its `supportUrl` or `supportEmail`. |
-| `Community` | Support is best-effort, from the community. Not maintained by Palo Alto Networks. |
+| `Supported` | Support is offered by Palo Alto Networks or by the partner. The detail page's Support row shows the `author`, linked to `supportUrl` or `supportEmail`. |
+| `Community` | Support is best-effort, from the community. Not maintained by Palo Alto Networks. The detail page's Support row shows "Community", linked to `issuesUrl` if set, or otherwise to this repo's community support issue form, pre-filled with the listing, product and page. |
 
 The validator rejects any other value.
+
+`issuesUrl` is optional. Set it when a Community listing has its own issue tracker, for example the GitHub repository the download comes from. Leave it out to use the issue form, which opens an issue labelled `community` in this repository. The validator errors when `issuesUrl` isn't a valid URL, and warns when it's set on a variant whose support isn't `Community`, since only Community variants use it.
 
 A `productVariants` entry can set its own `support`, which overrides the root value for that product only. Use it when one product's download is community-maintained while the native variants are supported:
 
 ```json
 "support": "Supported",
 "productVariants": [
-  { "product": "Certificate Manager Self-Hosted", "support": "Community", "downloadFiles": ["MyDriver.ps1"] },
+  { "product": "Certificate Manager Self-Hosted", "support": "Community", "issuesUrl": "https://github.com/example/my-driver/issues", "downloadFiles": ["MyDriver.ps1"] },
   { "product": "Certificate Manager SaaS" }
 ]
 ```
 
 For a listing whose variants differ:
 
-- The detail page pill follows the product picked in the PRODUCT dropdown.
+- The detail page's Support row follows the product picked in the PRODUCT dropdown: the author for a Supported variant, "Community" for a Community one.
 - The gallery card badge shows that product's level when exactly one Product filter is selected, and the root level otherwise.
 - The Support Level filter matches a listing when any of its variants has the selected level, counting only the filtered products' variants when a Product filter is on. A mixed listing counts under each of its levels.
 - The marketplace CSV export has one row per product, each with that product's level.
@@ -241,7 +244,7 @@ The order of `productVariants[]` doesn't set the default variant. A listing open
 
 A variant may also override `description`, `currentVersion`, `support`, `author`, `supportUrl`,
 `supportEmail`, `price`, `supportPrice`, `supportAcquisition`, `documentationFile`, `documentationLinks`,
-`resources`, `downloadFiles`, `license`, `licenseUrl`, and `primaryCta`. Anything it does not set falls back to the top level — except `documentationLinks`,
+`resources`, `downloadFiles`, `license`, `licenseUrl`, `issuesUrl`, and `primaryCta`. Anything it does not set falls back to the top level — except `documentationLinks`,
 which is variant-only and never inherited (a shared link would otherwise show under every
 product tab), and `resources`, which is additive (see [Field resolution](#field-resolution)).
 
