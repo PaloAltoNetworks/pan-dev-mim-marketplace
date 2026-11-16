@@ -43,20 +43,3 @@ Commit and merge to `main`; the next sync adds it to the site.
 A variant can be held back without unlisting the whole integration: remove it from
 `products` and `productVariants`, and record the removed entry here so it can be put back.
 
-- `EJBCAEnterprise`, Certificate Manager Self-Hosted: held back because it has no script or
-  README to download (the EJBCA Enterprise w/ Custom Serial Number listing is a separate
-  integration from an external developer). `OVERVIEW-selfhosted.md` stays in the folder.
-  Restore by adding "Certificate Manager Self-Hosted" back to `products` and this entry to
-  `productVariants` once a proper download and docs exist:
-
-  ```json
-  {
-    "product": "Certificate Manager Self-Hosted",
-    "documentationLinks": [
-      {
-        "title": "Certificate Manager SaaS Documentation",
-        "url": "https://docs.venafi.cloud/vaas/certificates/ca/custom-ca/r-ejbca-example/"
-      }
-    ]
-  }
-  ```
