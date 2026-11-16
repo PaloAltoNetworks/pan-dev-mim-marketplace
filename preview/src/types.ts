@@ -86,6 +86,11 @@ export interface ProductVariant {
     // NEW: Variant-scopable download files. An explicit [] suppresses this variant's download.
     downloadFiles?: string[];
 
+    // License for this variant's downloads. Sits next to downloadFiles: multi-product listings set
+    // it on each variant that has downloads, single-product listings keep it at the root.
+    license?: string;
+    licenseUrl?: string;
+
     // Variant-specific metadata (moved from root)
     support?: string;
     currentVersion?: string;

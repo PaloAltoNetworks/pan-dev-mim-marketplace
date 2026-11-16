@@ -478,6 +478,29 @@
   opacity: 1;
 }
 
+/* Inline variant: an icon + label pill for the detail page's Support row. The label is always
+   visible, so it drops the hover-tooltip positioning. */
+.card-badge--inline {
+  display: inline-flex;
+  width: auto;
+  height: auto;
+  gap: 0.25rem;
+  padding: 0.15rem 0.5rem;
+  border-radius: 999px;
+  margin-left: 0.5rem;
+  vertical-align: middle;
+}
+
+.card-badge--inline .card-badge-label {
+  position: static;
+  opacity: 1;
+  background: none;
+  color: inherit;
+  padding: 0;
+  z-index: auto;
+  font-size: 0.65rem;
+}
+
 /* --- Grid card head: logo + title stack + badge --- */
 
 .card-head {

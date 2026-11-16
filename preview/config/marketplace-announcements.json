@@ -4,13 +4,17 @@
       "id": "downloads-moving-here",
       "severity": "info",
       "title": "Downloads are moving here soon.",
-      "message": "We're still working on making downloads available directly from this Marketplace. For now, please keep using the CyberArk Marketplace to download integrations.",
-      "link": {
-        "label": "CyberArk Marketplace",
-        "href": "https://community.cyberark.com/marketplace/s/#---CyberArk_Solution__c-Certificate%20Lifecycle%20Management"
-      },
+      "message": "We're still working on making downloads available directly from this Marketplace.",
       "placements": [
-        "gallery",
+        "gallery"
+      ],
+      "dismissible": false
+    },
+    {
+      "id": "downloads-contact-account-team",
+      "severity": "info",
+      "message": "If you need access to this download, please contact your account team.",
+      "placements": [
         "downloads-disabled"
       ],
       "dismissible": false
