@@ -3,6 +3,7 @@
   "enabled": {
     "ACME": ["Certificate Manager Self-Hosted"],
     "AkamaiAdaptableApplication": ["*"],
+    "EJBCAEnterprise": ["Certificate Manager Self-Hosted"],
     "FortinetFortiGate": ["Certificate Manager Self-Hosted"],
     "FortinetFortiManager": ["*"],
     "FortinetFortiWeb": ["Certificate Manager Self-Hosted"],
