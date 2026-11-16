@@ -1,7 +1,6 @@
 import React from "react";
 
-// Support-level icons and badge, shared by the gallery cards, the gallery's Support Level filter
-// and the integration detail page's Support row.
+// Support-level icons and badge, shared by the gallery cards and the gallery's Support Level filter.
 
 export function SupportedIcon({ size = 18 }: { size?: number }) {
     return (
@@ -19,18 +18,16 @@ export function CommunityIcon({ size = 18 }: { size?: number }) {
     );
 }
 
-// Card: an icon chip with the label revealed on hover. Inline: an icon + label pill that sits
-// after other text (the detail page's Support row), same colors as the card chip.
-export function SupportBadge({ support, inline = false }: { support?: string; inline?: boolean }) {
+// A gallery card's support chip: an icon with the label revealed on hover.
+export function SupportBadge({ support }: { support?: string }) {
     if (support !== "Supported" && support !== "Community") return null;
     const supported = support === "Supported";
-    const Tag = inline ? "span" : "div";
     return (
-        <Tag className={`card-badge card-badge--${supported ? "certified" : "community"}${inline ? " card-badge--inline" : ""}`}>
+        <div className={`card-badge card-badge--${supported ? "certified" : "community"}`}>
             <span className="card-badge-icon">
-                {supported ? <SupportedIcon size={inline ? 13 : 18} /> : <CommunityIcon size={inline ? 13 : 18} />}
+                {supported ? <SupportedIcon /> : <CommunityIcon />}
             </span>
             <span className="card-badge-label">{supported ? "Supported" : "Community"}</span>
-        </Tag>
+        </div>
     );
 }
