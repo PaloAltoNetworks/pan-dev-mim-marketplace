@@ -3,7 +3,7 @@
   "description": "Automate certificate provisioning and renewal on Google Cloud load balancers to prevent HTTPS outages.",
   "support": "Supported",
   "currentVersion": "1.0.0",
-  "author": "Google, Inc.",
+  "author": "Venafi",
   "categories": [
     "Load Balancer & ADC"
   ],
@@ -24,7 +24,7 @@
     "REST"
   ],
   "logoFile": "Google-Cloud.png",
-  "supportUrl": "https://cloud.google.com/support-hub",
+  "supportUrl": "https://community.cyberark.com/s/",
   "price": "Free",
   "productVariants": [
     {

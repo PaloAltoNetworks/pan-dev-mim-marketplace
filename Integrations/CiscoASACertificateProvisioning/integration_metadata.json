@@ -1,0 +1,41 @@
+{
+  "name": "Cisco ASA Certificate Provisioning",
+  "description": "Secur Solutions Group's driver and connector provision certificates from Certificate Manager to Cisco Adaptive Security Appliance (ASA).",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Secur Solutions Group",
+  "categories": [
+    "Firewall & Network Security"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted",
+    "Certificate Manager SaaS"
+  ],
+  "tags": [
+    "Firewall"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Cisco ASA",
+    "Adaptive Security Appliance",
+    "Secur Solutions Group"
+  ],
+  "supportEmail": "support@secursolutionsgroup.com",
+  "price": "Paid (Contact Partner)",
+  "acquisition": {
+    "type": "contact-partner",
+    "url": "https://secursolutionsgroup.com/contact-us"
+  },
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md"
+    },
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md"
+    }
+  ]
+}

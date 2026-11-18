@@ -3,7 +3,7 @@
   "description": "Automate certificate provisioning and renewal on Apache HTTP Server to prevent outages from expired or misconfigured certificates.",
   "support": "Supported",
   "currentVersion": "1.0.0",
-  "author": "The Apache Software Foundation - Marketplace",
+  "author": "Venafi",
   "categories": [
     "Web Server"
   ],
@@ -23,7 +23,7 @@
     "Other"
   ],
   "logoFile": "Apache.png",
-  "supportUrl": "https://www.apache.org/foundation/mailinglists.html",
+  "supportUrl": "https://community.cyberark.com/s/",
   "productVariants": [
     {
       "product": "Certificate Manager SaaS",

@@ -3,7 +3,7 @@
   "description": "Issue, renew and revoke certificates from a Carillon-managed CertServ PKI directly in Certificate Manager, Self-Hosted.",
   "support": "Supported",
   "currentVersion": "1.0",
-  "author": "Carillon",
+  "author": "Carillon Information Security",
   "categories": [
     "Certificate Authority"
   ],
@@ -16,7 +16,12 @@
   "useCases": [
     "Certificate Lifecycle Management"
   ],
-  "keywords": [],
+  "keywords": [
+    "CertServ PKI Suite",
+    "Carillon MPKI",
+    "CA Connector"
+  ],
+  "logoFile": "Carillon.png",
   "downloadFiles": [
     "Carillon_CA.ps1"
   ],
