@@ -1,81 +1,54 @@
-# Ping Adaptable Application Driver #
+# Ping Adaptable Application Driver
 
-This readme is for the ping adaptable framework installation / configuration for the Venafi platform.  This adaptable script can be used to manage signing and ssl certificates in the Ping Federate platform.  Instructions below outline the installation / configuration and issues with the script / resolutions.
+The Ping Adaptable Application driver (`ping_adaptable_driver.ps1`) manages SSL and signing certificates in PingFederate from Certificate Manager, Self-Hosted. Because of how PingFederate works, Certificate Manager, Self-Hosted does not manage the private keys. The driver creates keys and certificates inside Ping's default keystore and sends them to Certificate Manager, Self-Hosted for signing, so all key operations stay local to Ping.
 
-## Contact Information ##
+You cannot import an externally generated private key and certificate into the Ping configuration through this driver.
 
-Author: Nick Hunt
-Company: IDMWORKS LLC
-Date: 2023/11/19
+Author: Nick Hunt, IDMWORKS LLC (2023-11-19).
 
-## Notes ##
+## Prerequisites
 
-The ping adaptable framework extension manages SSL and Signing certificates in the Venafi platform.  Given limitations / capabilities of Ping, Venafi does not manage the private keys that are generated, but handles the signing of certificates generated within Ping.  This will create keys / certificates then send them for signing in Venafi so all operations are maintained locally within Ping using its default keystore configuration.
+- A supported version of Certificate Manager, Self-Hosted. See the [Adaptable Application PowerShell reference](https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/c-drivers-AdaptableApp-PowerShell-reference.php).
+- A PingFederate user with administrative and API rights, so the driver can enumerate and manage certificate objects.
+- The root certificate of any CA that will sign requests from Ping, imported into PingFederate so Ping trusts it. This is not needed if the CA is already in the standard Java keystore on the Ping nodes.
 
-- <i>NOTE: you cannot import an externally generated private key / certificate into the Ping / Venafi configuration</i>
+![Importing the CA root certificate into PingFederate](./images/ping_root_cert_import.png)
 
-## References ##
+## Installation
 
-[Venafi Trust Platform Developer Docs](https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/c-drivers-AdaptableApp-PowerShell-reference.php?Highlight=adaptable)
+1. Download `ping_adaptable_driver.ps1` from this listing.
+2. Copy it to the Adaptable Application scripts folder on every Certificate Manager, Self-Hosted server (for example `C:\Program Files\Venafi\Scripts\AdaptableApp\`).
 
-## Requirements / Runtime ##
+## Configuration
 
-The main requirement when running this script is you use a supported Venafi platform.
+In most cases you start with onboard discovery to find the certificates already in use in PingFederate and import them into inventory. After that, any renewal started from Certificate Manager, Self-Hosted provisions the new certificate into Ping.
 
-Additionally, any CA that Venafi will use to sign certificate requests from Ping will need to have it's root certificate imported into the Ping platform.  This is so the Ping platform can trust the CA that is signing the certificates.  This is not needed if you are using a CA that is already included in the standard Java Keystore on the Ping platform nodes.
+1. Create a policy and add the Adaptable configuration and script. Set **Scope** to `ssl` or `signing`, and set **SSL Validity Days**, which is the lifetime of the certificates created and managed under the policy.
 
-![Alt text](./images/ping_root_cert_import.png)
+    ![Adaptable policy settings](./images/adaptable_policy_ssl.png)
 
-To be able to connect / run the script, the TPP platform will need a user with administrative / API rights in the ping platform.  This is so the platform can enumerate and manage certificate objects in the platform.
+2. Create the Ping device under the policy. Enter **Hostname/Address** as `https://<host>:<port>`. The rest of the endpoint path is not needed unless you use a custom path for the administrative API.
 
-## Configuration Screenshots / Settings ##
+    ![Ping device settings](./images/ping_device_settings.png)
 
-### Intro ###
+3. Add the credential for the policy, using the username and password of the PingFederate API user.
 
-In most cases, the process will start with Onboard Discovery to find out what certificates are already in use in the Ping platform and then import then into Venafi's inventory. Once imported, any renewal operation initiated through Venafi will automatically provision the new certificate into Ping.
+    ![Credential configuration](./images/ping_credential_configuration.png)
 
-### Config ###
+4. Configure a discovery job to pull existing certificate information out of Ping during initial setup. The job does not pull private keys, but it references the certificate and application object so they can be updated.
 
-The below screenshots outline the setup / configuration of the platform and components to be able to manage the different certificate operations ("ssl" and "signing").
+    ![Discovery job configuration](./images/ping_discovery_job.png)
 
-- Create a new policy and add the adaptable configuration / script.
+5. Add the certificate under the device as a reference to the certificate.
 
-![Alt text](./images/adaptable_policy_ssl.png)
+    ![Device certificate configuration](./images/device-certificate-config.png)
 
-When adding this policy, be sure to set the 'Scope' to either ssl or signing.  Also, be sure to set the SSL Validity Days since this is the lifetime of the certificates that are created / managed in the policy.
+6. Under the device, add an Adaptable application so the certificate can be resolved (the discovery job may create it for you). This links the certificate with the Ping application according to the certificate's scope.
 
-- Create the ping admin / device under the policy with the target location.
+    ![Device Adaptable application](./images/device-adaptable-application.png)
 
-![Alt text](./images/ping_device_settings.png)
+## Usage
 
-Be sure when specifying the Hostname/Address, you use the format of ```https://<host>:<port>```.  The rest of the path for the URL endpoints should not be needed unless you have a custom path for the administrative / API endpoints.
+After a certificate is provisioned, sign in to the PingFederate administrator console and activate it for SSL, or attach it to a policy or connection.
 
-- Credentials Configuration
-
-![Alt text](./images/ping_credential_configuration.png)
-
-When adding the credentials for the policy, be sure to specify the username / password for the API user.  
-
-- Discovery Job Configuration
-
-![Alt text](./images/ping_discovery_job.png)
-
-Be sure to configure the discovery job to pull the existing certificate information out of ping upon initial configuration.  This does not pull the private keys, but does reference the certificate / application object so can be updated.
-
-- Application and Certificate Configuration
-
-![Alt text](./images/device-certificate-config.png)
-
-Add the certificate under the device as a reference to the certificate.
-
-Under the device, add an adaptable application for it so can be resolved (this may be discovered when running the discovery job).
-
-![Alt text](./images/device-adaptable-application.png)
-
-This will link the certificate with the application in the Ping platform depending on the scope of the certificate.
-
-- Activating a Certificate Post Issuance / Add
-
-![Alt text](./images/ping-activate-certificate.png)
-
-Once the certificate has been provisioned successfully, you can login to the Ping Administrator console and active the certificate for SSL (above) or attach it to a policy / connection.
+![Activating a certificate in PingFederate](./images/ping-activate-certificate.png)

@@ -1,24 +1,21 @@
 # HashiCorp Vault Credentials
 
-This integration automates the retrieval of secrets from HashiCorp Vault using the Adaptable Credential framework, without the need for the Venafi platform to store them directly.
+Provisioning certificates to devices and applications requires credentials for those systems, and copying those secrets into another tool adds risk and maintenance. This integration lets Certificate Manager, Self-Hosted retrieve secrets from HashiCorp Vault when it needs them, using the Adaptable Credential framework, so the secrets stay in Vault and are not stored in Certificate Manager, Self-Hosted.
 
-  
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Improve security posture**: secrets are stored only in HashiCorp Vault.
+- **Prevent outages**: Certificate Manager, Self-Hosted always uses the most recent credential for provisioning operations.
+- **Keep teams working from one source**: security and operations teams manage secrets in Vault while certificate automation uses them.
+- **Require no Vault changes**: the integration works with your existing HashiCorp Vault deployment.
 
-- **Enables teams **to work together effortlessly
-- **Enhances security posture **since secrets are only stored in Vault
-- **No changes required **for HashiCorp Vault
-- **Prevents outages** by ensuring Venafi always has access to the most recent credentials for provisioning operations
+**How it Works**
 
-  
+An Adaptable Credential object in Certificate Manager, Self-Hosted uses a PowerShell script to retrieve credentials from the HashiCorp Vault Key-Value secrets engine at the time of use. Provisioning operations that reference the Adaptable Credential receive the current secret from Vault instead of a stored copy.
 
-**SOLUTION OVERVIEW**
+**Solution Components**
 
-Adaptable Credentials automate the retrieval of secrets from third-party password vaults, such as HashiCorp Vault, without compromising the security of your secrets.
-
-  
-
-Use this script with the Venafi Adaptable Credential driver to automate the retrieval of credentials (secrets) from HashiCorp Vault's Key-Value store.
+- Certificate Manager, Self-Hosted
+- HashiCorp Vault
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

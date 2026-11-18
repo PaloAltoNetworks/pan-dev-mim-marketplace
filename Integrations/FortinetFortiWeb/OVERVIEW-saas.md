@@ -1,22 +1,23 @@
 # Fortinet FortiWeb
 
-For an WAF to provide maximum protection, it needs to be able to analyze HTTPS as well as HTTP and so will need to terminate (decrypt) the SSL encrypted traffic. Venafi makes it easy to unlock encrypted traffic and detect threats at the Fortinet WAF, FortiWeb, by ensuring TLS keys and certificates are always available and secured.
+For a web application firewall (WAF) to provide maximum protection, it must inspect HTTPS traffic as well as HTTP, which means terminating TLS with the keys and certificates of the applications it protects. If those certificates are missing, expired or out of date on the WAF, inspection stops or applications go down.
 
-This integration is with FortiWeb, the web application firewall (WAF) that protects web applications and APIs from attacks that target known and unknown exploits and helps maintain compliance with regulations. It's supported in both Certificate Manager, Self-Hosted (formerly known as Certificate Manager, Self-Hosted) as a paid  Adaptable Driver and TLS Protect Cloud as a built-in capability.
+Certificate Manager, SaaS makes it easy to unlock encrypted traffic and detect threats at Fortinet FortiWeb, the WAF that protects web applications and APIs from known and unknown exploits, by keeping its TLS keys and certificates available, current and secured.
 
-It communicates with FortiWeb appliances using the documented REST API to discover existing certificates and provision new ones under Certificate Manager's management.
+**Value Highlights**
 
-**What this integration enables your organization**
+- **Get started fast** with your existing FortiWeb key and certificate inventory.
+- **Maximize WAF coverage** with full key and certificate discovery.
+- **Maintain protection** with fully automated certificate lifecycle and key distribution.
+- **Distribute replacement keys** automatically when new keys are generated.
 
-- Get started fast with existing key and certificate inventory
-- Maximize WAF utilization with full key and certificate discovery
-- Maintain level of WAF protection with fully automated lifecycle and key distribution
-- Immediate distribution of keys already discovered
-- Automated distribution of keys and certificates to enable WAF inspection and protection
-- Automated distribution of replacement keys when new keys are generated to maintain WAF protection
+**How it Works**
 
-**ABOUT Fortinet**
+Certificate Manager, SaaS includes a built-in Fortinet FortiWeb machine type. It connects to FortiWeb appliances through the documented FortiWeb REST API to discover existing certificates and provision new ones under Certificate Manager, SaaS management. See the Documentation tab for machine setup and provisioning.
 
-Fortinet makes possible a digital world that we can always trust through its mission to protect people, devices, and data everywhere. This is why the world’s largest enterprises, service providers, and government organizations choose Fortinet to securely accelerate their digital journey. The Fortinet Security Fabric platform delivers broad, integrated, and automated protections across the entire digital attack surface, securing critical devices, data, applications, and connections from the data center to the cloud to the home office. Ranking #1 in the most security appliances shipped worldwide, more than 635,000 customers trust Fortinet to protect their businesses. And the Fortinet NSE Training Institute, an initiative of Fortinet’s Training Advancement Agenda (TAA), provides one of the largest and broadest training programs in the industry to make cyber training and new career opportunities available to everyone.
+**Solution Components**
 
-**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**
+- Certificate Manager, SaaS
+- Fortinet FortiWeb (physical or virtual appliance)
+
+**Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**

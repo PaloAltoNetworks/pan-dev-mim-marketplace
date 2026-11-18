@@ -1,6 +1,6 @@
 {
   "name": "Venafi-Vault Wizard",
-  "description": "The Venafi-Vault Wizard simplifies integration between Venafi and HashiCorp Vault, automating setup, verification, and reducing errors.",
+  "description": "Automate installation, configuration and verification of the Venafi plugins for HashiCorp Vault with an open-source CLI.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "Open Credo",

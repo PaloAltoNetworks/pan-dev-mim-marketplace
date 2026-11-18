@@ -1,6 +1,6 @@
 {
   "name": "Google CAS Import",
-  "description": "This Adaptable CA will import certificates from Google CAS to TPP.",
+  "description": "Import certificates issued by Google Cloud Certificate Authority Service into your Certificate Manager, Self-Hosted inventory.",
   "support": "Community",
   "currentVersion": "1.0",
   "author": "Community",

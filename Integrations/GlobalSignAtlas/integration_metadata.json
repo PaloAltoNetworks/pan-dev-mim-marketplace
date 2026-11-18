@@ -1,6 +1,6 @@
 {
   "name": "GlobalSign Atlas",
-  "description": "Manage GlobalSign Atlas certificates using Venafi Certificate Manager, SaaS",
+  "description": "Request, renew and revoke GlobalSign Atlas certificates under enterprise policy from your certificate management platform.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "GlobalSign",
@@ -25,7 +25,6 @@
     "REST"
   ],
   "logoFile": "globalsign.png",
-  "documentationFile": "DOCUMENTATION.md",
   "supportUrl": "https://community.cyberark.com/s/",
   "productVariants": [
     {
@@ -37,7 +36,7 @@
         "GMO_GlobalSign_Atlas_Adaptable_Script_1_0_5.ps1"
       ],
       "license": "MIT",
-      "documentationFile": "DOCUMENTATION.md",
+      "documentationFile": "DOCS-selfhosted.md",
       "supportUrl": "https://support.globalsign.com/"
     },
     {
@@ -55,7 +54,14 @@
     {
       "product": "Next-Gen Trust Security",
       "overviewFile": "OVERVIEW-ngts.md",
-      "author": "Venafi"
+      "author": "Venafi",
+      "documentationLinks": [
+        {
+          "title": "Add a GlobalSign CA",
+          "description": "Connect GlobalSign Atlas as a certificate authority in Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/co-overview-issuing-certs/adding-a-certificate-authority/adding-globalsign-ca"
+        }
+      ]
     }
   ],
   "price": "Free"

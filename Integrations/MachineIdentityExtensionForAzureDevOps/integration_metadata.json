@@ -1,6 +1,6 @@
 {
   "name": "Machine Identity Extension for Azure DevOps",
-  "description": "Streamline certificate management in Azure DevOps with Venafi's integration, ensuring compliance and security without complexity.",
+  "description": "Generate keys and enroll policy-compliant certificates directly from Azure DevOps pipelines.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Venafi",
@@ -32,7 +32,8 @@
       "overviewFile": "OVERVIEW-saas.md",
       "documentationLinks": [
         {
-          "title": "View Azure DevOps Extension Documentation",
+          "title": "Machine Identity Extension on Visual Studio Marketplace",
+          "description": "Installation and usage of the Azure DevOps extension",
           "url": "https://marketplace.visualstudio.com/items?itemName=GregBrownstein.MachineIdentityExtension"
         }
       ]
@@ -42,8 +43,8 @@
       "overviewFile": "OVERVIEW-selfhosted.md",
       "documentationLinks": [
         {
-          "title": "Machine Identity Extension for Azure DevOps Integration Guide",
-          "description": "Complete integration guide for Machine Identity Extension for Azure DevOps",
+          "title": "Machine Identity Extension on Visual Studio Marketplace",
+          "description": "Installation and usage of the Azure DevOps extension",
           "url": "https://marketplace.visualstudio.com/items?itemName=GregBrownstein.MachineIdentityExtension"
         }
       ]
@@ -53,8 +54,8 @@
       "overviewFile": "OVERVIEW-ngts.md",
       "documentationLinks": [
         {
-          "title": "Machine Identity Extension for Azure DevOps Integration Guide",
-          "description": "Complete integration guide for Machine Identity Extension for Azure DevOps",
+          "title": "Machine Identity Extension on Visual Studio Marketplace",
+          "description": "Installation and usage of the Azure DevOps extension",
           "url": "https://marketplace.visualstudio.com/items?itemName=GregBrownstein.MachineIdentityExtension"
         }
       ]

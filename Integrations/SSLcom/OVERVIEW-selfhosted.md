@@ -1,28 +1,26 @@
 # SSL.com
 
-The SSL.com Adaptable Driver for Venafi brings machine identity management from Venafi together with our complete web security and user access certificate solutions. The full lifecycle of our publicly trusted certificates can now be managed and automated centrally from the Venafi platform.
+Managing a high volume of publicly trusted certificates across an organization is hard to do by hand, and missed renewals cause outages. The SSL.com Adaptable CA driver connects Certificate Manager, Self-Hosted to SSL.com, so you can request, renew, replace and revoke SSL.com certificates centrally, under the same policy and automation as the rest of your machine identities.
 
-  
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Lower operational costs** with automated certificate provisioning.
+- **Gain visibility** into the demand for, usage of and workflow around certificate services.
+- **Strengthen compliance** with automated notifications, renewals and centralized authorization.
+- **Automate the full lifecycle**, including request, issuance, renewal, replacement and revocation.
+- **Cover many certificate types**: SSL/TLS, client, S/MIME and code signing certificates.
 
-- **Lower operational costs **with easy automation of certificate provisioning
-- **Gain visibility** into the demand, usage, and workflow of certificate services
-- **Ensure compliance and strengthen security **with automated notifications, renewals, centralized authorization, and authentication
-- **Full certificate lifecycle automation **including request, issuance, renewal and revocation
-- **Full support **for SSL/TLS, client certificates, S/MIME, and code signing certificates
-- **Integrated with latest SSL.com **webservices API
+**How it Works**
 
-  
+The driver (`SSL.com_Adaptable_Script.ps1`) runs in an Adaptable CA template in Certificate Manager, Self-Hosted and calls the SSL.com web services API. Custom fields on the template supply the order details SSL.com needs, such as the product code, validity period and admin contact. See the Documentation tab for setup.
 
-**SOLUTION OVERVIEW**
+**Solution Components**
 
-Managing a high volume of machine identities throughout an organization can be a challenge. SSL.com provides complete certificate solutions including SSL/TLS, code signing, clientAuth, S/MIME and more. Now with the SSL.com Adaptable Driver for Venafi, it's easier than even to automate certificate provisioning, keep up on expirations and revocations, protect client access and easily manage your encryption services. SSL.com's unrivaled support and expertise brings the best of publicly trusted certificate authority solutions to the Venafi platform. 
+- Certificate Manager, Self-Hosted
+- An SSL.com account
 
-  
+**About SSL.com**
 
-**HOW IT WORKS**
-
-Use the SSL.com Adaptable Driver to import SSL.com certificates into your Venafi account. Certificates will be managed through the Venafi GUI. Please see the included [README](https://urldefense.com/v3/__https:/s3.amazonaws.com/pf-user-files-01/u-122724/uploads/2022-02-18/vi13x5f/SSL.com*20Venafi*20Adaptable*20Driver*20ReadMe.pdf__;JSUlJQ!!Ati4tGle!66irYbbRN21gBKoZuBUYciZl0zC5tVjEpXe0jfnZuB_TM8_lBHiFPZFNyFuuLZGqDFJwe9c$) additional configuration information.
+SSL.com is a publicly trusted certificate authority that provides SSL/TLS, code signing, client authentication and S/MIME certificates.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

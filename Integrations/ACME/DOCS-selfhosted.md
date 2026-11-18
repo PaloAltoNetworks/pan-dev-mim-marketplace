@@ -26,7 +26,7 @@ Posh-ACME stores account and certificate state on disk alongside the driver's ow
 
 To use the driver across multiple CMSH servers, the CA configuration directory must exist at the same path on each server, and these Posh-ACME account files (under `<config location>\Posh-ACME\<CA hostname>\`) must be present on each: `current-account.json`, `dir.json`, and `<account ID>\acct.json`.
 
-Alternatively, restrict the driver to a single CMSH server via **Settings → Policy → Processing Engines** on the policy folder containing the CA object (you may need to restart the `Venafi Trust Protection Platform` service after changing this). Running on one instance simplifies troubleshooting, but that instance's failure blocks certificate requests until it's restored.
+Alternatively, restrict the driver to a single CMSH server via **Settings → Policy → Processing Engines** on the policy folder containing the CA object (you may need to restart the Windows service, which is still named `Venafi Trust Protection Platform`, after changing this). Running on one instance simplifies troubleshooting, but that instance's failure blocks certificate requests until it's restored.
 
 ## Installation
 

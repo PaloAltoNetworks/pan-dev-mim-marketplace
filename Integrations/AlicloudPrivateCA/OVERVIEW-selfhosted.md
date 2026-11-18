@@ -1,16 +1,28 @@
-# Alicloud Private CA Adaptable CA Driver Certificate Management
+# Alicloud Private CA
 
-Secur Solutions’ Adaptable CA Driver for Alibaba Cloud Private CA integrates seamlessly with Certificate Manager Self-Hosted, enabling automated certificate issuance, lifecycle management, and secure provisioning from Alibaba Cloud’s Private CA service.
+Organizations that use Alibaba Cloud Private CA for internal PKI still need its certificates to follow enterprise policy and to be renewed on time. Requesting and deploying them outside your certificate management platform leaves gaps in visibility and automation.
 
-This driver bridges enterprise-grade private PKI with CyberArk's powerful certificate management platform, allowing organizations to issue, renew, and deploy certificates from Alibaba Cloud Private CA while enforcing security policies, compliance, and automation.
+Secur Solutions' integration connects Certificate Manager, Self-Hosted to Alibaba Cloud Private CA. You can issue, renew and deploy private certificates from Alibaba Cloud while Certificate Manager, Self-Hosted enforces security policy, compliance and automation.
 
-**Key Technical Features:**
+**Value Highlights**
 
-- **Automated Certificate Issuance & Renewal:** Fully automates the request, approval, and retrieval process from Alibaba Cloud Private CA within Certificate Manager workflows.
-- **Intelligent Integration:** Leverages CyberArk's Adaptable CA framework to connect directly to Alibaba Cloud Private CA for private certificate lifecycle operations.
-- **Full Chain Support:** Ensures complete certificate chains (leaf + intermediates + root) are properly handled and provisioned for trusted validation.
-- **Policy Enforcement & Zero-Touch Automation:** Aligns with enterprise security standards, reducing manual intervention and minimizing risks from certificate expiration or misconfiguration.
+- **Automate issuance and renewal** of certificates from Alibaba Cloud Private CA within Certificate Manager, Self-Hosted workflows.
+- **Connect directly** to Alibaba Cloud Private CA for private certificate lifecycle operations.
+- **Handle full chains** so the leaf, intermediate and root certificates are provisioned for trusted validation.
+- **Enforce policy** and reduce manual work, expirations and misconfigurations.
+- **Centralize visibility** of Alibaba Cloud private certificates with the rest of your inventory.
 
-Perfect for organizations using Alibaba Cloud infrastructure alongside CyberArk for centralized machine identity security.
+**How it Works**
+
+The integration is an Adaptable CA driver for Certificate Manager, Self-Hosted. It connects to Alibaba Cloud Private CA to submit requests, retrieve issued certificates with their full chain, and support renewal, so private certificates follow the same workflows as your other CAs. Contact Secur Solutions for setup documentation.
+
+**Solution Components**
+
+- Certificate Manager, Self-Hosted with an Adaptable CA driver from Secur Solutions
+- Alibaba Cloud Private CA
+
+**About Secur Solutions Group**
+
+[Secur Solutions Group](https://secursolutionsgroup.com/) is a Singapore-based identity and digital security company that builds integrations for CyberArk certificate management products. Contact Secur Solutions for pricing, downloads and support.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

@@ -1,42 +1,32 @@
 # Mainframe Enterprise Connector
 
-The BMC AMI Enterprise Connector connects modern, enterprise solutions with IBM mainframe systems. No need for one-off, rickety integrations. Together with Venafi, Enterprise Connector delivers a proven and scalable way to automate machine identity management on IBM Z.
+IBM mainframes run some of the most valuable business workloads, but they are often left out of enterprise certificate automation because connecting them takes one-off, fragile integrations. BMC AMI Enterprise Connector connects enterprise solutions with IBM mainframe systems. Together with Certificate Manager, Self-Hosted, it provides a proven, scalable way to automate certificate and key management for RACF on IBM Z.
 
-  
+**Value Highlights**
 
-**SOLUTION COMPONENTS**
+- **Reduce cost**: Cut the round-the-clock human effort spent managing mainframe certificates.
+- **Eliminate errors and risk**: Protect the most valuable business assets from manual mistakes.
+- **Drive provisioning**: Provision keys and certificates to IBM mainframes automatically.
+- **Communicate securely**: Work over a secure, encrypted REST API.
+- **Use a single gateway**: Reach the whole mainframe estate through one connector.
+- **Fit local practice**: Customize the connector to meet site-specific security policies and practices.
 
-Certificate Manager, Self-Hosted, RACF on IBM zOS
+**How it Works**
 
-  
+BMC AMI Enterprise Connector is software you install, configure and run on your Certificate Manager, Self-Hosted servers and on the IBM mainframe systems. It gives Certificate Manager, Self-Hosted a secure, auditable and customizable interface to mainframe architectures, standards and security policies, so you can deploy certificate management to RACF on IBM Z without a costly build-it-yourself project.
 
-**VALUE HIGHLIGHTS**
+**Solution Components**
 
-- **Reduce cost **spent on round-the-clock human management of mainframe systems
-- **Eliminate errors and risk **on the most precious business assets
-- **Drives provisioning **of keys and certificates on IBM mainframes
-- **Works across **a secure and encrypted REST API
-- **Single gateway **into mainframe estate
-- **Customizable **to meet site specific security policies and practices
+- Certificate Manager, Self-Hosted
+- BMC AMI Enterprise Connector
+- RACF on IBM z/OS
 
-  
+**Additional Resources**
 
-BMC AMI Enterprise Connector is a piece of software you install, configure and run on your Certificate Manager, Self-Hosted instances and the IBM mainframe systems. It provides an easy interface to mainframe architectures, standards, and security policies. By making this interface secure, auditable, and fully customizable to meet site specific requirements, the obstacles typically preventing the mainframes from participating in enterprise-wide solutions can be quickly overcome.  
-
-  
-
-With Certificate Manager, Self-Hosted and Enterprise Connector, your organization can skip costly and complex build-it-yourself efforts and deploy machine identity management from Venafi to RACF on IBM Z mainframes.
-
-  
+- [BMC solution brief](https://documents.bmc.com/products/documents/59/48/535948/535948.pdf)
 
 **About BMC**
 
-BMC works with 86% of the Forbes Global 50 and customers and partners around the world to create their future. With our history of innovation, industry-leading automation, operations, and service management solutions, combined with unmatched flexibility, we help organizations free up time and space to become an Autonomous Digital Enterprise that conquers the opportunities ahead.
-
-  
-
-**BMC Solution Brief:**
-
-[https://documents.bmc.com/products/documents/59/48/535948/535948.pdf](https://documents.bmc.com/products/documents/59/48/535948/535948.pdf)
+[BMC](https://www.bmc.com/) provides automation, operations and service management solutions, including the BMC AMI portfolio for IBM mainframes.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

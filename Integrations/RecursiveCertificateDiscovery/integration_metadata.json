@@ -1,6 +1,6 @@
 {
   "name": "Recursive Certificate Discovery",
-  "description": "Automated driver that performs recursive discovery of certificate files from a specified folder path",
+  "description": "Discover certificate files across Linux file systems by recursively scanning a folder and all its subdirectories.",
   "categories": [
     "Discovery & Asset Management"
   ],
@@ -16,10 +16,10 @@
     "Certificate Lifecycle Management"
   ],
   "keywords": [],
-  "support": "Community",
+  "support": "Supported",
   "currentVersion": "1.0.0",
-  "author": "Community",
-  "supportEmail": "cybr-mis.support@paloaltonetworks.com",
+  "author": "Secur Solutions Group",
+  "supportEmail": "support@secursolutionsgroup.com",
   "price": "Free",
   "productVariants": [
     {

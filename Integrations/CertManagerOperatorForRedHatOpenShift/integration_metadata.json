@@ -1,6 +1,6 @@
 {
   "name": "cert-manager-operator for Red Hat OpenShift",
-  "description": "Storage of certificates in a secure way",
+  "description": "Automate TLS certificate issuance and renewal for Red Hat OpenShift clusters with the cert-manager Operator, under centrally managed policy.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "RedHat",
@@ -39,11 +39,25 @@
     },
     {
       "product": "Certificate Manager Self-Hosted",
-      "overviewFile": "OVERVIEW-selfhosted.md"
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "cert-manager Venafi Issuer",
+          "description": "Configure the cert-manager issuer for Certificate Manager, Self-Hosted",
+          "url": "https://cert-manager.io/docs/configuration/venafi/"
+        }
+      ]
     },
     {
       "product": "Next-Gen Trust Security",
-      "overviewFile": "OVERVIEW-ngts.md"
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Kubernetes Components in Next-Gen Trust Security",
+          "description": "Kubernetes components, including cert-manager, supported by Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/c-Cloud-discovery-service-sectionOverview/discover-certificates-in-kubernetes-clusters/kubernetes-components"
+        }
+      ]
     }
   ],
   "price": "Free"

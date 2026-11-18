@@ -1,25 +1,23 @@
 # Machine Identity Protection app for ServiceNow
 
-The Aeyrix Machine Identity Protection app for ServiceNow application leverages Certificate Manager, SaaS to streamline the management of TLS/SSL certificates and keys. This integration makes it simple for organizations to automate and manage the lifecycle of machine identities within the familiar environment of ServiceNow, thereby enhancing security and operational efficiency.
-
-  
-
-**Applicability**
-
-In the digital age, securing machine identities is paramount for organizations of all sizes. Every organization that utilizes Certificate Manager, SaaS can benefit from this integration, ensuring that their machine identities are managed securely and efficiently.
-
-  
+Certificate owners already work in ServiceNow, but requesting and renewing certificates usually happens somewhere else, through manual steps that cause errors and outages. The Aeyrix Machine Identity Protection app for ServiceNow uses Certificate Manager, SaaS to automate TLS certificate and key lifecycle management from inside ServiceNow, so organizations improve security and efficiency without changing how people request IT services.
 
 **Value Highlights**
 
-- Enhances security by automating TLS/SSL certificate lifecycle management
-- Increases operational efficiency by integrating with ServiceNow
-- Reduces risks associated with manual certificate management
-- Simplifies compliance by enforcing consistent policies and processes
-- Provides a centralized repository for managing machine identities
-- Automates the deployment and revocation of machine identities directly within ServiceNow
+- **Automate the lifecycle**: Issue, renew and revoke TLS certificates from ServiceNow.
+- **Work where users already are**: Request new certificates through familiar ServiceNow processes.
+- **Reduce risk**: Replace manual certificate handling with automated, consistent processes.
+- **Simplify compliance**: Enforce consistent policies and processes for every request.
+- **Centralize records**: Keep one repository of certificate information in ServiceNow.
+- **Deploy and revoke in place**: Deploy and revoke certificates directly from ServiceNow.
 
-  
+**How it Works**
+
+The app uses the Certificate Manager, SaaS APIs from ServiceNow to automate the issuance, renewal and revocation of TLS certificates. Users request new certificates, manage their lifecycle and stay within organizational policy without leaving ServiceNow. Contact your account team for access and setup.
+
+**Applicability**
+
+Any organization that uses Certificate Manager, SaaS and ServiceNow can use this integration.
 
 **Solution Components**
 
@@ -27,16 +25,8 @@ In the digital age, securing machine identities is paramount for organizations o
 - ServiceNow
 - Aeyrix Machine Identity Protection Service (MIPS) application for ServiceNow
 
-  
-
-**How it Works**
-
-This integration utilizes the APIs provided by Certificate Manager, SaaS to interact with ServiceNow, allowing for the automated issuance, renewal, and revocation of TLS/SSL certificates. It enables users to request new machine identities, manage their lifecycle, and ensure compliance with organizational policies directly within ServiceNow, streamlining operations and enhancing security.
-
-  
-
 **About Aeyrix**
 
-Aeyrix helps organizations manage their operational and cyber risks associated with digital certificates and keys (Machine Identities). Through its innovative integration with ServiceNow and Certificate Manager, SaaS, Aeyrix enables organizations to efficiently manage and secure their digital identities using their existing IT Service Management framework ensuring robust security and compliance in an increasingly complex digital landscape.
+[Aeyrix](https://aeyrix.com) helps organizations manage the operational and cyber risks associated with digital certificates and keys, using their existing IT service management framework.
 
 **Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**

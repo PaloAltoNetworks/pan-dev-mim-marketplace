@@ -1,6 +1,6 @@
 {
   "name": "Tencent Cloud Load Balancer",
-  "description": "Provision and bind certificates from Certificate Manager to Tencent Cloud Load Balancer (CLB) listeners, eliminating manual overhead and ensuring zero-downtime renewals",
+  "description": "Provision and bind certificates to Tencent Cloud Load Balancer (CLB) listeners automatically, removing manual work and enabling zero-downtime renewals.",
   "categories": [
     "Load Balancer & ADC"
   ],

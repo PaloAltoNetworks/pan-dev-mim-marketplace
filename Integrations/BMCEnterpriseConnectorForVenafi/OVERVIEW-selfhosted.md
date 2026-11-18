@@ -1,41 +1,26 @@
 # BMC Enterprise Connector for Venafi
 
-This Adaptable Driver communicates with the Enterprise Connector for Venafi product from BMC Software, Inc. to provide certificate management for RACF, TSS, and ACF2 environments on z/OS.
+Certificates used by RACF, TSS and ACF2 on IBM z/OS are often managed separately from the rest of the enterprise, which makes them hard to track and easy to miss at renewal time. This listing brings those mainframe certificates under Certificate Manager, Self-Hosted through BMC Enterprise Connector for Venafi.
 
-**SOLUTION COMPONENTS**
+**Value Highlights**
 
-Certificate Manager, Self-Hosted; RACF, TSS, or ACF2 on IBM z/OS; BMC Enterprise Connector for Venafi
+- **Manage mainframe certificates centrally**: Handle RACF, TSS and ACF2 certificates on z/OS alongside the rest of your certificate inventory.
+- **Automate renewals**: Use Certificate Manager, Self-Hosted to renew certificates on the mainframe before they expire.
+- **Apply consistent policy**: Enforce the same certificate policies on z/OS as on distributed systems.
+- **Match your connector version**: Pick the driver script built for your Enterprise Connector for Venafi release, from SPE2304 through SPE2507.
 
-**SOLUTION OVERVIEW**
+**How it Works**
 
-Enterprise Connector for Venafi is under continuous development, and new versions incorporate additional features that require associated changes to the Certificate Manager, Self-Hosted (Adaptable Driver). This listing includes one driver script per Enterprise Connector for Venafi version — you must use the script that matches the version of Enterprise Connector for Venafi installed on your mainframe.
+Each Adaptable Driver script runs on Certificate Manager, Self-Hosted and communicates with BMC Enterprise Connector for Venafi, which applies the certificate operations to RACF, TSS or ACF2 on z/OS. Enterprise Connector for Venafi is under continuous development, and new versions add features that need matching driver changes, so each connector version has its own script and its own set of BMC-supplied DLLs. A mismatched script and DLL pair is not supported. See the Documentation tab to choose the right script and install it.
 
-Each driver script also requires a set of DLLs supplied by BMC Software, installed at a version-specific path. If your DLLs are installed elsewhere, update the `$DLLPath` variable in the script to match.
+**Solution Components**
 
-**CHOOSING THE RIGHT DRIVER**
+- Certificate Manager, Self-Hosted
+- BMC Enterprise Connector for Venafi
+- RACF, TSS or ACF2 on IBM z/OS
 
-| Driver file | Enterprise Connector for Venafi version | Required DLL path |
-| --- | --- | --- |
-| `EC for Venafi SPE2304.ps1` | SPE2304 | `C:\Program Files\Venafi\Utilities\ECVenafi` |
-| `EC for Venafi SPE2307.ps1` | SPE2307 | `C:\Program Files\Venafi\Utilities\ECVenafi` |
-| `EC for Venafi SPE2310.ps1` | SPE2310 | `C:\Program Files\Venafi\Utilities\ECVenafi` |
-| `EC for Venafi SPE2401.ps1` | SPE2401 | `C:\Program Files\Venafi\Utilities\ECVenafi` |
-| `EC for Venafi SPE2404.ps1` | SPE2404 | `C:\Program Files\Venafi\Utilities\ECVenafi` |
-| `EC for Venafi SPE2407.ps1` | SPE2407 | `C:\Program Files\Venafi\Utilities\ECVenafi` |
-| `EC for Venafi SPE2410.ps1` | SPE2410 | `C:\Program Files\Venafi\Utilities\ECVenafi SPE2410` |
-| `EC for Venafi SPE2501.ps1` | SPE2501 | `C:\Program Files\Venafi\Utilities\ECVenafi SPE2501` |
-| `EC for Venafi SPE2504.ps1` | SPE2504 | `C:\Program Files\Venafi\Utilities\ECVenafi SPE2504` |
-| `EC for Venafi SPE2507.ps1` | SPE2507 | `C:\Program Files\Venafi\Utilities\ECVenafi SPE2507` |
+**About BMC Software**
 
-Each version of Enterprise Connector for Venafi must be used with its matching DLLs and driver script — using a mismatched pair is not supported.
-
-**INSTALLATION AND CONFIGURATION**
-
-1. Identify the version of Enterprise Connector for Venafi installed on your mainframe environment.
-2. Copy the matching driver script to the Adaptable Application/Driver scripts directory on the Certificate Manager, Self-Hosted server.
-3. Confirm the BMC-supplied DLLs for that version are installed at the required path above (or update `$DLLPath` in the script if they're installed elsewhere).
-4. Configure the Adaptable Driver in Certificate Manager, Self-Hosted per BMC's documentation for Enterprise Connector for Venafi.
-
-Full details on configuring application objects managed by this driver are included in the documentation provided by BMC Software. Contact BMC Software for support requests regarding Enterprise Connector for Venafi or these scripts.
+[BMC Software](https://www.bmc.com/) provides IT operations and mainframe management software. Contact BMC Software for support requests regarding Enterprise Connector for Venafi or these scripts.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

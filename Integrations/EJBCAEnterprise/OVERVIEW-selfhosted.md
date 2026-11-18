@@ -1,22 +1,25 @@
 # EJBCA Enterprise
 
-EJBCA is an open source certificate authority you can run in your own data center or in the cloud. It is a private certificate authority that issues certificates.
+EJBCA Enterprise is a private certificate authority (CA) that you can run in your own data center or in the cloud. It is a popular choice for infrastructure teams because of its coverage of cryptographic mechanisms, certificate templates, and DevOps and IoT enrollment protocols.
 
-Venafi brings order to the chaos in the PKI world by integrating with all types of certificate authority to provide visibility, governance, and automation to all machine identities in the form of certificates in an organization. This solutions enables Venafi to integrate with PrimeKey implementation of EJBCA to simplify and automate PKI-based security solutions at scale, so your organization can focus on growing your business.
+This community-supported Adaptable CA driver connects Certificate Manager, Self-Hosted to an EJBCA Enterprise instance in your environment, so EJBCA certificates get the same visibility, governance and automation as the rest of your PKI.
 
-**SOLUTION HIGHLIGHTS**
+**Value Highlights**
 
-- **Gain full visibility** into the demand, usage and workflow of certificate services
-- **Automate certificate provisioning** to keep pace with dynamic IT services and innovation
-- **Enforce policies** and reduce risk with harmonized PKI services, automated workflow, configurable approval and authorization, and detailed logging
-- **Detect and support** multiple Certificate Authorities
-- **Consolidate or migrate** your old PKIs into one central control
-- **Support the full certificate lifecycle** from request, issuance, and renewal to revocation
+- **Gain full visibility**: See the demand, usage and workflow of certificate services.
+- **Automate certificate provisioning**: Keep pace with dynamic IT services.
+- **Enforce policies**: Reduce risk with automated workflow, configurable approval and authorization, and detailed logging.
+- **Work with multiple CAs**: Manage EJBCA alongside your other certificate authorities.
+- **Consolidate or migrate**: Bring older PKIs under one central control.
+- **Support the full lifecycle**: Handle request, issuance and renewal through revocation.
 
-**SOLUTION OVERVIEW**
+**How it Works**
 
-This is a community supported Venafi adaptable CA that enables a connection from Venafi to PrimeKey EJBCA Enterprise instance running in your environment. The Certificate Manager delivers visibility, intelligence and automation for the protection of machine identities.
+The `EJBCA_REST.ps1` driver runs in the Adaptable CA framework of Certificate Manager, Self-Hosted and calls the EJBCA REST API. It uses the version 1 API for issuance, renewal and revocation, and the version 2 API to import existing certificates. Custom fields on the policy folder select the EJBCA CA, certificate profile and end entity profile. See the Documentation tab for setup.
 
-For the administrators that deal with infrastructure, EJBCA Enterprise is one of the popular private CA choices which provides coverage of cryptographic mechanisms, certificate templates, DevOps and IoT integration protocols.
+**Solution Components**
+
+- Certificate Manager, Self-Hosted with the Adaptable CA framework
+- EJBCA Enterprise with the REST API enabled
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

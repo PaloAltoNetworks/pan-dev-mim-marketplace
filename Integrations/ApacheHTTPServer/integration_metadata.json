@@ -1,9 +1,9 @@
 {
   "name": "Apache HTTP Server",
-  "description": "Enabling automated certificates management on Apache HTTP Servers",
+  "description": "Automate certificate provisioning and renewal on Apache HTTP Server to prevent outages from expired or misconfigured certificates.",
   "support": "Supported",
   "currentVersion": "1.0.0",
-  "author": "The Apache Software Foundation - Marketplace",
+  "author": "Venafi",
   "categories": [
     "Web Server"
   ],
@@ -23,7 +23,7 @@
     "Other"
   ],
   "logoFile": "Apache.png",
-  "supportUrl": "https://www.apache.org/foundation/mailinglists.html",
+  "supportUrl": "https://community.cyberark.com/s/",
   "productVariants": [
     {
       "product": "Certificate Manager SaaS",
@@ -34,15 +34,27 @@
       "overviewFile": "OVERVIEW-selfhosted.md",
       "documentationLinks": [
         {
-          "title": "Apache HTTP Server Integration Guide",
-          "description": "Complete integration guide for Apache HTTP Server",
-          "url": "https://docs.venafi.com/Docs/26.1/TopNav/Content/Drivers/cco-Apache-AppDriverConfig-tpp.php"
+          "title": "Apache Driver Configuration",
+          "description": "Configure the Apache application driver in Certificate Manager, Self-Hosted",
+          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/cco-Apache-AppDriverConfig-tpp.php"
         }
       ]
     },
     {
       "product": "Next-Gen Trust Security",
-      "overviewFile": "OVERVIEW-ngts.md"
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Common KeyStore Machine Setup",
+          "description": "Create a Common KeyStore machine for an Apache host in Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/common-keystore"
+        },
+        {
+          "title": "Provision Certificates to a Common KeyStore",
+          "description": "Provision certificates to the PEM files on an Apache host",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/common-keystore/provision-certificates-common-keystore"
+        }
+      ]
     }
   ],
   "price": "Free"

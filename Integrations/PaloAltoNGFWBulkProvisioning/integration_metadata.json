@@ -1,6 +1,6 @@
 {
   "name": "Palo Alto NGFW Bulk Provisioning",
-  "description": "This is an adaptable bulk provisioning driver for Palo Alto Networks NGFW. The purpose is to provision many certificates from a source Policy Folder to a target device.",
+  "description": "Provision many certificates from a policy folder to a Palo Alto Networks NGFW in one job, with optional SSL inbound inspection rule updates.",
   "support": "Community",
   "currentVersion": "1.0",
   "author": "Community",
@@ -26,9 +26,9 @@
       "overviewFile": "OVERVIEW-selfhosted.md",
       "documentationLinks": [
         {
-          "title": "Palo Alto NGFW Bulk Provisioning Integration Guide",
-          "description": "Complete integration guide for Palo Alto NGFW Bulk Provisioning",
-          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Provision/t-Provision-BulkProvisioning-Job-creating.php?tocpath=TLS%20Protect%7CCertificate%20Management%20Guide%7CCertificate%20installation%7CInstalling%20(provisioning"
+          "title": "Creating a Bulk Provisioning Job",
+          "description": "Certificate Manager, Self-Hosted guide to creating a Bulk Provisioning job",
+          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Provision/t-Provision-BulkProvisioning-Job-creating.php"
         }
       ],
       "downloadFiles": [

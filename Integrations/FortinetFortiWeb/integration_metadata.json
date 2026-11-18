@@ -1,6 +1,6 @@
 {
   "name": "Fortinet FortiWeb",
-  "description": "Fortinet FortiWeb integrates with Venafi for secure SSL decryption, enhancing WAF protection and automating key management to safeguard web applications.",
+  "description": "Keep Fortinet FortiWeb TLS keys and certificates discovered, current and deployed so the WAF can inspect encrypted traffic.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Venafi",
@@ -29,7 +29,8 @@
   "productVariants": [
     {
       "product": "Certificate Manager SaaS",
-      "overviewFile": "OVERVIEW-saas.md"
+      "overviewFile": "OVERVIEW-saas.md",
+      "supportUrl": "https://community.cyberark.com/s/"
     },
     {
       "product": "Certificate Manager Self-Hosted",
@@ -50,7 +51,20 @@
     },
     {
       "product": "Next-Gen Trust Security",
-      "overviewFile": "OVERVIEW-ngts.md"
+      "overviewFile": "OVERVIEW-ngts.md",
+      "supportUrl": "https://community.cyberark.com/s/",
+      "documentationLinks": [
+        {
+          "title": "Fortinet FortiWeb Machine Setup",
+          "description": "Create a Fortinet FortiWeb machine in Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/fortinet-fortiweb"
+        },
+        {
+          "title": "Provision Certificates to Fortinet FortiWeb",
+          "description": "Provision certificates to a Fortinet FortiWeb machine",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/fortinet-fortiweb/provision-certificates-fortinet-fortiweb"
+        }
+      ]
     }
   ],
   "price": "Free"

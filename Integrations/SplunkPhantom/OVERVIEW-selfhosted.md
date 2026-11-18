@@ -1,21 +1,22 @@
 # Splunk Phantom
 
-Splunk Phantom plus Venafi make it possible to fully automate the action taken on risk intelligence.
+Security and operations teams need actionable intelligence to reduce risk, avoid outages and maintain compliance. Event sharing, tracking and intelligence from Certificate Manager, Self-Hosted keep teams informed, and Splunk Phantom takes the next step by fully automating the action taken on that intelligence.
 
-  
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Automate from alert to action**: Respond to certificate events without human interaction.
+- **Analyze certificate state**: Track the state of keys and certificates with the Splunk dashboard module.
+- **Remediate automatically**: Identify anomalies in activity and operations and let Phantom act on them.
+- **Operationalize processes**: Drive compliance and automated remediation through an enterprise GRC platform.
+- **Identify issues and risks**: Surface the problems that need remediation.
 
-- **Get full event automation** that allows you to go from alert to action without human interaction
-- A**nalyze the state of keys and certificates** and track progress with the Splunk dashboard module
-- **Analyze activity and operations** to identify anomalies or activities, and let Phantom remediate automatically
-- **Operationalize processes**, compliance and automate remediation through an enterprise GRC platform
-- **Identify issues and risks** to enable remediation
+**How it Works**
 
-  
+Machine identity events and intelligence from Certificate Manager, Self-Hosted are made available to Splunk. Splunk Phantom playbooks then act on that intelligence automatically, turning alerts about keys and certificates into remediation actions.
 
-**SOLUTION OVERVIEW**
+**Solution Components**
 
-Security and operations teams need access to actionable intelligence to reduce risk, eliminate potential operational issues like outages, and maintain compliance. While it's been possible to inform teams with event sharing, tracking, and intelligence from the Venafi Platform, Phantom + Venafi make it possible to fully automate the action taken on that intelligence. 
+- Certificate Manager, Self-Hosted
+- Splunk Phantom
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

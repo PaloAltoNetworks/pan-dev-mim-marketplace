@@ -1,6 +1,6 @@
 # The SSL Store Adaptable Drivers Configuration
 
-## Paramteters
+## Parameters
 
 | Parameter Name | Detail |
 | ---            | ---    |
@@ -12,7 +12,7 @@
 | City/Locality | Organization City name |
 | State/Province | Organization Region name |
 | Country | Organization Country code (e.g. United States = US) |
-| DNS Name(s) | A commma-separated list of additional domain names <br />**Note: This field only applys to products with SAN enabled**|
+| DNS Name(s) | A comma-separated list of additional domain names <br />**Note: This field only applies to products with SAN enabled**|
 | Email Address(es) | A comma-separated approver email list respective DNS Names entry.<br />(Note: email address list must be in sequence as per DNS Names inserted.  E.g., Suppose DNS Names as `abc.com`, `xyz.com`, `123.com` then in Email Address fields must be insert `admin@abc.com`, `admin@xyz.com`, `admin@123.com` sequence as per DNS names.) |
 | Validity Period | Use integer value as a validity period for certificates (e.g. 12, 24, 36) |
 | Approver Email | Insert the appropriate approver email based on Common Name |
@@ -29,11 +29,11 @@ Each `.ps1` driver sets two defaults near the top of the file. Replace them with
 | `$global:AdminEmail` | Admin contact email on every order |
 | `$global:AdminPhone` | Admin contact phone on every order, and the organization phone when the Phone field is empty |
 
-## TheSSLstore.com Configuration Steps
+## Configuration
 
 To generate the Partner Code and Auth Token from TheSSLstore.com, please see below:
 
-1. Click on **API settings & token generation**
+1. Click **API settings & token generation**
 
     ![API Settings](images/api-settings.png)
 
@@ -41,6 +41,6 @@ To generate the Partner Code and Auth Token from TheSSLstore.com, please see bel
 
     ![Generate Token Button](images/generate-token.png)
 
-3. When complete, the screen will show success and the Auth Token will be sent to the registered email address. 
+3. When complete, the screen will show success and the Auth Token will be sent to the registered email address.
 
     ![Success](images/gen-success.png)

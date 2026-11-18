@@ -1,6 +1,6 @@
 {
   "name": "Cloudflare CFSSL Multirootca",
-  "description": "A cert-manager external issuer implementation with Cloudflare Origin CA as the backend certificate authority",
+  "description": "Use Cloudflare CFSSL multirootca as a private CA for cert-manager to sign Kubernetes certificate requests with multiple signing keys.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "CloudFlare, Inc. - Marketplace",
@@ -27,11 +27,55 @@
   "productVariants": [
     {
       "product": "Certificate Manager SaaS",
-      "overviewFile": "OVERVIEW-saas.md"
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "cfssl-issuer Helm Chart",
+          "description": "Helm chart source and values.yaml examples for Issuer and ClusterIssuer objects",
+          "url": "https://gerrit.wikimedia.org/r/plugins/gitiles/operations/deployment-charts/+/refs/heads/master/charts/cfssl-issuer/"
+        },
+        {
+          "title": "cfssl-issuer CRDs Helm Chart",
+          "description": "Helm chart for the cfssl-issuer custom resource definitions",
+          "url": "https://gerrit.wikimedia.org/r/plugins/gitiles/operations/deployment-charts/+/refs/heads/master/charts/cfssl-issuer-crds/"
+        },
+        {
+          "title": "Wikimedia Helm Chart Repository",
+          "description": "Stable Helm repository that publishes the cfssl-issuer charts",
+          "url": "https://helm-charts.wikimedia.org/stable"
+        },
+        {
+          "title": "cfssl-issuer Container Images",
+          "description": "Container image tags for cfssl-issuer",
+          "url": "https://docker-registry.wikimedia.org/cfssl-issuer/tags/"
+        }
+      ]
     },
     {
       "product": "Next-Gen Trust Security",
-      "overviewFile": "OVERVIEW-ngts.md"
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "cfssl-issuer Helm Chart",
+          "description": "Helm chart source and values.yaml examples for Issuer and ClusterIssuer objects",
+          "url": "https://gerrit.wikimedia.org/r/plugins/gitiles/operations/deployment-charts/+/refs/heads/master/charts/cfssl-issuer/"
+        },
+        {
+          "title": "cfssl-issuer CRDs Helm Chart",
+          "description": "Helm chart for the cfssl-issuer custom resource definitions",
+          "url": "https://gerrit.wikimedia.org/r/plugins/gitiles/operations/deployment-charts/+/refs/heads/master/charts/cfssl-issuer-crds/"
+        },
+        {
+          "title": "Wikimedia Helm Chart Repository",
+          "description": "Stable Helm repository that publishes the cfssl-issuer charts",
+          "url": "https://helm-charts.wikimedia.org/stable"
+        },
+        {
+          "title": "cfssl-issuer Container Images",
+          "description": "Container image tags for cfssl-issuer",
+          "url": "https://docker-registry.wikimedia.org/cfssl-issuer/tags/"
+        }
+      ]
     }
   ],
   "price": "Free"

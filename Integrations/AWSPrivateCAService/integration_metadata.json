@@ -1,6 +1,6 @@
 {
   "name": "AWS Private CA Service",
-  "description": "A cert-manager external issuer implementation with AWS Private CA as the backend certificate authority",
+  "description": "Issue Kubernetes certificates from AWS Private CA with the open-source aws-privateca-issuer for cert-manager.",
   "support": "Supported",
   "currentVersion": "1.0.1",
   "author": "Venafi",

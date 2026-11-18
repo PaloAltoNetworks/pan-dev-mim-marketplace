@@ -1,6 +1,6 @@
 {
   "name": "Ansible Collection",
-  "description": "Automate machine identity management with this Red Hat-certified Ansible collection for Venafi, enhancing security and compliance.",
+  "description": "Enroll and deploy policy-compliant certificates from Ansible playbooks with a Red Hat certified Ansible collection.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Venafi",
@@ -32,8 +32,8 @@
       "overviewFile": "OVERVIEW-saas.md",
       "documentationLinks": [
         {
-          "title": "Ansible Collection Integration Guide",
-          "description": "Complete integration guide for Ansible Collection",
+          "title": "Ansible Collection Repository",
+          "description": "Source, role documentation and examples for the venafi.machine_identity collection",
           "url": "https://github.com/Venafi/ansible-collection-venafi"
         }
       ]
@@ -43,8 +43,8 @@
       "overviewFile": "OVERVIEW-selfhosted.md",
       "documentationLinks": [
         {
-          "title": "Ansible Collection Integration Guide",
-          "description": "Complete integration guide for Ansible Collection",
+          "title": "Ansible Collection Repository",
+          "description": "Source, role documentation and examples for the venafi.machine_identity collection",
           "url": "https://github.com/Venafi/ansible-collection-venafi"
         }
       ]
@@ -54,8 +54,8 @@
       "overviewFile": "OVERVIEW-ngts.md",
       "documentationLinks": [
         {
-          "title": "Ansible Collection Integration Guide",
-          "description": "Complete integration guide for Ansible Collection",
+          "title": "Ansible Collection Repository",
+          "description": "Source, role documentation and examples for the venafi.machine_identity collection",
           "url": "https://github.com/Venafi/ansible-collection-venafi"
         }
       ]

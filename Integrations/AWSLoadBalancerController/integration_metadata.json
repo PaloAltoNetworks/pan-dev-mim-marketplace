@@ -1,6 +1,6 @@
 {
   "name": "AWS Load Balancer Controller",
-  "description": "Integrate cert-manager with AWS Load Balancer Controller for automated and secure TLS certificate management in EKS clusters.",
+  "description": "Extend certificate policy to Amazon EKS ingress by provisioning managed certificates to ACM for use by the AWS Load Balancer Controller.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "Venafi",
@@ -36,9 +36,14 @@
       "overviewFile": "OVERVIEW-ngts.md",
       "documentationLinks": [
         {
-          "title": "AWS Load Balancer Controller Integration Guide",
-          "description": "Complete integration guide for AWS Load Balancer Controller",
+          "title": "Configure AWS Connection",
+          "description": "Connect Next-Gen Trust Security to AWS to provision certificates to AWS Certificate Manager",
           "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/integrations-overview/cloud-providers-overview/aws-acm"
+        },
+        {
+          "title": "Add a Cloud Keystore to AWS",
+          "description": "Add an AWS Certificate Manager cloud keystore in Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/cloud-keystores-overview/add-cloud-keystore-aws"
         }
       ]
     }

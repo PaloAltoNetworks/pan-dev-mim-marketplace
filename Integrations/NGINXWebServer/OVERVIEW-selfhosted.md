@@ -1,17 +1,25 @@
 # NGINX Web Server
 
-This integration is delivered as an in-product capability to Certificate Manager, Self-Hosted. To enable it, you only need to perform prescribed configurations within Certificate Manager, Self-Hosted with information related to your NGINX Web Server. It supports the management of PEM files for NGINX web servers running on Linux or Windows by enabling you to provision the end-entity, chain, and private key to a single file (rather than two or three separate files).
-This extension of the automation and policy-compliant machine identity management on to NGINX web servers that are hosting the critical services, applications, and content of your web infrastructure effectively rid the outages caused by expired or misconfigured certificates which are one of the major time-consuming, expensive, and even job-threatening challenges. 
-It comes with all releases of Certificate Manager, Self-Hosted 18.3+.
-**Applicability**
-NGINX Web Server is the choice of web server for high-traffic websites and applications over the internet. NGINX offers enterprise customers a variety of deployment options, from on-premises installations to cloud-based solutions. It is a popular choice for enterprise customers looking for a reliable, fast, and scalable web server solution.
-This integration works with both the open-source version of NGINX web server and the commercial version NGINX Plus in all types of deployments. 
-**ADDITIONAL RESOURCES**
-Securing Web Transactions: TLS Server Certificate Management. NIST Special Publication 1800-16: [https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1800-16.pdf](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1800-16.pdf)
-**GETTING STARTED**
-NGINX web server supports _.pem_ files which are concatenated certificate containers frequently used in storing certificates or a chain of certificates when multiple certificates that form a complete chain are being imported as a single file. Therefore, from Certificate Manager, Self-Hosted’s perspective, it is a PEM application object. The integration only requires a configuration of a PEM application object with specific information related to the NGINX web server deployment. 
-You can find the details in the Venafi documentation titled “[Creating a PEM application object](https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/r-PEM_AppObjSettings.php?)”.
-**ABOUT Venafi**
-Venafi is the cybersecurity market leader in machine identity management, securing the cryptographic keys and digital certificates on which every business and government depends to deliver safe machine-to-machine communication. Organizations use Venafi key and certificate security to protect communications, commerce, critical systems and data, and mobile and user access.
+Expired or misconfigured certificates on NGINX web servers take down the websites and applications they serve. Certificate Manager, Self-Hosted automates certificate provisioning to NGINX in line with your policy, so certificates are renewed and installed on time without manual work on each server.
+
+**Value Highlights**
+
+- **Prevent outages**: Renew and install certificates on NGINX servers before they expire.
+- **Provision in the format NGINX expects**: Write the end-entity certificate, chain and private key to PEM files, including a single combined file instead of two or three separate files.
+- **Cover any NGINX deployment**: Works with open-source NGINX and NGINX Plus on Linux or Windows.
+- **Enforce policy**: Apply the certificate policy you define in Certificate Manager, Self-Hosted to every NGINX server.
+
+**How it Works**
+
+NGINX reads certificates and keys from PEM files, so Certificate Manager, Self-Hosted manages NGINX through its built-in PEM driver. You create a PEM application object for each NGINX server with the file paths your NGINX configuration uses, and Certificate Manager, Self-Hosted provisions renewed certificates to those files. The capability ships with Certificate Manager, Self-Hosted 18.3 and later, with no separate download. See the Documentation tab for setup.
+
+**Solution Components**
+
+- Certificate Manager, Self-Hosted
+- NGINX or NGINX Plus on Linux or Windows
+
+**Additional Resources**
+
+- [NIST SP 1800-16, Securing Web Transactions: TLS Server Certificate Management](https://nvlpubs.nist.gov/nistpubs/SpecialPublications/NIST.SP.1800-16.pdf)
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

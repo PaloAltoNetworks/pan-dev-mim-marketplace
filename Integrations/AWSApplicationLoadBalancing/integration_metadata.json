@@ -1,6 +1,6 @@
 {
   "name": "AWS Application Load Balancing",
-  "description": "Easily scale and secure HTTPS for AWS Application Load Balancers with automated key and certificate management from Venafi.",
+  "description": "Automate the certificates on AWS Application Load Balancer listeners with policy-driven issuance, renewal and provisioning.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Amazon",
@@ -24,5 +24,23 @@
   "logoFile": "AWS-Light.png",
   "logoFileDark": "AWS-Dark.png",
   "supportUrl": "https://aws.amazon.com/contact-us/",
-  "price": "Free"
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Amazon Web Services Driver Overview",
+          "description": "How Certificate Manager, Self-Hosted provisions certificates to AWS",
+          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/r-drivers-Amazon-AWS-about.php"
+        },
+        {
+          "title": "Create an AWS Application Object",
+          "description": "Install certificates into ACM or IAM and bind them to ALB, ELB or CloudFront",
+          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/r-drivers-Amazon-AWS-AppObjectSettings.php"
+        }
+      ]
+    }
+  ]
 }

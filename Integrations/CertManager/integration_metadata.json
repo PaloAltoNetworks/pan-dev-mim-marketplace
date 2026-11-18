@@ -1,6 +1,6 @@
 {
   "name": "cert-manager",
-  "description": "Certificate Manager Self-Hosted Prerequisites Check",
+  "description": "Automate issuance and renewal of policy-compliant TLS certificates in Kubernetes and OpenShift clusters with cert-manager.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Venafi",
@@ -59,6 +59,11 @@
           "title": "cert-manager Integration Guide",
           "description": "Complete integration guide for cert-manager",
           "url": "https://cert-manager.io/docs/configuration/venafi/"
+        },
+        {
+          "title": "Kubernetes Components in Next-Gen Trust Security",
+          "description": "Kubernetes components, including cert-manager, supported by Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/c-Cloud-discovery-service-sectionOverview/discover-certificates-in-kubernetes-clusters/kubernetes-components"
         }
       ]
     }

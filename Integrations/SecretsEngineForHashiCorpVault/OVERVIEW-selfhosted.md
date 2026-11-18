@@ -1,41 +1,31 @@
 # Secrets Engine for HashiCorp Vault
 
-This integration is delivered as a HashiCorp Vault plugin, allowing DevOps teams to acquire and consume machine identities from the Certificate Manager alongside Vault’s built-in PKI, without changing their existing workflow within Vault. 
+DevOps teams that use HashiCorp Vault to issue certificates for development, testing and deployment often rely on Vault's built-in PKI, which leaves InfoSec without visibility or policy control and cannot provide publicly trusted certificates. The Venafi PKI secrets engine for Vault lets those teams acquire certificates from Certificate Manager, Self-Hosted without changing how they work in Vault, while security keeps visibility and enforces enterprise policy.
 
-  
+**Value Highlights**
 
-Certificate Manager extends beyond Vault’s internal PKI by integrating with over 40 public CAs, enabling DevOps teams to obtain publicly trusted certificates while ensuring visibility and policy control for the InfoSec team.
+- **Keep the Vault workflow**: The plugin provides the same interface as Vault's built-in PKI secrets engine.
+- **Get publicly trusted certificates**: Reach the public and private CAs connected to Certificate Manager, Self-Hosted, beyond Vault's internal PKI.
+- **Enforce enterprise policy**: Every certificate follows the policy defined in Certificate Manager, Self-Hosted.
+- **Give InfoSec visibility**: Certificates issued through Vault appear in the Certificate Manager, Self-Hosted inventory.
+- **Skip manual steps**: Services obtain certificates without manual key generation, CSR submission or signing workflows.
+- **Avoid unnecessary reissues**: Optional settings return an existing valid certificate instead of requesting a new one.
 
-  
+**How it Works**
 
-Using Certificate Manager ensures compliance with enterprise policies and industry-standard trust protection. This integration is designed for high performance, providing the same interface as Vault’s built-in PKI secrets engine. Services can obtain certificates without the need for manual private key generation, CSR submission, or the typical certificate verification and signing process. 
-
-  
+The secrets engine is open-source software built on Vault's plugin framework. You register the plugin with Vault, create a Venafi secret that holds the connection details, and create roles that reference it. For Certificate Manager, Self-Hosted, the secret holds the server URL, an access token (with optional refresh tokens for automatic renewal of the token) and a policy folder as the zone. Applications then use the familiar `issue` and `sign` paths to get certificates. See the Documentation tab for setup.
 
 **Applicability**
 
-Organizations with DevOps teams using HashiCorp Vault to issue certificates for development, testing, and deployment should consider adopting this plugin.
+Organizations whose DevOps teams use HashiCorp Vault to issue certificates should consider this plugin.
 
-  
+**Solution Components**
 
-**Additional Resources**
+- Certificate Manager, Self-Hosted
+- HashiCorp Vault with the [Venafi PKI secrets engine](https://github.com/Venafi/vault-pki-backend-venafi) plugin
 
-Github repo: [https://github.com/Venafi/vault-pki-backend-venafi](https://github.com/Venafi/vault-pki-backend-venafi)
+**About HashiCorp**
 
-  
+HashiCorp provides infrastructure and security automation software, including [Vault](https://developer.hashicorp.com/vault) for secrets management.
 
-**Get it to work **
-
-The Venafi secrets engine for Vault is open-source software that leverages Vault’s plugin framework. To use it, download the appropriate release of the plugin and follow HashiCorp's installation instructions for plugins.
-
-Step-by-step configuration details are available in the documentation linked to the listing.
-
-  
-
-**Example usage**
-
-A video is available that covers three integrations Venafi offers with HashiCorp Vault and Terraform. The section related to this integration can be found within the video.
-
-  
-
-**Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**
+**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

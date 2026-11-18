@@ -1,0 +1,64 @@
+{
+  "name": "Kemp LoadMaster",
+  "description": "Discover the certificates on a Kemp LoadMaster and provision renewed certificates to its virtual services automatically.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Load Balancer & ADC"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "ADC/Load Balancing",
+    "TLS/SSL"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Kemp",
+    "Progress Kemp",
+    "LoadMaster",
+    "Virtual LoadMaster",
+    "Application Delivery Controller"
+  ],
+  "supportUrl": "https://community.cyberark.com/s/",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Create a Kemp Virtual LoadMaster Machine",
+          "description": "Create a Kemp Virtual LoadMaster machine in Certificate Manager, SaaS.",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/kemp-loadmaster/"
+        },
+        {
+          "title": "Provision to a Kemp Virtual LoadMaster",
+          "description": "Provision a certificate to a Kemp Virtual LoadMaster machine from Certificate Manager, SaaS.",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-kemp-loadmaster/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Create a Kemp Virtual LoadMaster Machine",
+          "description": "Create a Kemp Virtual LoadMaster machine in Next-Gen Trust Security.",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/kemp-loadmaster"
+        },
+        {
+          "title": "Provision to a Kemp Virtual LoadMaster",
+          "description": "Provision a certificate to a Kemp Virtual LoadMaster machine from Next-Gen Trust Security.",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/kemp-loadmaster/provision-certificates-kemp-loadmaster"
+        }
+      ]
+    }
+  ]
+}

@@ -1,18 +1,29 @@
 # ServiceNow Change Request Workflow
 
-This workflow driver is used to pause the deployment of a machine identity and create a ServiceNow Change Request for approval.
+Many organizations require an approved change request before anything is installed on production systems, and that includes certificates. This workflow driver pauses the deployment of a machine identity in Certificate Manager, Self-Hosted and creates a ServiceNow Change Request for approval, so certificate installs follow the same change process as every other production change.
 
-**SOLUTION OVERVIEW**
+**Value Highlights**
 
-This solution will monitor the change request through the default Normal change request lifecycle, New->Assess->Authorize->Scheduled. Once scheduled and the planned start date reached, the state will be changed to Implement and the Certificate Manager, Self-Hosted workflow will continue to install the certificate. Once the installation is complete, the state will be moved to Review and optionally automatically closed.
+- **Enforce change control**: Certificate installation waits until the ServiceNow Change Request is approved and scheduled.
+- **Follow the standard lifecycle**: The change request is tracked through the default Normal lifecycle (New, Assess, Authorize, Scheduled, Implement, Review).
+- **Link to the right asset**: The target device is matched to a ServiceNow configuration item by name or FQDN.
+- **Close the loop automatically**: After installation the change moves to Review and can be closed automatically.
+- **Fit your process**: Control the description, assignment group, approval check interval and change model.
 
-With this script you will have the ability to control the following change request values:
+**How it Works**
 
-- Change request description - name/value pairs to be added to the description field
-- Assignment Group - this mandatory value can either be a group name or sysid
-- Approval check interval - the time inbetween change request status checks
-- Change model - if using a non-default change model, you can select which to use
+When a certificate deployment reaches the workflow stage, the driver creates a change request and monitors it. Once the change is scheduled and the planned start date is reached, the driver moves the change to Implement and the Certificate Manager, Self-Hosted workflow continues to install the certificate. When installation completes, the change moves to Review and is optionally closed. The Caller is set to the account used to authenticate to ServiceNow.
 
-The Caller will be set as the account used for authenticating against ServiceNow. The device which the certificate will be installed on will be used for the configuration item lookup; either name or FQDN will be matched.
+You can control these change request values:
+
+- **Change request description**: name/value pairs added to the description field.
+- **Assignment Group**: a required group name or sys_id.
+- **Approval check interval**: the time between change request status checks.
+- **Change model**: an alternative to the default change model, if you use one.
+
+**Solution Components**
+
+- Certificate Manager, Self-Hosted
+- ServiceNow Change Management
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

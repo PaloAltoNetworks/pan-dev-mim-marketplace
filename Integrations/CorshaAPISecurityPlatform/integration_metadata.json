@@ -1,6 +1,6 @@
 {
   "name": "Corsha API Security Platform",
-  "description": "Corsha API Security Platform enhances API security with dynamic machine identities, ensuring zero-trust access and protecting against identity theft.",
+  "description": "Corsha adds dynamic, per-machine identities to API authentication and uses cert-manager to issue the certificates its Kubernetes infrastructure relies on.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "Corsha",

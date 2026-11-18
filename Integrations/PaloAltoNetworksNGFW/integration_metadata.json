@@ -1,6 +1,6 @@
 {
   "name": "Palo Alto Networks NGFW",
-  "description": "Automation for next-generation firewall's device machine identity",
+  "description": "Automate renewal of device certificates and trust store updates on Palo Alto Networks next-generation firewalls.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "Venafi",

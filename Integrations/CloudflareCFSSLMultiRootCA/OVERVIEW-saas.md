@@ -1,40 +1,27 @@
 # Cloudflare CFSSL Multirootca
 
-This solution is an open-source implementation of the external issuer, an extension interface provided by the de-factor certificate provisioning and management component in Kubernetes, *cert-manager*. It enables a K8S cluster to employ Cloudflare’s Private CA *CFSSL* as the backend Certificate Authority (CA) to sign certificate requests using multiple signing keys. By using this external issuer [*cfssl-multirootca-issuer*](https://github.com/cert-manager/aws-privateca-issuer), you gain a specialized private CA  in addition to what’s already been provided by *cert-manager* when it comes to Certificate Authority.
+Kubernetes teams sometimes need a private CA that can sign certificates with more than one signing key, beyond the issuers built into cert-manager. This open source cert-manager external issuer, cfssl-issuer, lets a Kubernetes cluster use Cloudflare's CFSSL multirootca as the backend certificate authority, signing certificate requests with multiple signing keys.
 
-**Applicability**
+**Value Highlights**
 
-Any organization that runs workloads in a cloud native environment with Kubernetes or any flavor of K8S orchestrating clusters should have *cert-manager* deployed. It is the de-factor choice for certificates, aka machine identities, provisioning and management, accepted and current incubated within CNCF. This solution enables signing with multiple signing keys with Cloudflare’s private CA when the *cert-manager* deployed meets the version requirements detailed below in the “Special notes and limitations” section.
+- **Sign with multiple keys**: Use CFSSL multirootca to sign certificate requests with multiple signing keys.
+- **Add a private CA to cert-manager**: Extend cert-manager with a specialized private CA alongside its built-in issuers.
+- **Work like a built-in issuer**: cert-manager treats this external issuer the same as any built-in issuer.
+- **Run on any certified Kubernetes**: Deploy on AWS EKS and EKS Anywhere, Azure AKS and Arc, and Google GKE and Anthos.
+- **Keep central visibility**: Manage the resulting certificates alongside the rest of your inventory in Certificate Manager, SaaS.
 
-The supported flavors of K8S are as follows:
+**How it Works**
 
-- AWS EKS
-- AWS EKS Anywhere
-- Azure AKS
-- Azure Arc
-- Google GKE
-- Google Anthos
+cfssl-issuer implements the cert-manager external issuer interface. You create Issuer or ClusterIssuer objects that point to your CFSSL multirootca service, and cert-manager sends certificate requests to it for signing. The issuer is released as Helm charts with matching container images. See the Documentation tab for the charts and examples.
 
-**Special notes and limitations**
+**Solution Components**
 
-From *cert-manager*’s point of view, despite external issuers such as *cfssl-multicaroot-issuer*
+- Certificate Manager, SaaS
+- cert-manager with cfssl-issuer
+- Cloudflare [CFSSL](https://github.com/cloudflare/cfssl) multirootca
 
-are not implemented in the main *cert-manager* repository, they are otherwise treated the same as any other built-in issuer.
+**About Cloudflare**
 
-**ADDITIONAL RESOURCES**
+[Cloudflare](https://www.cloudflare.com/) runs a global network that makes websites, APIs, applications and corporate networks secure, private, fast and reliable.
 
-- *cert-manager* incubated in CNCF: [https://www.cncf.io/projects/cert-manager/](https://www.cncf.io/projects/cert-manager/)
-- Venafi TLS Protect for Kubernetes, a management plane for all your cert-manager deployments: [https://venafi.com/tls-protect-for-kubernetes/](https://venafi.com/tls-protect-for-kubernetes/)
-- Cloudflare’s PKI and TLS toolkit: [https://github.com/cloudflare/cfssl](https://github.com/cloudflare/cfssl)
-
-**Get it to work **
-
-*cfssl-multirootca-issuer* is release as a helm chart. The helm charts (cfssl-issuer and cfssl-issuer-cdrs) available at [https://helm-charts.wikimedia.org/stable](https://helm-charts.wikimedia.org/stable) (source: [cfssl-issuer](https://gerrit.wikimedia.org/r/plugins/gitiles/operations/deployment-charts/+/refs/heads/master/charts/cfssl-issuer/), [cfssl-issuer-cdrs](https://gerrit.wikimedia.org/r/plugins/gitiles/operations/deployment-charts/+/refs/heads/master/charts/cfssl-issuer-crds/)). The corresponding docker images can be found at: [https://docker-registry.wikimedia.org/cfssl-issuer/tags/](https://docker-registry.wikimedia.org/cfssl-issuer/tags/)
-
-See the helm charts values.yaml for examples on how to create Issuer/ClusterIssuer objects.
-
-**ABOUT Cloudflare**
-
-Cloudflare is a global network designed to make everything you connect to the Internet secure, private, fast, and reliable. Secure your websites, APIs, and Internet applications. Protect corporate networks, employees, and devices. Write and deploy code that runs on the network edge.
-
-**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**
+**Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**

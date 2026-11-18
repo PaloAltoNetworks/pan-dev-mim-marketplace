@@ -18,5 +18,5 @@
   "keywords": [],
   "price": "Free",
   "name": "SecuriThings IoT Certificate Management",
-  "description": "Enable automated rotation, centralized policy enforcement, and real-time operational insights for IoT certificates"
+  "description": "Automate certificate issuance, renewal and revocation for IoT and physical security devices with SecuriThings and Certificate Manager, Self-Hosted."
 }

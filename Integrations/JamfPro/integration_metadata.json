@@ -1,6 +1,6 @@
 {
   "name": "Jamf Pro",
-  "description": "Jamf Pro streamlines machine identity security for Apple devices by automating certificate lifecycle operations through the Venafi Platform.",
+  "description": "Automate certificate issuance, renewal and revocation for Apple devices managed with Jamf Pro.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "JAMF Software LLC",
@@ -36,8 +36,8 @@
       "overviewFile": "OVERVIEW-selfhosted.md",
       "documentationLinks": [
         {
-          "title": "Jamf Pro Integration Guide",
-          "description": "Complete integration guide for Jamf Pro",
+          "title": "Configuring the Jamf PKI Proxy and Venafi Connection",
+          "description": "Jamf guide to connecting Jamf Pro to Certificate Manager, Self-Hosted through the Jamf PKI Proxy",
           "url": "https://learn.jamf.com/r/en-US/jamf-pki-proxy-install-guide/Configuring_the_Jamf_PKI_Proxy_and_Venafi_Connection"
         }
       ]
@@ -51,8 +51,8 @@
       "overviewFile": "OVERVIEW-ztpki.md",
       "documentationLinks": [
         {
-          "title": "Jamf Pro Integration Guide",
-          "description": "Complete integration guide for Jamf Pro",
+          "title": "Integrating Jamf Pro",
+          "description": "Configure Jamf Pro SCEP profiles for Zero Touch PKI",
           "url": "https://docs.cyberark.com/mis-saas/ztpki/connectors/integrating-jamf-pro/"
         }
       ]

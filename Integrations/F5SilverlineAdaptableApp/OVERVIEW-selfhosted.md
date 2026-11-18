@@ -1,19 +1,26 @@
 # F5 Silverline
 
-HTTPS encryption is more prevalent than ever but can be difficult to scale. F5 Silverline and Venafi have teamed up to make it easy to automate the use of keys and certificates for application teams, eliminating manual processes and reducing the risk of outages caused by expired certificates.
+HTTPS encryption is more prevalent than ever but can be difficult to scale. Certificates used by F5 Silverline managed security services are often uploaded and renewed by hand, which risks outages when one expires. This F5-built Adaptable Application driver lets Certificate Manager, Self-Hosted provision and renew TLS certificates on F5 Silverline automatically, keeping application services protected without manual work.
 
-## Overview
+**Value Highlights**
 
-Using the Adaptable Application driver, the Venafi platform automatically provisions and renews TLS certificates on F5 Silverline, keeping application services protected without manual intervention. The integration works across the F5 Silverline product family:
+- **Automate the certificate lifecycle** by requesting, provisioning and renewing certificates on F5 Silverline from Certificate Manager, Self-Hosted.
+- **Reduce outages** by replacing error-prone manual certificate handling with policy-driven automation.
+- **Enforce consistent policy** on the certificates used by F5 Silverline services.
+- **Cover the Silverline family**, including DDoS Protection, Web Application Firewall and Shape Defense.
 
-- **Silverline DDoS Protection** — detects and mitigates even the largest volumetric DDoS attacks at layers 3–7, before they reach your network.
-- **Silverline Web Application Firewall** — a managed service that protects web apps and data while helping ensure compliance with PCI DSS.
-- **Silverline Shape Defense** — prevents large-scale fraud and degraded user experiences by detecting bots, fake users, and unauthorized transactions.
+**How it Works**
 
-## Key benefits
+Certificate Manager, Self-Hosted connects to the F5 Silverline portal through an Adaptable Application driver, a PowerShell script installed on the platform's servers. The driver authenticates with a Silverline API token and uploads renewed certificates and keys under the certificate name you configure. Certificates must be issued by an intermediate CA, not directly by a root CA. See the Documentation tab for installation and configuration steps.
 
-- **Automated certificate lifecycle** — request, provision, and renew certificates on F5 Silverline directly from the Venafi platform.
-- **Reduced outages** — replace error-prone manual certificate handling with policy-driven automation.
-- **Consistent policy enforcement** — apply enterprise certificate policy to the machine identities used by F5 Silverline services.
+**Solution Components**
 
-See the accompanying documentation for installation and configuration steps.
+- Certificate Manager, Self-Hosted 20.3 or later
+- F5 Silverline DDoS Protection, Web Application Firewall or Shape Defense
+- F5 Silverline Adaptable Application driver
+
+**About F5 Silverline**
+
+F5 Silverline is a family of managed security services. Silverline DDoS Protection mitigates volumetric DDoS attacks at layers 3 to 7 before they reach your network. Silverline Web Application Firewall protects web apps and data while helping meet PCI DSS. Silverline Shape Defense detects bots, fake users and unauthorized transactions to prevent large-scale fraud.
+
+**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

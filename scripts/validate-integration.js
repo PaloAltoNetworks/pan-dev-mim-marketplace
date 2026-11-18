@@ -487,6 +487,8 @@ function validateDirectory(dir) {
     warn(dir, 'No OVERVIEW-*.md or README.md found — consider adding integration documentation');
   }
 
+  validateOverviewContent(dir, files);
+
   // Every declared overviewFile / documentationFile must actually resolve on disk.
   // These are errors, not warnings: the marketplace generator masks a bad overviewFile by
   // auto-detecting OVERVIEW-<suffix>.md first, so a dangling pointer renders fine today and
@@ -667,6 +669,97 @@ function validateDirectory(dir) {
     if (forbidden.includes(f.toLowerCase())) {
       error(dir, `Forbidden file found: ${f} — do not commit credentials or secrets`);
     }
+  }
+}
+
+// ---------------------------------------------------------------------------------------------
+// Overview content checks. The site renders OVERVIEW-<suffix>.md as the Overview tab for one
+// product, so each file must read as a finished page for that product. Errors cover defects a
+// customer would see as broken or wrong (stubs, cut-off text, another product's setup or footer);
+// warnings cover formatting that renders badly. See CONTRIBUTING.md "Writing your overview".
+const OVERVIEW_SUFFIX_RE = /^OVERVIEW-(saas|selfhosted|ngts|ztpki)\.md$/i;
+const OVERVIEW_MIN_WORDS = 40;
+const PRODUCT_FOOTERS = {
+  selfhosted: /formerly known as Venafi Trust Protection Platform/i,
+  saas: /formerly known as Venafi (TLS Protect Cloud|Cloud)\b/i,
+  ztpki: /formerly known as Venafi Zero Touch PKI/i,
+};
+// Terms that only make sense for one deployment model. Matched case-sensitively on the prose
+// (footer line excluded) so ordinary words don't trip them.
+const SELF_HOSTED_ONLY_TERMS = [
+  /\bTrust Protection Platform\b/, /\bTPP\b/, /\bWebSDK\b/, /\bAdaptable (?:App(?:lication)?|CA|Log|Credential)?\s*Driver\b/i,
+  /\bin-product capability to Certificate Manager, Self-Hosted\b/i, /\bSelf-Hosted \d{2}\.\d/,
+];
+const CLOUD_ONLY_TERMS = [/\bVSatellite\b/i, /\bTLS Protect Cloud\b/, /\bvenafi\.cloud\b/i, /\bVenafi as a Service\b/];
+
+function stripFooterAndTitle(lines) {
+  return lines.filter((l, i) => !(i === 0 && /^#\s/.test(l)) && !/formerly known as/i.test(l));
+}
+
+function validateOverviewContent(dir, files) {
+  for (const f of files) {
+    const m = f.match(OVERVIEW_SUFFIX_RE);
+    if (!m) continue;
+    const suffix = m[1].toLowerCase();
+    const raw = fs.readFileSync(path.join(dir, f), 'utf8');
+    const lines = raw.replace(/\r\n/g, '\n').split('\n');
+    const body = stripFooterAndTitle(lines);
+    const prose = body.join('\n');
+
+    // Stub: too little body text to be a listing page.
+    const words = prose.replace(/!\[[^\]]*\]\([^)]*\)|<[^>]+>|[#*_`>|-]/g, ' ').split(/\s+/).filter(Boolean).length;
+    if (words < OVERVIEW_MIN_WORDS) {
+      error(dir, `${f} has only ${words} words of body text — write a complete overview (opening, Value Highlights, How it Works)`);
+    }
+
+    // Cut off mid-sentence: the last prose line ends in a letter/digit/comma with no closing
+    // punctuation. Lists, headings, tables, images and HTML are exempt.
+    const lastProse = [...body].reverse().find((l) => l.trim());
+    if (lastProse && !/^\s*([-*+]\s|\d+[.)]\s|#|\||!\[|<|\*\*[^*]+\*\*\s*$)/.test(lastProse) && /[A-Za-z0-9,]$/.test(lastProse.trim())) {
+      error(dir, `${f} appears to be cut off mid-sentence: "…${lastProse.trim().slice(-40)}"`);
+    }
+
+    // Another product's footer.
+    for (const [other, re] of Object.entries(PRODUCT_FOOTERS)) {
+      if (other !== suffix && re.test(raw)) {
+        error(dir, `${f} carries the ${other} "formerly known as" footer — use only the footer for this file's product`);
+      }
+    }
+
+    // Wrong-product framing.
+    const terms = suffix === 'selfhosted' ? CLOUD_ONLY_TERMS : (suffix === 'saas' || suffix === 'ngts') ? SELF_HOSTED_ONLY_TERMS : [];
+    for (const re of terms) {
+      const hit = prose.match(re);
+      if (hit) error(dir, `${f} mentions "${hit[0]}", which belongs to a different product — describe only this file's product`);
+    }
+
+    // Formatting warnings.
+    let soft = 0, inCode = false;
+    for (let i = 0; i < lines.length - 1; i++) {
+      const a = lines[i], b = lines[i + 1];
+      if (/^\s*```/.test(a)) inCode = !inCode;
+      if (inCode || !a.trim() || !b.trim()) continue;
+      if (/^\s*([-*+]\s|\d+[.)]\s|#|\||>|<|!\[|```)/.test(b) || /^\s*([-*+]\s|\d+[.)]\s|\|)/.test(a)) continue;
+      if (/( {2}|\\|<br\s*\/?>)$/.test(a)) continue;
+      soft++;
+    }
+    if (soft) warn(dir, `${f} has ${soft} line break(s) inside paragraphs that will render joined — separate paragraphs and labels with a blank line`);
+    if (/^\s*\*\*[^*a-z]*[A-Z]{3,}[^*a-z]*\*\*\s*$/m.test(raw)) warn(dir, `${f} uses an ALL-CAPS bold label — use Title Case (e.g. **Value Highlights**)`);
+    if (/^[ \t]*\*\*(Applicability|Value Highlights|How it Works|Solution Components|About [^*\n]+)\*\*:?[ \t]+\S/im.test(raw)) {
+      warn(dir, `${f} has a bold section label with text on the same line — put the label on its own line`);
+    }
+    // Pair ** markers within each line; a span whose inner text starts or ends with a space
+    // doesn't render as bold.
+    const brokenBold = lines.some((l) => {
+      const parts = l.split('**');
+      for (let i = 1; i < parts.length - 1; i += 2) {
+        if (parts[i] && /^\s|\s$/.test(parts[i])) return true;
+      }
+      return false;
+    });
+    if (brokenBold) warn(dir, `${f} has bold text with a space inside the ** markers, which renders as literal asterisks`);
+    if (suffix === 'selfhosted' && /\bTPP\b|\bTrust Protection Platform\b/.test(prose)) warn(dir, `${f} uses an old product name (TPP / Trust Protection Platform) — say "Certificate Manager, Self-Hosted"; the footer line is the only place for the old name`);
+    if (/[﻿​‌‍]/.test(raw)) warn(dir, `${f} contains a BOM or zero-width character`);
   }
 }
 

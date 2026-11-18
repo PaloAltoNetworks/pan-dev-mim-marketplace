@@ -1,0 +1,63 @@
+{
+  "name": "Fortinet FortiADC",
+  "description": "Find the TLS certificates your FortiADC virtual servers present and install renewed certificates without rebinding or downtime.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Load Balancer & ADC"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "ADC/Load Balancing",
+    "TLS/SSL"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Fortinet",
+    "FortiADC",
+    "Application Delivery Controller",
+    "Virtual Server"
+  ],
+  "supportUrl": "https://community.cyberark.com/s/",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Create a Fortinet FortiADC Machine",
+          "description": "Create a Fortinet FortiADC machine in Certificate Manager, SaaS.",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/fortinet-fortiadc/"
+        },
+        {
+          "title": "Provision to a Fortinet FortiADC",
+          "description": "Provision a certificate to a Fortinet FortiADC machine from Certificate Manager, SaaS.",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-fortinet-fortiadc/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Create a Fortinet FortiADC Machine",
+          "description": "Create a Fortinet FortiADC machine in Next-Gen Trust Security.",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/fortinet-fortiadc"
+        },
+        {
+          "title": "Provision to a Fortinet FortiADC",
+          "description": "Provision a certificate to a Fortinet FortiADC machine from Next-Gen Trust Security.",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/fortinet-fortiadc/provision-certificates-fortinet-fortiadc"
+        }
+      ]
+    }
+  ]
+}

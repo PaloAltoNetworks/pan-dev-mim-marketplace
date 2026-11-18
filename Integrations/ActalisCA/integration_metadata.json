@@ -1,6 +1,6 @@
 {
   "name": "Actalis SSL",
-  "description": "This file has the basic functions supported by adaptable CA template:",
+  "description": "Request, renew and revoke Actalis DV, OV, EV and QWAC SSL certificates from Certificate Manager, Self-Hosted.",
   "support": "Supported",
   "currentVersion": "1.0",
   "author": "Actalis",

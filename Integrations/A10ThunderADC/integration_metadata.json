@@ -20,7 +20,6 @@
     "Certificate Lifecycle Management"
   ],
   "keywords": [],
-  "documentationFile": "DOCUMENTATION.md",
   "logoFile": "a10-logo.png",
   "price": "Free",
   "productVariants": [
@@ -30,8 +29,8 @@
       "author": "A10 Networks",
       "documentationLinks": [
         {
-          "title": "A10 Thunder ADC Integration Guide",
-          "description": "Complete integration guide for A10 Thunder ADC",
+          "title": "Adaptable Application Driver Overview",
+          "description": "How Adaptable Application drivers work in Certificate Manager, Self-Hosted",
           "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/cco-drivers-AdaptableApp-Overview.php"
         }
       ],
@@ -39,7 +38,6 @@
         "A10-Thunder.ps1"
       ],
       "license": "MIT",
-      "documentationFile": "DOCUMENTATION.md",
       "supportUrl": "https://support.a10networks.com/"
     },
     {

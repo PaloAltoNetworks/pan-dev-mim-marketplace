@@ -1,6 +1,6 @@
 {
   "name": "WinRM Certificate Deployment",
-  "description": "Adaptable Application Drivers for deploying certificates via Windows Remote Management (WinRM) in CRT/KEY, JKS, KDB, PEM, PFX, and SSRS workflow formats.",
+  "description": "Deploy certificates from Certificate Manager, Self-Hosted to Windows hosts over WinRM in CRT/KEY, PEM, PFX, JKS or KDB format, and update SSRS bindings.",
   "support": "Community",
   "currentVersion": "1.0",
   "author": "Community",

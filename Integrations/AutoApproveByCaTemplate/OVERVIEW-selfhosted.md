@@ -1,22 +1,24 @@
 # Auto-Approve by CA Template
 
-## Overview
+Approval workflows protect certificate issuance, but requiring a manual review for every request slows teams down even when the request uses a CA template that security has already vetted. Reviewers spend time on routine requests instead of the ones that need attention.
 
-`CAAutoApproval.ps1` is a PowerShell script driven by an Adaptable Workflow object in Certificate
-Manager, Self-Hosted. The script evaluates the location of an X.509 certificate object's CA template
-to determine whether the residing parent policy folder DN matches a designated "auto-approve" policy
-folder DN. When they match, the workflow stage is automatically approved during enrollment or renewal;
-otherwise the workflow object falls back to its configured approval behavior.
+Auto-Approve by CA Template is a workflow script for Certificate Manager, Self-Hosted that approves requests automatically when they use a pre-approved CA template. Requests that use any other CA template still go through your normal approval process.
 
-**SOLUTION HIGHLIGHTS**
+**Value Highlights**
 
-- Streamline certificate issuance by auto-approving requests that use pre-approved CA templates
-- Preserve manual review for CA templates that reside outside the designated policy folder
-- Configurable per policy folder via a standard Adaptable Workflow object
-- Optional debug logging for troubleshooting approval decisions
+- **Streamline issuance** by auto-approving requests that use pre-approved CA templates.
+- **Preserve manual review** for CA templates outside the designated policy folder.
+- **Control which templates qualify** by placing them in a single designated policy folder.
+- **Configure per policy folder** with a standard Adaptable Workflow object.
+- **Troubleshoot approval decisions** with optional debug logging.
 
-## Prerequisites
+**How it Works**
 
-- A policy folder in which CA templates designated for auto-approval have been placed.
+`CAAutoApproval.ps1` runs from an Adaptable Workflow object during enrollment and renewal. It checks whether the parent policy folder of the certificate's CA template matches the policy folder you designated for auto-approved CA templates. If it matches, the workflow stage is approved automatically. Otherwise, the workflow object uses its configured approvers. See the Documentation tab for setup.
+
+**Solution Components**
+
+- Certificate Manager, Self-Hosted with the Certificate Management module
+- `CAAutoApproval.ps1` and an Adaptable Workflow object
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

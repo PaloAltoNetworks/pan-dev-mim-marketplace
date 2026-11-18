@@ -1,13 +1,13 @@
 {
-  "support": "Community",
+  "support": "Supported",
   "currentVersion": "1.0.0",
-  "author": "Community",
-  "supportEmail": "cybr-mis.support@paloaltonetworks.com",
+  "author": "Secur Solutions Group",
+  "supportEmail": "support@secursolutionsgroup.com",
   "categories": [
     "Identity & Access Management"
   ],
   "products": [
-    "Certificate Manager Self-Hosted"
+    "Zero Touch PKI"
   ],
   "tags": [
     "Authentication",
@@ -19,5 +19,5 @@
   "keywords": [],
   "price": "Free",
   "name": "Client Guest Registration Authority for Windows AD and Zero Touch PKI",
-  "description": "Securely manage digital identities via ZTPKI and AD"
+  "description": "Streamline certificate provisioning for Windows clients with a registration authority that links Active Directory to Zero Touch PKI."
 }

@@ -1,6 +1,6 @@
 {
   "name": "Google Cloud CA Service",
-  "description": "Seamless single sign-on (SSO) to PVWA using Google Cloud Identity",
+  "description": "Request, renew and revoke certificates from Google Cloud Certificate Authority Service private CAs under centralized policy and visibility.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Venafi",
@@ -8,7 +8,9 @@
     "Certificate Authority"
   ],
   "products": [
-    "Certificate Manager Self-Hosted"
+    "Certificate Manager Self-Hosted",
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
   ],
   "tags": [
     "Certificate Authority",
@@ -33,6 +35,30 @@
           "title": "Google Cloud CA Service Integration Guide",
           "description": "Complete integration guide for Google Cloud CA Service",
           "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/cco-drivers-GoogleCloud-CA-Service-configuration.php"
+        }
+      ]
+    },
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "currentVersion": "1.0.0",
+      "documentationLinks": [
+        {
+          "title": "Create a Google CAS Connector",
+          "description": "Add Google Cloud Certificate Authority Service as a CA in Certificate Manager, SaaS",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/certificates/ca/adding-google-cloud-private-ca/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "currentVersion": "1.0.0",
+      "documentationLinks": [
+        {
+          "title": "Add Google CAS (GCAS)",
+          "description": "Add Google Cloud Certificate Authority Service as a CA in Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/co-overview-issuing-certs/adding-a-certificate-authority/adding-google-cloud-private-ca"
         }
       ]
     }

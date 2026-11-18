@@ -1,6 +1,6 @@
 {
   "name": "Ping Adaptable Framework",
-  "description": "This readme is for the ping adaptable framework installation / configuration for the Venafi platform.  This adaptable script can be used to manage signing and ssl certificates in the Ping Federate platform.  Instructions below outline the installa...",
+  "description": "Discover and automatically renew PingFederate SSL and signing certificates from Certificate Manager, Self-Hosted, with keys kept in Ping.",
   "support": "Supported",
   "currentVersion": "1.0",
   "author": "IDmWorks",
@@ -26,9 +26,9 @@
       "overviewFile": "OVERVIEW-selfhosted.md",
       "documentationLinks": [
         {
-          "title": "Ping Adaptable Framework Integration Guide",
-          "description": "Complete integration guide for Ping Adaptable Framework",
-          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/c-drivers-AdaptableApp-PowerShell-reference.php?Highlight=adaptable"
+          "title": "Adaptable Application PowerShell Reference",
+          "description": "Certificate Manager, Self-Hosted reference for Adaptable Application drivers",
+          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/c-drivers-AdaptableApp-PowerShell-reference.php"
         }
       ],
       "downloadFiles": [

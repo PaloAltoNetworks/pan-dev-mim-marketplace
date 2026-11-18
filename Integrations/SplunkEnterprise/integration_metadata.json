@@ -1,6 +1,6 @@
 {
   "name": "Splunk Enterprise",
-  "description": "Enhance security and compliance with Venafi's integration into Splunk Enterprise, providing visibility, tracking, and actionable intelligence for keys and certificates.",
+  "description": "Deliver key and certificate events, tracking and intelligence from Certificate Manager, Self-Hosted to Splunk Enterprise for visibility and remediation.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Splunk",

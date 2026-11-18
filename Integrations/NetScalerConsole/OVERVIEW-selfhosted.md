@@ -1,26 +1,29 @@
 # NetScaler Console Service (formerly Citrix ADM)
 
-NetScaler offers an out-of-the-box, tightly integrated solution that enables Venafi to automate and orchestrate keys and certificates through NetScaler Console Service to secure machine identities across NetScaler ADCs and prevent certificate-related downtime and outages.
+Creating or renewing an SSL certificate on a NetScaler ADC has traditionally meant a network admin creating a CSR, handing it to the PKI team, waiting for a certificate authority, then installing the certificate and binding it to the application's virtual servers. That process spans several teams and gives little visibility into expiring or noncompliant certificates.
 
-The creation or renewal of SSL certificates has been typically handled by a network admin who had to create a certificate signing request for the Public Key Infrastructure team. This team would then work with a certificate authority to get a certificate, which would then be installed on the ADC and finally bound to the application’s virtual servers. This process involved a number of steps, multiple teams, and offered less visibility into expiring or noncompliant certificates.
+NetScaler Console Service integrates with Certificate Manager, Self-Hosted so application owners can monitor, create, renew and bind SSL certificates for their applications from the NetScaler Console application dashboard, without involving network admins. Certificates are requested through Certificate Manager, Self-Hosted, so they follow your organization's policy.
 
-With Venafi integration from the NetScaler Console app dashboard, SSL certificate lifecycle management is streamlined and no longer demands the attention and time of various teams in the organization. NetScaler Console role-based dashboards allow application owners to monitor, create, renew, and bind SSL certificates for their applications through Venafi independently without involving network admins.
+**Value Highlights**
 
-**This integration enables your organization**
+- **Prevent outages**: Automate certificate renewal so expired certificates do not take applications down.
+- **Remove bottlenecks**: Let application owners handle their own certificates through role-based dashboards.
+- **Manage the full lifecycle**: Create, install, renew and revoke certificates directly from NetScaler Console.
+- **Find and fix SSL issues**: Review SSL issues and application scores and apply suggested remediation.
+- **Bind certificates automatically**: Secure applications by binding issued certificates to NetScaler virtual servers.
 
-- Accelerate innovation and increase scalability through tight access control
-- Streamline operations by avoiding bottlenecks
-- Increase security by properly identifying all machine identities
-- Prevent downtime and outages caused by expired certificates
-- Create, renew & revoke machine identities directly from the Console interface
-- Fully automate certificate renewal and provisioning to NetScaler Console
+**How it Works**
 
-**GETTING STARTED**
+The integration is delivered with NetScaler Console Service, so there is nothing to install. You add your Certificate Manager, Self-Hosted server as a third-party CA in NetScaler Console, optionally enabling auto-renew, and point it at a policy folder. NetScaler Console then requests certificates through that policy folder and installs them across your NetScaler ADC instances. See the Documentation tab for the configuration guide.
 
-This integration with Certificate Manager, Self-Hosted is delivered with NetScaler Console. There’s no installation required. All you need to do is follow the documentation which provides the step-by-step configuration instructions to get it working.
+**Solution Components**
 
-**ABOUT NetScaler Console**
+- Certificate Manager, Self-Hosted
+- NetScaler Console Service
+- NetScaler ADC instances
 
-NetScaler Console streamlines the typically arduous process of implementing and maintaining SSL certificates in a number of ways and offers a centralized, intuitive dashboard for at-a-glance management of the entire SSL infrastructure. NetScaler Console makes it to create, install, monitor, and automatically renew SSL certificates across multiple NetScaler ADC instances.
+**About NetScaler Console**
+
+[NetScaler Console](https://www.netscaler.com/) provides a centralized dashboard for managing SSL across multiple NetScaler ADC instances, including creating, installing, monitoring and automatically renewing certificates.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

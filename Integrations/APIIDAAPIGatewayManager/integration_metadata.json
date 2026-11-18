@@ -1,6 +1,6 @@
 {
   "name": "APIIDA API Gateway Manager",
-  "description": "APIIDA API Gateway Manager simplifies API operations with scalable management, traffic prioritization, and seamless integration for secure, automated deployments.",
+  "description": "Automate certificate and key management for the API gateways controlled by APIIDA API Gateway Manager.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "Boomi",

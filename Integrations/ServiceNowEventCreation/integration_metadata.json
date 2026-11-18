@@ -1,6 +1,6 @@
 {
   "name": "ServiceNow Event Creation",
-  "description": "Automate event creation in ServiceNow from Trust Protection Platform logs, enhancing visibility and streamlining alerts for teams.",
+  "description": "Create ServiceNow Event Management events from Certificate Manager, Self-Hosted log events to extend visibility and streamline alerting.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "Venafi",

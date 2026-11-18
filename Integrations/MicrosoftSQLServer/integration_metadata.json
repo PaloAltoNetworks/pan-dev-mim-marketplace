@@ -1,0 +1,65 @@
+{
+  "name": "Microsoft SQL Server",
+  "description": "Install certificates on Windows servers running Microsoft SQL Server and set them as the network certificate of SQL Server instances.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Data Platform & Storage"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Data Platform",
+    "TLS/SSL"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Microsoft SQL Server",
+    "SQL Server",
+    "Database",
+    "WinRM",
+    "dbatools",
+    "Machine Type"
+  ],
+  "supportUrl": "https://community.cyberark.com/s/",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Create a Microsoft SQL Server Machine",
+          "description": "Create a Microsoft SQL Server machine in Certificate Manager, SaaS.",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/microsoft-sql-server/"
+        },
+        {
+          "title": "Provision to Microsoft SQL Server",
+          "description": "Provision a certificate from Certificate Manager, SaaS to Microsoft SQL Server.",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-microsoft-sql-server/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Create a Microsoft SQL Server Machine",
+          "description": "Create a Microsoft SQL Server machine in Next-Gen Trust Security.",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/microsoft-sql-server"
+        },
+        {
+          "title": "Provision to Microsoft SQL Server",
+          "description": "Provision a certificate from Next-Gen Trust Security to Microsoft SQL Server.",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/microsoft-sql-server/provision-certificates-microsoft-sql-server"
+        }
+      ]
+    }
+  ]
+}

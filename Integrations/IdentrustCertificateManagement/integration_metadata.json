@@ -1,6 +1,6 @@
 {
   "name": "IdenTrust Certificate Management",
-  "description": "Inside the `IdenTrustCustomFields.ps1` script you will need to add the login information for the Venafi Trust Protection Platform server.",
+  "description": "Request, renew and revoke IdenTrust certificates automatically from Certificate Manager, Self-Hosted.",
   "support": "Supported",
   "currentVersion": "1.0",
   "author": "IdenTrust",

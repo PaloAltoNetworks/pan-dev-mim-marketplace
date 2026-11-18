@@ -1,14 +1,22 @@
 # Microsoft Azure Key Vault
 
-When Azure is integrated with Venafi Platform, certificates, keys, and chains can be stored in the Azure Key Vault, allowing for efficiency and speed provisioning certificates.
-**SOLUTION HIGHLIGHTS**
-- **Stay in compliance** by ensuring certificate issuance follows security policy
-- **Reduce the risk** of security incidents stemming from improperly handled keys
-- **Eliminate outages** with continuous key and certificate updates
-- **Secure, automated distribution** of keys and certificates
-- **Visibility to all the certificates** in use in Azure
-- **Automated renewals** for F5s, Apache, IIS, etc., that may be running in Azure
-**SOLUTION OVERVIEW**
-Microsoft Azure is a collection of integrated cloud services that developers and IT professionals use to build, deploy, and manage applications through Microsoft's global network of data centers. When Azure is integrated with Venafi Platform, certificates, keys, and chains can be stored in the Azure Key Vault, allowing for easier and faster provisioning of certificates.
+Applications and Azure services that load certificates from Azure Key Vault go down when those certificates expire, and certificates imported by hand are hard to keep compliant. Certificate Manager, Self-Hosted stores certificates, keys and chains in Azure Key Vault as part of its automated certificate lifecycle, so Azure workloads get valid certificates that follow your policy.
+
+**Value Highlights**
+
+- **Stay in compliance**: Make sure certificate issuance follows your security policy.
+- **Reduce key handling risk**: Avoid incidents caused by keys copied and imported by hand.
+- **Eliminate outages**: Keep keys and certificates in Key Vault updated continuously.
+- **Automate distribution**: Deliver keys and certificates to Key Vault securely and without manual steps.
+- **Gain visibility**: See the certificates in use in your Azure key vaults.
+
+**How it Works**
+
+Certificate Manager, Self-Hosted includes a built-in Azure Key Vault driver. You configure access to your Azure tenant and create an application object for each key vault, and Certificate Manager, Self-Hosted provisions certificates, keys and chains to that key vault as they are issued and renewed. See the Documentation tab for setup.
+
+**Solution Components**
+
+- Certificate Manager, Self-Hosted
+- Microsoft Azure Key Vault
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

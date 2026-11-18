@@ -1,22 +1,28 @@
 # CA Service for Device Authority KeyScaler
 
-Device Authority Keyscaler’s integration with Venafi provides fully automated lifecycle management of x.509 certificates for your IoT devices, including secure delivery, renewal, and revocation of credentials based on defined policies.
+IoT fleets need X.509 certificates on every device, and updating those credentials by hand at scale is costly and error prone. Weak device identities also expose private data to cloning, key theft, impersonation and spoofing.
 
-  
+Device Authority KeyScaler integrates with Certificate Manager, SaaS to automate the X.509 certificate lifecycle for IoT devices, including secure delivery, renewal and revocation of credentials based on defined policies.
 
-**SOLUTION HIGHLIGHTS**
+**Value Highlights**
 
-- **Reduces the costs **of manually updating credentials at scale, minimizes human error, and ensures compliance
-- **Automates password management **dramatically reducing password hacks and reducing your IT overhead
-- **Automated management **of x.509 certificates for IoT machine identities
-- **Easily delegate IoT security tasks **to our platform for password management, device identity checks, and certificate management policies
+- **Automate IoT certificate management**: Manage X.509 certificates for IoT machine identities without manual work.
+- **Reduce cost and error**: Cut the labor of updating credentials at scale and minimize human error.
+- **Stay compliant**: Issue and renew device certificates according to policies defined in Certificate Manager, SaaS.
+- **Automate password management**: Reduce password attacks and IT overhead.
+- **Delegate IoT security tasks**: Hand password management, device identity checks and certificate policy enforcement to KeyScaler.
 
-  
+**How it Works**
 
-**SOLUTION OVERVIEW**
+KeyScaler uses Certificate Manager, SaaS as the certificate authority service for its managed devices. KeyScaler handles device identity checks and secure delivery, and requests, renews and revokes device certificates through Certificate Manager, SaaS using VCert (Java), so certificates follow your policies. Contact Device Authority for setup details.
 
-KeyScaler Identities automates your certificate lifecycle management to minimize the threat of hackers gaining access to private data via cloning, key theft, impersonation, or spoofing. It reduces labor costs of managing certificates by automating the provisioning, renewal, password management, and cancellation process. Fully integrated with Venafi, this solution leverages the power of Venafi’s industry-leading machine identity capabilities to manage secure identities for IoT devices at scale.
+**Solution Components**
 
-**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**
+- Certificate Manager, SaaS
+- Device Authority KeyScaler
+
+**About Device Authority**
+
+[Device Authority](https://deviceauthority.com/) provides KeyScaler, an identity and access management platform that automates security for IoT devices.
 
 **Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**

@@ -1,0 +1,63 @@
+{
+  "name": "Barracuda ADC",
+  "description": "Discover the certificates your Barracuda ADC services use and provision renewed certificates to them before they expire.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Load Balancer & ADC"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "ADC/Load Balancing",
+    "TLS/SSL"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Barracuda",
+    "Barracuda Load Balancer ADC",
+    "Application Delivery Controller",
+    "SNI"
+  ],
+  "supportUrl": "https://community.cyberark.com/s/",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Create a Barracuda ADC Machine",
+          "description": "Create a Barracuda ADC machine in Certificate Manager, SaaS.",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/barracuda-adc/"
+        },
+        {
+          "title": "Provision to a Barracuda ADC",
+          "description": "Provision a certificate to a Barracuda ADC machine from Certificate Manager, SaaS.",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-barracuda-adc/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Create a Barracuda ADC Machine",
+          "description": "Create a Barracuda ADC machine in Next-Gen Trust Security.",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/barracuda-adc"
+        },
+        {
+          "title": "Provision to a Barracuda ADC",
+          "description": "Provision a certificate to a Barracuda ADC machine from Next-Gen Trust Security.",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/barracuda-adc/provision-certificates-barracuda-adc"
+        }
+      ]
+    }
+  ]
+}

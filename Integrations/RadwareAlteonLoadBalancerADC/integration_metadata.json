@@ -1,6 +1,6 @@
 {
   "name": "Radware Alteon Load Balancer & ADC",
-  "description": "Create a secured session to Radware Alteon",
+  "description": "Automate certificate provisioning and renewal for SSL services on Radware Alteon load balancers and ADCs.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Radware",
@@ -8,7 +8,9 @@
     "Load Balancer & ADC"
   ],
   "products": [
-    "Certificate Manager Self-Hosted"
+    "Certificate Manager Self-Hosted",
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
   ],
   "tags": [
     "ADC/Load Balancing",
@@ -22,12 +24,58 @@
     "Adaptable Framework - App"
   ],
   "logoFile": "Radware.png",
-  "downloadFiles": [
-    "Radware Alteon ADC OS 30.5.1.200 and above.ps1",
-    "Radware Alteon ADC OS 33.0.x.ps1"
-  ],
-  "documentationFile": "DOCUMENTATION.md",
   "supportUrl": "https://support.radware.com/",
   "price": "Free",
-  "license": "MIT"
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationFile": "DOCS-selfhosted.md",
+      "downloadFiles": [
+        "Radware Alteon ADC OS 30.5.1.200 and above.ps1",
+        "Radware Alteon ADC OS 33.0.x.ps1"
+      ],
+      "license": "MIT"
+    },
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "currentVersion": "1.0.0",
+      "author": "Venafi",
+      "support": "Supported",
+      "supportUrl": "https://community.cyberark.com/s/",
+      "documentationLinks": [
+        {
+          "title": "Radware Alteon Machine Setup",
+          "description": "Create a Radware Alteon machine in Certificate Manager, SaaS",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/radware-alteon/"
+        },
+        {
+          "title": "Provision Certificates to Radware Alteon",
+          "description": "Provision certificates to a Radware Alteon machine",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-radware-alteon/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "currentVersion": "1.0.0",
+      "author": "Venafi",
+      "support": "Supported",
+      "supportUrl": "https://community.cyberark.com/s/",
+      "documentationLinks": [
+        {
+          "title": "Radware Alteon Machine Setup",
+          "description": "Create a Radware Alteon machine in Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/radware-alteon"
+        },
+        {
+          "title": "Provision Certificates to Radware Alteon",
+          "description": "Provision certificates to a Radware Alteon machine",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/radware-alteon/provision-certificates-radware-alteon"
+        }
+      ]
+    }
+  ]
 }

@@ -1,25 +1,25 @@
 # Palo Alto Networks NGFW
 
-Palo Alto Networks Next-Generation Firewalls (NGFW) are purpose-built to enable applications safely and prevent threats. These high-performance firewalls help reduce the attack surface and prevent threats while fully enabling breach prevention.
-In order to fulfill the designed purpose, these firewalls rely on the security and trustworthiness of certificates to ensure integrity and confidentiality of network communications through firewalls. By integrating Palo Alto Networks NGFW with Venafi, organizations can manage and automate machine identities across their network infrastructure, preventing misuse and ensuring a streamlined strategy for machine identity management and increase productivity in managing NGFWs.
-**Applicability**
-Enterprises that leverage Palo Alto Networks NGFW for securing their network infrastructures can benefit from this integration. The expectation should be an enhanced security posture, streamlined operations, and improved efficiency in managing machine identities across the infrastructure.
+Palo Alto Networks Next-Generation Firewalls (NGFW) rely on trusted certificates to protect the integrity and confidentiality of their own management and service connections. When a firewall's device certificate expires or is replaced by hand, administrators lose time and connections can fail. Certificate Manager, Self-Hosted automates the device certificates on your NGFWs, so renewals happen on schedule and follow policy across physical appliances and VM-Series firewalls.
+
 **Value Highlights**
-- Automated renewals and distribution of certificates across the network infrastructure on both physical appliances and vm series.
-- Enhanced prevention of machine identity misuse on NGFWs.
-- Reduction in machine identity related outages
-- Addition of agility and modernity in managing machine identities stemming from the combination of Palo Alto Networks' NGFW and Venafi's machine identity management prowess
-**Solution Components**
-- Certificate Manager, Self-Hosted
-- Palo Alto Networks Next-Generation Firewall
-**ADDITIONAL RESOURCES**
-- [https://technologypartners.paloaltonetworks.com/English/integration/1225](https://technologypartners.paloaltonetworks.com/English/integration/1225)
+
+- **Automate renewals** of device certificates on physical appliances and VM-Series firewalls.
+- **Distribute trust**: Provision CA certificates to the firewall's trust store.
+- **Prevent misuse** of firewall machine identities with central policy and control.
+- **Reduce outages** caused by expired device certificates.
+
 **How it Works**
-After ensuring the availability of the required products/licenses, users can configure the integration between Venafi and Palo Alto Networks NGFW. Detailed instructions about the configuration process will be available in the relevant documentation.
-1. Configure Certificate Manager, Self-Hosted for integration
-2. Set up Palo Alto Networks Next-Generation Firewall
-3. Configure the integration and start managing your machine identities
-**ABOUT Palo Alto Networks**
-Palo Alto Networks, the global cybersecurity leader, is shaping the cloud-centric future with technology that is transforming the way people and organizations operate. Our mission is to be the cybersecurity partner of choice, protecting our digital way of life.
+
+The Palo Alto Networks application driver is built into Certificate Manager, Self-Hosted. You create a device and a Palo Alto Networks application object for each firewall, and Certificate Manager, Self-Hosted installs and renews the firewall's device certificate. To install server certificates and private keys on the firewall for SSL decryption, use a bulk provisioning job instead (see the Palo Alto NGFW Bulk Provisioning listing). See the Documentation tab for the configuration guide.
+
+**Solution Components**
+
+- Certificate Manager, Self-Hosted
+- Palo Alto Networks Next-Generation Firewall (hardware appliance or VM-Series)
+
+**About Palo Alto Networks**
+
+[Palo Alto Networks](https://www.paloaltonetworks.com/) is a cybersecurity company whose next-generation firewalls are built to enable applications safely and prevent threats. The integration is also listed in the [Palo Alto Networks technology partner catalog](https://technologypartners.paloaltonetworks.com/English/integration/NGFW-Venafi-Trust-Protection-Platform).
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

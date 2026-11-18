@@ -1,11 +1,22 @@
 # Entrust Certificate Services
 
-Venafi and Entrust have partnered to empower customers with advanced enterprise encryption and machine identity management.
-**SOLUTION HIGHLIGHTS**
-- **Gain full visibility** into the demand, usage and workflow of certificate services
-- **Enforce policies** and reduce risk with automated workflow and detailed logging
-- **Additional workflow approvals** can be inserted at any point of the issuance and provisioning process
-- **Fully automate provisioning** of certificates issued from Entrust Datacard
-**SOLUTION OVERVIEW**
-Due to the rapid rise in enterprise encryption and shifting market dynamics, the need for a stable and reliable certificate authority (CA) coupled with strong machine identity management continues to escalate. Organizations must leverage industry leaders to ensure overall control and security to mitigate risks. 
-Venafi and Entrust are industry leading innovators uniquely positioned to bring order to chaos for the world’s largest organizations. Venafi’s visibility and automation manages machine identities that are integrated with trusted Entrust digital certificates. Venafi and Entrust are recognized for providing leading intelligence and expertise for complete machine identity management and secure server environments—empowering customers to expand enterprise-wide encryption initiatives for more business applications in more places with greater efficiency.
+Teams that buy public TLS certificates from Entrust often request and renew them by hand in the Entrust portal, which makes it hard to see who is using certificates and to enforce policy. The Entrust connector in Next-Gen Trust Security lets you request and renew Entrust certificates from the same place you manage the rest of your certificate inventory.
+
+Once the Entrust account is connected, certificate requests follow your Next-Gen Trust Security request policies, and issuance and renewal run without logging in to Entrust.
+
+**Value Highlights**
+
+- **Gain visibility** into demand for and use of Entrust certificates across the organization.
+- **Enforce policy** by routing every Entrust request through Next-Gen Trust Security request policies.
+- **Automate renewal** so Entrust certificates are replaced before they expire.
+- **Support your Entrust contract** with both Pooling/Non-pooling and FLEX pricing models.
+- **Reduce manual work** by removing logins to the Entrust portal for routine requests.
+
+**How it Works**
+
+You add Entrust as a certificate authority in Next-Gen Trust Security using an Entrust API user, its API key and an API client certificate with the Client Authentication EKU. After the account validates, you select it in one or more request policies, and certificates requested under those policies are issued by Entrust. Entrust Custom Fields are not supported, so they must not be required for the API user. See the Documentation tab for setup steps.
+
+**Solution Components**
+
+- Next-Gen Trust Security
+- Entrust Certificate Services account with API access

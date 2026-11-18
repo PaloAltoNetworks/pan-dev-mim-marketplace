@@ -1,20 +1,25 @@
 # Oracle Directory Server
 
-Organization policy, hierarchy and authentication are well established and used consistently across applications, especially critical security services. Venafi makes it easy to set up secure administrator access that follows your directory hierarchy and leverages existing authentication.
+Your organization's users, groups and hierarchy are already defined in your directory and used consistently across applications, including critical security services. Certificate Manager, Self-Hosted can use Oracle Directory Server as an identity provider, so administrator access to certificate management follows that same hierarchy and reuses existing accounts instead of creating a separate user store.
 
-####   
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Get started fast** with existing users, groups and hierarchy.
+- **Enforce policies** based on your existing organization structure.
+- **Stay current** through a real-time directory connection, so access reflects directory changes.
+- **Reuse existing authentication** for administrators instead of maintaining local accounts.
 
-- **Get started fast **with existing users, groups and hierarchy 
-- **Enforce policies **based on existing organization structure 
-- **Real-time **directory connection 
-- **Uses Windows authentication **for administrators 
+**How it Works**
 
-  
+Certificate Manager, Self-Hosted connects to Oracle Directory Server as an LDAP identity provider. Users and groups from the directory can then be granted permissions in Certificate Manager, Self-Hosted, and administrators sign in with their directory credentials.
 
-**SOLUTION OVERVIEW**
+**Solution Components**
 
-Organization policy, hierarchy and authentication are well established and used consistently across applications, especially critical security services. Oracle provides an integrated directory solution proven for mission-critical deployments and designed to meet the needs of cloud, mobile, and social environments. Using it Venafi makes it easy to set up secure administrator access that follows your directory hierarchy and leverages existing authentication. 
+- Certificate Manager, Self-Hosted
+- Oracle Directory Server
+
+**About Oracle**
+
+Oracle Directory Server is an integrated directory solution built for mission-critical deployments.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

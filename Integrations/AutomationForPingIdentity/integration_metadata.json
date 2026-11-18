@@ -1,6 +1,6 @@
 {
   "name": "Automation for Ping Identity",
-  "description": "Securely retrieve credentials required for execution of business processes",
+  "description": "Automate the lifecycle of the keys and certificates used by PingFederate and PingAccess.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "IDMWorks",
@@ -29,8 +29,8 @@
       "overviewFile": "OVERVIEW-selfhosted.md",
       "documentationLinks": [
         {
-          "title": "Automation for Ping Identity Integration Guide",
-          "description": "Complete integration guide for Automation for Ping Identity",
+          "title": "Setting Up an Adaptable Application Driver",
+          "description": "Install and configure an Adaptable Application driver in Certificate Manager, Self-Hosted",
           "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/t-drivers-AdaptableApp-settingUp.php"
         }
       ]

@@ -1,6 +1,6 @@
 {
   "name": "Machine Identity Protection for ServiceNow",
-  "description": "Machine Identity Management from ServiceNow",
+  "description": "Request, renew and revoke certificates from familiar ServiceNow forms with automated lifecycle management behind them.",
   "categories": [
     "ITSM & Workflow"
   ],

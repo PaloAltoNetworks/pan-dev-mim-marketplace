@@ -1,6 +1,6 @@
 {
   "name": "Secrets Engine for HashiCorp Vault",
-  "description": "Seamlessly integrate Venafi with Hashicorp Vault to streamline machine identity management, ensuring compliance and performance for DevOps teams.",
+  "description": "Issue policy-compliant certificates from Vault's familiar PKI interface with the Venafi PKI secrets engine plugin.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "HashiCorp",
@@ -35,16 +35,35 @@
           "title": "Secrets Engine for HashiCorp Vault Integration Guide",
           "description": "Complete integration guide for Secrets Engine for HashiCorp Vault",
           "url": "https://docs.cyberark.com/mis-saas/vaas/k8s-components/t-cfg-vc-vault/"
+        },
+        {
+          "title": "Venafi PKI Secrets Engine for HashiCorp Vault",
+          "description": "Installation, configuration and usage guide on GitHub",
+          "url": "https://github.com/Venafi/vault-pki-backend-venafi"
         }
       ]
     },
     {
       "product": "Certificate Manager Self-Hosted",
-      "overviewFile": "OVERVIEW-selfhosted.md"
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Venafi PKI Secrets Engine for HashiCorp Vault",
+          "description": "Installation, configuration and usage guide on GitHub",
+          "url": "https://github.com/Venafi/vault-pki-backend-venafi"
+        }
+      ]
     },
     {
       "product": "Next-Gen Trust Security",
-      "overviewFile": "OVERVIEW-ngts.md"
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Venafi PKI Secrets Engine for HashiCorp Vault",
+          "description": "Installation, configuration and usage guide on GitHub",
+          "url": "https://github.com/Venafi/vault-pki-backend-venafi"
+        }
+      ]
     }
   ],
   "price": "Free"

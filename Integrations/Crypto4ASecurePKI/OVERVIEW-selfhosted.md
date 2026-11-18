@@ -1,26 +1,28 @@
 # Crypto4A Secure PKI
 
-Crypto4A’s QxEdge platform provides a secure, quantum-ready PKI that is easily integrated into existing Venafi environments and provides a secure root of trust by using the built-in HSM.
+Organizations preparing for post-quantum threats need a PKI whose root of trust they can rely on. Crypto4A's QxEdge platform provides a secure, quantum-ready PKI with a root of trust supplied by its built-in HSM, and this integration connects it to Certificate Manager, Self-Hosted as a certificate authority.
 
-  
+With certificates from Crypto4A requested and managed through Certificate Manager, Self-Hosted, security teams get visibility, policy enforcement and automation across the certificate lifecycle. The integration was built with sponsorship from the Machine Identity Management Development Fund.
 
-**SOLUTION HIGHLIGHTS**
+**Value Highlights**
 
-- **Gain full visibility** into the demand, usage and workflow of certificates
-- **Enforce certificate policy** and reduce risk with automated workflows and detailed logging
-- **Inject workflow** **approvals** into the issuance, renewal and revocations processes where it makes sense for your business
-- **Automate provisioning** of certificates issued using Crypto4A
+- **Gain full visibility**: See the demand, usage and workflow of certificates issued by Crypto4A.
+- **Enforce certificate policy**: Reduce risk with automated workflows and detailed logging.
+- **Inject workflow approvals**: Add approvals to the issuance, renewal and revocation processes where it makes sense for your business.
+- **Automate provisioning**: Deliver certificates issued by Crypto4A to the systems that use them.
+- **Anchor trust in hardware**: The CA's root of trust is protected by the QxEdge HSM.
 
-  
+**How it Works**
 
-**SOLUTION OVERVIEW**
+The downloadable Adaptable CA driver (`Crypto4A_Adaptable_CA.ps1`) connects Certificate Manager, Self-Hosted to the Crypto4A Secure PKI REST API. Through it, Certificate Manager, Self-Hosted submits CSRs for new, renewed and replacement certificates, retrieves issued certificates and their chains, and revokes certificates.
 
-Crypto4A, a leader in quantum-ready cybersecurity solutions, has helped organizations achieve the highest possible entropy, most secure key storage and a post-quantum ready PKI. Until now organization have not been prepared for a post-quantum world where cryptographic systems, like machine identities, cannot be trusted. As a result of Machine Identity Management Development Fund sponsorship, Crypto4A’s quantum ready HSM, QxEdge supports a native integration to Venafi platform. 
+**Solution Components**
 
-  
+- Certificate Manager, Self-Hosted with the Adaptable CA framework
+- Crypto4A QxEdge Secure PKI
 
-Crypto4A is also integrated with the Venafi platform to provide a secure PKI, with a root of trust supplied by QxEdge itself. 
+**About Crypto4A**
 
-  
+[Crypto4A Technologies](https://crypto4a.com) builds quantum-ready cybersecurity solutions, including HSMs that deliver high-entropy key generation, secure key storage and a post-quantum ready PKI.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

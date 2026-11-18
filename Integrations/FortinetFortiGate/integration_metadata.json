@@ -1,6 +1,6 @@
 {
   "name": "Fortinet FortiGate",
-  "description": "Integrate Venafi with FortiGATE for streamlined TLS certificate management",
+  "description": "Automate discovery, renewal and installation of Fortinet FortiGate SSL inspection and management certificates.",
   "support": "Supported",
   "currentVersion": "1.1.0",
   "author": "Venafi",

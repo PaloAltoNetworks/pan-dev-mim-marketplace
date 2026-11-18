@@ -1,6 +1,6 @@
 {
   "name": "Entrust nShield HSMs",
-  "description": "Integrate Entrust nShield HSMs with Venafi TLS Protect for enhanced key security and lifecycle automation, meeting regulatory requirements.",
+  "description": "Keep the private keys used by Certificate Manager, Self-Hosted and Code Sign Manager in Entrust nShield HSMs to meet regulatory requirements.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Venafi",

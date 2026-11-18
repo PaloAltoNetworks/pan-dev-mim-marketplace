@@ -1,29 +1,26 @@
 # Barracuda Web Application Firewall
 
-Together, Barracuda and Venafi offer a fully featured, unified solution that enables the secure, centralized, and automated management of certificates and keys across Barracuda Web Application Firewalls. This integration adds security to the managed machine identities, and eliminates the anxiety and risk associated with certificate-related downtime and risks.
+Barracuda Web Application Firewalls secure applications with HTTPS through TLS/SSL offloading and inspection, so every protected service depends on a valid certificate. As deployments grow, tracking those certificates in spreadsheets stops working and expired certificates cause downtime. Barracuda and Venafi built this integration so Certificate Manager, Self-Hosted can discover, provision and renew certificates on Barracuda WAF centrally and automatically.
 
-  
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Improve scalability and efficiency**: automate the orchestration and management of certificates and keys.
+- **Increase security**: discover the certificates on each Barracuda WAF and bring them under policy.
+- **Prevent downtime**: renew certificates before they expire.
+- **Create, renew and revoke certificates**: manage the full lifecycle from Certificate Manager, Self-Hosted.
+- **Automate provisioning**: push new and renewed certificates to Barracuda WAF services without manual steps.
 
-- **Improve scalability and efficiency **with automated orchestration and management of your machine identities
-- **Increase security **with machine identity discovery and management
-- **Prevent downtime **caused by expired certificates
-- **Create, renew, and revoke machine identities **directly from Venafi Certificate Manager
-- **Fully automate certificate renewal and provisioning **to Barracuda Web Application Firewall
+**How it Works**
 
-  
+The integration is an Adaptable Application driver (PowerShell script) that runs in Certificate Manager, Self-Hosted and uses the Barracuda WAF API with a custom administrator role. An Onboard Discovery job finds the applications on the WAF and their certificates. When a certificate is pushed or renewed, the driver installs it on the device and associates it with the selected services. See the Documentation tab for setup.
 
-**SOLUTION OVERVIEW**
+**Solution Components**
 
-The integration of the Barracuda Web Application Firewall and Venafi adds the ability to continually monitor your machine identities at scale, adding protection and efficiency into the machine identity management process.
+- Certificate Manager, Self-Hosted 21.1 and above
+- Barracuda Web Application Firewall, firmware 10.1.1 and above
 
-  
+**About Barracuda**
 
-Organizations worldwide are no stranger to the anxiety and risks inherent in managing certificates and keys. These machine identities are critical to securing application traffic, and any downtime or risk of downtime is typically significantly business impacting. As application deployments grow, and administrators are tasked with managing the now-proverbial thousands of herds of cattle, oversight and orchestration of these can no longer be manually managed using excel sheets.
-
-  
-
-Barracuda Web Application Firewalls offer organizations an easy way to secure their applications against all types of application attacks. As part of this, they offer TLS/SSL inspection and offloading to secure applications with HTTPS. Organizations using Barracuda Web Application Firewalls can now automate the orchestration and management of TLS keys with the Venafi platform, increasing operational efficiency and preventing certificate-related outages and downtime.
+Barracuda Networks provides security, application delivery and data protection solutions. The Barracuda Web Application Firewall protects web applications from data breaches and defacement, as a hardware or virtual appliance, on-premises or in the cloud. Learn more at [barracuda.com](https://www.barracuda.com/).
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

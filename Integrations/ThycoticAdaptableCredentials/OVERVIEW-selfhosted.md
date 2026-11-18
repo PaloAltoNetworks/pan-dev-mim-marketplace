@@ -1,24 +1,22 @@
 # Thycotic Adaptable Credentials
 
-This driver lets you create an Adaptable Credential object in Certificate Manager, Self-Hosted (formerly Venafi Trust Protection Platform) that references `username`/`password` or `password` credentials stored in the Thycotic (Delinea) Secret Server. Instead of holding a copy of the secret in Venafi, the credential is retrieved from Thycotic on demand, so secrets stay centralized in the vault.
+Keeping copies of service account passwords in several systems makes rotation harder and widens exposure. This driver lets you create an Adaptable Credential object in Certificate Manager, Self-Hosted that references `username`/`password` or `password` credentials stored in Thycotic (Delinea) Secret Server. The credential is retrieved from Secret Server on demand instead of being stored in Certificate Manager, Self-Hosted, so secrets stay centralized in the vault.
 
-## How it works
+**Value Highlights**
 
-The `ThycoticAdaptableCredential.ps1` script implements the Venafi Adaptable Credential framework. It resolves a secret in Thycotic Secret Server by its **Secret Identifier** (a required, policyable field on the credential object) and returns the stored credential to Venafi for use by other objects — CA templates, application drivers, and discovery jobs — that consume a credential.
+- **Centralize secrets**: Keep credentials in Secret Server instead of duplicating them in Certificate Manager, Self-Hosted.
+- **Pick up rotations automatically**: Passwords rotated in the vault are used without re-entering them.
+- **Reuse everywhere**: Reference the credential from CA templates, application drivers and discovery jobs that consume a credential.
+- **Configure simply**: Each credential object needs only the Secret Identifier of the secret to retrieve.
 
-## Prerequisites
+**How it Works**
 
-- Certificate Manager, Self-Hosted (Trust Protection Platform)
-- A Thycotic (Delinea) Secret Server instance reachable from the Venafi server
-- An account authorized to read the target secrets from Secret Server
+The `ThycoticAdaptableCredential.ps1` script implements the Adaptable Credential framework. When a consuming object needs the credential, the script authenticates to Secret Server with an OAuth token request, looks up the secret by its **Secret Identifier** (a required, policyable field on the credential object) and returns the stored credential. See the Documentation tab for setup.
 
-## Installation and configuration
+**Solution Components**
 
-1. Copy `ThycoticAdaptableCredential.ps1` into the Adaptable Credential scripts directory on the Venafi server.
-2. In the Policy Tree, add an Adaptable Credential object and select the Thycotic driver.
-3. Set the **Secret Identifier** field to the identifier of the secret in Thycotic Secret Server to reference.
-4. Reference the resulting credential object from any Venafi object that consumes a credential.
+- Certificate Manager, Self-Hosted
+- Thycotic (Delinea) Secret Server
+- `ThycoticAdaptableCredential.ps1` Adaptable Credential driver
 
-## Usage
-
-When a consuming object needs the credential, the driver fetches the current value from Thycotic Secret Server, so rotations performed in the vault are picked up without re-entering secrets in Venafi.
+**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

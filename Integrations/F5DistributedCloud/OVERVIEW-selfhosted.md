@@ -1,5 +1,27 @@
 # F5 Distributed Cloud (XC)
 
-**Seamless Integration for Unparalleled Cybersecurity and Performance** Securing web applications and managing Public Key Infrastructure (PKI) pose significant challenges for enterprises, especially in complex, distributed environments. The strategic partnership between Venafi and F5 addresses these challenges head-on by offering an integrated solution that combines Certificate Manager, Self-Hosted with F5 Distributed Cloud's advanced application services. This collaboration ensures organizations not only benefit from robust security but also enjoy enhanced agility, superior performance, and comprehensive protection for application delivery, in any environment. **Tailored for Organizations Seeking Comprehensive Cybersecurity Solutions** By automating key and certificate management the solution significantly reduces the risk of application downtime due to expired certificates, increases visibility and control over PKI, and ensures all keys and certificates are current and compliant with policies. F5 enhances this offering by providing a suite of solutions designed to facilitate secure, AI-driven application delivery across various environments, including cloud, data centers, and edge locations. The combined power of Venafi and F5 not only secures communications and digital credentials but also offers flexibility, compliance, and scalability for web application delivery across SaaS, data center(s), and cloud infrastructures. **Value Highlights:** - **Automate Key and Certificate Management:** Specifically tailored for the F5 Distributed Cloud environment, enhancing efficiency and security. - **Minimize Risk of Application Downtime:** By ensuring certificates never expire unnoticed, keeping applications online and operational. - **Increase Visibility and Control:** Across all applications, providing comprehensive management and oversight. - **Ensure Compliance:** All keys and certificates are kept up to date, aligning with the organization's security policy and compliance requirements. **Solution Components:** - **Certificate Manager, Self-Hosted:** A robust platform for managing Public Key Infrastructure (PKI), ensuring they are secure and compliant. - **F5 Distributed Cloud (SaaS):** Offers advanced application services that ensure optimal performance and security across different environments. - **Adaptable Application Driver:** Integrates Venafi services with F5 Distributed Cloud, automating the lifecycle management of keys and certificates. - **Distributed Cloud Web Application Firewall and API Protection (WAAP):** Part of F5's suite, these services consistently fortify mitigate the threats associated with evolving web applications and API vulnerabilitiesdata against evolving threats, simplifying the encryption processincluding an advanced API discovery and automated remediation solution. **How it Works** Venafi Certificate services integrate with F5 Distributed Cloud via an Adaptable Application Driver. This connection automates the lifecycle management of keys and certificates within F5 Distributed Cloud applications, ensuring they are valid and compliant with the organization's security policy.
+Applications delivered through F5 Distributed Cloud (XC), including those protected by Distributed Cloud Web Application and API Protection (WAAP), depend on TLS certificates stored in the tenant's namespaces. When those certificates are tracked and renewed by hand, an expired certificate can take an application offline. This F5-built driver lets Certificate Manager, Self-Hosted automate the lifecycle of keys and certificates in F5 Distributed Cloud so they stay valid and compliant with your security policy.
+
+**Value Highlights**
+
+- **Automate key and certificate management** for applications delivered through F5 Distributed Cloud.
+- **Minimize application downtime** by making sure certificates never expire unnoticed.
+- **Increase visibility and control** over certificates across all XC applications.
+- **Create load balancers automatically**, optionally, with an FQDN matching the certificate CN.
+- **Ensure compliance** by keeping every key and certificate aligned with your security policy.
+
+**How it Works**
+
+Certificate Manager, Self-Hosted connects to F5 Distributed Cloud through an Adaptable Application driver, a PowerShell script installed on the platform's servers. The driver authenticates with an XC API token, pushes certificates and keys into an application namespace, and can validate the result against the load balancer FQDN. See the Documentation tab for installation and configuration steps.
+
+**Solution Components**
+
+- Certificate Manager, Self-Hosted
+- F5 Distributed Cloud tenant
+- F5 Distributed Cloud Adaptable Application driver
+
+**About F5**
+
+F5 helps organizations scale cloud, data center and software-defined networking deployments to deliver applications on premises, in the cloud or at the edge. Learn more at [f5.com](https://www.f5.com/).
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

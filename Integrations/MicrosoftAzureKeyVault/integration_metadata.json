@@ -1,6 +1,6 @@
 {
   "name": "Microsoft Azure Key Vault",
-  "description": "Streamline certificate management in Azure with Venafi integration\u2014automate renewals, enhance security, and ensure compliance effortlessly.",
+  "description": "Discover certificates in Azure Key Vault and provision renewed certificates to it automatically.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Venafi",
@@ -32,13 +32,13 @@
       "overviewFile": "OVERVIEW-saas.md",
       "documentationLinks": [
         {
-          "title": "Microsoft Azure Key Vault Integration Guide",
-          "description": "Complete integration guide for Microsoft Azure Key Vault",
+          "title": "Microsoft Azure Key Vault Machine Setup",
+          "description": "Create a Microsoft Azure Key Vault machine in Certificate Manager, SaaS",
           "url": "https://docs.cyberark.com/mis-saas/vaas/machines/microsoft-azure-key-vault/"
         },
         {
-          "title": "Provisioning Certificates to Microsoft Azure Key Vault",
-          "description": "Step-by-step guide for certificate provisioning",
+          "title": "Provision Certificates to Microsoft Azure Key Vault",
+          "description": "Provision certificates to a Microsoft Azure Key Vault machine",
           "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-microsoft-azure-key-vault/"
         }
       ]
@@ -48,8 +48,8 @@
       "overviewFile": "OVERVIEW-selfhosted.md",
       "documentationLinks": [
         {
-          "title": "Microsoft Azure Key Vault Integration Guide",
-          "description": "Complete integration guide for Microsoft Azure Key Vault",
+          "title": "Azure Key Vault Configuration",
+          "description": "Configure Certificate Manager, Self-Hosted to manage certificates stored in Azure Key Vault",
           "url": "https://docs.venafi.com/Docs/26.1/TopNav/Content/Azure/cco-Azure-AppDriverConfig-tpp.php"
         }
       ]
@@ -59,9 +59,19 @@
       "overviewFile": "OVERVIEW-ngts.md",
       "documentationLinks": [
         {
-          "title": "Microsoft Azure Key Vault Integration Guide",
-          "description": "Complete integration guide for Microsoft Azure Key Vault",
+          "title": "Configure Azure Key Vault Connection",
+          "description": "Connect Azure Key Vault as a cloud keystore in Next-Gen Trust Security",
           "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/integrations-overview/cloud-providers-overview/azure-key-vault"
+        },
+        {
+          "title": "Create a Microsoft Azure Private Key Vault Machine",
+          "description": "Create an Azure Private Key Vault machine that connects through a VSatellite",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/microsoft-azure-key-vault"
+        },
+        {
+          "title": "Provision to a Microsoft Azure Private Key Vault",
+          "description": "Provision certificates to an Azure Private Key Vault machine",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/microsoft-azure-key-vault/provision-certificates-microsoft-azure-key-vault"
         }
       ]
     }

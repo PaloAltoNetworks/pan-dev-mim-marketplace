@@ -1,6 +1,6 @@
 {
   "name": "Swimlane",
-  "description": "Swimlane and Venafi integrate to automate machine identity management, streamlining alert responses and reducing security risks with customizable workflows.",
+  "description": "Respond to machine identity alerts from Certificate Manager, Self-Hosted with customizable automated workflows in Swimlane.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "Swimlane Inc",

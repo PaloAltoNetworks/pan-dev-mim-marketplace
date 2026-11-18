@@ -1,80 +1,35 @@
 # AWS Load Balancer Controller
 
-This *reference solution* highlights the integration of *cert-manager*, the de-facto machine identity management component in Kubernetes clusters and AWS Load Balancer Controller, where SSL offloading takes place in an AWS EKS cluster equipped with Elastic Application Load Balancers.
+Amazon EKS clusters often expose web applications through Application Load Balancers (ALBs) that the AWS Load Balancer Controller creates from Kubernetes Ingress resources. TLS is terminated on the ALB, so the certificates that matter live in AWS Certificate Manager (ACM), outside the cluster and often outside security policy.
 
-This integration enables organizations running cloud native workloads and serving encrypted HTTPs traffic with *Elastic Application Load Balancers *the ability to automate and secure the lifecycle of TLS certificates using policies defined by security teams and ensure the extension of security policies to Kubernetes resources.
+This reference solution combines Certificate Manager, SaaS with the AWS Load Balancer Controller. Certificate Manager, SaaS issues and renews certificates under policies defined by your security team and provisions them to ACM. The controller then attaches the matching certificate to each ALB listener, extending your certificate policy to Kubernetes ingress traffic.
 
-This integration is enabled through Kubernetes resource configuration.
+**Value Highlights**
 
-**Release and support versions**
+- **Automate TLS for EKS ingress** without handling certificates by hand.
+- **Enforce security team policy** on the certificates that ALBs present to clients.
+- **Prevent outages** by renewing certificates in ACM before they expire.
+- **Attach certificates automatically** through the controller's hostname-based certificate discovery.
+- **Configure through Kubernetes resources** with no custom code.
 
-AWS Load Balancer Controller is part of Kubernetes community. There are no specific version requirements on cert-manager and AWS Load Balancer Controller.
+**How it Works**
+
+Certificate Manager, SaaS provisions certificates to ACM through its AWS connection and an AWS cloud keystore. In the cluster, an Ingress with an HTTPS listener either names the ACM certificate ARN in an annotation or lets the AWS Load Balancer Controller discover a matching ACM certificate from the Ingress host or tls fields. When Certificate Manager, SaaS renews a certificate in ACM, the ALB continues to serve a valid certificate. See the Documentation tab for setup.
 
 **Applicability**
 
-Any organization running clusters in AWS EKS and taking advantage of Elastic Application Load Balancers as layer 7 load balancers to manage the HTTPs requests that client applications send to web apps that are hosted on a pool of web servers should consider deploying this integration to automate the management of machine identities consumed by Elastic Load Balancers.
+This solution suits organizations that run workloads on Amazon EKS and use Application Load Balancers as Layer 7 load balancers for HTTPS traffic.
 
-**Special notes and limitations**
+**Solution Components**
 
-There is a reference specification for ingress controllers which allows securing an Ingress implementation by specifying a [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that contains a TLS private key and certificate. *cert-manager* is aware and knows where and how to retrieve the Secret, therefore, able to operate on the TLS private key and certificate.
+- Certificate Manager, SaaS with a VSatellite
+- AWS Certificate Manager
+- AWS Load Balancer Controller on Amazon EKS
 
-The configuration-only based integration with Kubernetes ingresses is not limited to AGIC. *cert-manager* can integrate with all ingresses that implement the reference specification for ingress controller. This includes the three controllers supported and maintained by Kubernetes, GLBC by GCP, ingress-nginx and the following third-party ingresses:
+**Additional Resources**
 
-- Kong Ingress Controller for Kubernetes
-- Azure Application Gateway Ingress Controller
-- Istio Ingress
-- Traefik Kubernetes Ingress provider
-- Citrix Ingress Controller
-- Apache APISIX ingress controller
-- Gloo
-- NGINX Ingress Controller for Kubernetes
-- Avi Kubernetes Operator
-- HAProxy Ingress
-- Pomerium Ingress Controller
+- [What is an Application Load Balancer?](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html)
+- [Route internet traffic with AWS Load Balancer Controller](https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html)
+- [AWS Load Balancer Controller certificate discovery](https://kubernetes-sigs.github.io/aws-load-balancer-controller/latest/guide/ingress/cert_discovery/)
 
-This list is always growing and changing by Ingress providers, for the latest version, check out the third-party ingress controllers link in “Additional resources”.
-
-**Additional resources **
-
-- Elastic Application Load Balancer: [https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html](https://docs.aws.amazon.com/elasticloadbalancing/latest/application/introduction.html)
-- Installing the AWS Load Balancer Controller add-on: [https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html](https://docs.aws.amazon.com/eks/latest/userguide/aws-load-balancer-controller.html)
-- AWS Load Balancer Controller: [https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.5/](https://kubernetes-sigs.github.io/aws-load-balancer-controller/v2.5/)
-- Available third-party ingress controllers in addition to AWS Load Balancer Controller: [https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/)
-
-**Get it to work **
-
-First, install AWS Load Balancer Controller using helm command provided here: [https://github.com/kubernetes-sigs/aws-load-balancer-controller/tree/main/helm/aws-load-balancer-controller](https://github.com/kubernetes-sigs/aws-load-balancer-controller/tree/main/helm/aws-load-balancer-controller)
-
-There are two ways to configure the ingress controller via the ingress resource configuration *after the successful creation of the ingress which tells EKS to use Elastic Application Load Balancer as the Ingress*.
-
-Method 1: annotation
-
-apiVersion: networking.k8s.io/v1
-
-kind: Ingress
-
-metadata:
-
-     name: #NAME_YOUR_INGRESS
-
-     annotations:
-
-Method 2: spec attribute “*ingressClassName*”
-
-apiVersion: networking.k8s.io/v1
-
-kind: Ingress
-
-metadata:
-
-     name: #NAME_YOUR_INGRESS
-
-spec:
-
-     ingressClassName: eks/aws-load-balancer-controller
-
-**ABOUT AWS Elastic Load Balancer**
-
-Kubernetes Ingress is an API object that manages external access to the services in a cluster, typically HTTP. [Ingress](https://kubernetes.io/docs/reference/generated/kubernetes-api/v1.26/#ingress-v1-networking-k8s-io) exposes HTTP and HTTPS routes from outside the cluster to [services](https://kubernetes.io/docs/concepts/services-networking/service/) within the cluster. Traffic routing is controlled by rules defined on the Ingress resource. It may provide load balancing, SSL termination and name-based virtual hosting. You must have an [Ingress controller](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers) to satisfy an Ingress. Unlike other types of controllers which run as part of the kube-controller-manager binary, Ingress controllers are not started automatically with a cluster. Use this page to choose the ingress controller implementation that best fits your cluster.
-
-**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**
+**Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**

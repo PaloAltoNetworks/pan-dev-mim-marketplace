@@ -1,6 +1,6 @@
 {
   "name": "K8S Container Signing Verification with Nirmata",
-  "description": "Enhance Kubernetes security with Nirmata's automated image verification, ensuring only verified images are deployed in your clusters.",
+  "description": "Make sure only signed and verified container images are deployed to your Kubernetes clusters.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Nirmata",

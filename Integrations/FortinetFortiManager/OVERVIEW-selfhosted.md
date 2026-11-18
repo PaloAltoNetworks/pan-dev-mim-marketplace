@@ -1,21 +1,28 @@
 # Fortinet FortiManager
 
-The Fortinet FortiManager Adaptable Application solution automates provisioning of the TLS/SSL certificates used by the FortiManager management interface. The management interface is a web-based UI designed for network administrators, providing the flexibility to manage and maintain the FortiManager appliance and their suite of Fortinet devices.
+FortiManager is the central console network administrators use to manage the FortiManager appliance and their suite of Fortinet devices. Its web-based management interface is protected by a TLS certificate, and an expired or untrusted certificate disrupts administrator access and weakens security.
 
-**Solution Components**
+The Fortinet FortiManager Adaptable Application lets Certificate Manager, Self-Hosted automate enrollment and provisioning of the TLS certificate used by the FortiManager management interface, so it stays compliant with corporate policy and is renewed before it expires.
 
-- TLS Protect Self-hosted
-- Fortinet FortiManager
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
-
-- **Streamline** certificate lifecycle operations for your devices
-- **Enhance visibility** and compliance with corporate certificate policy
-- **Automation** of certificate request and distribution to improve efficiency
-- **Reduce threats** and errors through a uniformed deployment process
+- **Streamline** certificate lifecycle operations for your FortiManager systems.
+- **Enhance visibility** and compliance with corporate certificate policy.
+- **Automate** certificate requests and distribution to improve efficiency.
+- **Reduce threats and errors** through a uniform deployment process.
 
 **How it Works**
 
-Venafi builds and delivers software drivers designed to connect with many of the most common certificate authorities (CAs), application servers, and enterprise monitoring systems for notification use cases. But if the Venafi Driver Library does not include the driver you need, you can use a Venafi Adaptable Driver. In fact, because they are customizable, you can use an Adaptable driver in place of an existing driver to provide tighter integration between your business processes and Certificate Manager, Self-Hosted.
+The FortiManager Adaptable Application is a PowerShell driver for the Certificate Manager, Self-Hosted Adaptable framework that connects to the FortiManager JSON API. An Onboard Discovery job runs an authenticated scan to import the management interface certificate and create the matching certificate and Adaptable Application objects. Certificate Manager, Self-Hosted then renews the certificate and provisions it to FortiManager under the configured certificate label. See the Documentation tab for installation and configuration.
+
+**Applicability**
+
+Tested with Certificate Manager, Self-Hosted 22.2 or higher, PowerShell 5.1, and FortiManager 6.4 or 7.0.
+
+**Solution Components**
+
+- Certificate Manager, Self-Hosted
+- Fortinet FortiManager
+- FortiManager Adaptable Application
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

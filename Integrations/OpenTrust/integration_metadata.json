@@ -1,6 +1,6 @@
 {
   "name": "OpenTrust",
-  "description": "OpenTrust, powered by Venafi, enhances enterprise encryption with visibility, automation, and robust machine identity management.",
+  "description": "Request, track and renew OpenTrust CA certificates under central policy in Certificate Manager, Self-Hosted.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "Atos",

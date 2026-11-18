@@ -1,28 +1,27 @@
 # IBM Guardium
 
-This integration, developed by IBM, automates machine identity requests and renewals from Guardium agents through to Venafi Certificate Manager, SaaS or Certificate Manager, Self-Hosted.
+IBM Guardium components need trusted certificates to communicate securely, and provisioning or renewing those certificates by hand is slow and leads to self-signed certificates, browser warnings and outages. This integration, developed by IBM, automates certificate requests and renewals for Guardium through Certificate Manager, SaaS, so Guardium communications stay confidential and certificates stay current.
 
-  
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Ensure confidentiality**: Protect the confidentiality and integrity of Guardium communications.
+- **Streamline operations**: Eliminate manual certificate provisioning.
+- **Improve security posture**: Use properly identified, CA-issued certificates.
+- **Prevent downtime**: Avoid outages caused by expired certificates.
+- **Manage the full lifecycle**: Create, renew, verify and revoke certificates for Guardium.
+- **Eliminate self-signed certificates**: Remove self-signed certificates and the browser issues they cause.
 
-- **Ensure confidentiality **and integrity of communications
-- **Streamline operations **by eliminating manual provisioning
-- **Increase security posture **with properly identified machine identities
-- **Prevent downtime **and outages caused by expired certifictates
-- **Create, renew, verify & revoke** machine identities for Guardium
-- **Eliminate self-signed certificates **and browser issues
+**How it Works**
 
-  
+Guardium requests new certificates and renews expiring ones from Certificate Manager, SaaS through a simplified workflow, so certificates are issued under your organization's policy instead of being generated and installed manually. See IBM's Guardium documentation for setup.
 
-**SOLUTION OVERVIEW**
+**Solution Components**
 
-Integrating IBM Guardium® with Venafi Certificate Manager, SaaS or Certificate Manager, Self-Hosted provides an efficient process for managing certificates. This integration allows Guardium agents to communicate securely while reducing the need for manual certificate provisioning.
+- Certificate Manager, SaaS
+- IBM Guardium
 
-  
+**About IBM**
 
-Users can request new certificates, renew expiring ones, and manage their machine identities through a simplified workflow. This streamlined approach helps maintain the confidentiality and integrity of communications of critical systems within your enterprise.
-
-**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**
+[IBM Guardium](https://www.ibm.com/products/guardium) is a data security platform that discovers, classifies and protects sensitive data across on-premises and cloud environments.
 
 **Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**

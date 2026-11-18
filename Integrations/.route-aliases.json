@@ -233,5 +233,15 @@
     "from": "/marketplace/OracleHTTPServer",
     "to": "/marketplace",
     "reason": "unlisted — remove this entry when the listing returns"
+  },
+  {
+    "from": "/marketplace/CarillonCertServPKISuite",
+    "to": "/marketplace/CarillonCA",
+    "reason": "merged into Carillon CA"
+  },
+  {
+    "from": "/marketplace/Arkade",
+    "to": "/marketplace",
+    "reason": "archived — no longer supported"
   }
 ]

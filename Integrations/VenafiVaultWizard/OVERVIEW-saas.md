@@ -1,24 +1,27 @@
 # Venafi-Vault Wizard
 
-The Venafi-Vault Wizard (VVW) is an open-source command-line tool that simplifies and automates the integration between Venafi and HashiCorp Vault, handling the installation, configuration, and verification of the Venafi Vault plugins so certificates issued through Vault stay compliant with Venafi’s machine identity policies.
+Connecting HashiCorp Vault to Certificate Manager, SaaS by hand takes many manual steps, and a small misconfiguration can leave Vault issuing certificates outside your policy. The Venafi-Vault Wizard (VVW) is an open-source command-line tool that automates the installation, configuration and verification of the Venafi plugins for Vault, so certificates issued through Vault stay compliant with your Certificate Manager, SaaS policies.
 
-  
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Automate the integration**: Install and configure the Venafi PKI secrets engine and PKI monitor plugins for Vault from a single tool.
+- **Reduce errors**: Replace lengthy manual setup with a repeatable, declarative configuration.
+- **Verify the setup**: Confirm that Vault and Certificate Manager, SaaS are connected and issuing certificates as expected.
+- **Use it freely**: The tool is free, open source and community-maintained on [GitHub](https://github.com/opencredo/venafi-vault-wizard).
 
-- **Automate the integration **install and configure the Venafi PKI secrets engine and PKI monitor plugins for HashiCorp Vault from a single tool
-- **Reduce errors **replace lengthy manual setup steps with a repeatable, declarative configuration
-- **Verify the setup **confirm that Vault and Venafi are correctly connected and issuing certificates as expected
-- **Free and open source **community-maintained and available on GitHub
+**How it Works**
 
-  
+The wizard reads a declarative HCL configuration file that describes your Vault and Certificate Manager, SaaS environment. It connects to Vault, downloads and registers the plugin binaries, enables and configures the secrets engines, sets up the roles and the zone used for issuance, and runs verification checks against Certificate Manager, SaaS.
 
-**SOLUTION OVERVIEW**
+**Solution Components**
 
-The Venafi-Vault Wizard reads a declarative HCL configuration file that describes your Vault and Venafi environment, then connects to Vault to install and configure the Venafi plugins (such as the Venafi PKI secrets engine and PKI monitor). It downloads and registers the plugin binaries, enables and configures the secrets engines, sets up the roles and Venafi zones, and runs verification checks against Venafi Certificate Manager, SaaS. This turns a multi-step manual process into an automated, repeatable workflow and reduces the chance of misconfiguration.
+- Certificate Manager, SaaS
+- HashiCorp Vault
+- Venafi PKI secrets engine and PKI monitor plugins
+- Venafi-Vault Wizard CLI
 
-**ABOUT VENAFI-VAULT WIZARD**
+**About Open Credo**
 
-The Venafi-Vault Wizard is an open-source project created by Open Credo. It works with the Venafi Vault plugins to bring Venafi’s policy enforcement and certificate visibility to HashiCorp Vault deployments, and is distributed as a community-supported tool on GitHub.
+Open Credo created the Venafi-Vault Wizard and distributes it as a community-supported tool. Learn more at [opencredo.com](https://opencredo.com/).
 
 **Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**

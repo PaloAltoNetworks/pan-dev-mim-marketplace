@@ -1,6 +1,6 @@
 {
   "name": "Axiad CA",
-  "description": "The purpose of this document is to provide information regarding the configuration of Axiad Cloud PKI for integration with Venafi Trust Protection Platform (TPP).",
+  "description": "Automate issuance, renewal and revocation of Axiad Cloud PKI machine certificates from Certificate Manager, Self-Hosted.",
   "support": "Supported",
   "currentVersion": "1.0",
   "author": "Axiad",
@@ -17,7 +17,6 @@
     "Certificate Lifecycle Management"
   ],
   "keywords": [],
-  "documentationFile": "DOCUMENTATION.md",
   "supportUrl": "https://docs.axiad.com",
   "price": "Free",
   "productVariants": [
@@ -35,7 +34,8 @@
         "ID_PKI_Adaptable_Script.ps1",
         "ID_PKI_Adaptable_ScriptRA.ps1"
       ],
-      "license": "MIT"
+      "license": "MIT",
+      "documentationFile": "DOCUMENTATION.md"
     }
   ]
 }

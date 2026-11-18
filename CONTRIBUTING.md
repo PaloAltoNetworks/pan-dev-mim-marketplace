@@ -138,30 +138,42 @@ The overview (`OVERVIEW-<suffix>.md`, or `README.md` as a fallback) is the first
 
 Focus on customer outcomes rather than feature lists. Answer what problem the integration solves, what customers can achieve with it, and what they gain. For example, write "Eliminate outages with automated certificate renewal" rather than "Supports certificate renewal."
 
-A structure that works well:
+Use this structure. Copy the matching `OVERVIEW-<suffix>.md` from `Integrations/.template/` as a starting point.
 
 1. **Opening narrative** (one or two paragraphs): the problem or opportunity, framed from the customer's point of view.
-2. **Solution highlights** (four to six bullets): the most important part. Start each bullet with an action verb (Eliminate, Streamline, Automate, Accelerate, Scale) and keep it to one or two lines. Lead with the benefit, not the implementation: "Gain visibility into certificate inventory across your infrastructure" works; "Uses REST API for communication" and "Compatible with version 2.0+" don't.
-3. **Optional sections**, as they apply:
-   - **Applicability**: the use cases or customer segments the integration fits.
-   - **Solution components**: the products involved (e.g. Certificate Manager Self-Hosted and the target system).
-   - **How it works**: a short explanation, linking to the Documentation tab or external docs for detail.
-   - **About the vendor**: a sentence or two about the company or technology, with a link.
+2. **Value Highlights** (four to six bullets): the most important part. Start each bullet with a bold action-verb benefit (Eliminate, Streamline, Automate, Accelerate, Scale) and keep it to one line. Lead with the benefit, not the implementation: "Gain visibility into certificate inventory across your infrastructure" works; "Uses REST API for communication" and "Compatible with version 2.0+" don't.
+3. **How it Works**: two to four sentences on the mechanism for this product, pointing to the Documentation tab for setup. No numbered steps.
+4. **Optional sections**, as they apply: **Applicability** (use cases or customer segments), **Solution Components** (the product and the target system), and **About <your company>** (a sentence or two with a link; leave it out for Venafi-built integrations).
+5. **Footer**: the Self-Hosted overview ends with `**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**` and the SaaS overview ends with `**Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**`. Next-Gen Trust Security and Zero Touch PKI overviews have no footer.
 
 ```markdown
-Organizations rely on load balancers to decrypt and inspect HTTPS traffic. As TLS use grows, managing certificates across network infrastructure gets harder. This integration automates certificate lifecycle management so security teams keep control and operations teams avoid outages.
+Organizations rely on load balancers to decrypt and inspect HTTPS traffic. As TLS use grows, managing certificates across network infrastructure gets harder. This integration lets Certificate Manager, Self-Hosted automate certificate lifecycle management so security teams keep control and operations teams avoid outages.
 
-**SOLUTION HIGHLIGHTS**
+**Value Highlights**
 
-- **Eliminate outages** with automated certificate renewal
-- **Streamline workflows** by removing manual certificate provisioning
-- **Enforce policy** on every certificate deployed to the load balancer
-- **Gain visibility** into certificate inventory across your infrastructure
+- **Eliminate outages**: renew and deploy certificates automatically before they expire.
+- **Streamline workflows**: remove manual certificate provisioning.
+- **Enforce policy**: every certificate deployed to the load balancer follows your rules.
+- **Gain visibility**: see certificate inventory across your infrastructure.
+
+**How it Works**
+
+A Certificate Manager, Self-Hosted driver connects to the load balancer's management API to install certificates and bind them to virtual servers. See the Documentation tab for setup.
 
 **About Example Networks**
 
 Example Networks builds application delivery and security products. Learn more at [example.com](https://example.com).
+
+**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**
 ```
+
+Formatting rules, checked by `validate-integration.js`:
+
+- Each `OVERVIEW-<suffix>.md` describes only its own product. A Self-Hosted driver, policy tree or TPP name doesn't belong on a SaaS or Next-Gen Trust Security overview, and VSatellite, TLS Protect Cloud or venafi.cloud links don't belong on a Self-Hosted one. Using another product's footer is an error.
+- An overview needs at least 40 words of body text and must not end mid-sentence. Both are errors.
+- Section labels are Title Case bold text on their own line, with a blank line before and after. Don't use ALL CAPS labels or put text on the same line as the label.
+- Separate paragraphs with a blank line. The site joins lines that have only a single line break between them.
+- Don't put spaces just inside bold markers (`**Reduce risk** of`, not `**Reduce risk **of`).
 
 The same customer-value focus applies to the `description` field, which appears on the gallery card. "Automate certificate lifecycle management for F5 BIG-IP load balancers using the REST API" tells a reader what they get; "Integration for F5" doesn't.
 

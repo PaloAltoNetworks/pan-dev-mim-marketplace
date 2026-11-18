@@ -1,34 +1,27 @@
 # cert-manager-operator for Red Hat OpenShift
 
-This solution features cert-manager Operator for Red Hat OpenShift, an OpenShift cluster certificate operator implemented based on *cert-manager, *the de-facto machine identity management component in Kubernetes clusters. This enables organizations to plug into Next-Gen Trust Security for their OpenShift clusters certificates management, therefore, effectively take advantage of all the familiar machine identity management capabilities the Control Plane offers. For example, Application ops teams who manage the containers and code that are deployed on OpenShift can now fully automate the certificate issuance process while the organization’s security team still maintains all visibility and governance of all machine identities in the OpenShift clusters through a single pane of glass - Next-Gen Trust Security.
+Application teams on OpenShift need certificates for the containers and code they deploy, while security teams need visibility and governance over every machine identity in those clusters. The cert-manager Operator for Red Hat OpenShift, built on cert-manager, connects OpenShift clusters to Next-Gen Trust Security so both needs are met.
 
-**Release and support versions**
+Application operations teams can fully automate certificate issuance, and the security team keeps visibility and governance of all machine identities in the clusters from Next-Gen Trust Security.
 
-Version compatibility is thoroughly tested and documented here: [https://cert-manager.io/docs/installation/supported-releases/](https://cert-manager.io/docs/installation/supported-releases/)
+**Value Highlights**
 
-**Applicability**
+- **Automate certificate issuance**: Let application teams get certificates on OpenShift without manual requests.
+- **Keep central governance**: Maintain visibility and policy control of OpenShift certificates in Next-Gen Trust Security.
+- **Install like any OpenShift app**: Add the operator from the OpenShift web console on OpenShift 4 and later.
+- **Use tested versions**: Rely on cert-manager version compatibility that is tested and documented in the [cert-manager supported releases](https://cert-manager.io/docs/releases/).
+- **Stay consistent across clouds**: Apply the same cert-manager approach on other certified Kubernetes distributions such as EKS, AKS and GKE.
 
-Organizations running any workloads that are managed by OpenShift should always use cert-manager for certificates managements.
+**How it Works**
 
-Many organizations use a multi-cloud strategy, therefore employ a set of different distributions of certified Kubernetes distributions including some of the following:
+The operator installs and manages cert-manager on the OpenShift cluster. cert-manager adds certificates and issuers as Kubernetes resources and requests certificates from Next-Gen Trust Security according to its policies, then renews them before they expire. You can also deploy cert-manager on OpenShift with regular YAML manifests. See the Documentation tab for deployment options.
 
-- AWS EKS and EKS Anywhere
-- Azure AKS and Arc
-- GCP GKE and Anthos
+**Solution Components**
 
-All these certified distributions support the same set of APIs and they work with the same container standards as well as are compatible with the operations with *cert-manager* for managing certificates within clusters.
+- Next-Gen Trust Security
+- cert-manager Operator for Red Hat OpenShift
+- Red Hat OpenShift Container Platform 4 or later
 
-*cert-manager* works with all these certified Kubernetes distributions regardless how the container orchestration platform is delivered and where it is sourced.
+**About Red Hat**
 
-**Get it to work **
-
-There are two ways to make *cert-manager* part of OpenShift deployments:
-
-- Use the *cert-manager* Operator for Red Hat OpenShift, just like any application on OpenShift. You can install the cert-manager Operator for Red Hat OpenShift by using the web console since cert-manager operator is not installed in OpenShift Container Platform by default. This is applicable to OpenShift 4 and above.
-- *cert-manager* can be deployed on OpenShift clusters by using regular YAML manifests.
-
-**ABOUT Red Hat and OpenShift**
-
-Red Hat is the world’s leading provider of enterprise open source solutions—including Linux, cloud, container, and Kubernetes. Red Hat delivers hardened solutions that make it easier for enterprises to work across platforms and environments, from the core datacenter to the network edge.
-
-Red Hat OpenShift, the industry's leading hybrid cloud application platform powered by Kubernetes, brings together tested and trusted services to reduce the friction of developing, modernizing, deploying, running, and managing applications. OpenShift delivers a consistent experience across public cloud, on-premise, hybrid cloud, or edge architecture.
+Red Hat provides enterprise open source solutions, including Linux, cloud, container and Kubernetes technologies. [Red Hat OpenShift](https://www.redhat.com/en/technologies/cloud-computing/openshift) is a hybrid cloud application platform powered by Kubernetes that delivers a consistent experience across public cloud, on-premises, hybrid cloud and edge.

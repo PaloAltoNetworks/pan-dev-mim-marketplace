@@ -1,26 +1,27 @@
 # Carillon CA
 
-Carillon's CertServ PKI Suite integrates with Certificate Manager, Self-Hosted (formerly Venafi Trust Protection Platform) through an Adaptable CA script, enabling certificate lifecycle operations — issuance, renewal, and revocation — for a defined set of certificate types in a Carillon-managed PKI (MPKI) from the Venafi interface.
+Organizations that run a Carillon-managed PKI often handle certificate issuance, renewal and revocation in a separate console from the rest of their certificate inventory. The Carillon Adaptable CA script connects Certificate Manager, Self-Hosted to Carillon's CertServ PKI Suite, so a defined set of MPKI certificate types can be managed from the same interface as every other certificate.
 
-## How it works
+**Value Highlights**
 
-The `Carillon_CA.ps1` Adaptable CA driver signs requests to the MPKI's `extreq` API using a client certificate credential and submits PKCS#10 CSRs; Carillon issues the certificate and returns it to Venafi. Requestable certificate types must use the MPKI's delegated-automation retrieval workflow.
+- **Manage the full lifecycle**: Issue, renew and revoke Carillon MPKI certificates from Certificate Manager, Self-Hosted.
+- **Control which certificate types are used**: Limit requests to the certificate types configured for automation in the MPKI.
+- **Enforce policy**: Lock the CA template and certificate type per policy so requests follow your rules.
+- **Renew on schedule**: Renew certificates during the renewal window to avoid expirations.
+- **Sign requests securely**: Authenticate every request to the MPKI with a client certificate issued by the MPKI.
 
-## Prerequisites
+**How it Works**
 
-- Certificate Manager, Self-Hosted (Trust Protection Platform)
-- An operational Carillon-managed PKI using CertServ PKI Suite (the MPKI)
-- A client certificate and keypair in PKCS#12/PFX format, issued by the MPKI, for the driver to use
-- The MPKI `extreq` API configured with the list of certificate types Venafi should manage
+The `Carillon_CA.ps1` Adaptable CA script signs requests to the MPKI `extreq` API with a client certificate credential and submits PKCS#10 CSRs. Carillon issues the certificate and returns it to Certificate Manager, Self-Hosted. Subscribers must be sponsored in CertServ first, and requestable certificate types must use the MPKI's delegated-automation retrieval workflow. See the Documentation tab for setup.
 
-## Installation and configuration
+**Solution Components**
 
-1. Copy the driver to `C:\Program Files\Venafi\Scripts\AdaptableCA\Carillon_CA.ps1` on the Venafi server.
-2. Configure a Certificate Credential in the Policy Tree, importing the PKCS#12/PFX file.
-3. Select the certificate type(s) to manage: for a single type, set `HKLM\SOFTWARE\Carillon\extreq\certtype` in the registry; for multiple, create a Required, policy-controlled Single Select List custom field named `CarillonCertType` applied to Certificates.
-4. Add an Adaptable CA template referencing the credential, the Carillon API URL as the Service Address, and the `Carillon_CA` script; click **Validate**. In Options, set the renewal window, enable Allow Reissuance, and attach `CarillonCertType`.
-5. Optionally create a per-certificate-type policy (Management Type: Enrollment, Managed By: Aperture, the Adaptable CA template, and the `CarillonCertType` value), each policy-locked.
+- Certificate Manager, Self-Hosted
+- Carillon CertServ PKI Suite (Carillon-managed PKI)
+- `Carillon_CA.ps1` Adaptable CA script
 
-## Usage
+**About Carillon**
 
-Subscribers must first be sponsored in the CertServ GUI with all required registration attributes. Then request a credential using a delegated-automation workflow, add a Device/Server Certificate in Venafi with the subscriber name as the Common Name, and use **Renew Now** to issue. Use **Renew Now** again during the renewal window, and **Revoke** to permanently revoke (a new CertServ credential request is required before re-issuance). See `DOCUMENTATION.md` for full configuration and troubleshooting.
+Since 2000, [Carillon Information Security](https://www.carillon.ca/) has provided identity management solutions, from consulting services to validation software and managed identity services, that help companies take control of their digital credentials.
+
+**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

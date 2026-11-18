@@ -1,6 +1,6 @@
 {
   "name": "DigiCert ONE",
-  "description": "DigiCert ONE integration for Venafi Certificate Manager — native CA support for SaaS and Next-Gen Trust Security.",
+  "description": "Issue, renew and revoke certificates from DigiCert ONE public and private CAs through Certificate Manager, SaaS and Next-Gen Trust Security.",
   "support": "Supported",
   "currentVersion": "1.1.0",
   "author": "Venafi",
@@ -20,7 +20,7 @@
   ],
   "keywords": [
     "DigiCert ONE",
-    "Adaptable Framework - CA"
+    "CA Connector"
   ],
   "logoFile": "digicert-one.png",
   "supportUrl": "https://community.cyberark.com/s/",

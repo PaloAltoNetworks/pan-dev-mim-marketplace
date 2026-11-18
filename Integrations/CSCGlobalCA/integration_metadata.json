@@ -1,6 +1,6 @@
 {
   "name": "CSC Global CA",
-  "description": "Automate certificate issuance, renewal, and lifecycle management while ensuring policy compliance and continuous visibility across all environments",
+  "description": "Order, renew and track CSC Global certificates under your certificate policies, with automated issuance and continuous visibility.",
   "categories": [
     "Certificate Authority"
   ],

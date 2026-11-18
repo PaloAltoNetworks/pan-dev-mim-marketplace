@@ -1,0 +1,42 @@
+{
+  "name": "Cisco ISE Certificate Provisioning",
+  "description": "Secur Solutions Group's driver and connector provision certificates from Certificate Manager to Cisco Identity Services Engine (ISE).",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Secur Solutions Group",
+  "categories": [
+    "Identity & Access Management"
+  ],
+  "products": [
+    "Certificate Manager Self-Hosted",
+    "Certificate Manager SaaS"
+  ],
+  "tags": [
+    "Authentication",
+    "Network Infrastructure"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Cisco ISE",
+    "Identity Services Engine",
+    "Secur Solutions Group"
+  ],
+  "supportEmail": "support@secursolutionsgroup.com",
+  "price": "Paid (Contact Partner)",
+  "acquisition": {
+    "type": "contact-partner",
+    "url": "https://secursolutionsgroup.com/contact-us"
+  },
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md"
+    },
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md"
+    }
+  ]
+}

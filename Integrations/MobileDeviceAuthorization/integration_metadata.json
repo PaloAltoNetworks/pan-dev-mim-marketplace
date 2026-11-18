@@ -1,6 +1,6 @@
 {
   "name": "Mobile Device Authorization",
-  "description": "Boost control over mobile device security with Venafi’s MobileIron solution, featuring user-level visibility, a powerful kill switch, and seamless SCEP integration.",
+  "description": "Issue policy-enforced mobile certificates over SCEP with user-level visibility and a kill switch to revoke them.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "Mobileiron, Inc.",

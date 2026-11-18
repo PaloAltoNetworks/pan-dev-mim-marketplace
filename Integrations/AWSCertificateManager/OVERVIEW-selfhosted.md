@@ -1,21 +1,32 @@
 # AWS Certificate Manager
 
-Integrating Amazon Certificate Manager with Venafi streamlines the process of provisioning, tracking, and renewing TLS/SSL certificates. This strengthens your security posture by allowing you to maintain consistent, policy-driven control over your machine identities, which can help to safeguard the data flow within your cloud infrastructure.
-**Applicability**
-For organizations building or maintaining their applications on AWS, this solution offers effective security management by ensuring streamlined and automated TLS/SSL management. This is particularly beneficial for organizations with strict compliance requirements around their machine identities.
+AWS Certificate Manager (ACM) makes it easy to obtain public and private certificates for AWS workloads, but certificates requested directly in ACM sit outside the inventory and policy your security team applies everywhere else. That makes it hard to prove that every certificate meets enterprise standards.
+
+Certificate Manager, Self-Hosted integrates with ACM as a certificate authority. Certificate owners request public or private certificates from ACM through Certificate Manager, Self-Hosted, and security teams get assurance that every certificate is tracked and compliant with enterprise policy.
+
 **Value Highlights**
-- Automated lifecycle management of keys and certificates
-- Robust visibility into certificate usage within AWS, enhancing your security posture
-- Streamlined workflow that eliminates administrative burden
-- Consistent enforcement of security policy across your cloud infrastructure
+
+- **Request public and private certificates** from ACM through the same process used for your other CAs.
+- **Manage certificates across regions** with a single driver.
+- **Enforce consistent policy** for certificates issued in your AWS accounts.
+- **Gain visibility** into ACM-issued certificates alongside the rest of your inventory.
+- **Reduce administrative burden** by automating certificate requests and retrieval.
+
+**How it Works**
+
+Certificate Manager, Self-Hosted includes an AWS Certificate Manager CA template driver. You create a CA template that connects to your AWS account, and certificate objects that use it submit requests to ACM and retrieve the issued certificates. For a public certificate you supply only the Common Name and DNS Subject Alternative Names, because ACM generates and stores the key. Private certificates require an AWS Private CA in each region where you issue them. See the Documentation tab for setup.
+
+**Applicability**
+
+This integration suits organizations that build or run applications on AWS and need consistent, auditable control over the certificates those applications use.
+
 **Solution Components**
-- Venafi TLS Protect Cloud or Certificate Manager, Self-Hosted
-- Amazon Certificate Manager
-**How it Works w/ TLS Protect Cloud (**[**Docs**](https://docs.venafi.cloud/vaas/integrations/Aws/aws-acm/)**)**
-The integration is enabled within the AWS Management Console. After specifying Venafi as the Certificate Manager, Venafi policies are applied in the ACM, ensuring that all machine identities fulfill your security and policy requirements.
-**How it Works w/ Certificate Manager, Self-Hosted (**[**Docs**](https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/r-drivers-Amazon-AWS-AppObjectSettings.php?tocpath=TLS%20Protect%7CCertificate%20Authority%20and%20Hosting%20Platform%20Integration%20Guide%7CProtecting%20server%20platforms%20and%20keystores%7CAmazon%20Web%20Services%20\(AWS\)%E2%80%94Overview%7C_____3)**)**
-Certificate Manager, Self-Hosted can submit Certificate Signing Requests (CSRs) and retrieve certificates from many Certificate Authorities (CAs) including AWS Certificate Manager. The integration simplifies certificate acquisition and administration, making it easy for certificate owners to request public or private certificates through AWS Certificate Manager while security teams get assurance that all certificates issued are compliant with enterprise security policy.
-**ABOUT Amazon**
-Amazon Web Services (AWS) is a leading cloud platform with a wide array of services. Amazon Certificate Manager (ACM) is a part of the AWS suite, allowing users to manage the lifecycle of their TLS/SSL certificates.
+
+- Certificate Manager, Self-Hosted
+- AWS Certificate Manager, with AWS Private CA for private certificates
+
+**About Amazon Web Services**
+
+[Amazon Web Services](https://aws.amazon.com/certificate-manager/) is a cloud platform with a wide range of services. AWS Certificate Manager is the AWS service for provisioning, managing and deploying TLS certificates for use with AWS services.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

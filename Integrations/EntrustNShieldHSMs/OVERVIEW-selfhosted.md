@@ -1,55 +1,32 @@
 # Entrust nShield HSMs
 
-The integration is delivered as an in-product capability to Venafi Certificate Manager, Self-Hosted and Venafi Code Sign Manager. To enable it, you only need to perform prescribed configurations within TLS Protect and Venafi Code Sign Manager with the information related to your nShield HSM. 
+Certificate Manager, Self-Hosted protects private keys and other sensitive material in software by default. Organizations in regulated industries often need a hardware security module to hold those keys instead. This integration lets Certificate Manager, Self-Hosted and Venafi Code Sign Manager keep their most sensitive key material in Entrust nShield HSMs while still automating the machine identity lifecycle and providing governance and visibility across the organization.
 
-  
+The integration is built into Certificate Manager, Self-Hosted and Venafi Code Sign Manager, so there is nothing to download. You enable it by configuring the products with the details of your nShield HSM. It is supported from Certificate Manager, Self-Hosted 21.1, and Entrust provides the specific nShield requirements.
 
-Venafi platform provides you the control plane for managing, orchestrating, and automating the lifecycles of all machine identities across the organization. It provides an industry approval level of security for sensitive materials such as private keys, the protection is done through software. However, many organizations in certain industries are required to provide a level of security that can only be provided by hardware security modules due to many reasons regulatory requirements. This integration with Entrust nShield HSMs enables you to entrust the safeguarding of the most sensitive key materials for machine identities to HSMs while allows Certificate Manager to automate the processes involve machine identities and provide governance and visibility to them across your organization. 
+**Value Highlights**
 
-  
+- **Meet regulatory requirements** by keeping private keys in FIPS-certified hardware.
+- **Generate keys in the HSM** for web servers and code signing.
+- **Keep automation** of certificate requests, approvals, installation and renewal while keys stay in hardware.
+- **Audit every step**, because each operation is validated and logged by Certificate Manager, Self-Hosted.
+- **Protect code signing keys** used by Venafi Code Sign Manager.
 
-This integration is supported since Certificate Manager, Self-Hosted v21.1. Specific requirements for an Entrust nShield HSM should be provided by Entrust. 
+**How it Works**
 
-  
+The Entrust nShield client software is installed on each Certificate Manager, Self-Hosted server, and the platform's PKCS#11 HSM connector is pointed at the nShield HSM. Keys requested through the platform are then generated and stored in the HSM, and the platform drives certificate issuance, installation and renewal around them. See the Documentation tab for setup steps.
 
-**Who will benefit**
+**Applicability**
 
-Any organization with both Certificate Manager and Entrust nShield HSMs deployed should take advantage of this integration to connect the two systems to reduce overall cybersecurity risks the organization faces. Any organization with regulatory requirements on data security should consider putting in place these two systems and connect them with this integration.  
+Any organization running both Certificate Manager, Self-Hosted and Entrust nShield HSMs can connect them to reduce risk. Organizations with regulatory requirements on data security should consider deploying both and connecting them with this integration.
 
-  
+**Solution Components**
 
-**Additional resources**
+- Certificate Manager, Self-Hosted and Venafi Code Sign Manager
+- Entrust nShield HSM and nShield client software
 
-- Enable Certificate Manager to access AES keys on Entrust nShield:[https://docs.venafi.com/Docs/current/TopNav/Content/EncryptionKeys/t-encryptionKeys-nCipher-NetHSM-ConfigRequirements.php](https://docs.venafi.com/Docs/current/TopNav/Content/EncryptionKeys/t-encryptionKeys-nCipher-NetHSM-ConfigRequirements.php)
-- Setting up Venafi Code Sign Manager to use HSM keys: [https://docs.venafi.com/Docs/current/TopNav/Content/_Outcomes/th-using-codesignprotect-with-hsm.php](https://docs.venafi.com/Docs/current/TopNav/Content/_Outcomes/th-using-codesignprotect-with-hsm.php)
-- Recommendation for Key Management: part 2 – Best Practices for Key Management Organizations. NIST.SP.800-57pt2r1
-- Integration guide: [https://www.entrust.com/resources/hsm/nshield-docs/venafi-trust-protection-platform-integration-guide](https://www.entrust.com/resources/hsm/nshield-docs/venafi-trust-protection-platform-integration-guide )
+**About Entrust**
 
-  
-
-**Get it to work **
-
-There are 3 high-level steps you need to take after proper deployments of both Venafi products and nShield HSM. You can find the details of the configuration in the documentation provided on this listing. 
-
-- Install the Entrust nShield Client Software on each Certificate Manager server in the cluster
-- Configure the Entrust nShield client
-- Set up the PKCS11 HSM Driver in Certificate Manager
-
-**Example usage**
-
-- On Certificate Manager, you request that web server keys be generated in nShield HSM
-- On Certificate Manager, it initiates a certificate request after the key generation
-- On Certificate Manager, a user approves the request (this is optional). Certificate Manager works with configured CA to issue the certificate. Certificate Manager then automatically install the certificate the targeted application. The process is validated and logged and can be audited at any time by Certificate Manager
-- Certificate Manager monitors the expiration date of a certificate and triggers the starting of the process when it’s about time to be renewed
-
-  
-
-**About Company**
-
-Entrust has established secure connections across the planet and even into outer space, enabled reliable debit and credit card purchases with our card printing and issuance technologies, protected international travel with our border control solution, created secure experiences on the internet with our SSL technologies and safeguarded networks and devices with our suite of authentication products.
-
-  
-
-Entrust nShield HSMs is a family of general purpose hardware security modules. nShield HSMs provide a hardened, tamper-resistant environment for secure cryptographic processing, key generation and protection, encryption, key management, and more. nShield hardware security modules are available in a range of FIPS 140-2 & 140-3* certified form factors and support a variety of deployment scenarios.
+[Entrust](https://www.entrust.com) nShield HSMs are a family of general-purpose hardware security modules that provide a hardened, tamper-resistant environment for cryptographic processing, key generation and protection, encryption and key management. They are available in a range of FIPS 140-2 and FIPS 140-3 certified form factors.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

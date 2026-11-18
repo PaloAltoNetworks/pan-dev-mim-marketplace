@@ -1,7 +1,7 @@
 {
-  "name": "Export from Venafi Cloud into TPP",
+  "name": "Export from Certificate Manager, SaaS into Self-Hosted",
   "listingType": "tool",
-  "description": "A command line utility that exports certificates from a Venafi Cloud (OutagePREDICT) account inventory and imports them into Certificate Manager, Self-Hosted using the WebSDK POST discovery/import method. Source is provided as a buildable Go project.",
+  "description": "Command-line utility that copies certificates from a Certificate Manager, SaaS inventory into a Certificate Manager, Self-Hosted policy folder.",
   "support": "Community",
   "currentVersion": "1.0",
   "author": "Community",
@@ -19,7 +19,7 @@
     "Certificate Lifecycle Management"
   ],
   "keywords": [
-    "Venafi Cloud",
+    "Certificate Manager SaaS",
     "Discovery",
     "Import",
     "WebSDK"

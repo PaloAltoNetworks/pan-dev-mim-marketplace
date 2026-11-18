@@ -1,6 +1,6 @@
 {
   "name": "Gigamon GigaVue (OS)",
-  "description": "Gigamon GigaVue (OS) automates machine identity management, enhancing security and streamlining operations for Gigamon web interfaces.",
+  "description": "Automate renewal and deployment of the TLS certificate that secures the Gigamon GigaVUE-OS web management interface.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Gigamon",

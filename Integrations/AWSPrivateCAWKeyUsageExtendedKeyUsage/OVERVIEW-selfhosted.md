@@ -1,27 +1,32 @@
 # AWS Private CA w/ Key Usage & Extended Key Usage
 
-Secur Solutions's AWS Private CA adaptable driver provides a way to issue certificates with a key usages and extended key usage for AWS Private CA
+Some certificates must carry specific key usage, extended key usage or certificate policy extensions to be accepted by the systems that rely on them. When AWS Private CA is your issuing CA, setting those extensions per request is not possible through a standard CA connection.
 
-**Applicability**
-
-Organizations that need to have key usage and extended key usage in their certificates and want to use AWS Private CA can utilize this adaptable driver.
+Secur Solutions' AWS Private CA Adaptable CA driver lets Certificate Manager, Self-Hosted issue certificates from AWS Private CA with the key usage, extended key usage and certificate policy values you choose for each certificate.
 
 **Value Highlights**
 
-•  Issue certificates with key usage
+- **Issue certificates with key usage** such as Digital Signature, Key Encipherment, Data Encipherment and Non-Repudiation.
+- **Issue certificates with extended key usage** such as Server Authentication and Client Authentication.
+- **Specify policy identifiers and qualifiers** in the certificate policies extension.
+- **Control validity** per certificate with a validity period field.
+- **Manage the full lifecycle** with issuance, retrieval and revocation through Certificate Manager, Self-Hosted.
 
-•  Issue certificates with extended key usage
+**How it Works**
 
-•  Specify policy identifiers and qualifiers
+The driver (`Secur AWS CA script.ps1`) is an Adaptable CA driver for Certificate Manager, Self-Hosted. It reads custom fields on each certificate, builds the requested extensions, and calls AWS Private CA through the AWS CLI using the API passthrough end-entity template. You select the extension values in custom fields when you request the certificate. See the Documentation tab for setup.
 
-**ABOUT Secur Solution - Innovation is in our DNA.**
+**Applicability**
 
-Secur Solutions Group's mission is market leadership in Smart Card issuance and Digital Identity.
+Organizations that use AWS Private CA and need key usage, extended key usage or certificate policy values in their certificates can use this driver.
 
-We seek to be a forward thinking and process centred organisation that delivers innovative solutions to our customers while consistently outperforming our peers. We do so by being market aware and providing a dynamic and challenging environment for our internal team.
+**Solution Components**
 
-We are privately owned, with a Ministry of Finance (Singapore) S8 qualification. In territory, we have majority coverage of the financial card issuance and government card issuance space, and partnerships with the major System Integrators. We have achieved the Singapore Quality Class (SQC 2017) and are Bizsafe certified.
+- Certificate Manager, Self-Hosted
+- AWS Private CA and the AWS CLI
 
-We are the pioneering and oldest Entrust distribution partner in Southeast Asia and a multiple award winner within the Entrust network.
+**About Secur Solutions Group**
+
+[Secur Solutions Group](https://secursolutionsgroup.com/) is a Singapore-based provider of smart card issuance and digital identity solutions, and a long-standing Entrust distribution partner in Southeast Asia.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

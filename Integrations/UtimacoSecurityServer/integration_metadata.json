@@ -1,6 +1,6 @@
 {
   "name": "Utimaco SecurityServer",
-  "description": "Utimaco SecurityServer enhances machine identity protection by combining certificate management with FIPS-certified HSM key security.",
+  "description": "Protect master keys in a FIPS-certified Utimaco CryptoServer HSM while Certificate Manager, Self-Hosted automates the certificate lifecycle.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Utimaco",

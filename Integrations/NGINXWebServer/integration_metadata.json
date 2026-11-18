@@ -1,6 +1,6 @@
 {
   "name": "NGINX Web Server",
-  "description": "Enabling automated certificates management on NGINX Web Servers",
+  "description": "Discover and provision certificates on NGINX web servers to prevent outages from expired certificates.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Venafi",
@@ -31,7 +31,7 @@
       "documentationLinks": [
         {
           "title": "Common Keystore Overview",
-          "description": "NGINX is supported via Certificate Manager SaaS's Common Keystore mechanism, not a native connector.",
+          "description": "NGINX is managed through the Common KeyStore machine.",
           "url": "https://docs.cyberark.com/mis-saas/vaas/machines/common-keystore/"
         },
         {
@@ -46,8 +46,8 @@
       "overviewFile": "OVERVIEW-selfhosted.md",
       "documentationLinks": [
         {
-          "title": "NGINX Web Server Integration Guide",
-          "description": "Complete integration guide for NGINX Web Server",
+          "title": "PEM Application Object Settings",
+          "description": "Create a PEM application object for an NGINX server in Certificate Manager, Self-Hosted",
           "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/r-PEM_AppObjSettings.php"
         }
       ]
@@ -58,7 +58,7 @@
       "documentationLinks": [
         {
           "title": "Create a Common Keystore Machine",
-          "description": "NGINX is supported via NGTS's Common Keystore mechanism, not a native connector.",
+          "description": "NGINX is managed through the Common KeyStore machine.",
           "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/common-keystore"
         },
         {

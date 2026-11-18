@@ -1,6 +1,6 @@
 {
   "name": "Microsoft Intune",
-  "description": "Enhance enterprise security with Venafi and Microsoft Intune's seamless machine identity integration.",
+  "description": "Automate SCEP certificate enrollment and renewal for devices managed by Microsoft Intune.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Venafi",
@@ -30,8 +30,8 @@
       "overviewFile": "OVERVIEW-selfhosted.md",
       "documentationLinks": [
         {
-          "title": "Microsoft Intune Integration Guide",
-          "description": "Complete integration guide for Microsoft Intune",
+          "title": "Integrating with Microsoft Intune",
+          "description": "Integrate Microsoft Intune with Certificate Manager, Self-Hosted",
           "url": "https://docs.venafi.com/Docs/current/TopNav/Content/ClientProtect/t-EntMob-intune.php"
         }
       ]
@@ -41,8 +41,8 @@
       "overviewFile": "OVERVIEW-ztpki.md",
       "documentationLinks": [
         {
-          "title": "Microsoft Intune Integration Guide",
-          "description": "Complete integration guide for Microsoft Intune",
+          "title": "Integrating Microsoft Intune",
+          "description": "Connect Microsoft Intune to Zero Touch PKI over SCEP",
           "url": "https://docs.cyberark.com/mis-saas/ztpki/connectors/integrating-microsoft-intune/"
         }
       ]

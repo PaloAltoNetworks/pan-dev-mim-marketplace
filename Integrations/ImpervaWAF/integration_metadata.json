@@ -1,6 +1,6 @@
 {
   "name": "Imperva WAF",
-  "description": "Unlock encrypted traffic with Venafi's solution to enhance Imperva WAF, ensuring robust protection against web application attacks.",
+  "description": "Discover and provision custom certificates for sites protected by Imperva Cloud WAF.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Venafi",
@@ -19,8 +19,7 @@
     "Certificate Lifecycle Management"
   ],
   "keywords": [
-    "Web Application Firewall",
-    "Adaptable Framework - App"
+    "Web Application Firewall"
   ],
   "logoFile": "Imperva.png",
   "supportUrl": "https://community.cyberark.com/s/",
@@ -30,13 +29,13 @@
       "overviewFile": "OVERVIEW-saas.md",
       "documentationLinks": [
         {
-          "title": "Imperva WAF Integration Guide",
-          "description": "Complete integration guide for Imperva WAF",
+          "title": "Imperva WAF Machine Setup",
+          "description": "Create an Imperva WAF machine in Certificate Manager, SaaS",
           "url": "https://docs.cyberark.com/mis-saas/vaas/machines/imperva-waf/"
         },
         {
-          "title": "Provisioning Certificates to Imperva WAF",
-          "description": "Step-by-step guide for certificate provisioning",
+          "title": "Provision Certificates to Imperva WAF",
+          "description": "Provision certificates to an Imperva WAF site",
           "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-imperva-waf/"
         }
       ]
@@ -46,9 +45,14 @@
       "overviewFile": "OVERVIEW-ngts.md",
       "documentationLinks": [
         {
-          "title": "Imperva WAF Integration Guide",
-          "description": "Complete integration guide for Imperva WAF",
+          "title": "Create an Imperva WAF Machine",
+          "description": "Create an Imperva WAF machine in Next-Gen Trust Security",
           "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/imperva-waf"
+        },
+        {
+          "title": "Provision to an Imperva WAF",
+          "description": "Provision certificates to an Imperva WAF site",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/imperva-waf/provision-certificates-imperva-waf"
         }
       ]
     }

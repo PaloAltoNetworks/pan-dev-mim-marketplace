@@ -1,25 +1,27 @@
 # UiPath
 
-Reveal Group’s RPA UiPath Activities Package enables certificate owners to automate their Certificate Workflow with Robotic Process Automation on the Venafi Certificate Manager.
+As organizations use more machine identities, security teams need to act on certificate requests faster without adding headcount. Reveal Group's UiPath Activities Package lets certificate owners automate their certificate workflow in Certificate Manager, Self-Hosted with robotic process automation (RPA), reducing the time spent on repetitive tasks.
 
-  
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Eliminate manual effort**: Spend less time updating certificates.
+- **Scale automation**: Automate more of the certificate lifecycle with a UiPath solution.
+- **Act on workflow automatically**: Update certificates based on your workflow setup through API calls.
+- **Integrate easily**: Add simple activities to existing UiPath solutions.
+- **Start from a template**: Request an example solution template from Reveal Group and adapt it to your use case.
 
-- ** Eliminate time **spent updating certificates
-- **Scale the automation **of the certificate lifecycle using a UiPath solution
-- **Automate certificate updates **based on Workflow Setup via API Calls
-- **Simple Activities **that are easy to utilize and integrate in existing UiPath solutions
-- **Flexible Solution Template **option available that can be expanded and/or altered based on the use case
+**How it Works**
 
-  
+The package contains four UiPath activities that use REST API calls to act on pending certificates in Certificate Manager, Self-Hosted. Add the activities to your own UiPath solutions, or ask Reveal Group for an example solution template that demonstrates them in a sample use case.
 
-**SOLUTION OVERVIEW**
+**Solution Components**
 
-REVEAL Group, an international leader in operational intelligence and robotic process automation (RPA) tools, is using the Machine Identity Management Development Fund to build RPA bots for the Venafi Platform. As organizations use more machine identities, security teams must accelerate and use resources efficiently. This UiPath Activities Package developed by Reveal Group provides users the ability to reduce their time spent on repetitive tasks and automate their certificate workflow on the Venafi Platform.
+- Certificate Manager, Self-Hosted
+- UiPath
+- Reveal Group UiPath Activities Package
 
-  
+**About Reveal Group**
 
-The activities in this UiPath Package enable users to action pending certificates on the Venafi Platform. The four activities included in this package utilize REST API Calls to interact with Venafi’s Certificate Manager. Users can add these activities to their UiPath solutions, or alternatively request Reveal Group for an example UiPath solution template to get started. The template will demonstrate its utility via an example use case.
+Reveal Group is an international provider of operational intelligence and robotic process automation services. It built this package through the Machine Identity Management Development Fund.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

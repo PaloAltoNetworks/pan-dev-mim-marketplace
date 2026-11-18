@@ -1,6 +1,6 @@
 {
   "name": "Pulumi Cloud Engineering Platform",
-  "description": "Pulumi's platform streamlines cloud deployments with IaC, integrating Venafi for secure certificate management across multiple environments.",
+  "description": "Request and renew certificates as code alongside your cloud infrastructure with the Venafi provider for Pulumi.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Pulumi",
@@ -29,15 +29,36 @@
   "productVariants": [
     {
       "product": "Certificate Manager SaaS",
-      "overviewFile": "OVERVIEW-saas.md"
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Venafi Provider for Pulumi",
+          "description": "Installation and configuration reference for the Pulumi Venafi package",
+          "url": "https://www.pulumi.com/registry/packages/venafi/"
+        }
+      ]
     },
     {
       "product": "Certificate Manager Self-Hosted",
-      "overviewFile": "OVERVIEW-selfhosted.md"
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Venafi Provider for Pulumi",
+          "description": "Installation and configuration reference for the Pulumi Venafi package",
+          "url": "https://www.pulumi.com/registry/packages/venafi/"
+        }
+      ]
     },
     {
       "product": "Next-Gen Trust Security",
-      "overviewFile": "OVERVIEW-ngts.md"
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Venafi Provider for Pulumi",
+          "description": "Installation and configuration reference for the Pulumi Venafi package",
+          "url": "https://www.pulumi.com/registry/packages/venafi/"
+        }
+      ]
     }
   ],
   "price": "Free"

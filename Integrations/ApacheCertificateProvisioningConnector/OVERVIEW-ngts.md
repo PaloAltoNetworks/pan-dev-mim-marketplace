@@ -1,23 +1,26 @@
 # Apache Certificate Provisioning Connector
 
-The Apache Certificate Provisioning Connector integrates with Next-Gen Trust Security to simplify and automate TLS certificate lifecycle management for Apache web servers. Certificates issued and managed by Next-Gen Trust Security are automatically provisioned to your Apache instances, placing certificate files in the correct locations with the right ownership and file permissions to reduce operational errors and compliance risks.
+Apache HTTP Server deployments need their certificates and keys renewed on time, placed in the right locations and protected with the right file ownership and permissions. Doing this by hand across many servers causes outages from expired or misconfigured certificates and creates compliance risk.
 
-Beyond standard provisioning, the connector offers powerful post-deployment customization. Administrators can configure any number of shell commands to run after a certificate is installed — such as restarting Apache, reloading configurations, updating monitoring agents, or executing scripts. These commands can run under the connecting SSH user or with elevated sudo privileges, giving teams full control over their integration workflows.
+The Apache Certificate Provisioning Connector from Secur Solutions automates this for Next-Gen Trust Security. Certificates that Next-Gen Trust Security issues and manages are provisioned to your Apache instances with the correct locations, ownership and permissions.
 
-**SOLUTION COMPONENTS**
+**Value Highlights**
+
+- **Automate Apache certificates end to end**, from issuance through deployment and renewal.
+- **Prevent downtime** from expired or misconfigured certificates.
+- **Harden security** by setting ownership and permissions on certificate and key files.
+- **Run custom post-provisioning commands**, such as restarting Apache, reloading configuration or updating monitoring agents.
+- **Extend DevOps workflows** with your own scripts after each deployment.
+
+**How it Works**
+
+The connector adds Apache provisioning to Next-Gen Trust Security and connects to each Apache server over SSH. After it places the certificate and key files, it runs any number of shell commands you configure, either as the connecting SSH user or with sudo privileges. Contact Secur Solutions for setup documentation.
+
+**Solution Components**
 
 - Next-Gen Trust Security
 - Apache HTTP Server
 
-**KEY FEATURES**
+**About Secur Solutions Group**
 
-- End-to-end Apache certificate automation
-- Custom post-provisioning commands with flexible execution (user or sudo mode)
-- Ownership and permissions management for certificates and keys, ensuring proper security hardening
-
-**USE CASES**
-
-- Automating certificate deployment and renewal for Apache-based applications
-- Eliminating downtime risks from expired or misconfigured certificates
-- Enforcing security best practices with correct file ownership and permissions
-- Extending automation workflows with custom restart scripts, service reloads, or integrations into broader DevOps pipelines
+[Secur Solutions Group](https://secursolutionsgroup.com/) is a Singapore-based identity and digital security company that builds integrations for CyberArk certificate management products.

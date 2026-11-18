@@ -1,6 +1,6 @@
 {
   "name": "Pulumi CrossGuard",
-  "description": "Pulumi CrossGuard enhances Kubernetes security by simplifying cert-manager deployment and enforcing issuer verification through Policy as Code.",
+  "description": "Deploy cert-manager with Pulumi and use CrossGuard Policy as Code to block Kubernetes deployments that use an unapproved certificate issuer.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Pulumi",

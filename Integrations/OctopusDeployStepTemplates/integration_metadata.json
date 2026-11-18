@@ -1,6 +1,6 @@
 {
   "name": "Octopus Deploy Step Templates",
-  "description": "Securely deploy Venafi certificates using Octopus Deploy",
+  "description": "Request and provision policy-compliant certificates from Certificate Manager, Self-Hosted inside Octopus Deploy deployment processes.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Octopus Deploy",

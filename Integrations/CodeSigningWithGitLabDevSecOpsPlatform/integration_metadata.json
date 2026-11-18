@@ -1,6 +1,6 @@
 {
   "name": "Code Signing with GitLab DevSecOps Platform",
-  "description": "An integration package enables Venafi customers to easily integrate with CodeSign Protect using containers.",
+  "description": "Sign build artifacts in GitLab CI/CD pipelines while private signing keys stay protected in Certificate Manager, Self-Hosted.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Qensus",

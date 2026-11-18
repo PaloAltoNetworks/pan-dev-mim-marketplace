@@ -1,6 +1,6 @@
 {
   "name": "SaltStack Enterprise",
-  "description": "Accelerate HTTPS automation and continuous delivery with SaltStack Enterprise and Venafi, streamlining certificate management and scaling effortlessly.",
+  "description": "Request and renew policy-enforced certificates for Salt minions from Certificate Manager, Self-Hosted with the Salt Venafi runner.",
   "support": "Community",
   "issuesUrl": "https://github.com/saltstack/salt/issues",
   "currentVersion": "1.0.0",
@@ -23,5 +23,18 @@
     "VCert Python"
   ],
   "logoFile": "SaltStack.png",
-  "price": "Free"
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Salt Venafi Runner Reference",
+          "description": "Configuration and commands for the salt.runners.venafiapi module",
+          "url": "https://docs.saltproject.io/en/3006/ref/runners/all/salt.runners.venafiapi.html"
+        }
+      ]
+    }
+  ]
 }

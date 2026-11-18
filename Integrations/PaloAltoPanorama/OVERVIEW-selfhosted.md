@@ -1,21 +1,22 @@
 # Palo Alto Panorama
 
-The Palo Alto Panorama Adaptable Application solution automates provisioning of an SSL certificate to be consumed by objects and policies for the purposes of SSL Deep Packet Inspection. The flexibility of the integration provides Panorama administrator various levels for committing changes including the option to “Commit and Push” the changes to a specified device group.
+Palo Alto Networks Panorama manages the certificates that firewalls use for SSL deep packet inspection, and updating those certificates by hand across templates, device groups and decryption rules is slow and error-prone. The Panorama Adaptable Application for Certificate Manager, Self-Hosted provisions certificates to Panorama and binds them to decryption rules automatically, with the level of commit control your change process needs.
 
 **Value Highlights**
 
-- **Streamline** certificate lifecycle operations for your devices
-- **Enhance visibility** and compliance with corporate certificate policy
-- **Automation** of certificate request and distribution to improve efficiency
-- **Reduce threats** and errors through a uniformed deployment process
-
-**Solution Components**
-
-- TLS Protect Self-hosted
-- Palo Alto Panorama
+- **Streamline certificate operations**: provision certificates to Panorama templates without manual imports.
+- **Automate decryption policy updates**: bind certificates to a Decryption Rule in the device group you choose.
+- **Control change rollout**: stage the certificate only, commit just the service account's changes, or commit and push to a device group.
+- **Prevent stale certificates**: expired certificates are unbound from the policy and can be removed from Panorama automatically.
+- **Enforce policy**: request and track every Panorama certificate through Certificate Manager, Self-Hosted.
 
 **How it Works**
 
-Venafi builds and delivers software drivers designed to connect with many of the most common certificate authorities (CAs), application servers, and enterprise monitoring systems for notification use cases. But if the Venafi Driver Library does not include the driver you need, you can use a Venafi Adaptable Driver. In fact, because they are customizable, you can use an Adaptable driver in place of an existing driver to provide tighter integration between your business processes and Certificate Manager, Self-Hosted.
+The integration is an Adaptable Application driver delivered as a `.vupkg` package that you install on each Certificate Manager, Self-Hosted server. It uses a Panorama API key to import the certificate and its chain into the template you name, optionally binds it to a Decryption Rule, and commits the change to Panorama or pushes it to the device group. It works with Panorama PAN-OS 10.2 and 11.2 and Certificate Manager, Self-Hosted 23.3 or later. See the Documentation tab for setup.
+
+**Solution Components**
+
+- Certificate Manager, Self-Hosted
+- Palo Alto Networks Panorama
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

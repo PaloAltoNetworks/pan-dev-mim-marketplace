@@ -32,9 +32,9 @@
       "overviewFile": "OVERVIEW-selfhosted.md",
       "documentationLinks": [
         {
-          "title": "Pulse Secure Virtual Traffic Manager Integration Guide",
-          "description": "Complete integration guide for Pulse Secure Virtual Traffic Manager",
-          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/AdaptableFrameworks/c_AdaptableApp_overview.php"
+          "title": "Adaptable Application PowerShell Reference",
+          "description": "Certificate Manager, Self-Hosted reference for Adaptable Application drivers",
+          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/c-drivers-AdaptableApp-PowerShell-reference.php"
         }
       ],
       "downloadFiles": [

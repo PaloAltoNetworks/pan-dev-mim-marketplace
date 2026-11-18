@@ -1,16 +1,27 @@
 # Corsha API Security Platform
 
-Machine identities used in API authentication are typically long-lived and easy to steal and reuse. Corsha solves this problem by providing a second layer of machine identity that is dynamic and unique to each machine, which enables zero-trust access for API services.
+Machine identities used in API authentication are typically long-lived and easy to steal and reuse. Corsha addresses this by adding a second layer of machine identity that is dynamic and unique to each machine, which enables zero-trust access for API services.
 
-**SOLUTION OVERVIEW**
+Corsha's integration with cert-manager, developed under the Machine Identity Management Development Fund, brings certificates governed by Next-Gen Trust Security into Corsha's native Kubernetes-based infrastructure.
 
-Machine identities used in API authentication are typically long-lived and easy to steal and reuse. Corsha solves this problem by providing a second layer of machine identity that is dynamic and unique to each machine, which enables zero-trust access for API services.
+**Value Highlights**
 
-As part of the Machine Identity Management Development Fund, Corsha will integrate cert-manager into its native Kubernetes-based infrastructure.
+- **Maintain mutual TLS**: Keep mTLS between internal resources within Corsha's Distributed Ledger Network (DLN).
+- **Secure ingress**: Protect all ingress resources into the cluster with trusted certificates.
+- **Provision client identities**: Issue new Hyperledger Fabric client identities.
+- **Improve rotation and revocation**: Rotate and revoke certificates without manual effort.
+- **Keep policy central**: Certificates issued in the cluster follow the policy defined in Next-Gen Trust Security.
 
-There are numerous use cases within Corsha’s Distributed Network Ledger (DLN) infrastructure for issuing certificates with cert-manager including:
+**How it Works**
 
-- Maintaining mutualTLS between internal resources within the DLN
-- Securing all ingress resources into the cluster
-- Provisioning new Hyperledger Fabric client identities
-- Improved certificate rotation and revocation.
+Corsha runs cert-manager inside its Kubernetes infrastructure. cert-manager's Venafi issuer requests certificates from Next-Gen Trust Security using an application and issuing template, stores them as Kubernetes secrets and renews them before they expire.
+
+**Solution Components**
+
+- Next-Gen Trust Security
+- cert-manager
+- Corsha API Security Platform
+
+**About Corsha**
+
+[Corsha](https://corsha.com) provides an API security platform that uses dynamic machine identities to enable zero-trust access for API services.

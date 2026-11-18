@@ -1,49 +1,26 @@
 # Snowflake
 
-Snowflake provides developers and builders of data-driven applications and services a ready-made infrastructure and engine to build and run their solutions. However, frictionless access to machine identities does not currently exist. Snowflake developers are required to use existing, antiquated processes. This Development Fund project seeks to remedy that with the integration of Venafi to enable devs to get machine identities when they need them, right in their native environment.
+Snowflake gives developers of data-driven applications a ready-made infrastructure and engine to build and run their solutions, but getting machine identities from inside Snowflake has meant switching to separate tools and older processes. This Development Fund project connects Snowflake to Certificate Manager, SaaS so developers can get machine identities when they need them, right in their native environment.
 
-  
+Once the integration is deployed, developers don't need any other library or tool to manage machine identities. If they already store application information in Snowflake, they can insert query results directly into their current datasets.
 
-**SOLUTION HIGHLIGHTS**
+**Value Highlights**
 
-- **Achieve comfortable and easy **machine identity management for developers
-- **Work faster** with no need to maintain credentials
-- **Request, retrieve**, renew and revoke machine identities
-- **Integrate easily** with existing Snowflake datasets
-- **Deploy machine identities** with an automated install option
+- **Simplify machine identity management**: Developers work with certificates as first-class Snowflake objects.
+- **Work faster**: No need for each developer to maintain credentials locally.
+- **Cover the lifecycle**: Request, retrieve, renew, revoke and list machine identities from Snowflake.
+- **Integrate easily**: Combine results with existing Snowflake datasets.
+- **Deploy automatically**: Use the automated install option to set up the integration.
 
-  
+**How it Works**
 
-**SOLUTION OVERVIEW**
+Snowflake External Functions call a Snowflake API Integration, which is connected to an AWS REST API using an External ID from Snowflake. The REST API invokes AWS Lambda functions written in Go that wrap the VCert Go SDK. The Lambdas read the Certificate Manager, SaaS credentials from an S3 bucket, call the Certificate Manager, SaaS API to manage machine identities, and return the result to Snowflake as JSON, which developers can parse with Snowflake's built-in JSON functions.
 
-We know from experience that many developers struggle in their daily work, because they often have to use too many tools to maintain and store machine identities. This can easily become uncomfortable. 
+**Solution Components**
 
-  
-
-The goal of this Development Fund project was to help developers who are already familiar with Snowflake to manage their machine identities as first-class Snowflake citizens. The solution uses Snowflake External Functions, which are connected to AWS Lambdas. These Lambdas are integrated with Venafi's vCert Go SDK. In this way developers can use a secure way to request, retrieve, renew, revoke and list machine identities. 
-
-  
-
-Once the Venafi-Snowflake integration is deployed, developers don't have to use any other library or tool to manage machine identities. If they already store application information in Snowflake, they can easily insert the result of these queries to integrate it with their current dataset.
-
-  
-
-**HOW IT WORKS**
-
-The Snowflake External Functions are connected to a Snowflake API Integration. This Snowflake API integration are integrated with an AWS Rest API by using an External ID from Snowflake.
-
-  
-
-The Rest API has permission to call the Lambda functions. The Lambdas are written in Go and wrap Venafi's vCert Go SDK. The developer's Venafi credentials are stored in an S3 Bucket in AWS. The Lambdas will use this bucket to retrieve the credentials, and they will call Venafi's API to manage machine identities. 
-
-  
-
-After a successful request, the Lambda functions will return the result to Snowflake in json format. 
-
-  
-
-By using Snowflake built-in json parser, developers can easily parse their result.
-
-**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**
+- Certificate Manager, SaaS
+- Snowflake External Functions and API Integration
+- AWS API Gateway, Lambda and S3
+- VCert Go SDK
 
 **Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**

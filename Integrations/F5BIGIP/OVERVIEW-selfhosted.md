@@ -1,25 +1,25 @@
 # F5 BIG-IP
 
-To help safely scale the use of SSL/TLS on F5 BIG-IP, Certificate Manager has automated the complete lifecycle—from first setup to validation that ongoing key and certificate updates are successfully completed. With this highly automated approach, Certificate Manager eliminates the potential impact of mistakes, poor security decisions and the risk of certificates expiring.
+F5 BIG-IP Local Traffic Manager (LTM) terminates TLS for many of the applications an organization runs, so expired or misconfigured certificates on BIG-IP cause outages and security gaps. Certificate Manager, Self-Hosted automates the complete key and certificate lifecycle on BIG-IP, from first setup to validating that each key and certificate update completed, without manual work by F5 administrators.
 
-This integration with BIG-IP helps you scale the use of encryption by making it easy to automate the complete, secure key and certificate lifecycle without overburdening your F5 administrators by eliminating the need for manual setup and ongoing key and certificate maintenance for HTTPS.
+The F5 LTM Advanced driver is distributed with Certificate Manager, Self-Hosted. There is nothing to download.
 
-**SOLUTION HIGHLIGHTS**
+**Value Highlights**
 
-- Rapidly and reliably scale the safe use of encryption across physical, virtual and cloud environments
-- Eliminate blind spots and performance challenges commonly associated with encrypting and decrypting traffic
-- Strengthen existing layered security investments with better availability and utilization of encryption
-- Easily deploy, manage and protect applications that use SSL/TLS without hands-on responsibility for keys and certificates
-- Gain maximum visibility into SSL/TLS traffic and prevent attacks with continuous distribution of keys and certificates for inspection
-- Onboard-discovery provides a complete machine identity inventory from the start
+- **Scale encryption** reliably across physical, virtual and cloud BIG-IP environments.
+- **Automate installation** of keys and certificates to BIG-IP and their association with SSL profiles.
+- **Validate every update** so failed or partial installations are caught.
+- **Prevent outages** caused by expired certificates on load-balanced applications.
+- **Discover existing certificates** on BIG-IP for a complete machine identity inventory from the start.
+- **Distribute keys for inspection** so security tools can see into SSL/TLS traffic.
 
-**GETTING STARTED**
-This integration with F5 BIG-IP is distributed with Certificate Manager, Self-Hosted and also a part of TLS Protect Cloud offering. There’s no installation required. All you need to do is follow the documentation which provides the step-by-step configuration instructions to get it working.
+**How it Works**
 
-**ABOUT F5 BIG-IP**
-F5 BIG‑IP helps you deliver your applications to your users in a reliable, secure and optimized way. You get the extensibility and flexibility of application services with the programmability you need to manage your physical, virtual and cloud infrastructure. With BIG‑IP LTM, you have the power to simplify, automate and customize applications faster and more predictably.
+You create F5 LTM Advanced device and application objects in Certificate Manager, Self-Hosted that point at the BIG-IP management interface. The driver connects to BIG-IP, installs keys, certificates and chains, updates the SSL profiles that use them, and reports the result back to the platform. See the Documentation tab for configuration steps.
 
-**ABOUT Venafi**
-Venafi is the cybersecurity market leader in machine identity management, securing the cryptographic keys and digital certificates on which every business and government depends to deliver safe machine-to-machine communication. Organizations use Venafi key and certificate security to protect communications, commerce, critical systems and data, and mobile and user access.
+**Solution Components**
+
+- Certificate Manager, Self-Hosted
+- F5 BIG-IP LTM
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

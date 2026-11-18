@@ -1,6 +1,6 @@
 {
   "name": "AWS Elastic Load Balancer",
-  "description": "Securely scale HTTPS with AWS Elastic Load Balancer, automating key management and eliminating outages for cloud agility.",
+  "description": "Automate the certificates on AWS Application and Classic Load Balancers with policy-driven issuance, renewal and provisioning.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Venafi",
@@ -31,9 +31,14 @@
       "overviewFile": "OVERVIEW-selfhosted.md",
       "documentationLinks": [
         {
-          "title": "AWS Elastic Load Balancer Integration Guide",
-          "description": "Complete integration guide for AWS Elastic Load Balancer",
+          "title": "Amazon Web Services Driver Overview",
+          "description": "How Certificate Manager, Self-Hosted provisions certificates to AWS",
           "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/r-drivers-Amazon-AWS-about.php"
+        },
+        {
+          "title": "Create an AWS Application Object",
+          "description": "Install certificates into ACM or IAM and bind them to ALB, ELB or CloudFront",
+          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/r-drivers-Amazon-AWS-AppObjectSettings.php"
         }
       ]
     }

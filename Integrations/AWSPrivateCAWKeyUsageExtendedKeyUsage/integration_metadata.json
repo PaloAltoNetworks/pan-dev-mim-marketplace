@@ -1,6 +1,6 @@
 {
   "name": "AWS Private CA w/ Key Usage & Extended Key Usage",
-  "description": "AWS Private CA driver",
+  "description": "Issue AWS Private CA certificates with custom key usage, extended key usage and certificate policy extensions from Certificate Manager, Self-Hosted.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Secur Solutions Group",

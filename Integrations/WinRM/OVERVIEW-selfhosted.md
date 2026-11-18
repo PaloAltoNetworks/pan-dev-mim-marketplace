@@ -1,31 +1,23 @@
 # WinRM Certificate Deployment
 
-A set of Adaptable Application drivers that deploy certificates to remote Windows hosts over Windows Remote Management (WinRM) from Certificate Manager, Self-Hosted (formerly Venafi Trust Protection Platform). Each driver provisions certificates in a different on-host format, so you can automate installation without local agents on the target machines.
+Many Windows hosts run applications that read certificates from files or keystores rather than the Windows certificate store, and updating those by hand is slow and easy to forget. This set of Adaptable drivers lets Certificate Manager, Self-Hosted deploy certificates to remote Windows hosts over Windows Remote Management (WinRM) in the format each application expects, without installing agents on the target machines.
 
-## Included drivers
+**Value Highlights**
 
-| Driver | Format |
-| --- | --- |
-| `WinRM CRT-KEY.ps1` | Separate certificate (CRT) and private key (KEY) files |
-| `WinRM PEM.ps1` | PEM bundle |
-| `WinRM PFX.ps1` (`Aeyrix PFX WinRM Driver.ps1`) | PKCS#12 / PFX keystore |
-| `WinRM JKS.ps1` | Java KeyStore (JKS) |
-| `WinRM KDB.ps1` | IBM CMS key database (KDB) |
-| `WinRM SSRS Workflow.ps1` | SQL Server Reporting Services (SSRS) binding workflow |
+- **Deploy without agents**: Push certificates to Windows hosts over WinRM.
+- **Match the application format**: Install certificates as CRT and KEY files, PEM, PKCS#12 (PFX), Java KeyStore (JKS) or IBM CMS key database (KDB).
+- **Renew automatically**: Certificates associated with an application are reprovisioned on renewal.
+- **Update SSRS bindings**: Use the workflow driver to bind a renewed certificate to SQL Server Reporting Services.
+- **Start from open scripts**: Each driver is a PowerShell script you can review and adapt.
 
-## Prerequisites
+**How it Works**
 
-- Certificate Manager, Self-Hosted (Trust Protection Platform)
-- Target Windows hosts with WinRM enabled and reachable from the Venafi server
-- A credential with permission to connect over WinRM and write certificates to the target location on each host
+Each Adaptable Application driver connects to the target host over WinRM on issuance or renewal and writes the certificate, private key and chain to the paths or keystore configured on the application object. The SSRS Adaptable Workflow driver uses WinRM and the SSRS WMI provider to reserve URLs and create SSL bindings for the new certificate. See the Documentation tab for the included drivers and setup.
 
-## Installation and configuration
+**Solution Components**
 
-1. Copy the driver(s) for the format(s) you need into the Adaptable Application scripts directory on the Venafi server.
-2. Create a device for the target Windows host and configure its WinRM connection credential.
-3. Add an Adaptable Application under the device, select the appropriate WinRM driver for the required output format, and set the destination path and any format-specific options (for example, keystore password for PFX/JKS/KDB).
-4. Associate the certificate with the application so renewals provision automatically.
+- Certificate Manager, Self-Hosted
+- Windows hosts with WinRM enabled
+- WinRM Adaptable Application and Workflow drivers
 
-## Usage
-
-On issuance or renewal, the selected driver connects to the target host over WinRM and installs the certificate in the chosen format. Use the SSRS workflow driver to bind a certificate to SQL Server Reporting Services. Choose the driver whose format matches what the consuming application on the host expects.
+**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

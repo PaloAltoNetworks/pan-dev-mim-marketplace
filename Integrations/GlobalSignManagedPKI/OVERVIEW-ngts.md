@@ -1,13 +1,20 @@
 # GlobalSign Managed PKI
 
-Combining GlobalSign’s scalable PKI services with Venafi enables enterprises to expand encryption to all public and private business applications with robust visibility, automation, and reporting capabilities.
-**SOLUTION HIGHLIGHTS**
-- **Automate certificate lifecycle** to reduce number of man hours needed to manage certificates and monitor issuance to eliminate out of scope orders
-- **Ensure all certificates meet enterprise policy** and that only appropriate individuals have access to certificate resources
-- **Meet the high volume certificate demands** of DevOps teams, while ensuring all certificates come from a trusted CA and meet company policy
-- **Centralize and monitor all certificate usage** and activity to avoid unexpected expiration
-- **GlobalSign offers a range of SSL options** to ensure public servers and sites are in line with industry best practices
-- **Works with the native** GlobalSign API interface
-- **Enables complete process** for configurable workflow approval and authorization
-**SOLUTION OVERVIEW**
-Encryption is no longer a nice to have, but has become a requirement for enterprise-wide applications. GlobalSign’s hosted PKI services and range of SSL products support all public and private encryption needs and scale to accommodate high volume demand. Integrating these services with Venafi’s visibility and automation platforms means enterprises can support all encryption needs while centralizing certificate activity, enforcing SSL/TLS policies, and simplifying lifecycle management.
+Teams that buy public TLS certificates from GlobalSign often order and renew them by hand, which leads to out-of-policy orders and unexpected expirations. Connecting GlobalSign Managed SSL (MSSL) to Next-Gen Trust Security lets you request GlobalSign certificates through your own request policies, with visibility and automation across every certificate you issue.
+
+**Value Highlights**
+
+- **Automate issuance and renewal**: Request GlobalSign certificates from Next-Gen Trust Security instead of ordering them manually.
+- **Enforce policy**: Issue GlobalSign certificates only through request policies you control.
+- **Support DevOps demand**: Meet high-volume certificate requests while keeping every certificate from a trusted CA.
+- **Avoid expirations**: Track GlobalSign certificates in one inventory alongside the rest of your certificates.
+- **Track domain validation**: See the domains registered with your GlobalSign account and their domain control validation status.
+
+**How it Works**
+
+You add a GlobalSign MSSL certificate authority in Next-Gen Trust Security with the credentials GlobalSign provides, pick the Production or Staging server, and select the GlobalSign profile to use. You then add the CA to one or more request policies, and certificates requested under those policies are issued by GlobalSign. See the Documentation tab for setup.
+
+**Solution Components**
+
+- Next-Gen Trust Security
+- A GlobalSign Managed SSL (MSSL) account

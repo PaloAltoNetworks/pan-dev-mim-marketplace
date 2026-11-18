@@ -1,6 +1,6 @@
 {
   "name": "Radware Cloud Web Application API Protection",
-  "description": "Adaptable driver for Radware Cloud Web Application API Protection",
+  "description": "Automate certificate upload and renewal for applications protected by Radware Cloud WAAP.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Radware",
@@ -8,7 +8,9 @@
     "API Gateway & WAF"
   ],
   "products": [
-    "Certificate Manager Self-Hosted"
+    "Certificate Manager Self-Hosted",
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
   ],
   "tags": [
     "Cloud",
@@ -19,14 +21,62 @@
   ],
   "keywords": [
     "Cloud Web Application API",
+    "Cloud WAAP",
+    "Cloud WAF",
     "Adaptable Framework - App"
   ],
   "logoFile": "Radware.png",
-  "downloadFiles": [
-    "CWAF.ps1"
-  ],
-  "documentationFile": "DOCUMENTATION.md",
   "supportUrl": "https://support.radware.com/",
   "price": "Free",
-  "license": "MIT"
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationFile": "DOCS-selfhosted.md",
+      "downloadFiles": [
+        "CWAF.ps1"
+      ],
+      "license": "MIT"
+    },
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "currentVersion": "1.0.0",
+      "author": "Venafi",
+      "support": "Supported",
+      "supportUrl": "https://community.cyberark.com/s/",
+      "documentationLinks": [
+        {
+          "title": "Radware Cloud WAF Machine Setup",
+          "description": "Create a Radware Cloud WAF machine in Certificate Manager, SaaS",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/radware-cloud-waf/"
+        },
+        {
+          "title": "Provision Certificates to Radware Cloud WAF",
+          "description": "Provision certificates to a Radware Cloud WAF machine",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-radware-cloud-waf/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "currentVersion": "1.0.0",
+      "author": "Venafi",
+      "support": "Supported",
+      "supportUrl": "https://community.cyberark.com/s/",
+      "documentationLinks": [
+        {
+          "title": "Radware Cloud WAF Machine Setup",
+          "description": "Create a Radware Cloud WAF machine in Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/radware-cloud-waf"
+        },
+        {
+          "title": "Provision Certificates to Radware Cloud WAF",
+          "description": "Provision certificates to a Radware Cloud WAF machine",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/radware-cloud-waf/provision-certificates-radware-cloud-waf"
+        }
+      ]
+    }
+  ]
 }

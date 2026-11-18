@@ -1,0 +1,55 @@
+{
+  "name": "Microsoft Azure Application Registration",
+  "description": "Discover the certificates uploaded as credentials to Microsoft Entra ID app registrations before they expire and break application sign-ins.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Identity & Access Management"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Authentication",
+    "Cloud",
+    "Discovery"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Microsoft Azure",
+    "Microsoft Entra ID",
+    "App Registration",
+    "Microsoft Graph",
+    "Machine Type"
+  ],
+  "supportUrl": "https://community.cyberark.com/s/",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Create a Microsoft Azure Application Registration Machine",
+          "description": "Create a Microsoft Azure Application Registration machine in Certificate Manager, SaaS.",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/microsoft-azure-application-registration/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Create a Microsoft Azure Application Registration Machine",
+          "description": "Create a Microsoft Azure Application Registration machine in Next-Gen Trust Security.",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/microsoft-azure-application-registration"
+        }
+      ]
+    }
+  ]
+}

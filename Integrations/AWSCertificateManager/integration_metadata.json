@@ -1,6 +1,6 @@
 {
   "name": "AWS Certificate Manager",
-  "description": "Streamline TLS/SSL certificate management in AWS with Venafi integration, ensuring automated lifecycle management and enhanced security compliance.",
+  "description": "Request certificates from AWS Certificate Manager or provision managed certificates into it, keeping AWS certificates visible and policy-compliant.",
   "support": "Supported",
   "currentVersion": "1.0.1",
   "author": "Amazon",
@@ -51,7 +51,19 @@
     },
     {
       "product": "Next-Gen Trust Security",
-      "overviewFile": "OVERVIEW-ngts.md"
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Configure AWS Connection",
+          "description": "Connect Next-Gen Trust Security to AWS to provision certificates to AWS Certificate Manager",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/integrations-overview/cloud-providers-overview/aws-acm"
+        },
+        {
+          "title": "Add a Cloud Keystore to AWS",
+          "description": "Add an AWS Certificate Manager cloud keystore in Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/cloud-keystores-overview/add-cloud-keystore-aws"
+        }
+      ]
     }
   ],
   "price": "Free"

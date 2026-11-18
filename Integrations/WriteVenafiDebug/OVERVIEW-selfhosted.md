@@ -1,22 +1,22 @@
 # Write-VenafiDebug
 
-## Overview
+Troubleshooting Adaptable scripts in Certificate Manager, Self-Hosted often means adding ad hoc logging that can leak credentials or fail when several executions write to the same file. Write-VenafiDebug is a generic debug logging function for Adaptable scripts that gives script authors consistent, safe logging for drivers, workflows and logs.
 
-Write-VenafiDebug is a generic debug logging helper for use inside Adaptable scripts in Certificate
-Manager, Self-Hosted. It provides consistent, safe logging so script authors can troubleshoot
-Adaptable drivers, workflows, and logs without leaking sensitive data.
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Drop it in anywhere**: Use one debug logging function in any Adaptable script.
+- **Log structured data**: Hashtables are supported and formatted for readable output.
+- **Protect secrets**: Sensitive values, such as those from `$General`, are redacted as `***hidden***`.
+- **Fail and log together**: Optionally throw an exception while writing to the log.
+- **Avoid file conflicts**: A mutex prevents "file in use" errors when multiple executions run concurrently.
 
-- Drop-in debug logging function for any Adaptable script
-- Hashtables are supported and formatted for readable output
-- Secret information (e.g. values from `$General`) is automatically redacted as `***hidden***`
-- Optional exception throwing at the same time as writing to the log
-- Built-in mutex prevents "file in use" errors when multiple executions run concurrently
+**How it Works**
 
-## Prerequisites
+Include or dot-source `Write-VenafiDebug.ps1` in your Adaptable script and call the `Write-VenafiDebug` function wherever you need debug output. See the Documentation tab for usage.
 
-- Certificate Manager, Self-Hosted with the Adaptable framework
-- Include or dot-source `Write-VenafiDebug.ps1` from your Adaptable script
+**Solution Components**
+
+- Certificate Manager, Self-Hosted (Adaptable framework)
+- `Write-VenafiDebug.ps1`
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

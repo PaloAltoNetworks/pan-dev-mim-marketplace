@@ -1,6 +1,6 @@
 {
   "name": "NetScaler Console Service (formerly Citrix ADM)",
-  "description": "NetScaler Console Service automates SSL certificate management, enhancing security and reducing downtime while streamlining operations for application owners.",
+  "description": "Let application owners create, renew and bind NetScaler ADC certificates from NetScaler Console, issued through Certificate Manager, Self-Hosted.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Citrix Systems",
@@ -32,7 +32,7 @@
         {
           "title": "NetScaler Console Service (formerly Citrix ADM) Integration Guide",
           "description": "Complete integration guide for NetScaler Console Service (formerly Citrix ADM)",
-          "url": "https://docs.netscaler.com/en-us/netscaler-console-service/application-analytics-and-management/dashboard/automate-ssl-management.html"
+          "url": "https://docs.netscaler.com/us/en/netscaler-console-service/automate-ssl-management.html"
         }
       ]
     }

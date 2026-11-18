@@ -1,6 +1,6 @@
 {
   "name": "Pomerium Ingress Controller",
-  "description": "Integrate cert-manager with Pomerium Ingress Controller to automate TLS certificate management in Kubernetes, enhancing security for cloud-native workloads.",
+  "description": "Automate policy-compliant TLS certificates for Pomerium Ingress Controller in Kubernetes with cert-manager.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Pomerium",
@@ -28,11 +28,13 @@
   "productVariants": [
     {
       "product": "Certificate Manager SaaS",
-      "overviewFile": "OVERVIEW-saas.md"
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationFile": "DOCUMENTATION.md"
     },
     {
       "product": "Next-Gen Trust Security",
-      "overviewFile": "OVERVIEW-ngts.md"
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationFile": "DOCUMENTATION.md"
     }
   ],
   "price": "Free"

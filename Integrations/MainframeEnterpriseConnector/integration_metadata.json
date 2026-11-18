@@ -1,6 +1,6 @@
 {
   "name": "Mainframe Enterprise Connector",
-  "description": "Automates machine identities management on mainframe systems",
+  "description": "Automate certificate and key provisioning to RACF on IBM Z mainframes with BMC AMI Enterprise Connector.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "BMC Software, Inc. - Technology Partner",

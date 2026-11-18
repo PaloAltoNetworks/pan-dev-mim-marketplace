@@ -1,17 +1,35 @@
 # Google Load Balancing Controller
 
-This *reference solution* highlights the integration of *cert-manager*, the de-facto machine identity management component in Kubernetes clusters and GKE Ingress Controller, where SSL offloading takes place in an GKE cluster equipped with Google Cloud Load Balancing. This integration enables organizations running cloud native workloads and serving HTTPs traffic with *Google Cloud Load Balancing* the ability to automate and secure the lifecycle of TLS certificates using policies defined by security teams and ensure the extension of security policies to Kubernetes resources. This integration is enabled through Kubernetes resource configuration. **Release and support versions** Google Load Balancing Controller (GLBC) is part of Kubernetes community. There are no specific version requirements on cert-manager and GLBC. However, there is a version mapping between k8s and GLBC. Please see: [https://github.com/kubernetes/ingress-gce](https://github.com/kubernetes/ingress-gce) **Applicability** Any organization running clusters in GKE and taking advantage of Google Cloud Load Balancing as layer 7 load balancers to manage the HTTPs requests that client applications send to web apps that are hosted on a pool of web servers should consider deploying this integration to automate the management of machine identities consumed by Google Cloud Load Balancing. **Special notes and limitations** There is a reference specification for ingress controllers which allows securing an Ingress implementation by specifying a [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that contains a TLS private key and certificate. *cert-manager* is aware and knows where and how to retrieve the Secret, therefore, able to operate on the TLS private key and certificate. The configuration-only based integration with Kubernetes ingresses is not limited to GLBC. *cert-manager* can integrate with all ingresses that implement the reference specification for ingress controller. This includes the three controllers supported and maintained by Kubernetes, AWS Load Balancer Controller, ingress-nginx and the following third-party ingresses: - Kong Ingress Controller for Kubernetes - Azure Application Gateway Ingress Controller - Istio Ingress - Traefik Kubernetes Ingress provider - Citrix Ingress Controller - Apache APISIX ingress controller - Gloo - NGINX Ingress Controller for Kubernetes - Avi Kubernetes Operator - HAProxy Ingress - Pomerium Ingress Controller This list is always growing and changing by Ingress providers, for the latest version, check out the third-party ingress controllers link in “Additional resources”. 
+Teams that serve HTTPS traffic from Google Kubernetes Engine (GKE) through Google Cloud Load Balancing need the TLS certificates on their Ingress resources to stay valid and to follow the security team's policy. This reference solution combines cert-manager, the standard certificate controller for Kubernetes, with the GKE Ingress controller (GLBC), so certificates for load-balanced workloads are issued and renewed automatically under policies defined in Certificate Manager, SaaS.
 
-**ADDITIONAL RESOURCES**
+**Value Highlights**
 
- - Configure Ingress for external load balancing: [https://cloud.google.com/kubernetes-engine/docs/how-to/load-balance-ingress](https://cloud.google.com/kubernetes-engine/docs/how-to/load-balance-ingress) - Available third-party ingress controllers in addition to nginx ingress: [https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/) 
+- **Automate renewal**: cert-manager renews Ingress certificates before they expire, so load balancers never serve an expired certificate.
+- **Extend policy to Kubernetes**: Certificates are issued under the policies your security team defines in Certificate Manager, SaaS.
+- **Configure, don't code**: The integration uses standard Kubernetes resource configuration, with no custom software.
+- **Reuse the pattern**: The same approach works with any Ingress controller that follows the Kubernetes Ingress TLS specification.
 
-**GETTING STARTED**
+**How it Works**
 
- There are two ways to configure the ingress controller via the ingress resource configuration *after the successful creation of the ingress which tells GKE to use Google Cloud Load Balancing as the Ingress*. Method 1: annotation apiVersion: networking.k8s.io/v1 kind: Ingress metadata: name: #NAME\_YOUR\_INGRESS annotations: Kubernetes.io/ingress.class: “ingress-gce” Method 2: spec attribute “*ingressClassName*” apiVersion: networking.k8s.io/v1 kind: Ingress metadata: name: #NAME\_YOUR\_INGRESS spec: ingressClassName: ingress-gce 
+The GKE Ingress controller configures a Google Cloud Application Load Balancer from an Ingress resource and terminates TLS with the certificate and key stored in the Kubernetes Secret named by the Ingress. cert-manager, configured with an issuer that enrolls from Certificate Manager, SaaS, requests the certificate, writes it to that Secret, and renews it on schedule. See the Documentation tab for the Ingress configuration.
 
-**ABOUT Google Cloud Load Balancing**
+**Applicability**
 
- Cloud Load Balancing is a fully distributed, software-defined managed service. It isn't hardware-based, so you don't need to manage a physical load-balancing infrastructure. Cloud Load Balancing is built on the same frontend-serving infrastructure that powers Google. It supports 1 million+ queries per second with consistent high performance and low latency. By using Cloud Load Balancing, you can serve content as close as possible to your users. Traffic enters Cloud Load Balancing through 80+ distinct global load-balancing locations and stays on Google's fast private network backbone for most of its journey. If it's needed, traffic is handed off to the public internet as close as possible to your users.
+This solution suits any organization that runs GKE clusters and uses Google Cloud Load Balancing as a layer 7 load balancer for HTTPS applications. GLBC is part of the Kubernetes project. There are no specific version requirements for cert-manager or GLBC, but GLBC versions map to Kubernetes versions (see [ingress-gce on GitHub](https://github.com/kubernetes/ingress-gce)).
 
-**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**
+**Solution Components**
+
+- Certificate Manager, SaaS
+- cert-manager
+- GKE with the GKE Ingress controller and Google Cloud Load Balancing
+
+**Additional Resources**
+
+- [Configure Ingress for external load balancing](https://docs.cloud.google.com/kubernetes-engine/docs/how-to/load-balance-ingress)
+- [Kubernetes Ingress controllers](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/)
+
+**About Google Cloud Load Balancing**
+
+Cloud Load Balancing is a fully distributed, software-defined managed service built on the same frontend-serving infrastructure that powers Google. Traffic enters through global load-balancing locations and stays on Google's private network backbone for most of its journey.
+
+**Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**

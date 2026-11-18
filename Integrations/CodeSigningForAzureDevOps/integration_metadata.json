@@ -1,6 +1,6 @@
 {
   "name": "Code Signing for Azure DevOps",
-  "description": "Integrate secure code signing into Azure DevOps pipelines with Sidechain's Azure Pipelines agent for Venafi CodeSign Protect.",
+  "description": "Add policy-controlled code signing to Azure DevOps pipelines as a one-step task with Sidechain's Azure Pipelines agent.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Sidechain Security",

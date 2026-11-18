@@ -1,40 +1,33 @@
 # Akeyless Vault Platform
 
-This integration between Certificate Manager and Akeyless Vault helps organizations improve management coverage, auditability, and traceability of their machine identities.
+Cloud environments and ephemeral workloads have multiplied the certificates, keys and credentials that machines use to authenticate to each other. When those secrets are spread across DevOps and cloud tools, security teams lose coverage, auditability and traceability.
 
-  
+The integration between Certificate Manager, SaaS and the Akeyless Vault Platform lets DevOps teams get certificates from Akeyless in their pipelines while every certificate stays under Certificate Manager, SaaS policy and visibility.
 
-**SOLUTION HIGHLIGHTS**
+**Value Highlights**
 
-- Connect to the DevOps stack and simplify machine identity usage in the CI/CD pipeline using Akeyless authentication
-- Protect machine identities with Akeyless’ FIPS Certified DFC Technology, which signs certificates using CA key fragments that are never combined
-- Ensure audit and compliance through granular machine identities, least privileges, detailed logs, and analytics
-- Use plugins, SDKs, CLI, or REST APIs to push certificates into CI/CD pipelines, configuration management, and orchestration tools
-- Simplify certificate issuance authentication with external Identity Providers like OIDC, SAML, AWS IAM, Azure AD, GCP, and more
+- **Simplify certificate use in CI/CD pipelines** with Akeyless authentication.
+- **Protect CA keys** with Akeyless Distributed Fragments Cryptography (DFC), which signs certificates with key fragments that are never combined.
+- **Support audit and compliance** with granular identities, least privilege, detailed logs and analytics.
+- **Deliver certificates anywhere** through Akeyless plugins, SDKs, CLI and REST APIs for pipelines, configuration management and orchestration tools.
+- **Authenticate with existing identity providers** such as OIDC, SAML, AWS IAM, Azure AD and GCP.
 
-  
+**How it Works**
 
-**SOLUTION OVERVIEW**
+You create a Venafi dynamic secret on an Akeyless Gateway that connects to Certificate Manager, SaaS with an API key and a zone in the form `<Application>/<Issuing template>`. Either product can act as the issuer:
 
-The shift to cloud environments and ephemeral workloads has introduced new challenges, particularly around how machines authenticate and interact with each other. With the increasing volume of certificates, credentials, and keys—also known as secrets—across IT, DevOps, and cloud environments, managing and securing these secrets becomes a critical concern. Secrets such as SSH keys for server authentication or certificates for database access are at risk of being compromised by malicious actors due to their growing number and dispersion within the organization.
+- **Certificate Manager, SaaS as issuer**: Certificate Manager, SaaS requests the certificate from one of its connected CAs under the zone's policy. The certificate is stored in both Certificate Manager, SaaS and Akeyless.
+- **Akeyless as issuer**: a customer-created Akeyless DFC key signs the certificate. Akeyless stores it as a secret and exports it to Certificate Manager, SaaS for monitoring.
 
-  
+See the Documentation tab for setup.
 
-The integration of Certificate Manager into the Akeyless Vault Platform ensures the security architecture of the hybrid environment becomes much more viable, manageable, and even possible, where it would previously have required a lot of manual work to automate certificate issuance and protect machine identities.
+**Solution Components**
 
-  
+- Certificate Manager, SaaS
+- Akeyless Vault Platform with an Akeyless Gateway
 
-**HOW IT WORKS**
+**About Akeyless**
 
-Akeyless integrates with Certificate Manager to provide the automation of certificate issuance. It can be used for the Certificate Manager to ensure policy compliance and consistency with industry standards.
-
-  
-
-Either Akeyless or Venafi can act as the certificate issuer.
-
-- Certificate Manager Issuer: The certificate is signed by any of the 40+ CAs that integrate with Certificate Manager. The certificate is saved in Certificate Manager and in Akeyless Vault. 
-- Akeyless Issuer: The certificate is signed by a CA key from Akeyless created by the customer. In addition, the issued certificate is saved in Akeyless Vault as a secret and exported to Certificate Manager for monitoring.
-
-**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**
+[Akeyless](https://docs.akeyless.io/) provides a SaaS secrets management platform that secures credentials, certificates and keys across hybrid and multi-cloud environments.
 
 **Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**

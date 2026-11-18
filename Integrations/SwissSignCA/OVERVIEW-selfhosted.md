@@ -1,49 +1,29 @@
 # SwissSign Adaptable CA Driver
 
-This solution is an Adaptable CA Driver that allows you to obtain and manage SwissSign issued certificates using Venafi Certificate Manager, Self-Hosted. 
+Teams that use SwissSign certificates often request and renew them by hand, which makes policy hard to enforce and outages more likely. This Adaptable CA driver lets Certificate Manager, Self-Hosted request, retrieve and revoke SwissSign-issued certificates through your SwissSign Managed PKI account, so you can automate enrollment and provisioning of SwissSign certificates for secure machine-to-machine communication.
 
-SwissSign, a leading certificate authority, issues certificates that are essential for secure machine-to-machine communication. By integrating Venafi's machine identity management with SwissSign CA, organizations can automate certificate enrollments and provisioning, enhancing the security and efficiency of their operations.
-
-  
-
-Venafi's integration with SwissSign allows mutual customers to automate and securely manage machine identities.
-
-  
-
-**Applicability**
-
-Any business or team that requires secure and efficient management of X509 certificates issued by SwissSign can benefit from this solution. Customers should expect streamlined machine identity management, improved security measures, crypto agility, and reduced risk of outages due to machine identity issues.
-
- 
+Any team that needs secure and efficient management of X.509 certificates issued by SwissSign can benefit, with streamlined machine identity management, crypto agility and reduced risk of outages caused by expired certificates.
 
 **Value Highlights**
 
-- Adaptable CA Driver developed and supported by SwissSign AG.
-- Enforce organizational wide policies on certificates issued by SwissSign CA.
-- Automate the lifecycle of certificates issued by SwissSign CA.
-- Gain full visibility into the demand, usage and workflow of certificates.
-
-  
-
-**Solution Components**
-
-- SwissSign CA
-- Certificate Manager, Self-Hosted
-
-  
+- **Enforce policy**: Apply organization-wide policies to certificates issued by SwissSign.
+- **Automate the lifecycle**: Request, renew and revoke SwissSign certificates without manual steps.
+- **Gain visibility**: See the demand, usage and workflow of SwissSign certificates in one place.
+- **Use your SwissSign products**: Issue DV, OV and EV TLS certificates and S/MIME certificates available in your account.
+- **Rely on partner support**: The driver is developed and supported by SwissSign AG.
 
 **How it Works**
 
-To leverage this integration, you need to: 
+The driver is a PowerShell Adaptable CA script that calls the SwissSign RA API using a SwissSign service or account API key stored in a Username credential. Each CA template selects the issuing product with a profile string that names the SwissSign policy and client. You need licenses for both Certificate Manager, Self-Hosted and SwissSign Managed PKI. See the Documentation tab for setup.
 
-- Ensure you have the correct licenses for both Venafi and SwissSign CA. 
-- Download and install the SwissSign CA adaptable driver. 
-- Integrate SwissSign CA with Venafi following the supplied documentation.
+**Solution Components**
 
- 
+- Certificate Manager, Self-Hosted
+- SwissSign Managed PKI
+- SwissSign Adaptable CA driver (`SwissSign_Adaptable_Script.ps1`)
 
 **About SwissSign AG**
 
-SwissSign is a recognised trust service provider (TSP) and leading provider of digital certificates, electronic signature solutions and identity services. SwissSign protects all of your data according to the highest security standards.
+SwissSign is a recognized trust service provider (TSP) and provider of digital certificates, electronic signature solutions and identity services. Learn more at [swisssign.com](https://www.swisssign.com/).
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

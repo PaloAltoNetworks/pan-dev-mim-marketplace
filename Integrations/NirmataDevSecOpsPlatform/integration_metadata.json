@@ -1,6 +1,6 @@
 {
   "name": "Nirmata DevSecOps Platform",
-  "description": "Nirmata is the creator of Kyverno",
+  "description": "Deploy cert-manager and Venafi cluster issuers across Kubernetes clusters from the Nirmata DevSecOps Platform for policy-compliant developer self-service.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Nirmata",

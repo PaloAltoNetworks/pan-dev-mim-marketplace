@@ -1,33 +1,29 @@
 # Microsoft Intune
 
-The integration of Venafi with Microsoft Intune represents a significant step forward in managing and securing machine identities within enterprise mobile device management (MDM) landscapes. This solution harnesses Venafi's expertise in machine identity protection and Microsoft Intune's capabilities in enterprise MDM to provide a robust, automated approach to securing machine identities across diverse devices and applications.
-
-Organizations leveraging this integration will benefit from streamlined certificate management processes, enhanced security, and minimized risk of machine identity-related outages. By automating the lifecycle management of machine identities, from enrollment to renewal and revocation, Venafi and Microsoft Intune ensure that machine identities are always current and compliant with corporate policies.
-
-**Applicability**
-
-This integration is particularly beneficial for organizations with a significant presence of mobile and IoT devices managed through Microsoft Intune. It is designed to cater to a wide range of industries, including finance, healthcare, technology, and the public sector, where the integrity and security of machine identities are paramount.
+Mobile and desktop devices managed by Microsoft Intune need certificates for secure access, and issuing, renewing and revoking them by hand creates overhead, errors and outages. Integrating Certificate Manager, Self-Hosted with Microsoft Intune automates certificate enrollment for Intune-managed devices through SCEP, so device certificates are always current and comply with corporate policy.
 
 **Value Highlights**
 
-- **Automated Certificate Management**: Streamlines the process of certificate issuance, renewal, and revocation, reducing manual overhead and errors.
-- **Enhanced Security and Compliance**: Ensures that machine identities adhere to organizational policies and standards, mitigating risks associated with outdated or compromised certificates.
-- **Outage Prevention**: Minimizes the risk of outages due to expired or invalid machine identities, ensuring uninterrupted business operations.
-- **Agile Machine Identity Management**: Adapts to the dynamic nature of modern IT environments, supporting rapid deployment and management of machine identities.
-
-**Solution Components**
-
-- Certificate Manager, Self-Hosted
-- Microsoft Intune
+- **Automate certificate management**: Issue, renew and revoke device certificates without manual work.
+- **Enforce policy**: Validate every request against Intune and your certificate policy before a certificate is issued.
+- **Prevent outages**: Avoid disruptions caused by expired or invalid device certificates.
+- **Use your CA**: Issue Intune device certificates from the certificate authority you configure.
 
 **How it Works**
 
-- **Integration Setup**: Configure the integration between Venafi and Microsoft Intune, ensuring proper permissions are setup.
-- **Policy Configuration**: Establish policies within Venafi for managing machine identities, aligned with organizational security standards.
-- **Automated Enrollment**: Utilize Venafi's automated processes for enrolling, renewing, and revoking machine identities within the Intune-managed devices.
+An Intune administrator creates a SCEP certificate profile and deploys it to a group of devices. Each device requests a certificate from the Network Device Enrollment (SCEP) Web Service of Certificate Manager, Self-Hosted. Certificate Manager, Self-Hosted validates the request with Intune, requests the certificate from the configured CA, reports the result to Intune, and returns the certificate to the device. See the Documentation tab for setup.
 
-**ABOUT Microsoft Intune**
+**Applicability**
 
-Microsoft Intune, a part of Microsoft's Enterprise Mobility + Security (EMS) suite, is an innovative cloud-based service focused on mobile device management (MDM) and mobile application management (MAM). Intune enables organizations to manage mobile devices and applications, ensuring that corporate data is secure.
+This integration suits organizations with many mobile and IoT devices managed through Microsoft Intune.
+
+**Solution Components**
+
+- Certificate Manager, Self-Hosted with its SCEP service
+- Microsoft Intune and Microsoft Entra ID
+
+**About Microsoft Intune**
+
+Microsoft Intune is a cloud-based endpoint management service for mobile device management (MDM) and mobile application management (MAM). It helps organizations manage devices and apps and keep corporate data secure.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

@@ -1,23 +1,25 @@
 # Get-TppActiveHistoricalCertificate
 
-## Overview
+When a certificate is renewed, earlier versions often remain valid until they expire. Those still-active historical certificates can be in use somewhere, and they matter during key compromise response, revocation planning and audits.
 
-`Get-TppActiveHistoricalCertificate` is a PowerShell utility that finds active/valid historical
-certificates in Certificate Manager, Self-Hosted. It uses the VenafiPS PowerShell module to search
-certificate history and surface certificates that remain active.
+`Get-TppActiveHistoricalCertificate` is a community PowerShell script that finds historical certificates in Certificate Manager, Self-Hosted that are still within their validity period.
 
-> **NOTE:** This script can still be used, but the capability has been added to VenafiPS as
-> `Search-TppHistory`, which can search on all attributes, not just active ones.
+This script can still be used, but the same capability is now part of the VenafiPS module as `Search-TppHistory`, which can search on all attributes, not only active ones.
 
-**SOLUTION HIGHLIGHTS**
+**Value Highlights**
 
-- Locate active/valid historical certificates across your inventory
-- Built on the widely used VenafiPS PowerShell module
-- Simple session-based execution against the WebSDK API
+- **Find active historical certificates** across a policy folder and its subfolders.
+- **Support revocation and incident response** by listing previous versions that are still valid.
+- **Build on VenafiPS**, the widely used PowerShell module for Certificate Manager, Self-Hosted.
+- **Search quickly** with parallel processing of certificate history.
 
-## Prerequisites
+**How it Works**
 
-- VenafiPS PowerShell module, v4.2.0 or later
-- PowerShell 7 or later
+The script uses an existing VenafiPS session to search certificates under a starting policy path (by default `\ved\policy`), retrieves each certificate's previous versions through the WebSDK API, and returns the path of each certificate with its still-valid previous versions (vault ID, serial number and expiry date). See the Documentation tab for prerequisites and usage.
+
+**Solution Components**
+
+- Certificate Manager, Self-Hosted
+- VenafiPS PowerShell module
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

@@ -1,20 +1,29 @@
 # Akeyless Vault Platform for cert-manager
 
-The Akeyless cert-manager issuer enables users of open source cert-manager (maintained by Venafi) to easily obtain certificates from Akeyless using either Certificate Manager or Akeyless as the certificate issuer.
+Kubernetes teams use cert-manager to obtain and renew certificates inside their clusters, but certificates issued directly by a secrets platform can escape the policy and visibility that the security team applies elsewhere.
 
-  
+With Akeyless and open-source cert-manager, Kubernetes workloads get certificates from the Akeyless Vault Platform while either Certificate Manager, SaaS or Akeyless acts as the issuer. Requesting and installing certificates in clusters becomes automatic, and issuance stays under your policy.
 
-**SOLUTION HIGHLIGHTS**
+**Value Highlights**
 
-- **Eliminate difficulty and risks** associated with manually requesting and installing certificates within Akeyless Vault
-- **Protect machine identities with Akeyless**’ FIPS Certified DFC Technology that signs certificates
-- **Enable agile practices **and save time handling certificate management in hybrid environments
-- **Use a variety of plugins **as well as SDKs/CLI/REST to push certificates into your CI/CD pipeline, config management, and orchestration tools
-- **Obtain, renew and manage **certificates in your Kubernetes clusters using cert-manager
-- **Simplify authentication for certificate issuance** by utilizing external identity providers like OIDC, SAML, AWS IAM, Azure AD, GCP, and more
+- **Remove manual steps and risk** from requesting and installing certificates in Kubernetes.
+- **Obtain, renew and manage** cluster certificates with standard cert-manager resources.
+- **Protect CA keys** with Akeyless Distributed Fragments Cryptography (DFC) when Akeyless is the issuer.
+- **Keep policy control** by issuing through Certificate Manager, SaaS zones.
+- **Authenticate cert-manager to Akeyless** with Kubernetes authentication or an API key.
 
-  
+**How it Works**
 
-**SOLUTION OVERVIEW**
+An Akeyless Gateway hosts a Venafi dynamic secret that connects to Certificate Manager, SaaS. In the cluster, a cert-manager Issuer of type vault points to the gateway and to that dynamic secret's `pki/sign/` path, using a Kubernetes Secret that holds Akeyless credentials. cert-manager then requests certificates from Akeyless for each Certificate resource and renews them before they expire. See the Documentation tab for setup.
 
-The Akeyless cert-manager issuer adds certificates and certificate issuers as resource types in Kubernetes clusters and simplifies the process of obtaining, renewing and using certificates, leveraging the Akeyless platform.
+**Solution Components**
+
+- Certificate Manager, SaaS
+- Akeyless Vault Platform with an Akeyless Gateway
+- cert-manager in a Kubernetes cluster
+
+**About Akeyless**
+
+[Akeyless](https://docs.akeyless.io/) provides a SaaS secrets management platform that secures credentials, certificates and keys across hybrid and multi-cloud environments.
+
+**Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**

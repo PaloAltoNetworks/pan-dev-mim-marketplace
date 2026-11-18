@@ -1,20 +1,30 @@
 # GlobalSign Atlas
 
-Combining GlobalSign’s advanced Atlas platform with Venafi’s powerful visibility and automation tools enables enterprises to achieve streamlined, scalable, and highly automated certificate management, meeting the demands of vast, dynamic digital ecosystems. This integration is delivered as a GlobalSign-supported Adaptable CA driver for Certificate Manager, Self-Hosted.
+Enterprises need trusted certificates at high volume, especially in DevOps environments, without losing control over policy or visibility into what has been issued. GlobalSign Atlas is a cloud-native certificate authority platform built for scale and automation.
 
-**SOLUTION HIGHLIGHTS**
+This GlobalSign-supported Adaptable CA driver connects Certificate Manager, Self-Hosted to GlobalSign Atlas, so organizations can centralize certificate activity, enforce TLS policy and automate issuance, renewal and revocation of GlobalSign certificates.
 
-- **Automate certificate lifecycle** to reduce the manual efforts required in certificate management. Efficiently monitor issuance to keep all orders within the defined scope.
-- **Ensure every certificate adheres to enterprise policies**, maintaining a secure and compliant certificate infrastructure.
-- **Specifically designed to meet the high-volume** certificate demands prevalent in DevOps environments, ensuring that all certificates are sourced from a trusted Certificate Authority (CA).
-- **Centralized oversight of all certificate usage** and activities to prevent unexpected expirations and enhance operational efficiency.
-- **Integrated natively** with the native GlobalSign API interface, ensuring smooth and consistent operations.
-- **Thoroughly configurable workflow**, ensuring that approval and authorization processes are adaptable and efficient.
+**Value Highlights**
 
-**SOLUTION OVERVIEW**
+- **Automate the certificate lifecycle** to reduce manual effort and keep issuance within the defined scope.
+- **Enforce enterprise policy** on every certificate requested from GlobalSign Atlas.
+- **Meet high-volume demand** from DevOps environments with certificates from a trusted CA.
+- **Centralize oversight** of certificate usage to prevent unexpected expirations.
+- **Use the native GlobalSign Atlas API** for consistent issuance.
+- **Configure approval workflows** to fit your authorization process.
 
-In an era where encryption is indispensable, GlobalSign’s Atlas stands out as a cloud-native platform emphasizing scalability and automation. Integrated with Certificate Manager, Self-Hosted via the GlobalSign Adaptable CA driver, it fosters a synergistic environment where the encryption needs of both public and private enterprises are met with exceptional efficiency and scalability. Atlas, with its emphasis on automation and scalability, paired with the visibility, automation, and control brought by Venafi, paves the way for enterprises to centralize certificate activity, enforce stringent SSL/TLS policies, and simplify the overarching lifecycle management of certificates.
+**How it Works**
 
-See the Documentation tab for driver setup, supported API operations, and certificate fields.
+The driver is a PowerShell script for the Certificate Manager, Self-Hosted Adaptable CA framework. It authenticates to the GlobalSign Atlas API with an API key and secret plus a client certificate, then submits CSRs, retrieves issued certificates and their trust chain, and revokes certificates. Supported use cases include public TLS, private dedicated TLS from a GlobalSign-hosted private CA, machine and device authentication, and public S/MIME certificates. See the Documentation tab for setup, supported API operations and certificate fields.
+
+**Solution Components**
+
+- Certificate Manager, Self-Hosted
+- GlobalSign Atlas
+- GlobalSign Atlas Adaptable CA driver
+
+**About GlobalSign**
+
+[GlobalSign](https://www.globalsign.com/en) is a certificate authority and provider of identity and security solutions.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

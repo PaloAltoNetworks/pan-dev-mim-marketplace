@@ -1,6 +1,6 @@
 {
   "name": "Oracle Wallet",
-  "description": "Automate the secure provisioning of SSL/TLS certificates and private keys from Certificate Manager directly into Oracle Wallets",
+  "description": "Automate secure provisioning of TLS certificates and private keys into Oracle Wallets.",
   "categories": [
     "Secrets Management"
   ],

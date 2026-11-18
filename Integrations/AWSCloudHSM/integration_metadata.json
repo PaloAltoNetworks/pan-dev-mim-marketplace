@@ -1,6 +1,6 @@
 {
   "name": "AWS CloudHSM",
-  "description": "Integrate AWS CloudHSM with Venafi for secure machine identity management, ensuring compliance and enhanced key protection.",
+  "description": "Store Certificate Manager, Self-Hosted code signing and database encryption keys in AWS CloudHSM to meet hardware key protection requirements.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Venafi",

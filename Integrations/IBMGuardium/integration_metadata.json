@@ -1,6 +1,6 @@
 {
   "name": "IBM Guardium",
-  "description": "Automate machine identity management with IBM Guardium integration, ensuring secure communications and eliminating manual certificate provisioning.",
+  "description": "Automate certificate requests and renewals for IBM Guardium to secure its communications without manual provisioning.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "IBM Security Products - N America",
@@ -35,8 +35,8 @@
       "overviewFile": "OVERVIEW-selfhosted.md",
       "documentationLinks": [
         {
-          "title": "IBM Guardium Integration Guide",
-          "description": "Complete integration guide for IBM Guardium",
+          "title": "Managing Certificates by Using Venafi (IBM Guardium Docs)",
+          "description": "IBM's guide to managing Guardium certificates with Certificate Manager, Self-Hosted",
           "url": "https://www.ibm.com/docs/en/gdp/12.x?topic=certificates-managing-by-using-venafi"
         }
       ]

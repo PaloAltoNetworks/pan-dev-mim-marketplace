@@ -1,23 +1,28 @@
 # Futurex KMES Series 3
 
-Venafi’s Certificate Manager integrates with Futurex's KMES Series 3 to offload certificate lifecycle management to a FIPS 140-2 Level 3 validated HSM, using strong cryptography to guard against key compromise, reduce fraud risk & thwart insider attacks.
+Hardware security modules (HSMs) are one of the strongest ways to protect the certificate issuance process. Certificate Manager, Self-Hosted integrates with the Futurex KMES Series 3 so that certificates are issued by a CA whose keys live in a FIPS 140-2 Level 3 validated HSM, guarding against key compromise, fraud and insider attacks.
 
-  
+The KMES Series 3 also lets administrators manage multiple certificate issuance policies from a single device and integrates with the Futurex Hardened Enterprise Security Platform as part of an organization's core cryptographic infrastructure.
 
-**SOLUTION HIGHLIGHTS**
+**Value Highlights**
 
-- **Get a high degree of physical security, **guarding against key compromise, fraud attempts, and insider attacks
-- **Reduce management overhead **by managing multiple certificate issuance policies from a single device
-- **Get an advanced level of customization **and granular control when administrators define policies for certificate attributes and issuance structure
-- **Custom X.509 extension profiles **allow administrators to define the type and usage of certificates being deployed
-- **Ability to manage multiple **certificate issuance policies from a single device
+- **Protect CA keys** with FIPS 140-2 Level 3 physical security against key compromise, fraud and insider attacks.
+- **Reduce management overhead** by managing multiple certificate issuance policies from a single device.
+- **Control issuance** with granular policies for certificate attributes and issuance structure.
+- **Define certificate types** with custom X.509 extension profiles.
+- **Enforce approvals** with KMES signing approval groups and optional separation of request and approval roles.
 
-  
+**How it Works**
 
-**SOLUTION OVERVIEW**
+A PowerShell driver for the Certificate Manager, Self-Hosted Adaptable CA framework connects to the KMES Series 3 Host API over mutually authenticated TLS. Certificate requests from a Certificate Manager, Self-Hosted policy are uploaded to a KMES issuance policy, approved according to its signing workflow, and the signed certificate is returned. A companion script adds optional custom fields for the approval group and X.509 extension profile. See the Documentation tab for setup.
 
-The use of hardware security modules (HSM) is one of the strongest methods of protecting the certificate issuance process. Venafi’s Certificate Manager integrates with Futurex's KMES Series 3 to offload certificate lifecycle management to a FIPS 140-2 Level 3 validated HSM, using strong cryptography to guard against key compromise, reduce fraud risk, and thwart insider attacks. Additionally, the KMES Series 3 enables administrators to manage multiple certificate issuance policies from a single device and offers turnkey integration with Futurex’s Hardened Enterprise Security Platform, allowing it to form the cornerstone of an organization’s overall core cryptographic infrastructure.
+**Solution Components**
 
-  
+- Certificate Manager, Self-Hosted
+- Futurex KMES Series 3 (application version 6.3.1.3 or later, Registration Authority license)
+
+**About Futurex**
+
+[Futurex](https://www.futurex.com) provides hardened, enterprise-class data security solutions, including HSMs and key management servers.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

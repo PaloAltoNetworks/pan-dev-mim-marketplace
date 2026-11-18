@@ -1,94 +1,39 @@
 # Actalis SSL
 
-This solution is an Adaptable CA Driver that allows you to obtain and manage Actalis SSL Certificates from Venafi's Certificate Manager, Self-Hosted.
+Organizations that buy SSL certificates from Actalis need those certificates to follow the same renewal, approval and validation processes as the rest of their inventory. Requesting and renewing them in a separate portal adds manual work and risks missed renewals.
 
-  
+This Adaptable CA driver, developed and supported by Actalis S.p.A., lets you obtain and manage Actalis SSL certificates from Certificate Manager, Self-Hosted. You get automatic renewals, configurable workflows and installation validation from Certificate Manager, Self-Hosted, together with Actalis certificates that are trusted by all major operating systems, browsers and runtime environments.
 
-All classes (i.e. validation levels, such as DV, OV, EV, QWAC) and types of SSL certificates (single-domain, multi-domain, wildcard) are supported, depending on your contract with Actalis. Both RSA and ECC keys are allowed. Needless to say, Actalis' SSL certificates are trusted by all major operating systems, browsers, and run-time environments (such as Java, Python, Node.js, .NET/Mono, etc.).
+**Value Highlights**
 
-  
+- **Request every certificate class** that your Actalis contract covers, including DV, OV, EV and QWAC.
+- **Issue every certificate type**, including single-domain, multi-domain and wildcard, with RSA or ECC keys.
+- **Speed up issuance** by reusing organizations and domains that Actalis has already validated.
+- **Automate renewal and revocation** through standard Certificate Manager, Self-Hosted workflows.
+- **Meet EU requirements** with a CA that complies with EU data protection law and the eIDAS regulation.
 
-**SOLUTION HIGHLIGHTS**
+**How it Works**
 
-- **Adaptable CA Driver **developed and supported by **Actalis S.p.A.**
-- **Support **of **all SSL certificate classes **(DV, OV, EV, QWAC)
-- **Support **of **all SSL certificate types **(single-domain, multi-domain, wildcard)
-- **Leverages **pre-validation (whitelisting) of organizations and domains
+The driver (`Actalis_Adaptable_Script.ps1`) is an Adaptable CA driver for Certificate Manager, Self-Hosted that calls the Actalis API to submit, renew, replace, retrieve and revoke certificates. It authenticates with a Certificate Credential that Actalis provides after you sign a contract. Custom fields on each request set the certificate class, validity and reference email. See the Documentation tab for setup.
 
-  
+**Applicability**
 
-The Venafi + Actalis combined solution allows you to enjoy the benefits offered by both providers. Thanks to the possibility of managing your Actalis certificates through the TSL Protect platform, you can benefit from the remarkable functions offered by this platform, such as automatic renewals, configurable workflows, certificate installation validation, etc. At the same time, Actalis also ensures: convenient prices without any compromise on security and trust, efficient and professional support, flexibility, compliance with EU data protection laws and the eIDAS regulation, human customer service instead of chatbots, and more.
+Any public or private organization can use this solution. Organizations that manage many certificates, operate globally, rely on many cloud applications, or are subject to strict compliance rules benefit most.
 
-  
+**Special Notes and Limitations**
 
-**WHO WILL BENEFIT**
+- You need a contract with Actalis for SSL certificates. Your contract sets your initial credit, which you can top up at any time.
+- Every domain in a certificate, or a parent domain, must pass Domain Control Validation (DCV) first. Actalis can assist, or you can complete DCV yourself in the Actalis Enterprise RA portal.
+- OV, EV and QWAC certificates can only be requested for organizations that Actalis has verified as affiliated with your account.
 
-Any type of organization, public or private, can benefit from this solution, although organizations that need to manage a large number of certificates could benefit the most. This includes organizations with a global presence, organizations that use many cloud-based applications, and organizations subject to strict compliance regulations.
+**Additional Resources**
 
-  
+- [Contact Actalis](https://www.actalis.com/contact-us.aspx)
+- [Actalis SSL certificates](https://www.actalis.com/ssl-certificates.aspx)
+- [Actalis Certification Practice Statement](https://www.actalis.it/documenti-en/cps_for_ssl_server_and_code_signing_en.aspx)
 
-**SPECIAL NOTES & LIMITATIONS**
+**About Actalis**
 
-In order to use this driver, you must first sign a contract with Actalis for SSL certificates. After which, Actalis will carry out the necessary checks and provide you with the "Certificate Credential" that is necessary to complete the driver's configuration in TLS Protect.
-
-  
-
-Next, you must pass Domain Control Validation (DCV) for all domains you wish to include in your SSL certificates, in compliance with browser policies and CAB Forum regulations. The Actalis team will assist you with the DCV process, or you may prefer to do it yourself through the Actalis Enterprise RA portal, to which you will be enabled upon request.
-
-  
-
-It should be noted that organization-validated certificates (such as OV, EV, QW) can only be requested for organizations that have been verified by Actalis as affiliated to the Customer. This constraint does not apply to domain-validated certificates (DV).
-
-  
-
-The number of Actalis certificates you will be able to obtain will depend on your contract with Actalis which determines your initial credit. When the initial credit is about to run out, or at any time, you can ask for a "top-up" from Actalis.
-
-  
-
-**ADDITIONAL RESOURCES**
-
-- Contact Actalis: [https://www.actalis.com/contact-us.aspx](https://www.actalis.com/contact-us.aspx)
-- Actalis SSL Certificates documentation: [https://www.actalis.com/ssl-certificates.aspx](https://www.actalis.com/ssl-certificates.aspx)
-- Actalis Certification Practice Statement (CPS): [https://www.actalis.it/documenti-en/cps_for_ssl_server_and_code_signing_en.aspx](https://www.actalis.it/documenti-en/cps_for_ssl_server_and_code_signing_en.aspx)
-
-  
-
-**SET UP THE SOLUTION**
-
-Follow these steps:
-
-- Copy the Powershell script to a suitable folder on the TLS Protect server
-- Copy your Certificate Credential (see Special notes and limitations) to the TLS Protect server
-- From Certificate Manager, Self-Hosted:
-- Create and configure the necessary Custom Fields (Configuration > Custom Fields)
-- Create and configure a CA Template for Actalis (Configuration > CA Templates)
-- Associate the Actalis CA Template to a Certificate Folder of your choice (Configuration > Folders)
-
-  
-
-At this point you can start requesting Actalis SSL certificates.
-
-See also the detailed instructions in the provided support documentation.
-
-  
-
-**USAGE EXAMPLE**
-
-From TLS Protect, you can obtain an Actalis SSL certificate as follows:
-
-- From the Certificates Inventory, click on "Create a New Certificate"
-- In the "Create New Certificate" dialog window, select the Actalis certificate folder (step 3.c above)
-- Enter the request data according to your needs, such as the certificate class, domains, organization, etc.
-- Submit the request and you will obtain your certificate in a matter of seconds, unless request errors occur.
-
-  
-
-Subsequent life-cycle management operations (e.g. renewal, revocation, etc.) are done in the usual way from TLS Protect.
-
-  
-
-**ABOUT ACTALIS**
-
-Actalis S.p.A., established in 2002 and an accredited Certification Authority ever since, provides a wide range of eIDAS-compliant qualified trust services and is internationally recognized for issuing trusted SSL certificates of all kinds. One of the leading CAs in Europe and in the top 10 global CAs for SSL certificates (according to W3Techs), Actalis customers include Italian government agencies as well as global private companies in all sectors and of all sizes. Since 2009 has been part of the Aruba Group, the Italian leader in data center, cloud, web hosting, email, and domain name registration services. For more information go to [www.actalis.com](http://www.actalis.com).
+[Actalis S.p.A.](https://www.actalis.com/), an accredited Certification Authority since 2002, provides eIDAS-compliant qualified trust services and trusted SSL certificates. It has been part of the Aruba Group, an Italian provider of data center, cloud and hosting services, since 2009.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

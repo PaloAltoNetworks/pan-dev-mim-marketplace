@@ -1,38 +1,29 @@
 # Fortanix DSM
 
-Venafi acts as the automation and orchestration engine for the lifecycle management of X.509 certificates, and Fortanix Data Security Manager ensures the security of the private keys associated with those certificates in the cloud, on-premises or as a hybrid solution.
+Private keys behind X.509 certificates must be protected, and for many enterprises that means encrypting them or keeping them in a hardware security module before they are stored anywhere in the infrastructure. Managing that protection across a complex, multi-vendor environment is hard to do by hand. Certificate Manager, Self-Hosted and Fortanix Data Security Manager (DSM) combine certificate lifecycle automation with key protection in the cloud, on premises or as a hybrid deployment.
 
-  
+Certificate Manager, Self-Hosted acts as the automation and orchestration engine for the certificate lifecycle, and Fortanix DSM secures the private keys associated with those certificates.
 
-**SOLUTION HIGHLIGHTS**
+**Value Highlights**
 
-- Encrypt and protect private keys using industry-standard, FIPS 140-2 certiﬁed HSMs with the ﬂexibility of either on-premise or cloud-based services
-- Manage and automate multi-vendor X.509 certiﬁcates across multiple devices
-- Gain visibility and control across all certiﬁcates and keys
-- Enforce policies and ensure compliance across the network
-- Deliver secure, encrypted communications faster by reducing certiﬁcate deployment time by up to 70%
-- Certificate Management with Encrypted Private Key Storage in Venafi
-- Certificate Management in Venafi with Private Key Generation in Fortanix
-- Comprehensive Role-based Access Control
-- Highly resilient, distributed architecture with maximum availability
-- Simplified operations and ease of management
+- **Protect private keys** with FIPS 140-2 certified HSMs, delivered on premises or as a cloud service.
+- **Automate multi-vendor certificates** across many devices from Certificate Manager, Self-Hosted.
+- **Gain visibility and control** across all certificates and keys.
+- **Enforce policy** and support compliance across the network.
+- **Control access** with comprehensive role-based access control in Fortanix DSM.
+- **Rely on a resilient architecture** with a distributed design for high availability.
 
-  
+**How it Works**
 
-**SOLUTION OVERVIEW**
+Certificate Manager, Self-Hosted connects to Fortanix DSM as a PKCS#11 HSM. The integration supports two models: certificate management with private keys encrypted by Fortanix DSM and stored in Certificate Manager, Self-Hosted, or certificate management with private keys generated and kept in Fortanix DSM. Fortanix provides the integration documentation through [Fortanix Support](https://support.fortanix.com/).
 
-Venafi and Fortanix have combined the benefits of machine identity management with key protection in Fortanix Data Security Manager (DSM). The partnership between Venafi and Fortanix helps enterprises overcome the challenges brought by managing private keys in a complex infrastructure. For enhanced security and compliance, private keys must be encrypted before they are stored in an enterprise’s infrastructure. Our combined solution gives the enterprise multiple options that cater to the specific needs of that infrastructure. Venafi acts as the automation and orchestration engine for the lifecycle management certificates, and Fortanix DSM ensures the security of the private keys associated with those certificates in the cloud, on-premises or as a hybrid solution.
+**Solution Components**
 
-  
-
-**Resources**
-
-- Integration documentation: https://support.fortanix.com/hc/en-us/articles/7102318547988-Using-Data-Security-Manager-with-Venafi
-
-  
+- Certificate Manager, Self-Hosted
+- Fortanix Data Security Manager (SaaS or on premises)
 
 **About Fortanix**
 
-Fortanix secures data, wherever it is. Fortanix’s data-first approach helps businesses of all sizes to modernize their security solutions on-premises, in the cloud and everywhere in-between. Enterprises worldwide, especially in privacy-sensitive industries like healthcare, fintech, financial services, government, and retail, trust Fortanix for data security, privacy and compliance. Fortanix investors include Goldman Sachs, Foundation Capital, Intel Capital, In-Q-Tel, Neotribe Ventures and GiantLeap Capital.
+[Fortanix](https://www.fortanix.com/) takes a data-first approach to security, helping businesses protect data on premises, in the cloud and everywhere in between. Enterprises in privacy-sensitive industries such as healthcare, financial services, government and retail use Fortanix for data security, privacy and compliance.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

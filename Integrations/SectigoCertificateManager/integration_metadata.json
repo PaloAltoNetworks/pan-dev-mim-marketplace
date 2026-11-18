@@ -1,6 +1,6 @@
 {
   "name": "Sectigo Certificate Manager",
-  "description": "Automate and control the entire certificate lifecycle with Sectigo Certificate Manager, enhancing visibility, security, and compliance.",
+  "description": "Automate the lifecycle of Sectigo Certificate Manager certificates under central policy.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Venafi",

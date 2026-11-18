@@ -1,11 +1,24 @@
 # K8S Container Signing Verification with Nirmata
 
-This Development Fund project from Nirmata will improve supply chain security by enabling image verification for your Kubernetes clusters using Nirmata Policy Manager and CodeSign Protect.
+Verifying container image signatures before deployment protects Kubernetes clusters from tampered or untrusted images. Today, SecOps engineers often create verification policies by hand and paste their signing certificates into them, which is cumbersome, error-prone and unmanageable at scale. This Development Fund project from Nirmata automates that workflow with Nirmata Policy Manager and CodeSign Protect, for teams using Next-Gen Trust Security.
 
-**SOLUTION OVERVIEW**
+**Value Highlights**
 
-Today, SecOps engineers have to manually create policies and include their certificates in the policies to enable image verification. This is not only cumbersome and error prone but also unmanageable at scale. This Development Fund sponsored solution addresses this problem by automating the entire workflow. CodeSign Protect supports signing container images using cosign (via PKCS11 certificates, and public/private key-pairs), and Podman/Skopeo (using GPG keys). Nirmata supports verification of signed container images during Kubernetes admission controls and in-cluster background scans via policies. This integration allows SecOps engineers to define policies that can be used to ensure that only verified and attested images are deployed to their clusters.
+- **Secure the supply chain**: Deploy only verified and attested images to your clusters.
+- **Automate policy creation**: Remove manual steps to add signing certificates to verification policies.
+- **Enforce at admission**: Verify signed images during Kubernetes admission control.
+- **Keep checking**: Detect unverified images with in-cluster background scans.
 
-**ABOUT Nirmata**
+**How it Works**
 
-Nirmata is the creator of Kyverno, now a CNCF incubating project with over 1 billion downloads. Kyverno has become the de facto solution for Kubernetes policy enforcement and management. Nirmata provides Nirmata Enterprise for Kyverno. It is an enterprise-grade distribution of Kyverno with long-term support, designed to save time and costs for production users.
+CodeSign Protect signs container images with cosign (using PKCS#11 certificates or public and private key pairs) or with Podman and Skopeo (using GPG keys). Nirmata Policy Manager uses Kyverno policies to verify those signatures when images are admitted to the cluster and during background scans. The integration lets SecOps engineers define the policies that make sure only verified images run. See the [Nirmata documentation](https://docs.nirmata.io) for setup.
+
+**Solution Components**
+
+- Next-Gen Trust Security with CodeSign Protect
+- Nirmata Policy Manager (Nirmata Enterprise for Kyverno)
+- Kubernetes clusters
+
+**About Nirmata**
+
+[Nirmata](https://nirmata.com/) is the creator of Kyverno, a CNCF project for Kubernetes policy enforcement and management. Nirmata Enterprise for Kyverno is an enterprise-grade distribution of Kyverno with long-term support for production users.

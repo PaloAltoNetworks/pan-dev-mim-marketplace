@@ -1,19 +1,24 @@
 # VMware Tanzu Service Mesh
 
-Achieve complete automation for machine identities in Kubernetes workloads using VMware Tanzu and Venafi.
+Complex, interconnected Kubernetes workloads need certificates that are trusted by the organization, not just by the mesh. VMware has integrated Certificate Manager, Self-Hosted as the machine identity control plane for [Tanzu Service Mesh](https://tanzu.vmware.com/service-mesh), so Tanzu users can connect their service mesh to a trusted certificate authority of their choice for mutual TLS (mTLS) between Kubernetes clusters.
 
-  
+Certificates generated for services then chain to your organizational CA, which increases observability and control and helps meet compliance requirements in regulated industries.
 
-**SOLUTION HIGHLIGHTS**
+**Value Highlights**
 
-- **Enables automation for enterprise trusted machine identities** in Kubernetes
-- **Supports both Ingress and mTLS** use cases
-- **Provides flexibility for teams **to use any Certificate Authority supported by Venafi (40+ and counting)
+- **Automate trusted identities**: Automate enterprise-trusted machine identities for Kubernetes workloads.
+- **Cover ingress and mTLS**: Support both ingress and service-to-service mTLS use cases.
+- **Choose your CA**: Use any certificate authority supported by Certificate Manager, Self-Hosted (more than 40).
+- **Stay compliant**: Keep service certificates within your organizational CA trust chain.
 
-  
+**How it Works**
 
-**SOLUTION OVERVIEW**
+Tanzu Service Mesh requests the certificates for services in the mesh from Certificate Manager, Self-Hosted, which issues them from the CA you choose and applies your certificate policy. Services across clusters then use those certificates for mTLS and ingress.
 
-To improve protection for complex, interconnected workload architectures, VMware has integrated Venafi’s machine identity control plane into its [Tanzu Service Mesh](https://tanzu.vmware.com/service-mesh). The solution enables Tanzu users to integrate their Service Mesh with a trusted certificate authority (CA) of their choice to support mutual Transport Layer Security (mTLS) between Kubernetes clusters. This allows the certificates generated for services to be part of the organizational CA trust chain. This increases observability and control for organizations, while ensuring compliance in regulated industries. 
+**Solution Components**
+
+- Certificate Manager, Self-Hosted
+- VMware Tanzu Service Mesh
+- Kubernetes clusters connected to the mesh
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

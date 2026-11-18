@@ -1,16 +1,25 @@
 # Certificate Management with Jenkins Continuous Integration
 
-Qensus Labs is specialized in developing reliable solutions and understands that a secure digital identity is critical for business success. Every day our Engineers help customers to safeguard their data and systems and create new value, like accelerating digital transformation.
+Security teams must know what to trust at all times, and in fast-moving DevOps environments that means policy enforcement has to be automated inside the tools developers already use. This open source Jenkins plugin, built by Qensus in collaboration with CloudBees, lets Jenkins pipelines request certificates from Next-Gen Trust Security in a standard way, so certificates in CI/CD follow your policies.
 
-To accelerate the journey for Venafi customers Qensus developed an Open Source Jenkins integration in collaboration with Cloudbees. This Jenkins plugin enables Venafi customers to easily integrate with Venafi TLS Protect and Next-Gen Trust Security using the Vcert library. Their teams can now manage certificate requests in a standard way following market best practices, even within their own CI/CD pipelines.
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Give security teams visibility**: See and control the certificates that protect applications built in Jenkins.
+- **Serve application teams automatically**: Let application and operations teams get certificates inside the tools they use every day.
+- **Automate issuance in pipelines**: Request certificates and private keys as build steps or pipeline functions.
+- **Shift security left**: Apply certificate policy in pre-production, before applications reach production.
+- **Stay crypto-agile**: Use the certificate authorities connected to Next-Gen Trust Security without changing pipelines.
 
-- **Give security teams the visibility **and intelligence they need to ensure applications are protected with secure machine identities
-- **Provide Application and Operation teams **the ability to consume machine identities automatically, inside the tools they’re already using every day
-- **Fully automate machine identity issuance **and provisioning in development pipelines
-- **Enable crypto-agility **through Venafi's native and partner-built CA integration
+**How it Works**
 
-**SOLUTION OVERVIEW**
+The plugin uses the VCert library to connect Jenkins to Next-Gen Trust Security. You configure the connection once in the Jenkins system settings, then use the request certificate operation in freestyle projects or pipelines. Each request names a zone, and the certificate, chain and private key are written to files in PEM format for later build steps. See the plugin documentation on the Documentation tab for setup.
 
-Security teams must know what to trust and what not to trust at all times to effectively protect machine identities in dynamic environments. As a result, smart policy enforcement must be automated and embedded into the tools used by application development teams. By shifting machine identity processes left into the pre-production phase and hooking directly into automated DevOps workflows, security teams can regain control over X.509 certificates in fully automated environments.
+**Solution Components**
+
+- Next-Gen Trust Security
+- Jenkins
+- [Venafi Machine Identity Management plugin for Jenkins](https://plugins.jenkins.io/venafi-vcert/)
+
+**About Qensus**
+
+[Qensus](https://qensus.com/) is a services provider focused on DevSecOps and machine identity management, and develops open source integrations that bring certificate management into CI/CD tools.

@@ -1,6 +1,6 @@
 {
   "name": "The SSL Store Adaptable Drivers",
-  "description": "To generate the Partner Code and Auth Token from TheSSLstore.com, please see below:",
+  "description": "Order and renew certificates from The SSL Store automatically with Adaptable CA drivers for Certificate Manager, Self-Hosted.",
   "support": "Supported",
   "currentVersion": "1.1",
   "author": "The SSL Store",
