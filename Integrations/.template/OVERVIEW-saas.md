@@ -1,29 +1,25 @@
 # My Integration Name
 
-## Overview
+One or two short paragraphs on the problem your customers have and the outcome this integration gives them on Certificate Manager, SaaS. Write for the customer, not the implementation. Keep setup steps for the Documentation tab.
 
-Describe what this integration does on Certificate Manager, SaaS. Include:
-- What problem it solves
-- Which Venafi/CyberArk products it works with
-- Key features
+**Value Highlights**
 
-## Prerequisites
+- **Eliminate outages**: renew and deploy certificates automatically before they expire.
+- **Enforce policy**: every certificate on the target system follows your organization's rules.
+- **Gain visibility**: see every certificate on the target system in one inventory.
+- **Save time**: remove manual certificate requests and installs.
 
-- List any prerequisites or dependencies here
-- Software versions required
+**How it Works**
 
-## Installation
+Two to four sentences on how Certificate Manager, SaaS and the target system work together. Describe only Certificate Manager, SaaS in this file; each product has its own overview. Point readers to the Documentation tab for setup.
 
-Step-by-step installation instructions.
+**Solution Components**
 
-## Configuration
+- Certificate Manager, SaaS
+- The target system and the versions it supports
 
-Explain how to configure the integration.
+**About Your Company**
 
-## Usage
+A sentence or two about your company, with a link to your website. Leave this section out if Venafi built the integration.
 
-Describe common usage patterns or example workflows.
-
-## Support
-
-Link to support resources, issues tracker, or contact info.
+**Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**
