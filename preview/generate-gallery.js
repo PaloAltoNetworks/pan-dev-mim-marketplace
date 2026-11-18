@@ -574,6 +574,9 @@ function resolveVariantFields(variant, root, hasLocalDoc, downloadsEnabled = tru
         currentVersion: variant.currentVersion ?? root?.currentVersion ?? '1.0.0',
         author: variant.author ?? root?.author ?? 'Unknown',
         ...resolveSupportContact(variant, root),
+        // Where a Community variant's "Community" link points. Unset = the marketplace repo's
+        // pre-filled community-support issue form (built in the browser, src/utils/communityIssue.ts).
+        issuesUrl: variant.issuesUrl ?? root?.issuesUrl,
         externalDocsUrl: variant.externalDocsUrl ?? root?.externalDocsUrl,
         externalDocsLabel: variant.externalDocsLabel ?? root?.externalDocsLabel ?? 'Documentation',
         description: variant.description ?? root?.description,
@@ -954,6 +957,9 @@ async function generateGalleryData() {
             }
 
             metadata.routeId = routeId;
+            // The Integrations/ folder name, for attributing community issues to the listing.
+            // routeId is derived from `name`, so it doesn't always match the folder.
+            metadata.folder = folder;
             gallery.push(metadata);
 
             // --- productVariants: per-product content switching ---
