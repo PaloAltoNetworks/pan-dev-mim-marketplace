@@ -603,7 +603,8 @@ function resolveVariantFields(variant, root, hasLocalDoc, downloadsEnabled = tru
         resolved.suppressedDownloadFiles = resolved.downloadFiles;
         resolved.downloadFiles = [];
         // Shipped to the client (unlike the file list) so the detail page can show banners
-        // placed on "downloads-disabled" (see MarketplaceAnnouncements).
+        // placed on "downloads-disabled" (see MarketplaceAnnouncements). Also drives the
+        // License row, so it stays set even when a paid primary CTA hides that banner.
         resolved.downloadsDisabled = true;
     }
 
@@ -1208,8 +1209,11 @@ ${imports}
                     // directory read — now that downloadUrls are resolved; the releaseNotesBlock/
                     // hasReleaseNotes above (no download markup) exist only for the has-notes
                     // check and stay untouched.
+                    // A paid primary CTA (contact-partner / contact-sales) already tells the
+                    // visitor how to get access, so skip the "contact your account team" notice
+                    // (the detail page skips its downloads-disabled banner for the same reason).
                     const downloadButtonsMarkup = variant._resolved?.suppressedDownloadFiles
-                        ? DOWNLOADS_DISABLED_NOTICE
+                        ? (PAID_CTA_TYPES.has(variant._resolved?.primaryCta?.type) ? '' : DOWNLOADS_DISABLED_NOTICE)
                         : buildDownloadButtonsMarkup(variant._resolved?.downloadUrls);
                     let releaseNotesTabContent = buildReleaseNotes(releaseNotesDir, suffix, downloadButtonsMarkup);
                     if (!releaseNotesTabContent && downloadButtonsMarkup) {

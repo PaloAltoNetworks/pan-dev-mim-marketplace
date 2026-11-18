@@ -10,7 +10,8 @@ const DEFAULT_LABELS: Record<string, string> = {
 };
 
 // Only paid types carry the "Paid Integration" badge and show a description.
-const PAID_TYPES = new Set(["contact-sales", "contact-partner"]);
+// Mirrors PAID_CTA_TYPES in generate-gallery.js.
+export const PAID_TYPES = new Set(["contact-sales", "contact-partner"]);
 
 const ExternalIcon = () => (
     <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
