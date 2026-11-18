@@ -1,29 +1,21 @@
 # VMware NSX Load Balancer (formerly Avi Vantage)
 
-Enforcing the use of HTTPs encryption is more important than ever but becomes more difficult to accomplish at scale. VMware and Venafi have teamed to make it easy to get started and fully automate the use of keys and certificates for load balancing ops teams.
+Enforcing HTTPS everywhere matters more than ever, but keeping certificates current across load balancers becomes difficult at scale. VMware NSX Advanced Load Balancer provides a software load balancer, web application firewall and service mesh for fast, scalable and secure application delivery. With Next-Gen Trust Security, load balancing teams can discover the certificates on their controllers and fully automate certificate provisioning and renewal.
 
-The VMware NSX Load Balancer provides a Software Load Balancer, Intelligent Web Application Firewall (iWAF) and Elastic Service Mesh to ensure fast, scalable and secure application delivery. VMWare and Venafi have teamed to make it easy to get started and fully automate the use of keys and certificates for networking ops teams.
+**Value Highlights**
 
-- **Scale use of HTTPS** without difficult setup or maintenance
-- **Eliminate outages** with continuous key and certificate updates
-- **Reduce risk** of security incidents from improperly handled keys
-- **Gain the full benefits** of application delivery with complete automation
-- **Secure and automated** distribution of keys and certificates
-- **Fully automated** issuance and renewal
-- **Integrate with SSL/TLS inspection** for full encrypted traffic visibility
+- **Scale HTTPS**: Expand the use of HTTPS without difficult setup or maintenance.
+- **Eliminate outages**: Keep certificates continuously updated before they expire.
+- **Reduce risk**: Avoid security incidents caused by improperly handled keys.
+- **Gain visibility**: Discover the TLS certificates in the controller's tenants.
+- **Automate delivery**: Issue, renew and provision certificates to virtual services automatically.
 
-The VMware NSX Load Balancer integration supports both Certificate Manager, Self-Hosted and Next-Gen Trust Security.
+**How it Works**
 
-The complete user guide can be found in the [Venafi Documentation](https://docs.venafi.cloud/vaas/machines/vmware-nsx-avi/).
+You create a VMware NSX Advanced Load Balancer (AVI) machine in Next-Gen Trust Security. It connects to the controller through a VSatellite using a controller account with administrative permissions in the admin tenant and in every tenant you manage. Next-Gen Trust Security then discovers the certificates in those tenants and provisions new and renewed certificates to the controller's virtual services. See the Documentation tab for setup.
 
-The complete user guide for this integration can be found in the [VMware Documentation Portal](https://docs.vmware.com/en/VMware-NSX-Advanced-Load-Balancer/22.1/Configuration_Guide/GUID-A25E91D4-0CB1-41A3-8F25-60BEEA5E644B.html). At a high level, when a new application is created or a new SSL/ TLS certificate is required, use the following workflow.
+**Solution Components**
 
-- From the Certificate Manager, Self-Hosted, create a new certificate for the NSX Advanced Load Balancer. Behind the scenes, the following happens:
-  - Venafi sends the API calls necessary to generate a CSR on NSX Advanced Load Balancer and import it.
-  - Venafi forwards the CSR to the configured certificate authority.
-  - Venafi receives the signed certificate and key from the CA.
-  - Venafi pushes the certificate and key to NSX Advanced Load Balancer, along with any required chain certificates.
-- From the NSX Advanced Load Balancer, create a new application virtual service, attaching the certificate.
-
-- Any subsequent updates to the certificate received by the Controller will automatically and transparently be pushed to Service Engines using the certificate.
-- Venafi will learn the mapping of the virtual service name to the certificate. It will automatically handle certificate renewals.
+- Next-Gen Trust Security
+- VSatellite
+- VMware NSX Advanced Load Balancer controller

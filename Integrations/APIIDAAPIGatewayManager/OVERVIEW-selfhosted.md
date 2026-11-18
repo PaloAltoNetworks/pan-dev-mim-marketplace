@@ -1,31 +1,28 @@
 # APIIDA API Gateway Manager
 
-APIIDA, a specialist in API, identity and access software solutions, has built support for the Venafi Platform and the APIIDA API Gateway Manager.
+API gateways have traditionally lacked automation for machine identities and run as standalone instances. Managing the certificates and keys of one gateway by hand is slow, and doing it across many gateways is error-prone even for experienced administrators.
 
-  
+APIIDA has built support for Certificate Manager, Self-Hosted into APIIDA API Gateway Manager. Organizations can automate the machine identities of the many API gateways that API Gateway Manager controls, instead of handling each gateway's certificates separately.
 
-**SOLUTION HIGHLIGHTS**
+**Value Highlights**
 
-- **Centrally manage **and secure corporate assets
-- **Prioritize traffic **to help ensure APIs remain available and responsive
-- **Translate between legacy and new **applications and data
-- **Clustered architecture **allows linear scalability across multiple Gateways, with automatic failover, application level throttling and prioritization
-- **Handles migrations **across dev/test/production with global management tools, and integrates with enterprise BI, analytics, and reporting tools
-- **Multiple form factors/deployment models **with support for a wide range of platforms, including Docker, AWS and Azure
-- **Plug-in framework to add new transports** and identity providers, and deep integration with enterprise management and BI products
+- **Centrally manage and secure** the certificates of many API gateways.
+- **Keep APIs available** by renewing gateway certificates before they expire.
+- **Scale across clustered gateways** with automatic failover, throttling and traffic prioritization.
+- **Handle migrations** across development, test and production with global management tools.
+- **Deploy anywhere** with support for multiple form factors, including Docker, AWS and Azure.
 
-  
+**How it Works**
 
-**SOLUTION OVERVIEW**
+APIIDA API Gateway Manager automates API operations, including deployment, migration, monitoring and alarming, across the gateways it manages. Its integration with Certificate Manager, Self-Hosted lets the certificates and keys those gateways use be issued and renewed under Certificate Manager, Self-Hosted policy and delivered through API Gateway Manager. Contact APIIDA for setup details.
 
-API gateways have not included automation for machine identities and operate as standalone instances. This makes automation of not just one but many API gateways near impossible. And performing machine identity lifecycle operations is time consuming and likely error prone for even seasoned API Gateway managers. 
+**Solution Components**
 
-  
+- Certificate Manager, Self-Hosted
+- APIIDA API Gateway Manager and the API gateways it manages
 
-APIIDA API Gateway Manager is the market-leading solution for API Operations Automation, providing a complete set of features for fast and reliable API Deployment and Migration and comprehensive API Monitoring and Alarming.
+**About APIIDA**
 
-  
-
-APIIDA, a specialist in API and identity and access software solutions, has built support for the Venafi Platform and the APIIDA API Gateway Manager for automation of machine identities for many API gateways that are managed by APIIDA software.
+APIIDA, now part of [Boomi](https://boomi.com/), is a specialist in API management and identity and access software.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

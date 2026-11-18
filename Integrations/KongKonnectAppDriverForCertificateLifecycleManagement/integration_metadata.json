@@ -19,7 +19,7 @@
   "keywords": [],
   "price": "Paid (Contact Partner)",
   "name": "Kong Konnect App Driver for Certificate Lifecycle Management",
-  "description": "Centralize TLS management for Kong Konnect with Certificate Manager",
+  "description": "Automate TLS certificate provisioning and renewal for Kong Konnect API gateways.",
   "acquisition": {
     "type": "contact-partner",
     "url": "https://secursolutionsgroup.com/contact-us"

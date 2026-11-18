@@ -1,6 +1,6 @@
 {
   "name": "Microsoft IIS",
-  "description": "Enabling automated certificates management on Microsoft IIS",
+  "description": "Discover and provision certificates on Microsoft IIS web servers to prevent outages from expired certificates.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Venafi",
@@ -30,13 +30,13 @@
       "overviewFile": "OVERVIEW-saas.md",
       "documentationLinks": [
         {
-          "title": "Microsoft IIS Integration Guide",
-          "description": "Complete integration guide for Microsoft IIS",
+          "title": "Microsoft IIS Machine Setup",
+          "description": "Create a Microsoft IIS machine in Certificate Manager, SaaS",
           "url": "https://docs.cyberark.com/mis-saas/vaas/machines/microsoft-iis/"
         },
         {
-          "title": "Provisioning Certificates to Microsoft IIS",
-          "description": "Step-by-step guide for certificate provisioning",
+          "title": "Provision Certificates to Microsoft IIS",
+          "description": "Provision certificates to a Microsoft IIS machine",
           "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-microsoft-iis/"
         }
       ]
@@ -46,9 +46,14 @@
       "overviewFile": "OVERVIEW-selfhosted.md",
       "documentationLinks": [
         {
-          "title": "Microsoft IIS Integration Guide",
-          "description": "Complete integration guide for Microsoft IIS",
+          "title": "CAPI Driver (and IIS) Configuration",
+          "description": "How the CAPI driver provisions certificates to IIS in Certificate Manager, Self-Hosted",
           "url": "https://docs.venafi.com/Docs/26.1/TopNav/Content/Drivers/cco-CAPI-AppDriverConfig-tpp.php"
+        },
+        {
+          "title": "CAPI Application Object Settings",
+          "description": "Create and configure a CAPI application object for an IIS server",
+          "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/r-CAPI-AppObjSettings-tpp.php"
         }
       ]
     },
@@ -57,9 +62,14 @@
       "overviewFile": "OVERVIEW-ngts.md",
       "documentationLinks": [
         {
-          "title": "Microsoft IIS Integration Guide",
-          "description": "Complete integration guide for Microsoft IIS",
+          "title": "Create a Microsoft IIS Machine",
+          "description": "Create a Microsoft IIS machine in Next-Gen Trust Security",
           "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/microsoft-iis"
+        },
+        {
+          "title": "Provision to Microsoft IIS",
+          "description": "Provision certificates to a Microsoft IIS machine",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/microsoft-iis/provision-certificates-microsoft-iis"
         }
       ]
     }

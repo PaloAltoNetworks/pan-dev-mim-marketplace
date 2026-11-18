@@ -1,6 +1,6 @@
 {
   "name": "BMC Enterprise Connector for Venafi",
-  "description": "Adaptable Driver for BMC's Enterprise Connector for Venafi, providing certificate management for RACF, TSS, and ACF2 environments on z/OS.",
+  "description": "Automate certificate management for RACF, TSS and ACF2 on IBM z/OS through BMC Enterprise Connector for Venafi.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "BMC Software",

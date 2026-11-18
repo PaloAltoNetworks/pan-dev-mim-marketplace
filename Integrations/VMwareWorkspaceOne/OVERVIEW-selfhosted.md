@@ -1,21 +1,22 @@
 # VMware Workspace One
 
-From Wi-Fi and VPN to MDM/EMM management, certificates are being used more frequently to authenticate mobile devices and their users. Venafi gives security and operations teams using VMware Workspace One (formerly AirWatch) greater control over their machine identities.
+From Wi-Fi and VPN to mobile device management, certificates are used more and more to authenticate mobile devices and their users. VMware Workspace ONE (formerly AirWatch) combines access control, application management and multi-platform endpoint management in one platform, available as a cloud service or on-premises. Integrating it with Certificate Manager, Self-Hosted gives security and operations teams greater control over these machine identities.
 
-  
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Gain visibility**: See all certificates down to the user level.
+- **Get a running start**: Begin with your existing CAs and a directory import.
+- **Stop unauthorized access**: Revoke access with a single kill switch.
+- **Issue with policy**: Use a validated SCEP integration to issue multi-profile, policy-enforced certificates.
+- **Stay in sync**: Import and synchronize with directory services.
 
-- **Gain visibility** down to the user level for all certificates
-- **Get a running start** with existing CAs and directory import 
-- **Stop unauthorized access** with single kill switch 
-- **Validated SCEP integration** for issuing multiprofile and policy-enforced certificates 
-- **Import and sync** with directory services
+**How it Works**
 
-  
+Workspace ONE requests device and user certificates from Certificate Manager, Self-Hosted through SCEP. Certificate Manager, Self-Hosted applies consistent issuance policies and gives you consolidated, user-level visibility of Workspace ONE, VPN, Wi-Fi and other certificates.
 
-**SOLUTION OVERVIEW**
+**Solution Components**
 
-VMware Workspace ONE integrates access control, application management and multi-platform endpoint management into a single platform and is available as a cloud service or on-premises deployment. Integrate Venafi, and you have greater control with consistent certificate issuance polices, consolidated user-level visibility for Workspace One, VPN, Wi-Fi and other certificates. 
+- Certificate Manager, Self-Hosted
+- VMware Workspace ONE
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

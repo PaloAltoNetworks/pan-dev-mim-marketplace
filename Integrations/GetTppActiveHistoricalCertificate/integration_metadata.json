@@ -1,7 +1,7 @@
 {
   "name": "Get-TppActiveHistoricalCertificate",
   "listingType": "tool",
-  "description": "**Note: this script can be used, but it has been added to VenafiPS as Search-TppHistory with the ability to search on all attributes, not just active.**",
+  "description": "Find previous certificate versions in Certificate Manager, Self-Hosted that are still valid, using the VenafiPS PowerShell module.",
   "support": "Community",
   "currentVersion": "1.0",
   "author": "Community",

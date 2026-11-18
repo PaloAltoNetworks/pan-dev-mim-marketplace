@@ -1,22 +1,22 @@
 # Google CAS Import
 
-## Overview
+Certificates issued from Google Cloud Certificate Authority Service (CAS) are easy to lose track of when they live only in the Google Cloud console. Google CAS Import brings those certificates into Certificate Manager, Self-Hosted, so you get one inventory that covers certificates issued by your Google CAS CA pools alongside the rest of your certificates.
 
-Google CAS Import is an Adaptable CA integration that imports certificates from Google Certificate
-Authority Service (CAS) into Certificate Manager, Self-Hosted. It runs as a Certificate Import job,
-giving you a consolidated inventory of certificates issued by your Google CAS CA pools.
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Consolidate inventory**: Import certificates from every Google CAS CA pool in a project, across all locations.
+- **Keep the inventory current**: Run the import on a schedule as a Certificate Import job.
+- **Control scope**: Choose whether the job imports revoked and expired certificates.
+- **Use least privilege**: Connect with a Google service account that has only viewer and auditor roles.
 
-- Automatically import Enterprise-tier certificates from Google CAS CA pools
-- Runs as a scheduled Certificate Import job using the Adaptable framework
-- Uses a Google service account with least-privilege viewer/auditor roles
-- Centralizes visibility of cloud-issued certificates alongside the rest of your inventory
+**How it Works**
 
-## Prerequisites
+Google CAS Import is an Adaptable CA PowerShell script for Certificate Manager, Self-Hosted. You copy the script to your engine servers and create a Certificate Import job that uses it. On each run, the script authenticates to Google Cloud with a service account key, lists the CA pools in the project, and imports the certificates it finds into the placement folder you choose. Only Enterprise-tier CA pools support certificate listing, so certificates from DevOps-tier pools are not imported. See the Documentation tab for setup.
 
-- A Google Cloud project with the Certificate Authority API enabled and at least one populated CA pool
-- A Google service account with the `CA Service Auditor` and `Certificate Manager Viewer` roles
-- The service account JSON key for credential configuration
+**Solution Components**
+
+- Certificate Manager, Self-Hosted with the Adaptable framework
+- Google Cloud Certificate Authority Service
+- `Google CAS Import.ps1` (included in this listing)
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

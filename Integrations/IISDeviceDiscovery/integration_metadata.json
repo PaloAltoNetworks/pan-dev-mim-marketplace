@@ -1,6 +1,6 @@
 {
   "name": "IIS Device Discovery",
-  "description": "The IIS Device Discovery script is intended to import Windows servers running IIS (7.x and later) into a specified policy folder in Trust Protection Platform. The devices folder can be specified during an onboard discovery job.",
+  "description": "Bulk-import Windows servers running IIS as devices in Certificate Manager, Self-Hosted so onboard discovery can find their certificates.",
   "support": "Community",
   "currentVersion": "1.0",
   "author": "Community",

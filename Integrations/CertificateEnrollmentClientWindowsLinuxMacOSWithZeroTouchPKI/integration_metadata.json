@@ -7,7 +7,7 @@
     "Endpoint & Device Management"
   ],
   "products": [
-    "Certificate Manager Self-Hosted"
+    "Zero Touch PKI"
   ],
   "tags": [
     "Endpoint",
@@ -19,5 +19,5 @@
   "keywords": [],
   "price": "Free",
   "name": "Certificate Enrollment Client (Windows, Linux, MacOS) with Zero Touch PKI",
-  "description": "Simplify and secure your device identity management with streamlined certificate provisioning"
+  "description": "Automate device certificate enrollment from Zero Touch PKI on Windows, Linux and macOS endpoints."
 }

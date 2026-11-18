@@ -1,6 +1,6 @@
 {
   "name": "Microsoft Active Directory",
-  "description": "Streamline secure admin access with Microsoft Active Directory and Venafi, leveraging existing user hierarchy for policy enforcement.",
+  "description": "Use Active Directory users, groups and Windows authentication for administrator access to Certificate Manager, Self-Hosted.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Venafi",

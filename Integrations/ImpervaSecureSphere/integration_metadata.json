@@ -1,6 +1,6 @@
 {
   "name": "Imperva SecureSphere",
-  "description": "Unlock HTTPS traffic to boost Imperva WAF effectiveness with automated key management, ensuring optimal web application protection.",
+  "description": "Distribute keys and certificates to Imperva SecureSphere automatically so the firewall can keep inspecting HTTPS traffic.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Venafi",
@@ -29,8 +29,8 @@
       "overviewFile": "OVERVIEW-selfhosted.md",
       "documentationLinks": [
         {
-          "title": "Imperva SecureSphere Integration Guide",
-          "description": "Complete integration guide for Imperva SecureSphere",
+          "title": "Imperva MX Driver Configuration",
+          "description": "Configure the Imperva MX driver in Certificate Manager, Self-Hosted",
           "url": "https://docs.venafi.com/Docs/26.1/TopNav/Content/Drivers/cco-Imperva-AppDriverConfig-tpp.php"
         }
       ]

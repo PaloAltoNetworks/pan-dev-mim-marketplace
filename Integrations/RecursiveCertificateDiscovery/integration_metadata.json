@@ -1,6 +1,6 @@
 {
   "name": "Recursive Certificate Discovery",
-  "description": "Automated driver that performs recursive discovery of certificate files from a specified folder path",
+  "description": "Discover certificate files across Linux file systems by recursively scanning a folder and all its subdirectories.",
   "categories": [
     "Discovery & Asset Management"
   ],

@@ -1,6 +1,6 @@
 {
   "name": "Cloudflare Origin CA",
-  "description": "Provision custom SSL certificates to Clouflare Edge services.",
+  "description": "Automate Cloudflare Origin CA certificates for Kubernetes workloads with a cert-manager issuer.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "CloudFlare, Inc. - Marketplace",
@@ -26,11 +26,25 @@
   "productVariants": [
     {
       "product": "Certificate Manager SaaS",
-      "overviewFile": "OVERVIEW-saas.md"
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Origin CA Issuer",
+          "description": "Install and configure Origin CA Issuer for cert-manager",
+          "url": "https://github.com/cloudflare/origin-ca-issuer"
+        }
+      ]
     },
     {
       "product": "Next-Gen Trust Security",
-      "overviewFile": "OVERVIEW-ngts.md"
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Origin CA Issuer",
+          "description": "Install and configure Origin CA Issuer for cert-manager",
+          "url": "https://github.com/cloudflare/origin-ca-issuer"
+        }
+      ]
     }
   ],
   "price": "Free"

@@ -1,6 +1,6 @@
 {
   "name": "SwissSign CA",
-  "description": "Obtain and manage SwissSign issued certificates from Certificate Manager.",
+  "description": "Request, renew and revoke SwissSign-issued certificates from Certificate Manager and Next-Gen Trust Security.",
   "categories": [
     "Certificate Authority"
   ],
@@ -37,11 +37,25 @@
     },
     {
       "product": "Certificate Manager SaaS",
-      "overviewFile": "OVERVIEW-saas.md"
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Creating a SwissSign Connector",
+          "description": "Set up the SwissSign CA connector in Certificate Manager, SaaS",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/certificates/ca/custom-ca/r-swisssign-example/"
+        }
+      ]
     },
     {
       "product": "Next-Gen Trust Security",
-      "overviewFile": "OVERVIEW-ngts.md"
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Creating a SwissSign Connector",
+          "description": "Set up the SwissSign CA connector in Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/co-overview-issuing-certs/adding-a-certificate-authority/c-custom-ca-overview/r-swisssign-example"
+        }
+      ]
     }
   ]
 }

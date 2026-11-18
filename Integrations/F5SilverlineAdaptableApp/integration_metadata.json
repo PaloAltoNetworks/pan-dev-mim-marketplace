@@ -1,6 +1,6 @@
 {
   "name": "F5 Silverline",
-  "description": "HTTPS encryption is more prevalent than ever but can be difficult to scale. F5 Silverline and Venafi have teamed up to make it easy to automate the use of keys and certificates for application teams using the following products from Silverline:",
+  "description": "Automatically provision and renew TLS certificates on F5 Silverline DDoS Protection, WAF and Shape Defense services.",
   "support": "Supported",
   "currentVersion": "1.0",
   "author": "F5",

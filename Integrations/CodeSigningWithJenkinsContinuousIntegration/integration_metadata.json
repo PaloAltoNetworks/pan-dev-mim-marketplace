@@ -1,6 +1,6 @@
 {
   "name": "Code Signing with Jenkins Continuous Integration",
-  "description": "A Jenkins plugin that enables Venafi customers to easily integrate with CodeSign Protect.",
+  "description": "Sign and verify build artifacts in Jenkins pipelines with CodeSign Protect, keeping signing keys out of the build infrastructure.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Qensus",

@@ -1,17 +1,27 @@
 # F5 BIG-IP SSLO
 
-**SOLUTION OVERVIEW**
-Simplify your SSL certificate management with Secur Solutions' Venafi F5 BIG-IP SSLO driver. This powerful tool seamlessly integrates with Venafi TLS Protect (f.k.a. Certificate Manager, Self-Hosted or Certificate Manager, Self-Hosted) to automate the final step of the SSL certificate lifecycle on your F5 BIG-IP SSLO devices.
-**KEY FEATURES**
-- **Automated SSL Configuration Updates:** Automatically updates SSL configurations on F5 BIG-IP SSLO devices.
-- **Seamless Integration with Certificate Manager, Self-Hosted:** Works seamlessly with [Venafi's native BIG-IP integration](https://marketplace.venafi.com/xchange/620d2d6ed419fb06a5c5bd36/solution/620eeb25d419fb06a5c5bd57) to ensure smooth certificate provisioning and management.
-- **Enhanced Security:** Reduces the risk of human error and security breaches by automating the process.
-- **Improved Efficiency:** Streamlines operations and saves time.
-- **Increased Visibility:** Gain better visibility into your SSL certificate inventory and status.
-**SOLUTION OVERVIEW**
-By leveraging our Venafi F5 BIG-IP SSLO driver, you can:
-- **Reduce manual intervention:** Minimize the risk of human error and streamline your workflows.
-- **Accelerate deployment:** Quickly deploy and configure SSL certificates.
-- **Enhance security:** Proactively address vulnerabilities and ensure compliance.
+F5 BIG-IP SSL Orchestrator (SSLO) decrypts and re-encrypts traffic for inspection, so its SSL configurations depend on certificates that must be kept current. Updating those configurations by hand after each renewal is slow and error-prone. Secur Solutions Group's F5 BIG-IP SSLO driver for Certificate Manager, Self-Hosted automates this final step of the certificate lifecycle on BIG-IP SSLO devices.
+
+**Value Highlights**
+
+- **Automate SSL configuration updates** on F5 BIG-IP SSLO devices when certificates are renewed.
+- **Build on the native BIG-IP integration** in Certificate Manager, Self-Hosted for certificate provisioning and management.
+- **Reduce human error** and the security risk that comes with manual changes.
+- **Save time** by removing manual SSLO updates from certificate workflows.
+- **Improve visibility** into the certificates SSLO uses and their status.
+
+**How it Works**
+
+Certificate Manager, Self-Hosted provisions certificates to BIG-IP through its native F5 integration. The Secur Solutions driver then updates the SSL Orchestrator configurations on the device to use the new certificates. The driver is a paid offering; contact Secur Solutions Group for access and setup.
+
+**Solution Components**
+
+- Certificate Manager, Self-Hosted
+- F5 BIG-IP SSL Orchestrator
+- Secur Solutions Group F5 BIG-IP SSLO driver
+
+**About Secur Solutions Group**
+
+[Secur Solutions Group](https://secursolutionsgroup.com) builds, sells and supports this driver. Contact them through their [contact page](https://secursolutionsgroup.com/contact-us).
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

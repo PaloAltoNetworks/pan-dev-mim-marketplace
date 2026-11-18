@@ -1,20 +1,26 @@
 # SSL.com
 
-SSL.com brings its complete web security and publicly trusted certificate solutions to Certificate Manager, SaaS. The full lifecycle of SSL.com certificates can be managed and automated centrally from Certificate Manager.
+Managing a high volume of publicly trusted certificates across an organization is hard to do by hand, and missed renewals cause outages. With SSL.com added as a certificate authority in Certificate Manager, SaaS, you can request, renew, revoke and import SSL.com certificates without leaving Certificate Manager, SaaS, and manage them centrally alongside certificates from your other CAs.
 
-**SOLUTION HIGHLIGHTS**
+**Value Highlights**
 
-- **Lower operational costs** with easy automation of certificate provisioning
-- **Gain visibility** into the demand, usage, and workflow of certificate services
-- **Ensure compliance and strengthen security** with automated notifications, renewals, centralized authorization, and authentication
-- **Full certificate lifecycle automation** including request, issuance, renewal and revocation
-- **Full support** for SSL/TLS, client certificates, S/MIME, and code signing certificates
-- **Integrated with the latest SSL.com** webservices API
+- **Lower operational costs** with automated certificate provisioning.
+- **Gain visibility** into the demand for, usage of and workflow around certificate services.
+- **Strengthen compliance** with automated notifications, renewals and centralized authorization.
+- **Automate the full lifecycle**, including request, issuance, renewal and revocation.
+- **Import existing certificates** from your SSL.com team inventory.
 
-**SOLUTION OVERVIEW**
+**How it Works**
 
-Managing a high volume of machine identities throughout an organization can be a challenge. SSL.com provides complete certificate solutions including SSL/TLS, code signing, clientAuth, S/MIME and more. Added as a certificate authority in Certificate Manager, SaaS, SSL.com makes it easy to automate certificate provisioning, keep up with expirations and revocations, and centrally manage your encryption services—bringing the best of publicly trusted certificate authority solutions to Certificate Manager.
+The SSL.com CA connector runs natively in Certificate Manager, SaaS and does not require a VSatellite. You add an SSL.com CA account using an SSL.com API token and the ID of the SSL.com team to manage, then reference it from your issuing templates. Certificates can be issued for domains that are endorsed on the SSL.com team, and OV or EV certificates use an endorsed SSL.com organization. See the Documentation tab for setup.
 
-See the Documentation tab for the official SSL.com CA setup guide.
+**Solution Components**
+
+- Certificate Manager, SaaS
+- An SSL.com account and team
+
+**About SSL.com**
+
+SSL.com is a publicly trusted certificate authority that provides SSL/TLS, code signing, client authentication and S/MIME certificates.
 
 **Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**

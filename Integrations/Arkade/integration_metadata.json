@@ -1,6 +1,6 @@
 {
   "name": "arkade",
-  "description": "arkade is a portable Kubernetes marketplace that simplifies DevOps tooling installation, automating Machine Identity Management and reducing training costs.",
+  "description": "Install cert-manager on any Kubernetes cluster in one command with arkade and issue policy-compliant certificates.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "OpenFaas-Marketplce",

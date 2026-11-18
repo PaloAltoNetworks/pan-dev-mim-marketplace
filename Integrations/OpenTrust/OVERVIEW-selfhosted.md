@@ -1,21 +1,26 @@
 # OpenTrust
 
-Venafi and OpenTrust work together to empower customers with advanced enterprise encryption and machine identity management.
+The growth of enterprise encryption increases the need for a stable, reliable certificate authority (CA) paired with strong machine identity management. Certificate Manager, Self-Hosted integrates with the OpenTrust CA so certificates issued by OpenTrust are requested, tracked and renewed under central policy, with the visibility and automation that protects the machine identities they represent.
 
-  
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Gain visibility** into the demand for, usage of and workflow around certificate services.
+- **Enforce policies** with automated workflow and detailed logging.
+- **Track approvals** for authorization and authentication.
+- **Configure approval workflows** that fit your certificate request process.
+- **Manage the full lifecycle**, from request and issuance to renewal and revocation.
 
-- **Gain full visibility into the demand**, usage and workflow of certificate services
-- **Enforce policies **with automated workflow and detailed logging
-- **Easily track workflow approvals**, authorization and authentication
-- **Enables complete process** for configurable workflow approval and authorization
-- **Supports full lifecycle **from request, issuance and renewal to revocation
+**How it Works**
 
-  
+Certificate Manager, Self-Hosted connects to OpenTrust through an OpenTrust CA template. Certificate requests made under policy are submitted to the OpenTrust CA, and the issued certificates are stored, monitored and renewed by Certificate Manager, Self-Hosted. See the Documentation tab for the CA template setup.
 
-**SOLUTION OVERVIEW**
+**Solution Components**
 
-Due to the rapid rise in enterprise encryption and shifting market dynamics, the need for a stable and reliable certificate authority (CA) coupled with strong machine identity management continues to escalate. Venafi’s visibility and automation protects machine identities that are integrated with OpenTrust digital certificates. 
+- Certificate Manager, Self-Hosted
+- OpenTrust CA
+
+**About Atos**
+
+This listing is provided by [Atos](https://atos.net/), a provider of digital transformation and cybersecurity services.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

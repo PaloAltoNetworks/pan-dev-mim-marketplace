@@ -1,6 +1,6 @@
 {
   "name": "Certificate Manager Operator for Red Hat OpenShift",
-  "description": "Simplifies deployment of Venafi's enterprise components and dependencies.",
+  "description": "Install, upgrade and pin versions of cert-manager and other enterprise Kubernetes components on Red Hat OpenShift with a single operator.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Venafi",
@@ -34,12 +34,29 @@
           "title": "Certificate Manager Operator for Red Hat OpenShift Integration Guide",
           "description": "Complete integration guide for Certificate Manager Operator for Red Hat OpenShift",
           "url": "https://docs.cyberark.com/mis-saas/vaas/k8s-components/c-osr-overview/"
+        },
+        {
+          "title": "Red Hat Ecosystem Catalog Listing",
+          "description": "Certificate Manager Operator in the Red Hat Ecosystem Catalog",
+          "url": "https://catalog.redhat.com/en/software/container-stacks/detail/65ba7a33a723d0b8f2df84b4"
         }
       ]
     },
     {
       "product": "Next-Gen Trust Security",
-      "overviewFile": "OVERVIEW-ngts.md"
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Kubernetes Components in Next-Gen Trust Security",
+          "description": "Kubernetes components supported by Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/c-Cloud-discovery-service-sectionOverview/discover-certificates-in-kubernetes-clusters/kubernetes-components"
+        },
+        {
+          "title": "Red Hat Ecosystem Catalog Listing",
+          "description": "Certificate Manager Operator in the Red Hat Ecosystem Catalog",
+          "url": "https://catalog.redhat.com/en/software/container-stacks/detail/65ba7a33a723d0b8f2df84b4"
+        }
+      ]
     }
   ],
   "price": "Free",

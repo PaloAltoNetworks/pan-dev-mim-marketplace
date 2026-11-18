@@ -1,6 +1,6 @@
 {
   "name": "Tableau Web Data Connector",
-  "description": "Streamline machine identity protection with Tableau Web Data Connector—gain insights, automate reporting, and enhance security visibility.",
+  "description": "Analyze and report on TLS, SSH and code signing machine identities from Certificate Manager, Self-Hosted with Tableau dashboards.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "The Information Lab-Marketplace",

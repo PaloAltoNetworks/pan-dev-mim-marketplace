@@ -1,6 +1,6 @@
 {
   "name": "Oracle Directory Server",
-  "description": "Oracle Directory Server streamlines secure admin access and policy enforcement through established organization hierarchies and Windows authentication.",
+  "description": "Use Oracle Directory Server users, groups and hierarchy for administrator access to Certificate Manager, Self-Hosted.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "Oracle",

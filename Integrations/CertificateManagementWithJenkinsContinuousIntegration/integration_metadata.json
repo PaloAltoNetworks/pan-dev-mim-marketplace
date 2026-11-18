@@ -1,6 +1,6 @@
 {
   "name": "Certificate Management with Jenkins Continuous Integration",
-  "description": "Streamline certificate management with our Jenkins integration for Venafi, enabling automated security in CI/CD pipelines.",
+  "description": "Request policy-compliant certificates from Jenkins freestyle projects and pipelines with an open source plugin built on VCert.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Qensus",
@@ -27,15 +27,36 @@
   "productVariants": [
     {
       "product": "Certificate Manager SaaS",
-      "overviewFile": "OVERVIEW-saas.md"
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Jenkins Plugin Documentation",
+          "description": "Install, configure and use the Venafi Machine Identity Management plugin for Jenkins",
+          "url": "https://plugins.jenkins.io/venafi-vcert/"
+        }
+      ]
     },
     {
       "product": "Certificate Manager Self-Hosted",
-      "overviewFile": "OVERVIEW-selfhosted.md"
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationLinks": [
+        {
+          "title": "Jenkins Plugin Documentation",
+          "description": "Install, configure and use the Venafi Machine Identity Management plugin for Jenkins",
+          "url": "https://plugins.jenkins.io/venafi-vcert/"
+        }
+      ]
     },
     {
       "product": "Next-Gen Trust Security",
-      "overviewFile": "OVERVIEW-ngts.md"
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Jenkins Plugin Documentation",
+          "description": "Install, configure and use the Venafi Machine Identity Management plugin for Jenkins",
+          "url": "https://plugins.jenkins.io/venafi-vcert/"
+        }
+      ]
     }
   ],
   "price": "Free"

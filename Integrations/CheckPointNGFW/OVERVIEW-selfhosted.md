@@ -1,24 +1,26 @@
 # Check Point NGFW
 
-Check Point and Certificate Manager, Self-Hosted (formerly Venafi Trust Protection Platform) together automate the delivery and configuration of the machine identities used by organizations protected with Check Point Next-Generation Firewalls (NGFW). This removes manual certificate handling on the firewall and keeps its certificates governed centrally by Venafi.
+Organizations protected by Check Point Next-Generation Firewalls (NGFW) depend on certificates on the firewall, and handling them by hand is slow and risks expired or out-of-policy certificates. Check Point and Certificate Manager, Self-Hosted together automate the delivery and configuration of these certificates, so they are governed centrally and put into use without manual steps.
 
-## How it works
+**Value Highlights**
 
-The `Check Point Adaptable App Driver.ps1` script implements the Venafi Adaptable Application framework and provisions certificates to a Check Point gateway scoped by a **Domain Name** (supplied as a policyable field on the application object). On issuance or renewal, Venafi pushes the new certificate to the firewall so it is put into use automatically.
+- **Automate certificate delivery**: Push new and renewed certificates to Check Point gateways automatically.
+- **Remove manual handling**: Stop importing and configuring firewall certificates by hand.
+- **Govern centrally**: Keep firewall certificates under the policies you define in Certificate Manager, Self-Hosted.
+- **Avoid expirations**: Renew certificates before they expire so firewall services keep working.
 
-## Prerequisites
+**How it Works**
 
-- Certificate Manager, Self-Hosted (Trust Protection Platform)
-- A Check Point NGFW / management server reachable from the Venafi server
-- Administrative credentials authorized to manage certificates on the Check Point platform
+The `Check Point Adaptable App Driver.ps1` Adaptable Application driver connects to the Check Point Management API, adds or updates the server certificate and publishes the change. The target domain is set with the **Domain Name** field, which is policyable, on the application object. When a certificate is issued or renewed, Certificate Manager, Self-Hosted runs the driver so the new certificate is put into use. See the Documentation tab for setup.
 
-## Installation and configuration
+**Solution Components**
 
-1. Copy `Check Point Adaptable App Driver.ps1` into the Adaptable Application scripts directory on the Venafi server.
-2. Create a device for the Check Point gateway and configure its management credential.
-3. Add an Adaptable Application under the device, select the Check Point driver, and set the **Domain Name** field for the target gateway.
-4. Associate the certificate with the application so renewals provision automatically.
+- Certificate Manager, Self-Hosted
+- Check Point NGFW and management server
+- `Check Point Adaptable App Driver.ps1` Adaptable Application driver
 
-## Support
+**About Check Point**
 
-For platform assistance, see the [Check Point Support Center](https://supportcenter.checkpoint.com/).
+[Check Point Software Technologies](https://www.checkpoint.com/) provides network, cloud and endpoint security solutions.
+
+**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

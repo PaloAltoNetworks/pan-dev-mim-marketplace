@@ -1,76 +1,63 @@
-# F5 Silverline Installation & Configuration Guide
+# F5 Silverline Installation and Configuration Guide
 
-## Introduction
-
-HTTPS encryption is more prevalent than ever but can be difficult to scale. F5 Silverline and Venafi have teamed up to make it easy to automate the use of keys and certificates for application teams using the following products from Silverline:
-
-- **Silverline DDoS Protection -** Silverline detects and mitigates even the largest of volumetric DDoS attacks at layer 3-7, before they reach your network.
-
-- **Silverline Web Application Firewall -** Available as a managed service, Silverline protects web apps and data, while ensuring compliance with PCI DSS.
-
-- **Silverline Shape Defense -** Prevents large scale fraud and degraded user experiences by detecting bots, fake users, and unauthorized transactions.
-
-This page outlines the installation and configuration steps required for F5 Silverline
-integration with Venafi’s TPP system.
-
-```
-NOTE: The certificate being provisioned to F5 Silverline **must** be issued by an Intermediate CA and **must not** be issued directly by the Root CA
-```
+The certificate provisioned to F5 Silverline must be issued by an intermediate CA. It must not be issued directly by a root CA.
 
 ## Prerequisites
 
-To securely connect to F5 Silverline portal, an API key is required.
+- Certificate Manager, Self-Hosted 20.3 or later.
+- An F5 Silverline API token. Only a user in the **Customer Admin** group can request one.
 
-1. From the Silverline Portal a user needs to go to Configuration and select API Tokens.
-2. Simple click the “Add” button to provision a new Token.
-3. Only a user in “Customer Admin” group can request a token.
+To create the token:
 
-    ![Get API Token](images/get-api-token.png)
+1. In the Silverline portal, go to **Configuration** and select **API Tokens**.
+2. Click **Add** to provision a new token.
 
-- The minimum Venafi Trust Protection Platform version is 20.3+
+![Get API token](images/get-api-token.png)
 
 ## Installation
 
-The section outlines the procedure to install the **“F5SilverlineAdaptableDriver.zip”** file. Unzip the contents of the file and a PowerShell script will be available. F5 Silverline integration is enabled using the Adaptable Application driver feature in TPP. The script needs to be installed **on all TPP systems acting as Log servers and application servers**. Please note that after the installation, configuration is mandatory.
+The driver is the PowerShell script `F5SilverlineAdaptableDriver.ps1`. It must be installed on all Certificate Manager, Self-Hosted servers acting as log servers and application servers, and configuration is required after installation.
 
-1. Place the script file into the **{TPP Home}\Scripts\AdaptableApp** folder on all TPP servers.
-2. Restart `ved` and `venafilogserver` services on each TPP server.
-3. Restart IIS on TPP servers acting as Web servers. 
+1. Place the script file in the `<Certificate Manager Home>\Scripts\AdaptableApp` folder on all Certificate Manager, Self-Hosted servers.
+2. Restart the `ved` and `venafilogserver` services on each server.
+3. Restart IIS on servers acting as web servers.
 
 ## Configuration
 
 ### Configure a Username Credential Object
 
-1. Create a username credential in TPP. The “password” field will contain the API key and the “username” field can be “null”.
-    
-    ![Username Credential](images/create-credential.png)
+1. Create a username credential in Certificate Manager, Self-Hosted. The **Password** field contains the API token and the **Username** field can be `null`.
 
-### Configure the Adaptable App at the Policy Folder (Zone) Level
+![Username credential](images/create-credential.png)
 
-1. An administrator must configure a Policy Folder to use the F5 Silverline adaptable application driver.
-2. Browse to the policy folder selected to hold the F5 Silverline Device/Application objects.
-3. Go to -> Applications -> Adaptable.
-4. Set the “PowerShell Script” field to point to the F5 Silverline adaptable application driver.
+### Configure the Adaptable App at the Policy Folder Level
 
-    ![Configure Adaptable App](images/configure-script.png)
+1. Browse to the policy folder that will hold the F5 Silverline device and application objects.
+2. Go to **Applications** > **Adaptable**.
+3. Set the **PowerShell Script** field to the F5 Silverline Adaptable Application driver.
 
-### Configure **Device**, **Application** and **Certificate** Objects
+![Configure Adaptable App](images/configure-script.png)
 
-1. Create a Device object.
-2. Set the Hostname/Address field: **portal.f5silverline.com**
+### Configure Device, Application and Certificate Objects
+
+1. Create a device object.
+2. Set the **Hostname/Address** field to `portal.f5silverline.com`.
 3. Set the credential.
 
-    ![Set Credential](images/set-cred.png)
+   ![Set credential](images/set-cred.png)
 
-4. Create an Application object.
-5. Set the “F5 Silverline Cert/Key Name” field.
+4. Create an application object.
+5. Set the **F5 Silverline Cert/Key Name** field.
 
-    ![Set the Cert/Key Name](images/set-certname.png)
+   ![Set the cert/key name](images/set-certname.png)
 
-6. Create a “certificate object”.
-7. Make sure Management type is “Provisioning”.
-8. Renew the certificate.
+6. Create a certificate object.
+7. Make sure **Management Type** is **Provisioning**.
 
-    ![Certificate Screen 1](images/renew1.png)
-    ![Certificate Screen 2](images/renew2.png)
-    ![Certificate Screen 3](images/renew3.png)
+## Usage
+
+Renew the certificate. Certificate Manager, Self-Hosted issues the new certificate and the driver uploads it to F5 Silverline.
+
+![Certificate screen 1](images/renew1.png)
+![Certificate screen 2](images/renew2.png)
+![Certificate screen 3](images/renew3.png)

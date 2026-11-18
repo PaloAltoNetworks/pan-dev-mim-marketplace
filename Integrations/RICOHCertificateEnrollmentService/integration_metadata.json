@@ -1,6 +1,6 @@
 {
   "name": "RICOH Certificate Enrollment Service",
-  "description": "Automate certificate provisioning for RICOH devices with RICOH Certificate Enrollment Service, enhancing security and efficiency via Venafi integration.",
+  "description": "Automate enrollment and renewal of policy-enforced certificates across your RICOH device fleet.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "RICOH JAPAN Corp.",

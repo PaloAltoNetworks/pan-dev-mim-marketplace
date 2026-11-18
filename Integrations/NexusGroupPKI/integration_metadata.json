@@ -1,6 +1,6 @@
 {
   "name": "Nexus Group PKI",
-  "description": "Nexus Group PKI streamlines and automates certificate management for enterprises, enhancing security while simplifying PKI processes.",
+  "description": "Request, renew and revoke Nexus Certificate Manager certificates under central policy in Certificate Manager, Self-Hosted.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Nexus Group",
@@ -24,7 +24,7 @@
   "downloadFiles": [
     "Nexus.ps1"
   ],
-  "supportUrl": "https://www.nexusgroup.com/support",
+  "supportUrl": "https://nexus.ingroupe.com/support",
   "price": "Free",
   "license": "MIT"
 }

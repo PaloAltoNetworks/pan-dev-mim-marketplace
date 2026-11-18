@@ -1,27 +1,30 @@
 # EJBCA Enterprise w/ Custom Serial Number
 
-Secur Solutions's EJBCA Enterprise adaptable driver allows customizing and issuing certificates with a configurable and randomized serial number with a prefix value. The primary benefit of this is to provide a way to issue certificates with a configurable serial number for legacy applications which are using EJBCA Enterprise .
-
-**Applicability**
-
-Organizations migrating from other CAs and which have legacy applications requiring that the serial number be in a specific format can utilize this adaptable driver for EJBCA. This solution can help customers with legacy applications and having on premise CA especially customers with highly regulated air-gapped environments to issue the certificates with a specific format.
+Some legacy applications only accept certificates whose serial numbers follow a specific format, which can block a move to a new certificate authority. Secur Solutions' EJBCA Enterprise Adaptable CA driver lets Certificate Manager, Self-Hosted issue EJBCA Enterprise certificates with a randomized serial number that starts with a configurable prefix.
 
 **Value Highlights**
 
-•  Randomized serial number with a customized prefix for certificates
+- **Issue legacy-compatible serial numbers**: Generate randomized serial numbers with a customized prefix.
+- **Configure the prefix per policy**: Set the prefix value in Certificate Manager, Self-Hosted.
+- **Switch back when you need to**: Return to the default EJBCA workflow by configuration.
+- **Migrate off older CAs**: Replace CAs that legacy applications depended on without changing those applications.
+- **Keep central control**: Manage EJBCA certificates with the policy and automation of Certificate Manager, Self-Hosted.
 
-•  Configurable prefix for the serial number
+**How it Works**
 
-•  Configurable to switch back to default EJBCA workflow
+The driver runs in the Adaptable CA framework of Certificate Manager, Self-Hosted and calls the EJBCA REST API to issue, renew and revoke certificates. Two extra custom fields on the policy folder turn the legacy serial number on or off and set its prefix. See the Documentation tab for setup.
 
-**ABOUT Secur Solution - Innovation is in our DNA.**
+**Applicability**
 
-Secur Solutions Group's mission is market leadership in Smart Card issuance and Digital Identity.
+Organizations migrating from other CAs that have legacy applications requiring a specific serial number format can use this driver. It suits customers with on-premises CAs, especially in highly regulated, air-gapped environments.
 
-We seek to be a forward thinking and process centred organisation that delivers innovative solutions to our customers while consistently outperforming our peers. We do so by being market aware and providing a dynamic and challenging environment for our internal team.
+**Solution Components**
 
-We are privately owned, with a Ministry of Finance (Singapore) S8 qualification. In territory, we have majority coverage of the financial card issuance and government card issuance space, and partnerships with the major System Integrators. We have achieved the Singapore Quality Class (SQC 2017) and are Bizsafe certified.
+- Certificate Manager, Self-Hosted with the Adaptable CA framework
+- EJBCA Enterprise with the REST API enabled
 
-We are the pioneering and oldest Entrust distribution partner in Southeast Asia and a multiple award winner within the Entrust network.
+**About Secur Solutions Group**
+
+[Secur Solutions Group](https://secursolutionsgroup.com) focuses on smart card issuance and digital identity in Southeast Asia, covering financial and government card issuance with major system integrator partners.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

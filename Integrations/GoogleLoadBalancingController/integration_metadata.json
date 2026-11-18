@@ -1,6 +1,6 @@
 {
   "name": "Google Load Balancing Controller",
-  "description": "Connect securely to Google+",
+  "description": "Automate TLS certificates for GKE Ingress on Google Cloud Load Balancing with cert-manager.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "Venafi",

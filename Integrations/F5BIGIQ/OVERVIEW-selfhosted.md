@@ -1,24 +1,34 @@
 # F5 BIG-IQ
 
-This solution is an in-product capability of F5 Big-IQ releases that enables a tight integration with Certificate Manager, Self-Hosted for automating the lifecycle management and governance of keys and certificates, a type of machine identities consumed by managed BIG-IP devices that are deployed in multi-cloud and local environments. 
-F5 Big-IP devices are one of the major consumers of machine identities such as keys and certificates in enterprise networks. Managing the provisioning and distribution of these essential security assets has proven to be laborious, tedious and error-prone, especially in a large and diverse network, even with the help of Big-IQ, the centralized management layer of Big-IP devices. Outages and security breaches resulted in mismanagement have been more frequent than desired. 
-This exclusive integration with Venafi offers F5 Big-IP and Big-IQ administrators the assurance of no outage caused by machine identities and an easier and more productive life without the headache with manually operations on keys and certificates requesting, distribution, and renewing. In addition, it enables the InfoSec team the visibility and policy control of machine identities on all Big-IP devices which in turn decreases the risk of security breaches caused by machine identity abuses and compromises.   
-**WHO WILL BENEFIT**
-Any organization with Big-IP devices on any kind of network such as in the cloud or in private data center should consider the integrations between F5 and Venafi. 
-This integration comes with Big-IQ, the central management layer for all Big-IP devices deployed in multi-cloud or local environment. 
-Without Big-IQ, you can still achieve the same outcome of machine identity automation and management on Big-IP devices through [this integration with F5 Big-IP](https://marketplace.venafi.com/xchange/620d2d6ed419fb06a5c5bd36/solution/620eeb25d419fb06a5c5bd57) on Marketplace.
-**ADDITIONAL RESOURCES**
-F5 offers 15 articles with instructions on the manual process of managing keys and certificates on Big-IP devices:
-- [**K17379**](https://my.f5.com/manage/s/article/K17379 )**: Managing BIG-IP SSL certificates and keys:** https://my.f5.com/manage/s/article/K17379
-**GETTING STARTED**
-This integration comes as part of F5 Big-IQ offering. There’s no installation required. All you need to do is follow the documentation which provides the step-by-step configuration instructions to get it working and also shows you the key features it provides including:
-- Automatic renewal and deployment of keys and certificates
-- Add Venafi as a third-party CA provider
-- Create a CSR to get a signed certificate from Venafi
-- Importing certificates and keys from Venafi
-- Import Venafi private SSL certificate
-- Managing Venafi sync scheduler alerts
-**ABOUT F5 Networks**
-F5 is a multi-cloud application services and security company committed to bringing a better digital world to life.​​​​​​​ F5 partners with the world’s largest, most advanced organizations to secure and optimize apps and APIs anywhere—on premises, in the cloud, or at the edge. F5 enables organizations to provide exceptional, secure digital experiences for their customers and continuously stay ahead of threats. For more information, go to [f5.com](https://www.f5.com/). (NASDAQ: FFIV)
+F5 BIG-IP devices are among the largest consumers of keys and certificates in an enterprise network. Requesting, distributing and renewing them by hand is slow and error-prone, even with BIG-IQ as the central management layer, and mistakes lead to outages and security gaps. This integration, built into F5 BIG-IQ, connects BIG-IQ to Certificate Manager, Self-Hosted so certificates for managed BIG-IP devices are issued and renewed under Certificate Manager, Self-Hosted policy.
+
+The integration ships with F5 BIG-IQ. There is nothing to install.
+
+**Value Highlights**
+
+- **Prevent outages** by automating renewal and deployment of keys and certificates on managed BIG-IP devices.
+- **Add Certificate Manager, Self-Hosted as a third-party CA provider** in BIG-IQ.
+- **Create CSRs in BIG-IQ** and get them signed through Certificate Manager, Self-Hosted.
+- **Import certificates and keys**, including private SSL certificates, from Certificate Manager, Self-Hosted.
+- **Monitor synchronization** with BIG-IQ sync scheduler alerts.
+- **Give security teams visibility** and policy control over certificates on every BIG-IP device.
+
+**How it Works**
+
+In BIG-IQ, you register Certificate Manager, Self-Hosted as a third-party CA provider. BIG-IQ then submits certificate requests to Certificate Manager, Self-Hosted, imports the issued certificates and keys, keeps them synchronized on a schedule, and deploys them to managed BIG-IP devices. See the Documentation tab for setup steps. F5 article [K17379: Managing BIG-IP SSL certificates and keys](https://my.f5.com/manage/s/article/K17379) describes the manual process this integration replaces.
+
+**Applicability**
+
+Any organization running BIG-IP devices in the cloud or in a private data center and managing them with BIG-IQ can use this integration. Without BIG-IQ, the F5 BIG-IP listing on this marketplace achieves the same outcome directly on BIG-IP.
+
+**Solution Components**
+
+- Certificate Manager, Self-Hosted
+- F5 BIG-IQ Centralized Management
+- Managed F5 BIG-IP devices
+
+**About F5**
+
+F5 is a multi-cloud application services and security company that helps organizations secure and optimize apps and APIs on premises, in the cloud or at the edge. Learn more at [f5.com](https://www.f5.com/).
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

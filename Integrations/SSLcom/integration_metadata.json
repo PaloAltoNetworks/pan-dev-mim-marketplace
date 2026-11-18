@@ -1,6 +1,6 @@
 {
   "name": "SSL.com",
-  "description": "Automate the full lifecycle of publicly trusted SSL.com certificates — SSL/TLS, S/MIME, client, and code signing — within Certificate Manager.",
+  "description": "Automate the lifecycle of publicly trusted SSL.com certificates from Certificate Manager and Next-Gen Trust Security.",
   "support": "Supported",
   "currentVersion": "1.0",
   "author": "SSL.com",
@@ -21,7 +21,6 @@
     "Certificate Lifecycle Management"
   ],
   "keywords": [],
-  "documentationFile": "DOCUMENTATION.md",
   "logoFile": "ssl-com.png",
   "supportUrl": "https://www.ssl.com/contact_us/",
   "price": "Free",
@@ -29,7 +28,7 @@
     {
       "product": "Certificate Manager Self-Hosted",
       "overviewFile": "OVERVIEW-selfhosted.md",
-      "documentationFile": "DOCUMENTATION.md",
+      "documentationFile": "DOCS-selfhosted.md",
       "downloadFiles": [
         "SSL.com_Adaptable_Script.ps1"
       ],
@@ -53,12 +52,26 @@
       "downloadFiles": [],
       "primaryCta": {
         "type": "docs"
-      }
+      },
+      "author": "Venafi",
+      "supportUrl": "https://community.cyberark.com/s/"
     },
     {
       "product": "Next-Gen Trust Security",
       "overviewFile": "OVERVIEW-ngts.md",
-      "downloadFiles": []
+      "downloadFiles": [],
+      "author": "Venafi",
+      "supportUrl": "https://community.cyberark.com/s/",
+      "documentationLinks": [
+        {
+          "title": "Add SSL.com as a CA",
+          "description": "Add SSL.com as a certificate authority in Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/co-overview-issuing-certs/adding-a-certificate-authority/adding-sslcom-ca"
+        }
+      ],
+      "primaryCta": {
+        "type": "docs"
+      }
     }
   ]
 }

@@ -1,21 +1,26 @@
 # Utimaco SecurityServer
 
-Utimaco and Venafi join forces to protect machine identities by pairing certificate lifecycle management with FIPS 140-2 Level 3 or Level 4 for physical Hardware Security Module (HSM) key protection. Using the CryptoServer HSM, master encryption keys can be generated and stored separate from the applications using them.
+Master keys held in file system memory can be stolen along with the data they protect. Utimaco and Certificate Manager, Self-Hosted protect machine identities by pairing certificate lifecycle management with hardware key protection in a FIPS 140-2 Level 3 or Level 4 certified Utimaco CryptoServer HSM, where master keys are generated and stored separately from the applications that use them.
 
-  
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Reduce the risk of stolen keys**: Keep your master key inside the HSM instead of in file system memory.
+- **Prepare for post-quantum cryptography**: Incorporate new FIPS-approved post-quantum algorithms as they become available.
+- **Store unlimited keys**: Extend key storage with database extensions.
+- **Use any major cloud**: Access the HSM from Azure, AWS and GCP simultaneously.
+- **Meet certification requirements**: Common Criteria EAL4+, NATO Secret, EU Restricted, ANSSI and FIPS 140-2 Level 3.
 
-- **Reduce the risk of stolen keys** from file system memory by leaving your master key inside the safe confines of a Hardware Security Module (HSM)
-- **Future proof your business **with the ability to incorporate any of the new Post Quantum Algorithms approved by FIPS
-- **Unlimited Key Storage** via the use of database extensions
-- **Access on all major cloud service platforms**, such as Azure, AWS and GCP, simultaneously
-- **Common Criteria EAL4+**, NATO Secret, EU Restricted, ANSSI, FIPS 140-2 Level 3
+**How it Works**
 
-  
+The CryptoServer HSM generates master keys with a true random number generator and stores them so they cannot be exported, while Certificate Manager, Self-Hosted automates the machine identity lifecycle. Keys stay isolated from the sensitive data, and under your control, whether your PKI, IAM or databases run on-premises or in the cloud.
 
-**SOLUTION OVERVIEW**
+**Solution Components**
 
-Integrating Utimaco’s CryptoServer HSM with Venafi streamlines and automates machine identity protection throughout your organization. Enacting the most secure method for protecting the master key, our HSMs generate them using true random number generation, and store them in a non-exportable manner. Companies that isolate keys from the sensitive data, ensure that the master key is under their jurisdiction at any given time. Whether your PKI, IAM or databases are hosted on-premise or in the cloud, Utimaco will help you retain strict policy controls adhering to compliance regulations and internal requirements. Utimaco HSMs are available in both Level 3 and Level 4 FIPS 140-2 certified versions and are quantum-ready.
+- Certificate Manager, Self-Hosted
+- Utimaco SecurityServer (CryptoServer HSM)
+
+**About Utimaco**
+
+Utimaco builds hardware security modules and key management solutions, available in FIPS 140-2 Level 3 and Level 4 certified versions. Learn more at [utimaco.com](https://utimaco.com/).
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

@@ -1,23 +1,28 @@
 # Axiad CA
 
-Axiad Cloud PKI integrates with Certificate Manager, Self-Hosted (formerly Venafi Trust Protection Platform) through an Adaptable CA script, automating the issuance, renewal, and revocation of machine certificates issued by Axiad Cloud PKI.
+Organizations that use Axiad Cloud PKI for machine certificates need those certificates issued, renewed and revoked on time, under the same policy as the rest of their PKI. Doing this by hand outside your certificate management platform causes missed renewals and gaps in visibility.
 
-## How it works
+The Axiad integration for Certificate Manager, Self-Hosted automates the issuance, renewal and revocation of machine certificates issued by Axiad Cloud PKI.
 
-The integration ships two PowerShell drivers for the Adaptable CA framework: `ID_PKI_Adaptable_ScriptRA.ps1` for RA-based provisioning (preferred) and `ID_PKI_Adaptable_Script.ps1` for CA-based provisioning. Requests are authenticated to the Axiad ID_PKI service with a client certificate mapped to a service account that Axiad provisions for your instance.
+**Value Highlights**
 
-## Prerequisites
+- **Automate issuance, renewal and revocation** of Axiad Cloud PKI certificates.
+- **Choose RA-based or CA-based provisioning** with two included drivers.
+- **Authenticate securely** with a client certificate mapped to an Axiad service account.
+- **Target the right CA partition** and issuer for each request with custom fields.
+- **Bring Axiad certificates under central policy** and inventory.
 
-- Certificate Manager, Self-Hosted (Trust Protection Platform)
-- An Axiad Cloud PKI (ID_PKI) instance with a service account provisioned for Venafi, and the client certificate (PFX/PKCS#12) associated with that account
+**How it Works**
 
-## Installation and configuration
+The integration provides two Adaptable CA drivers: `ID_PKI_Adaptable_ScriptRA.ps1` for RA-based provisioning, which is preferred, and `ID_PKI_Adaptable_Script.ps1` for CA-based provisioning. Certificate Manager, Self-Hosted authenticates to the Axiad ID_PKI service with a client certificate that Axiad maps to a service account for your instance. Each request supplies the issuer DN and CA partition, plus a requester email for RA-based enrollment. See the Documentation tab for setup.
 
-1. Copy the appropriate driver into the Adaptable CA script folder on the Venafi server (`ID_PKI_Adaptable_ScriptRA.ps1` for RA-based provisioning, or `ID_PKI_Adaptable_Script.ps1` for CA-based).
-2. Create a Certificate Credential in the Policy Tree and import the service-account PFX/PKCS#12 provided by the Axiad PKI administrator.
-3. Add the required custom fields (case sensitive): `IssuerDN` and `CAPartition`, plus `RequesterEmail` when using the RA connector. Mark them Required and apply to Certificates.
-4. Add an Adaptable CA template, select the credential, set the Service Address and Profile String (certificate template name) provided by Axiad, choose the driver script, and attach the custom fields. Click **Validate**, then save.
+**Solution Components**
 
-## Usage
+- Certificate Manager, Self-Hosted
+- Axiad Cloud PKI (ID_PKI) with a provisioned service account
 
-When requesting a certificate from the Axiad CA template, supply the `CAPartition` and `IssuerDN` values provided by the PKI administrator (a CA may have multiple management partitions). With the preferred RA connector, also supply `RequesterEmail`, which is required for initial enrollment. See `DOCUMENTATION.md` for full step-by-step configuration.
+**About Axiad**
+
+[Axiad](https://www.axiad.com/) provides a platform for passwordless authentication and PKI that secures people, machines and digital interactions. Axiad Cloud offers PKI and authentication services for public sector organizations and enterprises.
+
+**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

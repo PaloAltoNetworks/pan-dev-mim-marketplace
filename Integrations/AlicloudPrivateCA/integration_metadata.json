@@ -1,6 +1,6 @@
 {
   "name": "Alicloud Private CA",
-  "description": "Automate Alibaba Cloud Private CA lifecycle management within Certificate Manager",
+  "description": "Issue and renew certificates from Alibaba Cloud Private CA under central certificate policy and automation.",
   "categories": [
     "Certificate Authority"
   ],

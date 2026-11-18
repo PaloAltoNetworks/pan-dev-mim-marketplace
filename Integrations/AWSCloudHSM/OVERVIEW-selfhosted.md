@@ -1,16 +1,37 @@
 # AWS CloudHSM
 
-The integration is delivered as an in-product capability to Certificate Manager, Self-Hosted and CodeSign Protect. To enable it, you only need to perform prescribed configurations within TLS Protect and CodeSign Protect with the information related to your AWS CloudHSM. 
-Venafi platform provides you the control plane for managing, orchestrating, and automating the processes around all machine identities across the organization. It provides an industry approval level of security for sensitive materials such as private keys, the protection is done through software. However, many organizations in certain industries are required to provide a level of security that can only be provided by hardware security modules due to many reasons regulatory requirements.
-This integration with AWS ClouHSM enables you to entrust the safeguarding of the most sensitive key materials for machine identities to HSMs while allows Certificate Manager to automate the processes involve machine identities and provide governance and visibility to them across your organization. With the added deployment speed and efficiency of an on-demand service, AWS CloudHSM provides a cloud-based HSM service with zero upfront capital investment.
-AWS CloudHSM enables you to easily generate and use your own encryption keys on the AWS Cloud. With CloudHSM, you can manage your own encryption keys using FIPS 140-2 Level 3 validated HSMs. CloudHSM offers you the flexibility to integrate with your applications using industry-standard APIs, such as PKCS#11, Java Cryptography Extensions (JCE), and Microsoft CryptoNG (CNG) libraries.
-This integration is supported since Certificate Manager, Self-Hosted v21.1.
-**WHO WILL BENEFIT**
-Any organization with both Certificate Manager and Entrust nShield HSMs deployed should take advantage of this integration to connect the two systems to reduce overall cybersecurity risks the organization faces. Any organization that needs to meet the regulatory and compliance requirements on data security should consider putting in place these two systems and connect them with this integration.  
-**ADDITIONAL RESOURCES**
-- Integration Vendors List for CloudHSM: https://docs.aws.amazon.com/cloudhsm/latest/userguide/other-integrations.html
-- Recommendation for Key Management: part 2 – Best Practices for Key Management Organizations. NIST.SP.800-57pt2r1
-**ABOUT AWS CloudHSM**
-CloudHSM is standards-compliant and enables you to export all of your keys to most other commercially-available HSMs, subject to your configurations. It is a fully-managed service that automates time-consuming administrative tasks for you, such as hardware provisioning, software patching, high-availability, and backups. CloudHSM also enables you to scale quickly by adding and removing HSM capacity on-demand, with no up-front costs.
+Certificate Manager, Self-Hosted protects private keys and other sensitive material in software by default. Many organizations, especially in regulated industries, must keep their most sensitive keys in a hardware security module (HSM) instead.
+
+This built-in integration lets Certificate Manager, Self-Hosted store keys in AWS CloudHSM. Code signing keys and the encryption of the Certificate Manager, Self-Hosted database are protected by FIPS-validated HSMs, while Certificate Manager, Self-Hosted keeps automating, governing and reporting on the machine identities that use them. CloudHSM delivers this as an on-demand cloud service with no upfront hardware investment.
+
+**Value Highlights**
+
+- **Protect sensitive keys in hardware** with FIPS-validated HSMs that you control.
+- **Meet regulatory and compliance requirements** that call for HSM-backed key storage.
+- **Secure code signing** by keeping Code Sign Manager signing keys in CloudHSM.
+- **Encrypt the Certificate Manager, Self-Hosted database** with keys held in the HSM.
+- **Avoid upfront capital costs** by using a fully managed, on-demand HSM service.
+
+**How it Works**
+
+Certificate Manager, Self-Hosted connects to AWS CloudHSM through the CloudHSM PKCS#11 client installed on its servers. You configure the client with your HSM cluster ID for failover, then configure Certificate Manager, Self-Hosted to use the HSM for database encryption or Code Sign Manager keys. Connecting to an HSM requires Advanced Key Protect. The integration is supported from version 21.1. See the Documentation tab for setup.
+
+**Applicability**
+
+Organizations that must meet data security regulations, or that want hardware protection for code signing keys, should consider connecting Certificate Manager, Self-Hosted to AWS CloudHSM.
+
+**Solution Components**
+
+- Certificate Manager, Self-Hosted with Advanced Key Protect
+- AWS CloudHSM cluster and the CloudHSM PKCS#11 client
+
+**Additional Resources**
+
+- [AWS CloudHSM third-party integrations](https://docs.aws.amazon.com/cloudhsm/latest/userguide/other-integrations.html)
+- NIST SP 800-57 Part 2 Rev. 1, Recommendation for Key Management: Best Practices for Key Management Organizations
+
+**About AWS CloudHSM**
+
+[AWS CloudHSM](https://aws.amazon.com/cloudhsm/) is a fully managed HSM service that lets you generate and use your own encryption keys on AWS. It supports industry-standard APIs such as PKCS#11, JCE and Microsoft CNG, and automates hardware provisioning, patching, high availability and backups.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

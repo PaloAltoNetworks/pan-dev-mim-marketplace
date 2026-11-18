@@ -7,7 +7,7 @@
     "ITSM & Workflow"
   ],
   "products": [
-    "Certificate Manager Self-Hosted"
+    "Certificate Manager SaaS"
   ],
   "tags": [
     "ITSM",
@@ -19,5 +19,5 @@
   "keywords": [],
   "price": "Free",
   "name": "Certificate Manager SaaS Event Log to ServiceNow",
-  "description": "Get notified in ServiceNow of events happening in Certificate Manager, SaaS"
+  "description": "Create ServiceNow Event Management events from Certificate Manager, SaaS log events so IT operations teams can act on certificate activity."
 }

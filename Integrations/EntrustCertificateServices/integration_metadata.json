@@ -1,6 +1,6 @@
 {
   "name": "Entrust Certificate Services",
-  "description": "Entrust Certificate Services enhances enterprise encryption with visibility, automated workflows, and risk reduction for secure machine identity management.",
+  "description": "Request, renew and provision Entrust public TLS certificates under your certificate management policies.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Venafi",

@@ -1,22 +1,25 @@
 # Pulumi CrossGuard
 
-Pulumi simplifies deploying cert-manager on Kubernetes and includes the necessary Kubernetes CRDs needed to provision certificates as strongly-typed resources. CrossGuard Policy as Code can enforce issuer verification for additional security.
+Developers who provision their own Kubernetes infrastructure can easily deploy cert-manager with the wrong issuer, which results in certificates that do not meet security policy. Pulumi simplifies deploying cert-manager on Kubernetes and provides the cert-manager CRDs as strongly typed resources. CrossGuard, Pulumi's Policy as Code offering, can then verify the issuer before a deployment goes ahead, so certificates come from an approved source such as Next-Gen Trust Security.
 
-  
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Secure Kubernetes** with Policy as Code and cert-manager.
+- **Simplify cert-manager deployments** with Pulumi examples and strongly typed certificate resources.
+- **Choose your issuer**: Deploy a Pulumi stack using the issuer you need, including the Venafi issuer for Next-Gen Trust Security.
+- **Block misconfigured deployments**: Policies verify the issuer type before deployment and stop updates that violate them.
+- **Enable self-service with guardrails**: Developers provision their own infrastructure while staying within business and security policy.
 
-- **Secure Kubernetes **with policy as code and cert-manager
-- **Simplify **cert-manager deployments
-- **Deploy a Pulumi stack **using the issuer of your choice (Venafi Platform, Next-Gen Trust Security, Let's Encrypt)
-- **Create policies **that verify the issuer type before deployment and block improperly configured deployments
+**How it Works**
 
-  
+Pulumi deploys cert-manager to your cluster and defines issuers and certificates as code. CrossGuard policies run as part of each Pulumi deployment and check that certificate resources use an approved issuer. Any violation gates or blocks the update. When the Venafi issuer is used, cert-manager requests certificates from Next-Gen Trust Security, so they follow your organization's policy. See [Pulumi Policy as Code](https://www.pulumi.com/docs/discovery-governance/concepts/policy-as-code/) for details.
 
-**SOLUTION OVERVIEW**
+**Solution Components**
 
-CrossGuard is Pulumi’s new Policy as Code offering. CrossGuard empowers you to set guardrails to enforce compliance for resources so developers within an organization can provision their own infrastructure while sticking to best practices and security compliance. Using Policy as Code, you can write flexible business or security policies. When policies are executed as part of a Pulumi deployment, any violation will gate or block that update from proceeding.  
+- Next-Gen Trust Security
+- Pulumi with CrossGuard Policy as Code
+- cert-manager on Kubernetes
 
-  
+**About Pulumi**
 
-Pulumi has added cert-manager examples for CrossGuard to simplify the install of cert-manager on Kubernetes.
+[Pulumi](https://www.pulumi.com/) provides an Infrastructure as Code platform that helps engineering teams work together and ship faster.

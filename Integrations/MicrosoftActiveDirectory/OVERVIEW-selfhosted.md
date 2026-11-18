@@ -1,20 +1,21 @@
 # Microsoft Active Directory
 
-Enforcing organization policy and privileges is just one reason why so many organizations use Microsoft Active Directory as their enterprise directory. Venafi makes it easy to set up secure administrator access that follows your directory hierarchy and leverages existing authentication.
+Many organizations use Microsoft Active Directory as their enterprise directory to enforce organization policy and privileges. Certificate Manager, Self-Hosted connects to Active Directory so administrator access follows your directory hierarchy and uses the authentication you already have, which lets you get started quickly with your existing users, groups and structure.
 
-  
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Get started fast**: Use your existing users, groups and hierarchy.
+- **Enforce policies**: Base access on your existing organization structure.
+- **Stay current**: Rely on a real-time connection to the directory.
+- **Simplify sign-in**: Use Windows authentication for administrators.
 
-- **Get started fast **with existing users, groups and hierarchy 
-- **Enforce policies **based on existing organization structure 
-- **Leverages real-time** directory connection
-- **Uses Windows **authentication for administrators 
+**How it Works**
 
-  
+Certificate Manager, Self-Hosted connects to Active Directory in real time. Administrators sign in with Windows authentication, and access and policy can be based on your existing Active Directory users, groups and hierarchy. See the Documentation tab for setup.
 
-**SOLUTION OVERVIEW**
+**Solution Components**
 
-Enforcing organization policy and privileges is just one reason why so many organizations use Microsoft Active Directory as their enterprise directory. Venafi makes it easy to set up secure administrator access that follows your directory hierarchy and leverages existing authentication so you can get started fast with existing users, groups and hierarchy.
+- Certificate Manager, Self-Hosted
+- Microsoft Active Directory
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

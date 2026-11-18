@@ -1,6 +1,6 @@
 {
   "name": "VMware NSX Load Balancer (formerly Avi Vantage)",
-  "description": "Automation for machine identities used by NSX Load Balancer",
+  "description": "Automate issuance, renewal and provisioning of certificates for VMware NSX Advanced Load Balancer virtual services.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "VMware",
@@ -40,7 +40,9 @@
           "description": "Step-by-step guide for certificate provisioning",
           "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-vmware-nsx-avi/"
         }
-      ]
+      ],
+      "support": "Supported",
+      "supportUrl": "https://community.cyberark.com/s/"
     },
     {
       "product": "Certificate Manager Self-Hosted",
@@ -50,12 +52,27 @@
         "Avi Vantage.ps1"
       ],
       "license": "MIT",
-      "supportUrl": "https://support.broadcom.com/"
+      "supportUrl": "https://support.broadcom.com/",
+      "documentationFile": "DOCS-selfhosted.md"
     },
     {
       "product": "Next-Gen Trust Security",
       "overviewFile": "OVERVIEW-ngts.md",
-      "author": "Venafi"
+      "author": "Venafi",
+      "support": "Supported",
+      "supportUrl": "https://community.cyberark.com/s/",
+      "documentationLinks": [
+        {
+          "title": "VMware NSX Advanced Load Balancer (AVI) Machine Setup",
+          "description": "Create a VMware NSX Advanced Load Balancer (AVI) machine in Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/vmware-nsx-avi"
+        },
+        {
+          "title": "Provision Certificates to VMware NSX Advanced Load Balancer (AVI)",
+          "description": "Provision certificates to a VMware NSX Advanced Load Balancer (AVI) machine",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/vmware-nsx-avi/provision-certificates-vmware-nsx-avi"
+        }
+      ]
     }
   ],
   "price": "Free"

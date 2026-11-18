@@ -1,61 +1,25 @@
 # Pomerium Ingress Controller
 
-This solution highlights the integration of *cert-manager*, the de-facto machine identity management component in Kubernetes clusters and Pomerium Ingress Controller, an ingress controller based on the context-aware proxy Pomerium. An ingress controller is the component within a Kubernetes cluster where SSL/TLS traffic is terminated.
+The ingress controller is where TLS traffic to a Kubernetes cluster is terminated, so every hostname it serves needs a valid certificate. Pomerium Ingress Controller is an ingress controller built on Pomerium, a context-aware access proxy. Combined with cert-manager and Next-Gen Trust Security, teams serving HTTPS through Pomerium can automate the lifecycle of their TLS certificates using policies defined by the security team, extending those policies to Kubernetes resources.
 
-This integration enables organizations running cloud native workloads and serving HTTPs traffic with Pomerium Ingress Controller the ability to automate and secure the lifecycle of TLS certificates using policies defined by security teams and ensure the extension of security policies to Kubernetes resources.
+**Value Highlights**
 
-This integration is enabled through Kubernetes resource configuration.
+- **Automate ingress certificates**: cert-manager issues and renews the TLS certificate for each Pomerium Ingress.
+- **Apply security team policy**: Certificates are requested from Next-Gen Trust Security, so they follow your organization's policy.
+- **Configure, do not code**: The integration is enabled entirely through Kubernetes resource configuration.
+- **Combine TLS with access control**: Pomerium adds identity-aware access policy on top of the TLS endpoint.
+- **Avoid version lock-in**: There are no specific version requirements beyond Kubernetes and Pomerium Ingress Controller compatibility.
 
-**Release and support versions**
+**How it Works**
 
-There are no specific version requirements on cert-manager and Pomerium Ingress Controller. As long as the version compatibility between Kubernetes and Pomerium Ingress Controller is set, this integration should function as expected.
+Pomerium Ingress Controller follows the Kubernetes Ingress specification, which secures an Ingress with a [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that holds the TLS certificate and private key. cert-manager watches Ingress resources annotated with an issuer, requests the certificate through an issuer connected to Next-Gen Trust Security, and writes it to the Secret that Pomerium uses. See the Documentation tab for the Ingress configuration.
 
-**Applicability**
+**Solution Components**
 
-Pomerium Ingress Controller is provided by Pomerium. It often comes as part of the Pomerium Proxy which offers context-aware policies. It can be used in combination with an array of other Ingresses as explained in “Special notes and limitations”.
+- Next-Gen Trust Security
+- cert-manager
+- Pomerium Ingress Controller
 
-**Special notes and limitations**
+**About Pomerium**
 
-There is a reference specification for ingress controllers which allows securing an Ingress implementation by specifying a [Secret](https://kubernetes.io/docs/concepts/configuration/secret/) that contains a TLS private key and certificate. cert-manager is aware and knows where and how to retrieve the Secret, therefore, able to operate on the TLS private key and certificate.
-
-The configuration-only based integration with Kubernetes ingresses is not limited to ingress-nginx. cert-manager can integrate with all ingresses that implement the reference specification for ingress controller. This includes the three controllers supported and maintained by Kubernetes, ALB Ingress by AWS, GLBC by GCP, *ingress-nginx* and the following third-party ingresses:
-
-- Kong Ingress Controller for Kubernetes
-- AKS Application Gateway Ingress Controller
-- Istio Ingress
-- Traefik Kubernetes Ingress provider
-- Citrix Ingress Controller
-- Apache APISIX ingress controller
-- Gloo
-- NGINX Ingress Controller for Kubernetes
-- Avi Kubernetes Operator
-- HAProxy Ingress
-
-This list is always growing and changing by Ingress providers. For the latest version, check out the third-party ingress controllers link in “Additional Resources”
-
-**Additional resources **
-
-- https://www.pomerium.com/docs/deploying/k8s/ingress
-- Available third-party ingress controllers in addition to nginx ingress: [https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/](https://kubernetes.io/docs/concepts/services-networking/ingress-controllers/)
-
-**Get it to work **
-
-Prerequisite: *cert-manager* and Pomerium Ingress Controller are running in a Kubernetes cluster.
-
-The following configuration on the Ingress manifest will make *cert-manager* aware of Pomerium Ingress Controller and automate the operations of TLS certificates and keys on the ingress.
-
-*apiVersion: networking.k8s.io/v1*
-
-*kind: Ingress*
-
-*metadata:*
-
-*     name: #NAME_YOUR_INGRESS*
-
-*spec:*
-
-*     ingressClassName: pomerium*
-
-**ABOUT Pomerium **
-
-Pomerium is an identity-aware [proxy](https://www.pomerium.com/blog/proxy-vs-reverse-proxy/) that enables secure access to internal applications. Pomerium provides a standardized interface to add access control to applications regardless of whether the application itself has authorization or authentication baked-in. Pomerium gateways both internal and external requests, and can be used in situations where you'd typically reach for a VPN.
+[Pomerium](https://www.pomerium.com/) is an identity-aware proxy that enables secure access to internal applications. It adds access control to applications whether or not they have authentication or authorization built in, and can be used where you would typically reach for a VPN.

@@ -1,20 +1,21 @@
 # Threat Inspection Using Palo Alto Networks NGFW
 
-Over half of network attacks today use encrypted traffic. Traditional security controls are blind to these attacks and underperform without the proper visibility. Venafi makes it easy to unlock encrypted traffic with your Palo Alto Networks NGFW and stop attacks at the firewall.
+Over half of network attacks today use encrypted traffic, and security controls without visibility into that traffic miss them. Certificate Manager, Self-Hosted makes it easier to unlock encrypted traffic with your Palo Alto Networks next-generation firewalls (NGFWs) and stop attacks at the firewall, by keeping the keys and certificates used for decryption current.
 
-  
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Get started fast**: Begin with inventories of your existing keys and certificates.
+- **Maintain inspection levels**: Fully automated lifecycle and key distribution keep decryption working.
+- **Improve inspection performance**: Keys and certificates are distributed to firewalls automatically.
+- **Distribute replacement keys automatically**: New keys reach the firewalls as soon as they are generated.
 
-- **Get started fast **with inventories of existing keys and certificates 
-- **Maintain inspection levels **with fully automated lifecycle and key distribution 
-- **Increased performance of inspection **with automated distribution of keys and certificates 
-- **Automated distribution **of replacement keys when new keys are generated 
+**How it Works**
 
-  
+Certificate Manager, Self-Hosted manages the keys and certificates that your Palo Alto Networks NGFWs use in decryption profiles and distributes them to the firewalls automatically. This helps you identify which encrypted channels should be trusted and which are being used in an attack, and gives the firewalls fast, current access to the keys they need to inspect traffic.
 
-**SOLUTION OVERVIEW**
+**Solution Components**
 
-Palo Alto Networks NGFW and Venafi Platform work together to help you protect your customer privacy and secure your network, transactions and intellectual property. This integrated solution helps you identify which encrypted channels should be trusted and which are being used as part of an attack. The result is that your Palo Alto Networks NGFWs have the fastest and most current access to the keys and certificates, which is needed to prevent attacks that hide in encrypted channels from being used against your organization. 
+- Certificate Manager, Self-Hosted
+- Palo Alto Networks next-generation firewalls
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

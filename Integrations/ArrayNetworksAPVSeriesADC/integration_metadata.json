@@ -1,6 +1,6 @@
 {
   "name": "Array Networks APV Series ADC",
-  "description": "Array Networks APV Series ADC integration for Certificate Manager Self-Hosted.",
+  "description": "Automate certificate discovery, renewal and installation on Array Networks APV Series ADC SSL virtual hosts.",
   "support": "Supported",
   "currentVersion": "1.0",
   "author": "Array Networks",
@@ -23,5 +23,6 @@
   "logoFile": "Array_Networks.png",
   "supportUrl": "https://support.arraynetworks.net",
   "price": "Free",
-  "license": "MIT"
+  "license": "MIT",
+  "documentationFile": "DOCUMENTATION.md"
 }

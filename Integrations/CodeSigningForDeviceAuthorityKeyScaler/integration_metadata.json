@@ -1,6 +1,6 @@
 {
   "name": "Code Signing for Device Authority KeyScaler",
-  "description": "Device Authority KeyScaler and Venafi CodeSign Protect deliver end-to-end code signing and secure software update delivery for IoT devices.",
+  "description": "Sign IoT software updates and deliver them securely to devices with Device Authority KeyScaler and CodeSign Protect.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Device Authority Ltd",

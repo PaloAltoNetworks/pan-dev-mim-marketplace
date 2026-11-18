@@ -1,6 +1,6 @@
 {
   "name": "Fortinet FortiManager",
-  "description": "Integrate Venafi with FortiManager for streamlined TLS certificate management",
+  "description": "Automate enrollment and renewal of the TLS certificate that secures the Fortinet FortiManager management interface.",
   "support": "Supported",
   "currentVersion": "1.5",
   "author": "Venafi",

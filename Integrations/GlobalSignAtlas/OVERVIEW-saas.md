@@ -1,22 +1,28 @@
 # GlobalSign Atlas
 
-Combining GlobalSign’s advanced Atlas platform with Venafi’s powerful visibility and automation tools enables enterprises to achieve streamlined, scalable, and highly automated certificate management, meeting the demands of vast, dynamic digital ecosystems.
+Enterprises need trusted certificates at high volume, especially in DevOps environments, without losing control over policy or visibility into what has been issued. GlobalSign Atlas is a cloud-native certificate authority platform built for scale and automation.
 
-  
+Certificate Manager, SaaS connects to GlobalSign Atlas as a certificate authority, so teams can request GlobalSign certificates through Certificate Manager, SaaS while it enforces enterprise policy and tracks every certificate through its lifecycle.
 
-**SOLUTION HIGHLIGHTS**
+**Value Highlights**
 
-- **Automate certificate lifecycle** to reduce the manual efforts required in certificate management. Efficiently monitor issuance to keep all orders within the defined scope.
-- **Ensure every certificate adheres to enterprise policies**, maintaining a secure and compliant certificate infrastructure.
-- **Specifically designed to meet the high-volume** certificate demands prevalent in DevOps environments, ensuring that all certificates are sourced from a trusted Certificate Authority (CA).
-- **Centralized oversight of all certificate usage** and activities to prevent unexpected expirations and enhance operational efficiency.
-- **Integrated natively** with the native GlobalSign API interface, ensuring smooth and consistent operations.
-- **Thoroughly** **configurable workflow**, ensuring that approval and authorization processes are adaptable and efficient.
+- **Automate the certificate lifecycle** to reduce manual effort and keep issuance within the defined scope.
+- **Enforce enterprise policy** on every certificate requested from GlobalSign Atlas.
+- **Meet high-volume demand** from DevOps environments with certificates from a trusted public CA.
+- **Centralize oversight** of certificate usage to prevent unexpected expirations.
+- **Use the native GlobalSign Atlas API** for consistent issuance.
 
-  
+**How it Works**
 
-**SOLUTION OVERVIEW**
+An administrator generates an encrypted API credentials file in the GlobalSign Atlas portal and uploads it when adding GlobalSign as a certificate authority in Certificate Manager, SaaS. After validation, Certificate Manager, SaaS shows the GlobalSign validation policy that requests must meet, and certificates requested through Certificate Manager, SaaS are issued by GlobalSign Atlas and managed through their lifecycle. See the Documentation tab for setup.
 
-In an era where encryption is indispensable, GlobalSign’s Atlas stands out as a cloud-native platform emphasizing scalability and automation. Integrated with Venafi Certificate Manager, SaaS, it fosters a synergistic environment where the encryption needs of both public and private enterprises are met with exceptional efficiency and scalability. Atlas, with its emphasis on automation and scalability, paired with visibility, automation and control brought by Venafi, paves the way for enterprises to centralize certificate activity, enforce stringent SSL/TLS policies, and simplify the overarching lifecycle management of certificates.
+**Solution Components**
+
+- Certificate Manager, SaaS
+- GlobalSign Atlas
+
+**About GlobalSign**
+
+[GlobalSign](https://www.globalsign.com/en) is a certificate authority and provider of identity and security solutions.
 
 **Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**

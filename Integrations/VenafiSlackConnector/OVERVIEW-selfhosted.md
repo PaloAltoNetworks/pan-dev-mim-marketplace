@@ -1,54 +1,26 @@
 # Slack
 
-Cprime has delivered an alternative and more streamlined certificate notification flow by integrating Venafi with Slack via chatbot. Instead of switching back and forth between tools, this integration provides notifications sent to Slack and specific actions to be completed within Slack using slash commands. Now Venafi users can perform basic and common machine identity management tasks without leaving a favorite communication channel.
+Engineers and IT admins keep Slack open all day, but certificate actions in Certificate Manager, Self-Hosted usually arrive as emails to an administrator, which are easy to miss and force a switch between tools. Cprime built this chatbot integration through the Development Fund so certificate notifications arrive in Slack and common certificate tasks can be completed there with slash commands such as `/create`, `/renew` and `/revoke`.
 
-  
+**Value Highlights**
 
-**VALUE HIGHLIGHTS**
+- **Work faster**: Spend less time switching between applications.
+- **Improve the user experience**: Give developers a modern way to secure machine identities.
+- **Act from Slack**: Complete basic and common machine identity management tasks without leaving Slack.
+- **Get alerted quickly**: Receive notifications about critical certificate actions in the channels your team already uses.
 
-- **Increase product workflow **with less switching between applications
-- **Secure machine identities **through improved and modern development user experience
-- **Enables basic and common machine identity management** tasks without leaving Slack
-- **Slack Chatbot communicates with service **getting messages through webhook requests from connector
+**How it Works**
 
-  
+A Slack user runs a slash command. The Slack Connector receives the request, processes it and forwards it to Certificate Manager, Self-Hosted. The connector then processes the response, or any error, and posts the result to the Slack channel where the request started. Notifications reach the chatbot through webhook requests from the connector.
 
-Typically, software engineers and IT admins work in several tools at any one time, including Slack, which is always open as the primary communication and engagement platform. Context switching is incredibly costly as it drops productivity.
+**Solution Components**
 
-  
-
-Today, if an action is required for any certificate, an email is generated and sent to the appropriate Venafi admin to take the appropriate action. To reduce context switching, limit missed emails, and improve overall efficiency, Venafi customers can now take advantage of a notification system that will allow team members to be alerted about critical actions quickly, and in the tools that are already being used.
-
-  
-
-As part of the Development Fund, Cprime has delivered a streamlined notification flow by integrating Venafi with Slack via chatbot. Venafi users no longer need to switch amongst different environments for a complete machine identity lifecycle. They can perform basic and common machine identity management within Slack using slash commands (/create, /renew, /revoke, etc.).
-
-  
-
-**HOW IT WORKS**
-
-- Slack user initiates a Slash command (e. g. /create, /renew, /revoke) in Slack 
-- Slack Connector for Venafi receives command request from Slack and processes accordingly 
-- Slack Connector for Venafi forwards the processed request to Venafi Platform 
-- Venafi Platform responds to Slack Connector for Venafi 
-- Slack Connector for Venafi processes the response and sends to the Slack channel where the initial request originated 
-- In case of an error in Venafi Platform, Venafi Platform forwards it to Slack Connector for Venafi 
-- Slack Connector for Venafi handles the error and sends a response to the Slack channel
-
-  
+- Certificate Manager, Self-Hosted
+- Slack Connector service
+- Slack workspace and chatbot
 
 **About Cprime**
 
-Cprime, is a global consulting firm helping transforming businesses get in sync. Cprime is the partner of choice for Fortune 100 companies looking to achieve value and agility through their digital transfor-mations.
-
-  
-
-Archer Software, a Cprime Group Company, is an innovative technology consulting and custom software development company that helps startups and enterprises digitize healthcare, automotive, and fintech domains.
-
-  
-
-We help our global high-tech clients deliver life-changing solutions providing technology consulting, prod-uct design, and digital solutions development as well as agile transformation powered by the Cprime team.
+Cprime is a global consulting firm that helps companies with digital and agile transformation. Archer Software, a Cprime Group company, provides technology consulting and custom software development. Learn more at [cprime.com](https://www.cprime.com/).
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**
-
-**Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**

@@ -1,20 +1,22 @@
 # IdenTrust Certificate Management Integration Guide
 
-## How to Use IdenTrust Adaptable CA Scripts
+## Prerequisites
 
-### Custom Fields Script
+- Certificate Manager, Self-Hosted with the Adaptable framework.
+- An account with WebSDK access on the Certificate Manager, Self-Hosted server.
+- An IdenTrust account. Contact your IdenTrust Delivery Team representative for the account type, certificate type and account number to use.
 
-Inside the `IdenTrustCustomFields.ps1` script you will need to add the login information for the Venafi Trust Protection Platform server.
+## Installation
+
+Run the custom fields script to create the custom fields the Adaptable CA script uses: **IdenTrust: Account Type**, **IdenTrust: Certificate Type**, **IdenTrust: Account Number** and the contact first name, last name, email address and phone number.
 
 ![Create Custom Fields](images/IdenTrustCustomFields.png)
 
-1. These three fields will need to be updated with the address of the Venafi Server (localhost will work if running locally), along with the username and the password for an account with WebSDK access.
+1. Open `IdenTrustCustomFields.ps1` and update the three fields at the top with the address of the Certificate Manager, Self-Hosted server (`localhost` works if you run it locally) and the username and password of an account with WebSDK access.
 2. Save the changes to the script.
 3. Run the script.
 
-### Adaptable CA Script
-
-The Adaptable CA script, `IdenTrust.ps1`, must be placed in the AdaptableCA folder on the Trust Protection Platform server(s) located by default at:
+Place the Adaptable CA script, `IdenTrust.ps1`, in the `AdaptableCA` folder on every Certificate Manager, Self-Hosted server. The default location is:
 
 ```
 C:\Program Files\Venafi\Scripts\AdaptableCA
@@ -22,6 +24,8 @@ C:\Program Files\Venafi\Scripts\AdaptableCA
 
 ![Adaptable CA Location](images/adaptableca.png)
 
-If running in an IdenTrust test environment before going into production, the URL will need to be updated inside the script. Please check with Delivery@IdenTrust.com to verify the environment URL. If modification to the URL is necessary, it will be done here:
+## Configuration
+
+If you use an IdenTrust test environment before going into production, update the service URL inside `IdenTrust.ps1`. Check the environment URL with Delivery@IdenTrust.com first.
 
 ![Update Script URL](images/script-url.png)

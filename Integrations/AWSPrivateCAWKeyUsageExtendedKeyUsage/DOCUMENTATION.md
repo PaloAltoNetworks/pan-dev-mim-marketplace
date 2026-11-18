@@ -1,95 +1,67 @@
 # Integration README
 
-The purpose of this document is to provide information regarding the configuration of Secur Solutions' AWS Private CA adaptable driver for integration with Venafi Trust Protection Platform (TPP).
+This document describes how to configure the Secur Solutions AWS Private CA Adaptable CA driver for Certificate Manager, Self-Hosted.
 
-*The information provided in this document is considered proprietary and confidential.*
-
->This integration guide, as well as the software and/or products described in it, are furnished under agreement with Secur Solutions and may be used only in accordance with the terms of such agreement.
->Except as permitted by such agreement, no part of this publication may be reproduced, stored in a retrieval system, or transmitted, in any form or by any means, electronic, mechanical, recording, or otherwise, without prior written permission of Secur Solutions.
-
-## TABLE OF CONTENTS
-
-- [About Us](#about-us)
-- [Integration with Venafi](#integration-with-venafi)
-- [Prerequisites](#prerequisites)
-- [Installation and Configuration](#installation-and-configuration)
-    - [TPP Configuration](#tpp-configuration)
-
-
-## About Us
-### &nbsp; **SECUR SOLUTIONS GROUP**
-
-**Innovation is in our DNA.**
-
-Secur Solutions Group's mission is market leadership in Smart Card issuance and Digital Identity. 
-
-We seek to be a forward thinking and process centred organisation that delivers innovative solutions to our customers while consistently outperforming our peers. We do so by being market aware and providing a dynamic and challenging environment for our internal team. 
-
-We are privately owned, with a Ministry of Finance (Singapore) S8 qualification. In territory, we have majority coverage of the financial card issuance and government card issuance space, and partnerships with the major System Integrators. We have achieved the Singapore Quality Class (SQC 2017) and are Bizsafe certified. 
-
-We are the pioneering and oldest Entrust distribution partner in Southeast Asia and a multiple award winner within the Entrust network.
-
-## Integration with Venafi
-
-Venafi’s Trust Protection Platform integrates with the Secur Solutions's AWS Private CA adaptable driver for the purposes of customizing and issuing certificates with key usage and extended key usage specifically for AWS Private CA.
+> This integration guide, as well as the software and/or products described in it, are furnished under agreement with Secur Solutions and may be used only in accordance with the terms of such agreement. Except as permitted by such agreement, no part of this publication may be reproduced, stored in a retrieval system, or transmitted, in any form or by any means, electronic, mechanical, recording, or otherwise, without prior written permission of Secur Solutions.
 
 ## Prerequisites
 
-Before following the steps in this integration guide, the following prerequisite items must be installed and configured:
+- Certificate Manager, Self-Hosted
+- An AWS Private CA
+- The AWS CLI installed on every Certificate Manager, Self-Hosted server that runs the driver. See [Installing the AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html).
 
-- Venafi Trust Protection Platform
-- **AWS CLI** 
+The driver sends its AWS CLI calls to the `ap-southeast-1` region. Confirm that this matches the region of your AWS Private CA before you use it.
 
-## Installation and Configuration
+## Installation
 
-## AWS CLI
-Users must install AWS CLI in order for the drivers to be able to access to your AWS Private CA. Please follow the following link to setup and install [AWS CLI](https://docs.aws.amazon.com/cli/latest/userguide/getting-started-install.html) 
+1. Copy `Secur AWS CA script.ps1` to `C:\Program Files\Venafi\Scripts\AdaptableCA` on each Certificate Manager, Self-Hosted server.
 
-## TPP Configuration
+   ![Adaptable folder](readme-images/adaptable_folder.png)
 
-Users must add Secur AWS CA script.ps1 script to the `"C:\Program Files\Venafi\Scripts\AdaptableCA"` directory on the Venafi platform servers in order to call AWS APIs through the script. Before using this template, users must configure the following custom fields in Trust Protection Platform. Please note that these custom field names should be configured with exact names and values.
+## Configuration
 
-1. Install the adaptable driver into the `C:\Program Files\Venafi\Scripts\AdaptableCA` folder on the Trust Protection Platform server 
+1. Create the custom fields in Aperture, using the exact names in the [custom field reference](#custom-field-reference).
 
-    ![Adaptable folder](readme-images/adaptable_folder.png)
+   ![Aperture custom values 1](readme-images/aperture_custom.png)
 
-2. Create the custom fields in Aperture
+2. Add the values the driver expects to the list fields:
+   - **AWS Private CA Certificate Key Usage (by Secur)**: `DigitalSignature`, `DataEncipherment`, `KeyEncipherment`, `NonRepudiation`
+   - **AWS Private CA Extended Key Usage (by Secur)**: `CLIENT_AUTH`, `SERVER_AUTH`
 
-    ![Aperture custom values 1](readme-images/aperture_custom.png)
+   ![Aperture custom values](readme-images/aperture_values.png)
 
-    > For more information about the necessary Custom Fields, please see the [custom field reference](#custom-field-reference) at the bottom of this page.
+   For the certificate profile name, make sure the allowed characters include the ones you use, for example `^[A-Za-z0-9-_\s]*$`.
 
-3. Add the following 7 entries (They are expected by the driver)
-    - AWS Private CA Certificate Key Usage should contain DigitalSignature, DataEncipherment, KeyEncipherment, NonRepudiation
-    - AWS Private CA Extended Key Usage should contain CLIENT_AUTH, SERVER_AUTH
-    ![Aperture custom values](readme-images/aperture_values.png)
+3. Create an API integration with the client ID, scope and privileges shown below.
 
+   ![Api Integrations](readme-images/api_integrations.png)
 
-    > For the Certificate Profile name, make sure it includes the charset you will be using, ie: `^[A-Za-z0-9-_\s]*$`
+4. Create an AWS credential in the `Administration\Credentials` folder named `Secur AWS CA`. Use your AWS access key as the access key and your AWS secret key as the secret key.
 
-4. Configure the API Integrations
+   ![AWS Credentials](readme-images/aws_credentials.png)
 
-    Create a new API Integration with the following client ID, scope and privileges. 
+5. Create the Adaptable CA template object and select the custom fields as shown below.
 
-    ![Api Integrations](readme-images/api_integrations.png)
+   ![Adaptable configuration](readme-images/tpp_adaptable.png)
 
+6. Configure the policy folder to use the CA template.
 
-5. Create AWS Credentials 
-    Create an AWS Credential in TLS Protect's Administration Credentials folder. The credential name should be "Secur AWS CA" and the access key is your AWS Access key and secret key is the AWS Secret key. 
+   ![Policy folder](readme-images/policy_folder.png)
 
-    ![AWS Credentials](readme-images/aws_credentials.png)
+   Sample field values:
 
+   ![Sample values](readme-images/custom_values_tpp_2.png)
 
-6. Create the AWS CA Template object and configure it as below, making sure that the additional custom fields are selected as well:
+You can now issue certificates.
 
-    ![Adaptable configuration](readme-images/tpp_adaptable.png)
+## Custom Field Reference
 
-7. Configure the Policy folder to use that CA Template:
+- **AWS Private CA Name (by Secur)** (required): the ARN of the AWS Private CA.
+- **AWS Private CA Validity Period (by Secur)** (required): the certificate validity in days.
+- **AWS Private CA Certificate Key Usage (by Secur)**: one or more key usage values.
+- **AWS Private CA Extended Key Usage (by Secur)**: one or more extended key usage values, or `NOT_REQUIRED`.
+- **AWS Private CA Policy Identifier (by Secur)**: the certificate policy OID.
+- **AWS Private CA Policy Qualifier ID (by Secur)**: the policy qualifier ID.
+- **AWS Private CA Qualifier (by Secur)**: the CPS URI for the policy qualifier.
 
-    ![Policy folder](readme-images/policy_folder.png)
-
-    Sample values for the fields
-
-            ![TPP values](readme-images/custom_values_tpp_2.png)
-
-Congratulations! You should now be able to issue certificates.
+The policy identifier, qualifier ID and qualifier are applied only when all three are set.

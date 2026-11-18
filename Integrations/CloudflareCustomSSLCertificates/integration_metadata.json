@@ -1,6 +1,6 @@
 {
   "name": "Cloudflare Custom SSL Certificates",
-  "description": "Set Cloudflare's private CA as K8s cluster private CA to enable multiple signing keys",
+  "description": "Discover and automatically provision custom SSL certificates to Cloudflare edge services under your enterprise certificate policy.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "Venafi",
@@ -45,9 +45,14 @@
       "overviewFile": "OVERVIEW-ngts.md",
       "documentationLinks": [
         {
-          "title": "Cloudflare Custom SSL Certificates Integration Guide",
-          "description": "Complete integration guide for Cloudflare Custom SSL Certificates",
+          "title": "Cloudflare Machine Setup",
+          "description": "Create a Cloudflare machine in Next-Gen Trust Security",
           "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/cloudflare"
+        },
+        {
+          "title": "Provision Certificates to Cloudflare",
+          "description": "Provision certificates to a Cloudflare machine",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/cloudflare/provision-certificates-cloudflare"
         }
       ]
     }

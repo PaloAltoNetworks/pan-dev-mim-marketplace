@@ -1,6 +1,6 @@
 {
   "name": "Broadcom SSL Visibility Appliance",
-  "description": "Enhance SSL/TLS security with Broadcom's Visibility Appliance and Venafi's automated key distribution for seamless traffic inspection.",
+  "description": "Keep Broadcom SSL Visibility Appliance inspecting traffic by automating key and certificate distribution from Certificate Manager, Self-Hosted.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Broadcom",

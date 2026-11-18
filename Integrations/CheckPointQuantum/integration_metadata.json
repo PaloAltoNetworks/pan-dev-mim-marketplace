@@ -1,6 +1,6 @@
 {
   "name": "Check Point Quantum",
-  "description": "Check Point Quantum and Venafi automate machine identity management, enhancing threat detection in encrypted traffic for superior network security.",
+  "description": "Keep Check Point Quantum gateways inspecting encrypted traffic by automating their keys and certificates from Certificate Manager, Self-Hosted.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "Checkpoint Systems",

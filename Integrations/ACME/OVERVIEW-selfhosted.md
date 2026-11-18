@@ -1,36 +1,30 @@
 # ACME
 
-The ACME CA driver enables the Venafi Certificate Manager to request, renew and revoke certificates from CAs such as Let's Encrypt.
+CAs such as Let's Encrypt have made it easy for application owners to get publicly trusted certificates without complex verification steps or human involvement. When each team requests certificates on its own, though, the organization loses visibility and control over which certificates exist and which CA policy they follow.
 
-  
+The ACME Adaptable CA driver lets Certificate Manager, Self-Hosted request, renew and revoke certificates from any CA that implements the ACMEv2 protocol. You keep the ease of ACME issuance and add the inventory, policy and automation of Certificate Manager, Self-Hosted.
 
-**SOLUTION COMPONENTS**
+**Value Highlights**
 
-Certificate Manager, Self-Hosted, any CA that implements ACME protocol
+- **See and manage every certificate** from a single interface, including those issued by ACME CAs.
+- **Reduce risk by centralizing CA policy** in Certificate Manager, Self-Hosted instead of delegating it to application owners.
+- **Request, renew and revoke** TLS certificates with a built-in ACMEv2 client.
+- **Automate domain validation** with any Posh-ACME DNS plugin, with plugin credentials stored in a credential object instead of hardcoded.
+- **Connect to private CAs** with External Account Binding and proxy support.
+- **Extend existing automation** so applications already managed by Certificate Manager, Self-Hosted can use ACME CAs.
 
-  
+**How it Works**
 
-**VALUE HIGHLIGHTS**
+The driver is an Adaptable CA driver (`AcmeAdaptableCA.ps1`) that runs on your Certificate Manager, Self-Hosted servers and uses the Posh-ACME PowerShell module as its ACMEv2 client. You create an Adaptable CA template that points to the CA's ACME directory URL and a per-CA configuration directory. The driver completes DNS-01 domain validation through your DNS provider's Posh-ACME plugin when the CA requires it. See the Documentation tab for installation and configuration.
 
-- **Make it easier for all organization certificates **to be visible and managed from a single interface: Venafi
-- **Reduce risk by centralizing CA policy **in Venafi instead of delegating to application owners
-- **ACMEv2 client **for requesting, renewing and revoking TLS machine identities
-- **Supports every Posh-ACME DNS plugin **for automating ACME domain validation, with credentials supplied via a Venafi credential object instead of being hardcoded
-- **External Account Binding and proxy support **for connecting to private CAs and environments that route outbound traffic through a proxy
-- **Enables existing applications **already being managed by Venafi to benefit from ACME CAs
+**Solution Components**
 
-  
-
-CAs such as Let's Encrypt have made it much easier for application owners to request publicly-trusted certificates. Easier in terms of not having complex verification procedures before certificates can be issued, and also easier in terms of application software being able to request certificates without human involvement.
-
-  
-
-The ACME Adaptable CA enables the Certificate Manager, Self-Hosted to communicate with ACME CAs on the application's behalf, combining ACME's ease of obtaining certificates with Venafi's visibility, control, and powerful automation engine.
-
-  
+- Certificate Manager, Self-Hosted
+- Any CA that implements the ACMEv2 protocol, such as Let's Encrypt
+- The Posh-ACME PowerShell module and OpenSSL
 
 **About ACME**
 
-ACME (Automated Certificate Management Environment) is a communications protocol for automating the issuance and domain validation procedures, allowing the automated deployment of public key infrastructure without user interaction. It was designed by the Internet Security Research Group (ISRG) for their Let's Encrypt service.
+ACME (Automated Certificate Management Environment) is a protocol for automating certificate issuance and domain validation without user interaction. It was designed by the Internet Security Research Group (ISRG) for its Let's Encrypt service.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

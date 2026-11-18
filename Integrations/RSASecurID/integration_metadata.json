@@ -1,6 +1,6 @@
 {
   "name": "RSA SecurID",
-  "description": "Enhance security with RSA SecurID's two-factor authentication, protecting all user levels against attacks while integrating seamlessly with existing systems.",
+  "description": "Protect Certificate Manager, Self-Hosted user and administrator sign-in with RSA SecurID two-factor authentication.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "RSA Security Inc.",

@@ -1,6 +1,6 @@
 {
   "name": "ACME",
-  "description": "ACME CA driver simplifies certificate management via Venafi, enabling easy requests, renewals, and revocations from ACME CAs like Let's Encrypt.",
+  "description": "Request, renew and revoke certificates from ACME CAs such as Let's Encrypt while keeping central visibility and policy control.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Venafi",

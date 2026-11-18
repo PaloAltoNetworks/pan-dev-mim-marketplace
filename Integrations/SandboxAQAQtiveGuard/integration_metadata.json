@@ -1,6 +1,6 @@
 {
   "name": "SandboxAQ AQtive Guard (fka Cryptosense Analyzer Platform)",
-  "description": "AQtive Guard enhances cryptography management with full visibility of certificate use, reducing outages and simplifying operations through seamless integration with Venafi.",
+  "description": "Find certificates used by running applications and file systems that Certificate Manager, Self-Hosted does not yet manage, and add them in one click.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Sandbox AQ",
@@ -18,10 +18,11 @@
     "Certificate Lifecycle Management"
   ],
   "keywords": [
-    "AQtive Guar",
+    "AQtive Guard",
     "REST"
   ],
+  "documentationFile": "DOCUMENTATION.md",
   "logoFile": "sandboxaq.png",
-  "supportUrl": "https://www.sandboxaq.com/contact",
+  "supportUrl": "https://www.sandboxaq.com/company/contact",
   "price": "Free"
 }

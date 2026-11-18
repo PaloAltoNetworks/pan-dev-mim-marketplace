@@ -1,6 +1,6 @@
 {
   "name": "RSA Archer GRC",
-  "description": "Enhance visibility and risk management with Venafi's integration to RSA Archer GRC, streamlining key and certificate lifecycle events.",
+  "description": "Send certificate lifecycle events, administrator activity and workflow approvals from Certificate Manager, Self-Hosted to RSA Archer GRC.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "RSA Security Inc.",

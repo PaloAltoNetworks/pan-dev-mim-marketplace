@@ -1,6 +1,6 @@
 {
   "name": "OpenXPKI Adaptable CA",
-  "description": "An Adaptable CA driver that integrates the open-source OpenXPKI certificate authority with Venafi Certificate Manager, Self-Hosted, enabling Venafi to request, renew, and revoke certificates from OpenXPKI via its RPC API.",
+  "description": "Request, renew and revoke certificates from the open-source OpenXPKI CA through Certificate Manager, Self-Hosted.",
   "support": "Supported",
   "currentVersion": "1.0",
   "author": "OpenXPKI Project",

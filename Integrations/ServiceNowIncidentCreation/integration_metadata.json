@@ -1,6 +1,6 @@
 {
   "name": "ServiceNow Incident Creation",
-  "description": "Easily automate ServiceNow incident creation from Trust Protection Platform logs, customizing triggers and incident details for efficient ITSM.",
+  "description": "Automatically create ServiceNow incidents from Certificate Manager, Self-Hosted log events, with customizable triggers and incident details.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "Venafi",

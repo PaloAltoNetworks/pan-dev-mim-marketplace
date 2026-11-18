@@ -1,23 +1,26 @@
 # QuoVadis Digital Certificate Services
 
-The fast growth in HTTPS requires organizations to gain full visibility, automation and control over machine identities. Venafi enables customers to automate the full certificate lifecycle with QuoVadis certificate services.
+The rapid growth of HTTPS and enterprise encryption means organizations need visibility, automation and control over every certificate, along with the agility to work with more than one certificate authority. Certificate Manager, Self-Hosted integrates with QuoVadis certificate services, part of DigiCert, so you can automate the full lifecycle of QuoVadis certificates under central policy.
 
-  
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Automate the full lifecycle** of QuoVadis certificates, from request and issuance to renewal and revocation.
+- **Gain visibility** into the demand for, usage of and workflow around certificate services.
+- **Enforce policies** with automated workflow and detailed logging.
+- **Track approvals** with configurable workflow for authorization and authentication.
+- **Use the native QuoVadis API** for certificate requests.
 
-- **Automate **the full certificate lifecycle from issuance to revocation
-- **Gain full visibility **into the demand, usage and workflow of certificate services
-- **Enforce policies **with automated workflow and detailed logging
-- **Easily track workflow approvals**, authorization and authentication
-- **Supports full lifecycle **from request, issuance and renewal to revocation
-- **Enables complete process **for configurable workflow approval and authorization
-- **Works with the native QuoVadis **API interface
+**How it Works**
 
-  
+Certificate Manager, Self-Hosted includes a QuoVadis CA driver. You configure a QuoVadis CA template that authenticates to the QuoVadis web service with a Web Service Signing Certificate issued by QuoVadis, and QuoVadis enables the certificate templates your account may request. Certificates requested under policy are then issued through QuoVadis and stored, monitored and renewed by Certificate Manager, Self-Hosted. See the Documentation tab for account preparation and setup.
 
-**SOLUTION OVERVIEW**
+**Solution Components**
 
-Due to the rapid rise in enterprise encryption, the need for certificate authority (CA) agility and machine identity protection continues to escalate. QuoVadis has close to 20 years' experience providing managed Public Key Infrastructure (PKI) services to international companies and organizations. QuoVadis managed PKI services take the pain out of deploying digital certificates. Venafi’s visibility and automation protects machine identities that are integrated with trusted QuoVadis digital certificates enabling organizations to focus on their core business applications. 
+- Certificate Manager, Self-Hosted
+- QuoVadis managed PKI services
+
+**About QuoVadis**
+
+QuoVadis provides managed public key infrastructure (PKI) services and is part of [DigiCert](https://www.digicert.com/).
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

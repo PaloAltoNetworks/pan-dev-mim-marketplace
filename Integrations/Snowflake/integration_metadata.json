@@ -1,6 +1,6 @@
 {
   "name": "Snowflake",
-  "description": "Snowflake enhances developer experience by integrating Venafi for seamless machine identity management, enabling easy requests and renewals directly within their environment.",
+  "description": "Request, renew and revoke machine identities directly from Snowflake, so developers can manage certificates alongside their existing data.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "StarSchema-Marketplace",

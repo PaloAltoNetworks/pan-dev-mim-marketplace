@@ -1,6 +1,6 @@
 {
   "name": "Kubernetes Cluster Discovery",
-  "description": "Automated Kubernetes & OpenShift certificate discovery for Certificate Manager, Self-Hosted \u2014 removes blind spots across containerized infrastructure.",
+  "description": "Discover certificates on OpenShift and Kubernetes routes and import them into Certificate Manager, Self-Hosted.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "Community",

@@ -1,6 +1,6 @@
 {
   "name": "Akeyless Vault Platform",
-  "description": "Akeyless Vault Platform, in partnership with Venafi, automates machine identity management for ephemeral workloads, enhancing security and compliance.",
+  "description": "Issue and deliver certificates through Akeyless Vault Platform to DevOps pipelines while keeping them under central policy and visibility.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "Akeyless",
@@ -27,22 +27,36 @@
   "productVariants": [
     {
       "product": "Certificate Manager SaaS",
-      "overviewFile": "OVERVIEW-saas.md"
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Akeyless Venafi Cloud Dynamic Secret",
+          "description": "Create an Akeyless dynamic secret that issues certificates through the cloud platform",
+          "url": "https://docs.akeyless.io/docs/venafi-cloud"
+        }
+      ]
     },
     {
       "product": "Certificate Manager Self-Hosted",
       "overviewFile": "OVERVIEW-selfhosted.md",
       "documentationLinks": [
         {
-          "title": "Akeyless Vault Platform Integration Guide",
-          "description": "Complete integration guide for Akeyless Vault Platform",
+          "title": "Akeyless Venafi TPP Dynamic Secret",
+          "description": "Create an Akeyless dynamic secret that issues certificates through Certificate Manager, Self-Hosted",
           "url": "https://docs.akeyless.io/docs/venafi-tpp"
         }
       ]
     },
     {
       "product": "Next-Gen Trust Security",
-      "overviewFile": "OVERVIEW-ngts.md"
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Akeyless Venafi Cloud Dynamic Secret",
+          "description": "Create an Akeyless dynamic secret that issues certificates through the cloud platform",
+          "url": "https://docs.akeyless.io/docs/venafi-cloud"
+        }
+      ]
     }
   ],
   "price": "Free"

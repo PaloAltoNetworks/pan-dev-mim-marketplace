@@ -1,6 +1,6 @@
 {
   "name": "Apache Kafka",
-  "description": "The Venafi Kafka Connector enables real-time extraction and processing of security events from the Venafi Platform within the Kafka ecosystem.",
+  "description": "Stream Certificate Manager, Self-Hosted security events into Kafka for real-time analysis by SIEMs and other downstream tools.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "Open Credo",

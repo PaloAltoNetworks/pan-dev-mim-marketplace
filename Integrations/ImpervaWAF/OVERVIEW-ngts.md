@@ -1,34 +1,19 @@
 # Imperva WAF
 
-Web application attacks deny services and steal sensitive data. Imperva Web Application Firewall (WAF) analyzes and inspects requests coming into applications and stops these attacks. But traditional security controls are blind to these attacks and underperform without the proper visibility. Venafi makes it easy to unlock encrypted traffic with your Imperva WAF and stop attacks at the firewall.
+Imperva Cloud Web Application Firewall (WAF) protects websites against attacks that deny service and steal data. Sites behind Imperva can serve custom certificates, and when those certificates are uploaded and renewed by hand, they expire and break the sites they protect. Next-Gen Trust Security discovers the certificates served by the sites in your Imperva account and provisions custom certificates to them, so protected sites always serve valid, policy-compliant certificates.
 
-  
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Gain visibility**: Discover all the sites in your Imperva account and the certificates they serve.
+- **Automate provisioning**: Upload the certificate, its issuing chain and its private key as a site's custom certificate.
+- **Prevent outages**: Monitor the certificates on each site for expiration and replace them in time.
+- **Keep policy**: Serve only certificates issued under your organization's policy.
 
-- **Get started fast **with inventories of existing keys and certificates 
-- **Maximize WAF utilization **with full discovery of keys and certificates 
-- **Maintain WAF inspection levels **with fully automated lifecycle and key distribution 
-- **Installed SSL certificates **on each site are monitored for expiration and network validation
+**How it Works**
 
-  
+You create an Imperva WAF machine in Next-Gen Trust Security with an Imperva API ID and API key. There are two Imperva WAF machine types. One runs the connector in the cloud, and the other runs it on a VSatellite in your network. Next-Gen Trust Security lists the sites in the account and retrieves the certificate each site serves. To provision, you choose an existing site by its Site ID, and Next-Gen Trust Security uploads the certificate as that site's custom certificate. See the Documentation tab for requirements and setup.
 
-**SOLUTION OVERVIEW**
+**Solution Components**
 
-Imperva is a cloud web application firewall that is used to protect websites against attacks. One of the features is site forwarding. Site forwarding can use custom certificates that will be served with the SSL connection to the site. Using this driver, all these site certificates can be managed by Next-Gen Trust Security. It allows for discovery of all sites and certificates associated with an API key. It also allows for the external creation and subsequent upload to an Imperva protected site.
-
-  
-
-With this Venafi-developed Adaptable Application Driver enables the following:
-
-  
-
-Imperva WAF Provisioning
-
-- Install-Certificate: The driver pushes a certificate to the custom certificate settings section of the Imperva site.
-
-  
-
-Imperva WAF Discovery
-
-- Discover-Certificates: The driver calls the /v1/sites/list endpoint in Imperva to get a list of all the sites for an account. It then connects to each site and get the SSL certificate if it is served one. These are sent back to the discovery job to be handled by the Venafi Platform.
+- Next-Gen Trust Security, and a VSatellite if you run the connector in your network
+- Imperva Cloud WAF

@@ -1,6 +1,6 @@
 {
   "name": "Threat Inspection Using Palo Alto Networks NGFW",
-  "description": "Automate machined identities for decryption profiles",
+  "description": "Automate the keys and certificates used in Palo Alto Networks NGFW decryption profiles so firewalls can inspect encrypted traffic.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "Palo Alto Networks",

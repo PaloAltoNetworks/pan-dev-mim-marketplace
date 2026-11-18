@@ -1,32 +1,30 @@
 # mTLS for Kubernetes workloads with Otterize & Venafi
 
-**Overview**
-
-Otterize, integrated with Venafi, provides an exemplary solution for comprehensive mTLS in Kubernetes. Increasingly sophisticated cyber threats demand that every machine identity be authenticated and managed through its entire lifecycle. In this context, the intent-based access control of Otterize coupled with Venafi's strong solution suite is vital.
-
-**Applicability**
-
-The integration of Venafi and Otterize Cloud caters to enterprises seeking fully automated, streamlined machine identity management and verification while adhering to intent-based access control (IBAC) policies.
+Securing traffic between Kubernetes workloads with mutual TLS (mTLS) means every workload needs a certificate that is issued, rotated and trusted, plus access policies that say which workloads may talk to each other. Otterize combined with Certificate Manager, Self-Hosted automates both. Developers declare which services a workload calls, and Otterize generates the access policies and the mTLS certificates, with certificates issued through cert-manager from Certificate Manager, Self-Hosted.
 
 **Value Highlights**
 
-- Provides full life-cycle automation for certificates and keys in the Otterize Cloud.
-- Intent-Based Access Control (IBAC) for stringent validation and less unauthenticated access.
-- Improves efficiency and reduces administrative overhead.
-- Enhanced protection and seamless management via the integration.
-
-**Solution Components**
-
-- Venafi TLS Protect Cloud or Datacenter
-- [cert-manager](https://cert-manager.io/)
-- [Otterize](https://otterize.com/)
+- **Automate the certificate lifecycle**: Issue and rotate certificates and keys for Kubernetes workloads without manual steps.
+- **Control access by intent**: Use intent-based access control (IBAC) so only declared clients can reach a workload.
+- **Reduce administrative overhead**: Replace hand-written policies and certificate requests with declarative intents.
+- **Keep certificates in policy**: Issue workload certificates under the policies defined in Certificate Manager, Self-Hosted.
 
 **How it Works**
 
-Declare and apply intents to easily secure access to workloads running in Kubernetes clusters, automating the provisioning of access policies, such as network policies, Kafka ACLs, AWS IAM, and the generation and deployment of mTLS certificates between the workload and its clients using cert-manager as the certificate provider.
+You declare and apply client intents for workloads running in Kubernetes clusters. Otterize turns those intents into access policies, such as network policies, Kafka ACLs and AWS IAM policies, and generates and deploys mTLS certificates between each workload and its clients, using cert-manager as the certificate provider. cert-manager requests those certificates from Certificate Manager, Self-Hosted. See the Documentation tab for setup.
 
-**ABOUT Otterize**
+**Applicability**
 
-Otterize is a leading Workload Identity and Access Management platform that automates and simplifies access control for cloud-native environments. By offering a declarative and zero-trust approach to access management, Otterize empowers organizations to streamline workload IAM while ensuring maximum security.
+This integration suits enterprises that want fully automated workload certificate management and verification while enforcing intent-based access control policies.
+
+**Solution Components**
+
+- Certificate Manager, Self-Hosted
+- [cert-manager](https://cert-manager.io/)
+- Otterize
+
+**About Otterize**
+
+[Otterize](https://docs.otterize.com) is a workload identity and access management platform that automates access control for cloud-native environments with a declarative, zero-trust approach.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

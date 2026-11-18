@@ -1,6 +1,6 @@
 {
   "name": "Crypto4A Secure PKI",
-  "description": "Crypto4A Secure PKI offers a quantum-ready solution integrated with Venafi, ensuring secure certificate management and robust root of trust.",
+  "description": "Issue and manage certificates from Crypto4A's quantum-ready Secure PKI, with a hardware root of trust, through Certificate Manager, Self-Hosted.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Crypto4A Technologies",

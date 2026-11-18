@@ -1,21 +1,24 @@
 # Cloudflare Custom SSL Certificates
 
-**Overview**
-As more businesses adopt cloud-native strategies, the importance of efficient, secure, and automated certificate management becomes paramount. This integrated solution between Venafi and Cloudflare serves business and enterprise customers who want more control over their certificates within Cloudflare infrastructure, ensuring a unified process for managing machine identities across all environments.
-**Applicability**
-For businesses and enterprise customers who want more control and flexibility over certificates used with Cloudflare edge services.
+Businesses that serve traffic through Cloudflare edge services want more control over the certificates used there, and a single process for managing certificates across all environments. This machine connector lets Next-Gen Trust Security discover and provision custom SSL certificates to Cloudflare, so edge certificates follow the same policies as the rest of your inventory.
+
 **Value Highlights**
-- Seamless connectivity to multiple Cloudflare accounts via API token, ensuring a smooth connection process
-- Automates the process of certificate lifecycle management, taking away the manual hassle
-- Enhances visibility of machine identities by discovering edge certificates associated with your zone
-- Offers more control and visibility over the certificate issuance and management process within Cloudflare
-- Enables users to use their own Public CA through Venafi, thereby also enforcing enterprise security policy
-- Helps alleviate compliance concerns with automated workflows
-**Solution Components**
-- Next-Gen Trust Security
-- Cloudflare
+
+- **Connect multiple accounts**: Connect to several Cloudflare accounts with API tokens.
+- **Automate the lifecycle**: Provision and renew Cloudflare edge certificates without manual work.
+- **Discover custom certificates**: Find the custom certificates in your Cloudflare zones.
+- **Use your own public CA**: Issue edge certificates from your chosen public CA through Next-Gen Trust Security, under enterprise security policy.
+- **Ease compliance**: Replace manual steps with automated, auditable workflows.
+
 **How it Works**
-The is a native Machine Connector integration for customers using Next-Gen Trust Security.
-**ABOUT Cloudflare**
-Cloudflare, Inc. (NYSE: NET) is the leading connectivity cloud company. It empowers organizations to make their employees, applications and networks faster and more secure everywhere, while reducing complexity and cost. Cloudflare’s connectivity cloud delivers the most full-featured, unified platform of cloud-native products and developer tools, so any organization can gain the control they need to work, develop, and accelerate their business.
-Powered by one of the world’s largest and most interconnected networks, Cloudflare blocks billions of threats online for its customers every day. It is trusted by millions of organizations – from the largest brands to entrepreneurs and small businesses to nonprofits, humanitarian groups, and governments across the globe.
+
+Cloudflare is a native machine type in Next-Gen Trust Security. You add a Cloudflare machine with an API token, with the connector running in the cloud or on a VSatellite in your network, and Next-Gen Trust Security discovers the custom certificates in your Cloudflare zones and provisions new and renewed certificates to them. See the Documentation tab for setup.
+
+**Applicability**
+
+For businesses and enterprise customers who want more control and flexibility over certificates used with Cloudflare edge services.
+
+**Solution Components**
+
+- Next-Gen Trust Security
+- Cloudflare edge services

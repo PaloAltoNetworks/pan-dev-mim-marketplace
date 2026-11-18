@@ -1,25 +1,26 @@
 # Kubernetes Cluster Discovery
 
-The Kubernetes Cluster Discovery integration for Certificate Manager, Self-Hosted provides automated visibility and management of certificates across your containerized infrastructure. By connecting directly to OpenShift or standard Kubernetes clusters via a YAML configuration, it helps remove blind spots in your machine identity landscape.
+Certificates used by OpenShift and Kubernetes workloads are created and replaced quickly, and they often sit outside the view of the security team. The Kubernetes Cluster Discovery integration for Certificate Manager, Self-Hosted connects to OpenShift or standard Kubernetes clusters, discovers the certificates on their routes, and imports them into Certificate Manager, Self-Hosted. This removes blind spots in your certificate inventory and brings container certificates under enterprise policy.
 
-This integration bridges the gap between dynamic DevOps environments and centralized security, ensuring every route and certificate is discovered, imported, and governed according to enterprise policy.
+**Value Highlights**
 
-**SOLUTION COMPONENTS**
+- **Connect simply**: Authenticate to OpenShift or Kubernetes clusters with a standard config YAML file.
+- **Find active certificates**: Traverse all routes to identify active certificates and their metadata.
+- **Organize automatically**: Import discovered certificates into a structured Kubernetes policy, cluster and namespace hierarchy.
+- **Keep data current**: Create or update certificate objects from raw PEM data for full lifecycle visibility.
+- **Reduce outage risk**: Bring short-lived Kubernetes certificates under enterprise security standards so expired or unmanaged certificates are caught.
+
+**How it Works**
+
+The integration authenticates to each cluster with a config YAML file and traverses its routes to extract the certificates in use. It then creates a hierarchy in Certificate Manager, Self-Hosted: a Kubernetes policy folder that groups all container assets, a cluster object for each discovered cluster, and a namespace object for each Kubernetes namespace. Certificate objects are created or updated under their namespace from the PEM data.
+
+**Applicability**
+
+This integration suits organizations that run OpenShift or Kubernetes workloads at scale and need to centralize certificate security in Certificate Manager, Self-Hosted.
+
+**Solution Components**
 
 - Certificate Manager, Self-Hosted
-- OpenShift / Kubernetes
+- OpenShift or Kubernetes clusters
 
-**KEY TECHNICAL FEATURES**
-
-- **Seamless OpenShift integration:** authenticates and connects to OpenShift/Kubernetes environments using a standard config YAML to begin deep-scan discovery.
-- **Route-based certificate extraction:** automatically traverses all Kubernetes routes to identify active certificates and their associated metadata.
-- **Automated hierarchical provisioning:** imports discovered data into Certificate Manager, Self-Hosted by automatically creating a structured hierarchy:
-  - *Kubernetes Policy* — groups all container-related assets
-  - *Cluster Object* — created dynamically based on the discovered cluster
-  - *Namespace Object* — segregates certificates by their specific Kubernetes namespace
-- **PEM data synchronization:** creates or updates certificate objects under their respective namespaces using raw PEM data for full lifecycle visibility.
-- **Centralized compliance:** aligns ephemeral Kubernetes certificates with enterprise security standards, reducing the risk of outages from expired or unmanaged certificates.
-
-**USE CASES**
-
-For organizations running high-scale OpenShift or Kubernetes workloads who need to centralize machine identity security within Certificate Manager, Self-Hosted.
+**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

@@ -1,6 +1,6 @@
 {
   "name": "VMware Workspace One",
-  "description": "Enhance VMware Workspace ONE with Venafi for better control of machine identities, visibility for certificates, and secure access management.",
+  "description": "Gain user-level visibility and policy control over the device and user certificates VMware Workspace ONE issues through SCEP.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "VMware",

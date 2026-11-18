@@ -1,6 +1,6 @@
 {
   "name": "F5 BIG-IQ",
-  "description": "Automate machine identities through Big-IQ on all Big-IP devices",
+  "description": "Automate certificate requests, renewal and deployment for every BIG-IP device managed by F5 BIG-IQ.",
   "categories": [
     "Load Balancer & ADC"
   ],

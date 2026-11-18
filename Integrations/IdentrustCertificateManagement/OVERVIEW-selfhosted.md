@@ -1,21 +1,27 @@
 # IdenTrust Certificate Management Center
 
-The use of digital signatures is becoming more commonplace both in the workplace and for personal use. Digital signing allows organizations to streamline signing and approval processes, eliminate paper and establish an audit trail. Venafi enables customers to automate the full certificate lifecycle with IdenTrust certificate services.
+Organizations that buy certificates from IdenTrust often request, approve and renew them through separate manual processes, which limits visibility and makes policy hard to enforce. This integration connects IdenTrust certificate services to Certificate Manager, Self-Hosted, so you can automate the full certificate lifecycle with IdenTrust while keeping central control of workflow and policy.
 
-  
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Gain full visibility**: See the demand, usage and workflow of IdenTrust certificate services.
+- **Enforce policies**: Apply automated workflow and detailed logging to every request.
+- **Track approvals**: Follow workflow approvals, authorization and authentication.
+- **Configure workflow**: Use configurable approval and authorization steps for IdenTrust requests.
+- **Support the full lifecycle**: Handle request, issuance, renewal and revocation.
 
-- **Gain full visibility **into the demand, usage and workflow of certificate services
-- **Enforce policies **with automated workflow and detailed logging
-- **Easily track workflow **approvals, authorization and authentication
-- **Enables complete process **for configurable workflow approval and authorization
-- **Supports full lifecycle **from request, issuance and renewal to revocation
+**How it Works**
 
-  
+The integration is an Adaptable CA script for Certificate Manager, Self-Hosted that submits certificate requests, renewals and revocations to the IdenTrust automated enrollment service. A companion script creates custom fields for the IdenTrust account and contact details that each request needs, such as account type, certificate type and account number. See the Documentation tab for installation.
 
-**SOLUTION OVERVIEW**
+**Solution Components**
 
-Due to the rapid rise in enterprise encryption, the need for certificate authority (CA) agility and machine identity protection continues to escalate. As the only bank-developed identity authentication system in the world, IdenTrust delivers a legally and technologically interoperable environment for authenticating and using identities in more than 175 countries. Venafi’s visibility and automation protects machine identities that are integrated with trusted IdenTrust digital certificates. Together, Venafi and IdenTrust offer financial organizations, healthcare institutions and other highly regulated establishments the trust and security their customers demand.
+- Certificate Manager, Self-Hosted with the Adaptable framework
+- An IdenTrust certificate services account
+- `IdenTrust.ps1` and `IdenTrustCustomFields.ps1` (included in this listing)
+
+**About IdenTrust**
+
+[IdenTrust](https://www.identrust.com/) delivers a bank-developed identity authentication system that provides a legally and technologically interoperable environment for authenticating and using identities in more than 175 countries. It serves financial organizations, healthcare institutions and other highly regulated organizations.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

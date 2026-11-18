@@ -1,24 +1,26 @@
 # Check Point GAIA Portal Management
 
-Automate the certificate used by the Check Point GAIA web management portal with Certificate Manager, Self-Hosted (formerly Venafi Trust Protection Platform). The integration provisions and renews the GAIA Portal's TLS certificate so the management interface stays trusted without manual updates.
+The Check Point GAIA web management portal relies on a TLS certificate, and an expired or untrusted certificate disrupts administrators and weakens trust in the management interface. This integration lets Certificate Manager, Self-Hosted provision and renew the GAIA Portal certificate, so the management interface stays trusted without manual updates.
 
-## How it works
+**Value Highlights**
 
-The `CheckPoint-GAIA-Portal-AdaptableApp.ps1` script implements the Venafi Adaptable Application framework and installs the certificate on a specific Check Point gateway, targeted by a **Domain Name** and **Gateway Name** (both policyable fields on the application object). An optional **Ignore Warnings** flag controls how connection warnings are handled during provisioning.
+- **Automate portal certificates**: Provision and renew the GAIA Portal TLS certificate from Certificate Manager, Self-Hosted.
+- **Prevent expirations**: Renew the certificate before it expires so administrators keep uninterrupted access.
+- **Target the right gateway**: Scope each certificate to a specific domain and gateway.
+- **Enforce policy**: Set the domain and gateway through policy for consistent configuration.
 
-## Prerequisites
+**How it Works**
 
-- Certificate Manager, Self-Hosted (Trust Protection Platform)
-- A Check Point GAIA gateway reachable from the Venafi server
-- Administrative credentials authorized to manage the GAIA Portal certificate
+The `CheckPoint-GAIA-Portal-AdaptableApp.ps1` Adaptable Application driver connects to the Check Point Management API, adds or updates the server certificate, assigns it to the portal of the target gateway and publishes the change. The **Domain Name** and **Gateway Name** fields on the application object, both policyable, select the target. See the Documentation tab for setup.
 
-## Installation and configuration
+**Solution Components**
 
-1. Copy `CheckPoint-GAIA-Portal-AdaptableApp.ps1` into the Adaptable Application scripts directory on the Venafi server.
-2. Create a device for the GAIA gateway and configure its management credential.
-3. Add an Adaptable Application under the device, select the Check Point GAIA driver, and set the **Domain Name** and **Gateway Name** fields for the target gateway (optionally enable **Ignore Warnings**).
-4. Associate the certificate with the application so renewals provision the GAIA Portal certificate automatically.
+- Certificate Manager, Self-Hosted
+- Check Point management server and GAIA gateway
+- `CheckPoint-GAIA-Portal-AdaptableApp.ps1` Adaptable Application driver
 
-## Support
+**About Check Point**
 
-For platform assistance, see the [Check Point Support Center](https://supportcenter.checkpoint.com/).
+[Check Point Software Technologies](https://www.checkpoint.com/) provides network, cloud and endpoint security solutions.
+
+**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

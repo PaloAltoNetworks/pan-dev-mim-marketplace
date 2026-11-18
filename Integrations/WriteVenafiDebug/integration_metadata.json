@@ -1,7 +1,7 @@
 {
   "name": "Write-VenafiDebug",
   "listingType": "tool",
-  "description": "A generic debug logging function for use in Adaptable scripts. Hashtables are supported and secret info (e.g. from $General) is logged as ***hidden***. Supports throwing an exception while logging, and uses a mutex to avoid 'file in use' errors across concurrent executions.",
+  "description": "A safe, reusable debug logging function for Certificate Manager, Self-Hosted Adaptable scripts that redacts secrets and avoids file conflicts.",
   "support": "Community",
   "currentVersion": "1.0",
   "author": "Community",

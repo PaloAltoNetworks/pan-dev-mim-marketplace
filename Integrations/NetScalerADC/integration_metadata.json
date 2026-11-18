@@ -1,6 +1,6 @@
 {
   "name": "NetScaler ADC",
-  "description": "Seamlessly automate HTTPS key and certificate management with Venafi Control Plane integration for NetScaler ADC, enhancing security and scalability.",
+  "description": "Automate discovery, issuance and renewal of TLS certificates on NetScaler ADC load balancers.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Venafi",
@@ -35,7 +35,7 @@
           "url": "https://docs.cyberark.com/mis-saas/vaas/machines/citrix-adc/"
         },
         {
-          "title": "Provisioning Certificates \u2014 NetScaler ADC",
+          "title": "Provisioning Certificates — NetScaler ADC",
           "description": "Step-by-step guide for certificate provisioning",
           "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-citrix-adc/"
         }
@@ -57,9 +57,14 @@
       "overviewFile": "OVERVIEW-ngts.md",
       "documentationLinks": [
         {
-          "title": "NetScaler ADC Integration Guide",
-          "description": "Complete integration guide for NetScaler ADC",
+          "title": "NetScaler ADC Machine Setup",
+          "description": "Create a Citrix ADC machine in Next-Gen Trust Security",
           "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/citrix-adc"
+        },
+        {
+          "title": "Provision Certificates to NetScaler ADC",
+          "description": "Provision certificates to a Citrix ADC machine",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/citrix-adc/provision-certificates-citrix-adc"
         }
       ]
     }

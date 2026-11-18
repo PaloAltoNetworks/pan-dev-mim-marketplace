@@ -1,6 +1,6 @@
 {
   "name": "HP JetAdvantage Security Manager",
-  "description": "Connect JetAdvantage Secure Manager with Certificate Manager, Self-Hosted",
+  "description": "Automate SCEP enrollment and renewal of identity certificates on HP printers and imaging devices.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "HPE",

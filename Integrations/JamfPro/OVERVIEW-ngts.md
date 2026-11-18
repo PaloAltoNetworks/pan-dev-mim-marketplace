@@ -1,22 +1,24 @@
 # Jamf Pro
 
-Jamf has brought the two worlds of Device Management and PKI together with the power of Jamf Pro and Venafi Platform. Jamf Pro automates requests to the Venafi Platform for machine identity lifecycle operations, including certificate issuance, renewal, and revocation.
+Managing certificates across every enterprise Apple device is harder than it looks. Device management teams are not PKI experts and need simple access to certificates, while security teams need policy enforced, certificates drawn only from approved sources, and a "kill switch" to remove them. Jamf Pro brings device management and PKI together by automating requests to Next-Gen Trust Security for certificate issuance, renewal and revocation.
 
-  
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Secure devices at scale**: Deliver high-speed, high-scale identity security to devices for Zero Trust.
+- **Operate with agility**: Issue or revoke certificates automatically for thousands of devices.
+- **Set one baseline**: Give corporate-owned and BYOD devices the same secure baseline level of trust.
+- **Target the right devices**: Use configuration profiles and flexible scoping to apply certificate configurations to specific groups of devices.
+- **Keep security in control**: Revoke certificates from Next-Gen Trust Security when a device should lose access.
 
-- **Get high speed, high scale identity security** to your machines and devices for Zero Trust
-- **Operate with agility **by automatically issuing or revoking certificates for thousands of devices
-- **Allows either corporate-owned or BYOD** devices to all share the same secure baseline level of trust 
-- **Configuration profiles and flexible **scoping allow stored certificate configurations to be applied to specific groups of alike devices
+**How it Works**
 
-  
+Jamf Pro sends certificate requests to Next-Gen Trust Security for issuance, renewal and revocation, and delivers the resulting certificates to devices through configuration profiles scoped to the right device groups.
 
-**SOLUTION OVERVIEW**
+**Solution Components**
 
-Automating the lifecycle of machine identities across all enterprise Apple devices and CAs is an unexpectedly complex challenge and responsibility for device management and security teams. Device management teams are not PKI experts and need simple, easy access to machine identities. Security teams are not directly responsible for maintaining mobility access for the business and need to ensure that policies are enforced, including consistent use of machine identities from approved sources. 
+- Next-Gen Trust Security
+- Jamf Pro and enrolled Apple devices (macOS, iOS and iPadOS)
 
-  
+**About Jamf**
 
-Security teams also want final control over the ability to remove machine identities aka “kill switch.”  With support of the Machine Identity Management Development Fund, Jamf has brought these two worlds together with the power of Jamf Pro and Venafi Platform. Jamf Pro makes requests to the Venafi Platform for machine identity lifecycle operations, including certificate issuance, renewal, and revocation. 
+[Jamf](https://www.jamf.com/) builds Apple device management and security software for organizations. Jamf developed this integration with support from the Machine Identity Management Development Fund.

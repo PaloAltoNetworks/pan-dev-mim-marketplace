@@ -1,40 +1,37 @@
 # Google CAS Import
 
-## Introduction
+## Prerequisites
 
-This Adaptable CA will import certificates from Google CAS to TPP.
+- A Google Cloud project with Certificate Authority Service set up.
+- The [Certificate Authority API](https://console.cloud.google.com/apis/library/privateca.googleapis.com) enabled for the project.
+- At least one CA pool that contains certificates. Only Enterprise-tier certificates can be discovered.
+- A Google service account with the `CA Service Auditor` and `Certificate Manager Viewer` roles.
+- The JSON key for the service account.
 
-## Setup
+## Installation
 
-### Google CAS
+1. Download `Google CAS Import.ps1` from this listing.
+2. Copy it to the `AdaptableCA` folder under the Certificate Manager, Self-Hosted installation folder on every engine server, typically `C:\Program Files\Venafi\Scripts\AdaptableCA`.
 
-Ensure your project is setup and perform the following:
-- Install the Certificate Authority Service
-- Enable the [Certificate Authority API](https://console.cloud.google.com/apis/library/privateca.googleapis.com)
-- Create at least 1 CA pool and ensure it is populated with certificates.  Note, only Enterprise tier certificates can be discovered.
-- Create a service account with roles `CA Service Auditor` and `Certificate Manager Viewer`.
-- Download the JSON key for the service account and keep it for a later step.
+## Configuration
 
-### TPP
+Create a Username Credential from the service account key:
 
-- Download the most recent [release](https://coolsolutions.venafi.com/venafi/google-cas-import/-/releases/permalink/latest) and copy `Google CAS Import.ps1` to the AdaptableCA folder under the TPP installation folder, typically c:\Program Files\Venafi\Scripts\AdaptableCA, for all Venafi engine servers.
-- Create a new Username Credential:
-  - Open the JSON key in a text editor and convert it to one line
-  - Copy the value for private_key, this will be the Credential Password
-  - Replace the value for private_key with `{{PRIVATE_KEY}}`
-  - This new one line string is the Username
-- Create a new job:
-  - Configuration -> Jobs -> Click + Create New Job
-  - Select `Certificate Import` for the job type
-  - Click Next
-  - Provide a name and optionally a description and contact
-  - Select `Adaptable` for Import Type
-  - Click Next
-  - Select `Google CAS Import` for PowerShell Script
-  - Select the credential created earlier for Username Credential
-  - Optionally, turn on debug logging
-  - Click Next
-  - Select a placement folder
-  - Click Next
-  - Select a frequency
-  - Click Create Job or Create & Run
+1. Open the JSON key in a text editor and convert it to a single line.
+2. Copy the value of `private_key`. This is the credential **Password**.
+3. Replace the value of `private_key` with `{{PRIVATE_KEY}}`.
+4. Use the resulting single-line string as the credential **Username**.
+
+## Usage
+
+Create the import job:
+
+1. Go to **Configuration** > **Jobs** and click **+ Create New Job**.
+2. Select **Certificate Import** for the job type and click **Next**.
+3. Enter a name and, optionally, a description and contact.
+4. Select **Adaptable** for **Import Type** and click **Next**.
+5. Select **Google CAS Import** for **PowerShell Script**.
+6. Select the credential you created for **Username Credential**.
+7. Optionally, turn on debug logging, then click **Next**.
+8. Select a placement folder and click **Next**.
+9. Select a frequency, then click **Create Job** or **Create & Run**.

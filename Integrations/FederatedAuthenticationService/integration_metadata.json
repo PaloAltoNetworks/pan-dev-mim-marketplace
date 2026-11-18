@@ -1,6 +1,6 @@
 {
   "name": "Federated Authentication Service (FAS)",
-  "description": "Auto-enrollment for Citrix FAS using Zero Touch PKI.",
+  "description": "Issue Citrix FAS logon certificates from Zero Touch PKI so federated single sign-on no longer needs an on-premises CA.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "Community",

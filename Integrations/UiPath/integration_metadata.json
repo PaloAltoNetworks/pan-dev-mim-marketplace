@@ -1,6 +1,6 @@
 {
   "name": "UiPath",
-  "description": "Automate certificate workflows on the Venafi platform with Reveal Group's UiPath Activities Package, streamlining updates and enhancing efficiency.",
+  "description": "Automate certificate workflow actions in Certificate Manager, Self-Hosted with Reveal Group's UiPath Activities Package.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "Reveal Group",

@@ -1,6 +1,6 @@
 {
   "name": "n8n Extendable Workflow Automation",
-  "description": "n8n simplifies machine identity management with no-code automation, integrating Venafi and popular SaaS tools to boost DevOps efficiency.",
+  "description": "Build no-code n8n workflows that request, renew and use certificates alongside your other tools.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "n8n",
@@ -27,16 +27,28 @@
   "productVariants": [
     {
       "product": "Certificate Manager SaaS",
-      "overviewFile": "OVERVIEW-saas.md"
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "n8n Venafi TLS Protect Cloud Node",
+          "description": "n8n node operations for Certificate Manager, SaaS",
+          "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.venafitlsprotectcloud/"
+        },
+        {
+          "title": "n8n Venafi TLS Protect Cloud Trigger Node",
+          "description": "Start n8n workflows from Certificate Manager, SaaS events",
+          "url": "https://docs.n8n.io/integrations/builtin/trigger-nodes/n8n-nodes-base.venafitlsprotectcloudtrigger/"
+        }
+      ]
     },
     {
       "product": "Certificate Manager Self-Hosted",
       "overviewFile": "OVERVIEW-selfhosted.md",
       "documentationLinks": [
         {
-          "title": "n8n Extendable Workflow Automation Integration Guide",
-          "description": "Complete integration guide for n8n Extendable Workflow Automation",
-          "url": "https://n8n.io/integrations/venafi-tls-protect-datacenter/"
+          "title": "n8n Venafi TLS Protect Datacenter Node",
+          "description": "n8n node operations for Certificate Manager, Self-Hosted",
+          "url": "https://docs.n8n.io/integrations/builtin/app-nodes/n8n-nodes-base.venafitlsprotectdatacenter/"
         }
       ]
     },

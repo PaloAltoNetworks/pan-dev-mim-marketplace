@@ -1,30 +1,27 @@
 # Certificate Management with GitLab DevSecOps Platform
 
-This integration brings Venafi machine identity management directly into GitLab CI/CD pipelines, letting DevOps teams request, retrieve and renew TLS certificates as automated pipeline steps that stay compliant with policies enforced by Certificate Manager.
+Build and deployment pipelines need TLS certificates, and requesting and installing them by hand slows delivery and creates risk. This integration brings certificate management into GitLab CI/CD pipelines, so DevOps teams request, retrieve and renew TLS certificates as automated pipeline steps that comply with policies enforced by Certificate Manager, Self-Hosted.
 
-  
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Remove manual certificate work**: Eliminate the effort and risk of requesting and installing certificates in build and deployment pipelines.
+- **Comply with policy automatically**: Issue certificates that follow the policies security teams define in Certificate Manager, Self-Hosted.
+- **Automate certificate operations**: Define authentication, certificate requests, retrieval and renewal as jobs in your GitLab CI YAML.
+- **Empower developers**: Let developers use trusted certificates without deep PKI expertise.
+- **Shift security left**: Give security teams policy enforcement, visibility and an audit trail of certificate operations started from pipelines.
 
-- **Eliminate hassle and inherent risks **associated with manually requesting and installing certificates in build and deployment pipelines
-- **Stay secure **and automatically comply with certificate policies defined by information security teams and enforced by Venafi
-- **Automate certificate operations **for Venafi authentication, certificate requests, retrieval and renewal, defined as jobs in your GitLab CI YAML
-- **Empower developers **to consume trusted machine identities without needing deep PKI or certificate management expertise
+**How it Works**
 
-  
+Built on VCert, the integration adds operations to GitLab CI/CD that connect to Certificate Manager, Self-Hosted to request, download and renew certificates. Jobs run through a provided Docker image on Docker executors, or through the Python-based integration package installed on shell and SSH executors. Every request flows through Certificate Manager, Self-Hosted, which applies policy and records the operation.
 
-**SOLUTION OVERVIEW**
+**Solution Components**
 
-Built on Venafi’s vCert tooling, the integration adds operations to GitLab CI/CD that connect to Certificate Manager to request, download and renew certificates. Jobs can run through a provided Docker image on Docker executors, or via the Python-based integration package installed on shell and SSH executors. Because every request flows through Venafi, security teams gain centralized policy enforcement, visibility and a full audit trail of certificate operations initiated from the pipeline, shifting certificate security left into the software delivery process.
+- Certificate Manager, Self-Hosted
+- GitLab CI/CD
+- Qensus GitLab integration (Docker image or Python package)
 
-**ABOUT QENSUS**
+**About Qensus**
 
-Qensus is a specialist services provider focused on DevSecOps and machine identity management. It develops and maintains the open source Venafi integrations for GitLab, helping organizations secure their software delivery pipelines by embedding certificate lifecycle management into GitLab CI/CD.
-
-  
-
-  
+[Qensus](https://qensus.com/) is a services provider focused on DevSecOps and machine identity management. It develops and maintains the open source integrations for GitLab that embed certificate lifecycle management into GitLab CI/CD.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**
-
-**Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**

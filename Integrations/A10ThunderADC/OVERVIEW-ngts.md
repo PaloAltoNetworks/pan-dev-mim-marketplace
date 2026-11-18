@@ -1,15 +1,26 @@
 # A10 Networks Thunder ADC
 
-A10 Networks provides the key load balancing capability to organizations through Thunder ADC. It is where HTTPS encrypted traffic is decrypted and analyzed to detect network based threats. While HTTPS encryption is more prevalent than ever, it is also more and more difficult to scale due to the usage of TLS certificates and keys. Organizations need to not only manage the lifecycle of all digital certificates but ensure that any vulnerabilities are found and automatically rectified. The difficulty of the undertaking is magnified when certificates are configured on various network infrastructures.
+A10 Networks Thunder ADC load balances and terminates HTTPS traffic for business-critical applications. Every virtual server depends on a TLS certificate and key, and keeping those current across many devices and partitions by hand leads to expired certificates, outages and inconsistent key handling.
 
-The integration between Next-Gen Trust Security and A10 Thunder ADC provides you with a consolidated and simplified method for managing critical security information, such as the location of certificates, key sizes, ciphers used and validity dates. Combining these two technologies also provides you a complete view of an organization’s digital certificates and keys for efficient operations.
+Next-Gen Trust Security includes an A10 Thunder ADC machine type that automates this work. It discovers the certificates in the client SSL templates of your virtual servers and provisions renewed certificates to them, so certificates stay valid without manual updates on each device.
 
-**SOLUTION HIGHLIGHTS**
+**Value Highlights**
 
-- Scale use of HTTPS without the difficult setup
-- Eliminate outages with continuous key and certificate updates
-- Onboard-discovery provides a complete machine identity inventory from the start
-- Automate provisioning of renewed certificates
+- **Scale HTTPS** across Thunder ADC devices without manual certificate setup.
+- **Eliminate outages** with continuous certificate renewal and provisioning.
+- **Build a complete inventory** by discovering the certificates already used by your virtual servers.
+- **Automate provisioning** of renewed certificates to client SSL templates.
+- **Support partitioned devices** with one machine that can manage multiple partitions.
 
-**ABOUT A10 Networks**
-A10 Networks is a provider of intelligent and automated cybersecurity solutions, providing a portfolio of high-performance secure application solutions that enable intelligent automation with machine learning to ensure business critical applications are secure and always available.
+**How it Works**
+
+You create an A10 Thunder ADC machine in Next-Gen Trust Security. A VSatellite on your network connects to the device's aXAPI management interface, discovers certificates in client SSL templates, and provisions certificates to them. The machine type supports devices running ACOS 5.2.1 or later. See the Documentation tab for setup.
+
+**Solution Components**
+
+- Next-Gen Trust Security with a VSatellite
+- A10 Networks Thunder ADC (ACOS 5.2.1 or later)
+
+**About A10 Networks**
+
+[A10 Networks](https://www.a10networks.com/) provides secure application services and solutions, including high-performance application delivery controllers, that keep business-critical applications secure and available.

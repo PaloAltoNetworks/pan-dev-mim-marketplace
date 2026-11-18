@@ -1,47 +1,27 @@
 # Cloudflare Origin CA
 
-**Overview**
-
-As more businesses adopt cloud-native strategies, the importance of efficient, secure, and automated certificate management becomes paramount. This integrated solution between Venafi and Cloudflare serves business and enterprise customers who want more control over their certificates within Cloudflare infrastructure, ensuring a unified process for managing machine identities across all environments.
-
-  
-
-**Applicability**
-
-For businesses and enterprise customers who want more control and flexibility over certificates used with Cloudflare edge services.
-
-  
+Sites proxied through Cloudflare need certificates on their origin servers so traffic between Cloudflare and the origin is encrypted. When those origins run on Kubernetes, issuing and renewing origin certificates by hand does not keep up. Origin CA Issuer is a cert-manager controller for Cloudflare Origin CA, so Kubernetes workloads get Cloudflare origin certificates automatically.
 
 **Value Highlights**
 
-- Seamless connectivity to multiple Cloudflare accounts via API token, ensuring a smooth connection process
-- Automates the process of certificate lifecycle management, taking away the manual hassle
-- Enhances visibility of machine identities by discovering edge certificates associated with your zone
-- Offers more control and visibility over the certificate issuance and management process within Cloudflare
-- Enables users to use their own Public CA through Venafi, thereby also enforcing enterprise security policy
-- Helps alleviate compliance concerns with automated workflows
-
-  
-
-**Solution Components**
-
-- Venafi Certificate Manager, SaaS
-- Cloudflare
-
-  
+- **Automate origin certificates**: Request and renew Cloudflare Origin CA certificates from cert-manager.
+- **Encrypt traffic to the origin**: Protect the connection between Cloudflare and your Kubernetes services.
+- **Scope access tightly**: Authenticate with Cloudflare API tokens limited to specific accounts or zones.
+- **Use standard cert-manager workflows**: Request certificates through the same resources teams already use.
+- **Keep central visibility**: Manage the resulting certificates alongside the rest of your inventory in Certificate Manager, SaaS.
 
 **How it Works**
 
-The is a native Machine Connector integration for customers using Venafi Certificate Manager, SaaS.
+Origin CA Issuer runs in the cluster and processes the certificate requests that cert-manager creates for an `OriginIssuer` resource. It calls Cloudflare Origin CA with an API token that has the Zone / SSL and Certificates / Edit permission, and returns the signed certificate to cert-manager. See the Documentation tab for installation.
 
-  
+**Solution Components**
+
+- Certificate Manager, SaaS
+- cert-manager with Origin CA Issuer
+- [Cloudflare Origin CA](https://developers.cloudflare.com/ssl/origin-configuration/origin-ca/)
 
 **About Cloudflare**
 
-Cloudflare, Inc. (NYSE: NET) is the leading connectivity cloud company. It empowers organizations to make their employees, applications and networks faster and more secure everywhere, while reducing complexity and cost. Cloudflare’s connectivity cloud delivers the most full-featured, unified platform of cloud-native products and developer tools, so any organization can gain the control they need to work, develop, and accelerate their business.
-
-  
-
-Powered by one of the world’s largest and most interconnected networks, Cloudflare blocks billions of threats online for its customers every day. It is trusted by millions of organizations – from the largest brands to entrepreneurs and small businesses to nonprofits, humanitarian groups, and governments across the globe.
+[Cloudflare](https://www.cloudflare.com/) runs a global network that makes websites, APIs, applications and corporate networks secure, private, fast and reliable.
 
 **Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**

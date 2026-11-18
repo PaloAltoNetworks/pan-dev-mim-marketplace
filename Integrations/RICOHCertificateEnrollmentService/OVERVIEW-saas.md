@@ -1,18 +1,27 @@
 # RICOH Certificate Enrollment Service
 
-Certificates are vital to protecting the flow of information to and from your RICOH devices. RICOH Certificate Enrollment Service can be utilized to automate the enrollment of Venafi policy-enforced certificates. This ensures that organizations can maintain a high level of cryptographic agility for their RICOH devices and leverage the visibility, intelligence, and automation capabilities that the Venafi Platform offers.
+Certificates protect the information that flows to and from your RICOH devices, but installing a unique certificate on every device by hand is error-prone, labor-intensive and slow. RICOH Certificate Enrollment Service automates certificate enrollment and provisioning across your RICOH device fleet, using policy-enforced certificates from Certificate Manager, SaaS.
 
-**SOLUTION COMPONENTS**
+**Value Highlights**
 
-RICOH Certificate Enrollment Service, TLS Protect Cloud or Certificate Manager, Self-Hosted
+- **Automate provisioning** of certificates to RICOH devices across the fleet.
+- **Renew before expiry**: The service detects certificates that are about to expire and renews them in advance.
+- **Use your existing CAs**: Certificates are issued by the certificate authorities already connected to Certificate Manager, SaaS.
+- **Enforce policy**: Every device certificate follows the policy defined in Certificate Manager, SaaS.
+- **Reduce administrative work** by removing manual enrollment steps.
 
-**VALUE HIGHLIGHTS**
+**How it Works**
 
-- **Automate provisioning** of certificates to RICOH devices
-- **Seamlessly integrate with existing CAs** for certificate issuance
+RICOH Certificate Enrollment Service connects to Certificate Manager, SaaS and requests certificates for each device through an issuing template, so the certificates follow your policy and appear in your inventory. RICOH Certificate Enrollment Service then installs the issued certificate on the RICOH device and tracks it for renewal.
 
-Manually installing unique certificates on devices can be error-prone, labor-intensive, and time-consuming. RICOH Certificate Enrollment Service efficiently and automatically handles certificate enrollment and provisioning across your RICOH device fleet. This not only expedites the process but also minimizes administrative tasks. Furthermore, the solution preemptively detects and renews certificates before they expire, optimizing time and effort.
+**Solution Components**
 
-The integration between RICOH Certificate Enrollment Service and Venafi ensures compatibility and streamlines thecertificate management process. Through the Venafi Platform, RICOH Certificate Enrollment Service can interact with 40+ certificate authorities, registration authorities, and trust platforms, whether they are internal or external.
+- RICOH Certificate Enrollment Service
+- Certificate Manager, SaaS
+- RICOH devices
 
-**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**
+**About RICOH**
+
+[RICOH](https://www.ricoh.com/) provides digital services, printing and imaging devices and workplace solutions. This integration is provided by RICOH JAPAN Corp.
+
+**Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**

@@ -1,6 +1,6 @@
 {
   "name": "Akeyless Vault Platform for cert-manager",
-  "description": "Simplify certificate management in Kubernetes with Akeyless cert-manager issuer, ensuring secure, automated issuance and renewal.",
+  "description": "Give Kubernetes workloads policy-compliant certificates from Akeyless Vault Platform through open-source cert-manager.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Akeyless",
@@ -28,11 +28,35 @@
   "productVariants": [
     {
       "product": "Certificate Manager SaaS",
-      "overviewFile": "OVERVIEW-saas.md"
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Using cert-manager with Akeyless",
+          "description": "Configure cert-manager to request certificates through an Akeyless Venafi dynamic secret",
+          "url": "https://docs.akeyless.io/docs/cert-manager"
+        },
+        {
+          "title": "Akeyless Venafi Cloud Dynamic Secret",
+          "description": "Create the Akeyless dynamic secret that cert-manager uses",
+          "url": "https://docs.akeyless.io/docs/venafi-cloud"
+        }
+      ]
     },
     {
       "product": "Next-Gen Trust Security",
-      "overviewFile": "OVERVIEW-ngts.md"
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Using cert-manager with Akeyless",
+          "description": "Configure cert-manager to request certificates through an Akeyless Venafi dynamic secret",
+          "url": "https://docs.akeyless.io/docs/cert-manager"
+        },
+        {
+          "title": "Akeyless Venafi Cloud Dynamic Secret",
+          "description": "Create the Akeyless dynamic secret that cert-manager uses",
+          "url": "https://docs.akeyless.io/docs/venafi-cloud"
+        }
+      ]
     }
   ],
   "price": "Free"

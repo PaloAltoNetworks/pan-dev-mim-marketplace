@@ -1,52 +1,25 @@
-# Carillon CA Integration README
+## Overview
 
-The purpose of this document is to provide information regarding the integration of Carillon's CertServ PKI Suite with with Venafi Trust Protection Platform (TPP) by means of an Adaptable CA script.
+Carillon's CertServ PKI Suite integrates with Certificate Manager, Self-Hosted through an Adaptable CA script. Certificate Manager, Self-Hosted can then issue, renew and revoke a defined set of certificate types in a Carillon-managed PKI (the MPKI).
 
 *The information provided in this document is considered proprietary and confidential.*
 
 >This integration guide, as well as the software and/or products described in it, are furnished under agreement with Carillon Information Security Inc. ("Carillon") and may be used only in accordance with the terms of such agreement. Except as permitted by such agreement, no part of this publication may be reproduced, stored in a retrieval system, or transmitted, in any form or by any means, electronic, mechanical, recording, or otherwise, without prior written permission of Carillon.
 
-## TABLE OF CONTENTS
-
-- [About Us](#about-us)
-- [Integration with Venafi](#integration-with-venafi)
-- [Prerequisites](#prerequisites)
-- [Installation and Configuration](#installation-and-configuration)
-  - [Installation](#installation)
-  - [Credential Configuration](#credential-configuration)
-  - [Certificate Type Configuration](#certificate-type-configuration)
-  - [Adaptable CA Connector Configuration](#adaptable-ca-connector-configuration)
-  - [Per-certificate-type Policy Configuration](#per-certificate-type-policy-configuration)
-- [Usage](#usage)
-- [Troubleshooting](#troubleshooting)
-- [Appendix A - Carillon Contact Information](#appendix-a---carillon-contact-information)
-
-## About Us
-
-Since 2000, Carillon Information Security Inc. provides a complete spectrum of identity management solutions that are designed to prevent identity theft, promote the migration from paper to electronic authentication, and avoid loss of intellectual property.
-
-From consulting services, to validation software and managed identity services, Carillon can provide the skill sets and tools to help companies take control of their corporate digital credentials.
-
-[For more information...](https://www.carillon.ca/)
-
-## Integration with Venafi
-
-Carillon's CertServ PKI Suite can integrate with Venafi’s Trust Protection Platform by way of an Adaptable CA script.  This allows lifecycle management operations (issuance, renewal, revocation) for a defined set of types of certificates in a Carillon managed PKI to be carried out using the Venafi TPP interface.
-
 ## Prerequisites
 
 Before following the steps in this integration guide, the following prerequisites must be met:
 
-- Venafi Trust Protection Platform is installed and configured
+- Certificate Manager, Self-Hosted is installed and configured
 - A Carillon managed PKI using CertServ PKI Suite is operational and available ("the MPKI")
 - A client certificate and keypair, in PKCS#12/PFX format, issued by the MPKI, is available for the Adaptable CA script to use
-- The MPKI's extreq API is available and configured with a list of certificate types that TPP should be able to manage.  Requestable certificate types must use the delegated automation retrieval workflow.
+- The MPKI's extreq API is available and configured with a list of certificate types that Certificate Manager, Self-Hosted should be able to manage. Requestable certificate types must use the delegated automation retrieval workflow.
 
 ## Installation and Configuration
 
 ### Installation
 
-To enable Trust Protection Platform integration with the Carillon CertServ PKI Suite, the Carillon Adaptable CA script must be copied into place on the Venafi TPP application server.
+To enable Certificate Manager, Self-Hosted integration with the Carillon CertServ PKI Suite, the Carillon Adaptable CA script must be copied into place on the Certificate Manager, Self-Hosted application server.
 
 - `C:\Program Files\Venafi\Scripts\AdaptableCA\Carillon_CA.ps1`
 
@@ -54,15 +27,15 @@ To enable Trust Protection Platform integration with the Carillon CertServ PKI S
 
 The Carillon Adaptable CA connector must be configured with a certificate credential to digitally sign requests to the MPKI.
 
-- Configure a Certificate Credential in the Venafi TPP Policy Tree, importing a PKCS#12/PFX file.  (Carillon will create the certificate on receipt of a PKCS #10 CSR file.)
+- Configure a Certificate Credential in the Policy Tree, importing a PKCS#12/PFX file. (Carillon will create the certificate on receipt of a PKCS #10 CSR file.)
 
 ### Certificate Type Configuration
 
-If only a single certificate type in the MPKI is to be managed through Venafi TPP, its name can be configured in the Windows registry on the TPP application server:
+If only a single certificate type in the MPKI is to be managed through Certificate Manager, Self-Hosted, its name can be configured in the Windows registry on the Certificate Manager, Self-Hosted application server:
 
 - `HKLM\SOFTWARE\Carillon\extreq\certtype`
 
-If multiple certificate types in the MPKI are to be managed through Venafi TPP, we recommend creating a Custom Field in TPP.  The Custom Field must be called `CarillonCertType`.
+If multiple certificate types in the MPKI are to be managed through Certificate Manager, Self-Hosted, we recommend creating a custom field in Certificate Manager, Self-Hosted. The Custom Field must be called `CarillonCertType`.
 
 - The field should be **Required**, and **Controlled by Policy**.
 - It should apply to **Certificates**.
@@ -84,12 +57,10 @@ In your Policy Tree, `Add`, `CA Template`, `Adaptable`
   - Press `Validate`.
 
 - In the `Options` pane:
-  - For `Renewal Window`, enter 60 days, or other value provided by
-      Carillon.
+  - For `Renewal Window`, enter 60 days, or other value provided by Carillon.
   - We recommend enabling `Allow Reissuance`.
   - Optionally `Enable Debug Logging` if you wish.
-  - For `Custom Fields`, add the `CarillonCertType` field created
-      earlier.
+  - For `Custom Fields`, add the `CarillonCertType` field created earlier.
 
 - Save the configuration.
 
@@ -99,7 +70,7 @@ For example:
 
 ### Per-certificate-type Policy Configuration
 
-We recommend creating a policy in the policy-tree for each certificate type in the Carillon MPKI that will be managed through Venafi TPP.
+We recommend creating a policy in the policy-tree for each certificate type in the Carillon MPKI that will be managed through Certificate Manager, Self-Hosted.
 
 - In the Policy Tree, `Add`, `Policy`, and give it a name.
 - After saving, go to the `Certificate` tab.
@@ -118,24 +89,24 @@ We recommend creating a policy in the policy-tree for each certificate type in t
 For example:
 
 ![Example Configuration](readme-images/policy-other.png)
+
 ![Example Configuration](readme-images/policy-custom.png)
 
 ## Usage
 
-The Carillon CertServ PKI Suite requires that subscriber entities be sponsored in the CertServ GUI, including all necessary registration
-attributes, **before** certificate issuance through Venafi TPP will be possible.
+The Carillon CertServ PKI Suite requires that subscriber entities be sponsored in the CertServ GUI, including all necessary registration attributes, **before** certificate issuance through Certificate Manager, Self-Hosted will be possible.
 
 Therefore:
 
 1. Sponsor a subscriber in CertServ.
 2. Request a credential for that subscriber, using a workflow featuring delegated-automation for the retrieval step.
-3. In Venafi TPP, `Add`, `Certificates`, `Device Certificate` or `Server Certificate`.
+3. In Certificate Manager, Self-Hosted, `Add`, `Certificates`, `Device Certificate` or `Server Certificate`.
     - Provide the subscriber name for the certificate, and put the same value for `Common Name`.
     - Other values will be inherited from the policy.
     - Provide any other appropriate values needed.
 4. Use the `Renew Now` button to issue a certificate.
 
-If an error occurs, it will be shown.
+If an error occurs, it is shown.
 
 During the certificate's renewal window, use `Renew Now` again to issue a new certificate.
 
@@ -145,13 +116,13 @@ After revocation, it is necessary to make a new credential request in CertServ b
 
 ## Troubleshooting
 
-If an error is encountered, it will be displayed within the Trust Protection Platform.
+If an error is encountered, it will be displayed in Certificate Manager, Self-Hosted.
 
 If debug logging is enabled for the CA adapter, the debug logs can be viewed in
 
 - `C:\Program Files\Venafi\Logs\`
 
-## Appendix A - Carillon Contact Information
+## Carillon Contact Information
 
 Phone: 1-514-485-0789
 

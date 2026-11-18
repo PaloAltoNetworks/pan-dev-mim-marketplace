@@ -1,5 +1,26 @@
-# CSC Global CA Connector for Certificate Manager SaaS
+# CSC Global CA
 
-The CSC Global CA Connector by Secur Solutions extends Certificate Manager SaaS to seamlessly integrate with CSC Global’s trusted Certificate Authority (CA) services.
+Organizations that buy public certificates from CSC often order and renew them by hand, outside the policies they enforce for the rest of their certificates. The CSC Global CA Connector by Secur Solutions Group extends Certificate Manager, SaaS to integrate with CSC Global certificate authority services, so CSC certificates are requested and renewed under the same policies as other certificates.
 
-**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**
+**Value Highlights**
+
+- **Request CSC certificates in one place**: Order certificates from CSC Global through Certificate Manager, SaaS.
+- **Automate renewals**: Renew CSC certificates before they expire to avoid outages.
+- **Enforce policy**: Apply the certificate policies you define in Certificate Manager, SaaS to CSC certificates.
+- **Gain visibility**: Track CSC-issued certificates alongside the rest of your inventory.
+
+**How it Works**
+
+The connector links Certificate Manager, SaaS to CSC Global certificate services so certificate requests that use it are fulfilled by CSC. Contact Secur Solutions Group for availability, licensing and setup.
+
+**Solution Components**
+
+- Certificate Manager, SaaS
+- CSC Global certificate authority services
+- CSC Global CA Connector by Secur Solutions Group
+
+**About Secur Solutions Group**
+
+[Secur Solutions Group](https://secursolutionsgroup.com/) is an identity technology and consultancy firm that builds integrations for CyberArk machine identity products. Contact Secur Solutions Group for licensing.
+
+**Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**

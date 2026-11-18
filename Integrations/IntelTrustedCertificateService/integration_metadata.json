@@ -1,6 +1,6 @@
 {
   "name": "Intel® Trusted Certificate Service",
-  "description": "Intel SGX, in partnership with Venafi, enhances security for machine identities by safeguarding private keys in memory, reducing costs and risks.",
+  "description": "Protect private keys in use with Intel SGX secure enclaves to reduce the risk of machine identity compromise.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "Intel (Tech Alliance)",

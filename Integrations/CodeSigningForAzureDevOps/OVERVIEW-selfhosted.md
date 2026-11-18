@@ -1,21 +1,27 @@
 # Code Signing for Azure DevOps
 
-Easily integrate secure code signing into your Azure DevOps build processes without added burden on your dev team. Sidechain’s Microsoft Azure Pipelines agent for CodeSign Protect is a complete, turnkey solution for automating and orchestrating code signing.
+More teams now build in the cloud with Azure DevOps, but they lack an easy way to sign code consistently and with the approval and visibility of security teams. Sidechain's Microsoft Azure Pipelines agent for CodeSign Protect is a turnkey solution that brings code signing from Certificate Manager, Self-Hosted into Azure DevOps build processes without extra burden on developers.
 
-**SOLUTION HIGHLIGHTS**
+**Value Highlights**
 
-- **Eliminate the complexity **and burden of custom integrations into your build pipelines
-- **Extend the value **of existing Venafi investments into the cloud
-- **Modernize and accelerate **your software development lifecycle (SDLC)
-- **Invoke Venafi code signing **as an automated task directly in your Azure DevOps pipeline.
-- **Build agent is preconfigured **with latest releases of CodeSign Protect and signing software (jarsigner and Sign Tool)
+- **Remove custom integration work**: Avoid building and maintaining your own signing integrations in build pipelines.
+- **Sign as a pipeline task**: Invoke code signing as an automated, one-step task in your Azure DevOps pipeline.
+- **Start with a ready agent**: Use a build agent preconfigured with current CodeSign Protect clients and signing tools (jarsigner and SignTool).
+- **Extend existing investments**: Bring Certificate Manager, Self-Hosted code signing to cloud-based builds.
+- **Speed up delivery**: Modernize and accelerate your software development lifecycle.
 
-**SOLUTION OVERVIEW**
+**How it Works**
 
-Increasingly businesses are moving DevOps–not just applications and operations–to the cloud. Azure DevOps is now one of the most popular CI/CD platforms enabling developers to move from enterprise Windows build processes to "built in the cloud" for cloud-native deployments. However, Azure DevOps teams don't have an easy and fast way to sign code consistently and with the approval and visibility of security teams.
+The Azure Pipelines agent runs signing as a task in the pipeline. The task calls CodeSign Protect in Certificate Manager, Self-Hosted, which applies signing policy and approvals while the private keys stay protected. The agent works with both Azure DevOps Services and on-premises Azure DevOps Server. Contact Sidechain for setup details.
 
-The Microsoft Azure Pipelines Agent for CodeSign Protect gives Venafi customers a turnkey solution to integrate secure enterprise code signing capabilities directly into the DevOps pipeline. Deployable as a one-step code signing task, this agent works across both Azure DevOps Services and on-premises with Azure DevOps Server.
+**Solution Components**
 
-This Machine Identity Management Development Fund project is built based on industry best practices by Sidechain, data security experts for digital transformation.
+- Certificate Manager, Self-Hosted with CodeSign Protect
+- Azure DevOps Services or Azure DevOps Server
+- Sidechain Azure Pipelines agent
+
+**About Sidechain**
+
+[Sidechain](https://sidechainsecurity.com/) is a data security firm focused on digital transformation. It built this agent through the Machine Identity Management Development Fund.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

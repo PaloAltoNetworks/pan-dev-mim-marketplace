@@ -1,6 +1,6 @@
 {
   "name": "F5 Distributed Cloud",
-  "description": "![Venafi Driver Diagram](readme-images/venafi-driver-diagram.png)",
+  "description": "Automate the lifecycle of TLS keys and certificates for applications delivered through F5 Distributed Cloud.",
   "support": "Supported",
   "currentVersion": "1.1.0",
   "author": "F5",
@@ -19,7 +19,6 @@
     "Certificate Lifecycle Management"
   ],
   "keywords": [],
-  "documentationFile": "DOCUMENTATION.md",
   "logoFile": "F5.png",
   "supportUrl": "https://community.cyberark.com/s/",
   "price": "Free",
@@ -53,7 +52,19 @@
     {
       "product": "Next-Gen Trust Security",
       "overviewFile": "OVERVIEW-ngts.md",
-      "author": "Venafi"
+      "author": "Venafi",
+      "documentationLinks": [
+        {
+          "title": "F5 Distributed Cloud Machine Setup",
+          "description": "Create an F5 Distributed Cloud machine in Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/f5-distributed-cloud"
+        },
+        {
+          "title": "Provision Certificates to F5 Distributed Cloud",
+          "description": "Provision certificates to an F5 Distributed Cloud machine",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/f5-distributed-cloud/provision-certificates-f5-distributed-cloud"
+        }
+      ]
     }
   ]
 }

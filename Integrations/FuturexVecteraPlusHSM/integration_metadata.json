@@ -1,6 +1,6 @@
 {
   "name": "Futurex Vectera Plus HSM",
-  "description": "Futurex Vectera Plus HSM enhances security with robust key protection, rapid deployment, and compliance with key regulatory standards.",
+  "description": "Protect Certificate Manager, Self-Hosted encryption keys in the FIPS 140-2 Level 3 validated Futurex Vectera Plus HSM.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Futurex Inc",

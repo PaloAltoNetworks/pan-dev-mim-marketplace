@@ -1,26 +1,26 @@
 # Ping Adaptable Framework
 
-The Ping Adaptable Framework driver manages SSL and signing certificates in PingFederate from Certificate Manager, Self-Hosted (formerly Venafi Trust Protection Platform) using the Adaptable Application framework. Certificates and keys are generated within Ping using its default keystore; Venafi handles the signing, so all key material stays local to Ping.
+PingFederate uses SSL certificates for its own endpoints and signing certificates for federation connections. Renewing them by hand in the Ping administrator console is easy to forget, and an expired signing certificate can break single sign-on for every connected application. The Ping Adaptable Framework driver lets Certificate Manager, Self-Hosted manage SSL and signing certificates in PingFederate, so renewals follow policy and are delivered to Ping automatically.
 
-## How it works
+**Value Highlights**
 
-The `ping_adaptable_driver.ps1` script creates keys and certificates inside PingFederate and sends the requests to Venafi for signing. Because Venafi does not manage the private keys, an externally generated key/certificate cannot be imported into the Ping/Venafi configuration. Typically the process begins with Onboard Discovery to inventory certificates already in use in Ping; afterward, any renewal initiated through Venafi automatically provisions the new certificate into Ping.
+- **Discover what is in use**: Inventory the certificates PingFederate already uses with an onboard discovery job.
+- **Automate renewals**: Any renewal started from Certificate Manager, Self-Hosted provisions the new certificate into PingFederate.
+- **Keep keys in Ping**: Keys are generated inside PingFederate's default keystore and never leave it. Certificate Manager, Self-Hosted handles the signing.
+- **Cover both certificate types**: Manage SSL certificates and signing certificates through separate policy scopes.
+- **Control certificate lifetime**: Set the validity period for certificates managed under each policy.
 
-## Prerequisites
+**How it Works**
 
-- A supported Certificate Manager, Self-Hosted (Trust Protection Platform) instance
-- A PingFederate platform with an administrative/API user for Venafi to enumerate and manage certificate objects
-- The signing CA's root certificate imported into Ping (unless the CA is already trusted in the platform's Java keystore), so Ping trusts the signing CA
+The `ping_adaptable_driver.ps1` script is an Adaptable Application driver for Certificate Manager, Self-Hosted. It calls the PingFederate administrative API to create the key and certificate request in Ping, sends the request for signing, and returns the signed certificate to Ping. Because private keys stay in Ping, an externally generated key and certificate cannot be imported through this integration. See the Documentation tab for setup.
 
-## Installation and configuration
+**Solution Components**
 
-1. Deploy `ping_adaptable_driver.ps1` to the Adaptable Application scripts directory on the Venafi server.
-2. Create a policy and attach the adaptable configuration/script. Set the **Scope** to either `ssl` or `signing`, and set the SSL Validity Days (the lifetime of certificates managed by the policy).
-3. Create the Ping device under the policy, specifying the Hostname/Address as `https://<host>:<port>`.
-4. Configure credentials with the PingFederate API user's username and password.
-5. Configure and run a Discovery job to import existing Ping certificates (references only — private keys are not pulled).
-6. Add the certificate and an adaptable application under the device to link the certificate to the Ping application by scope.
+- Certificate Manager, Self-Hosted
+- PingFederate
 
-## Usage
+**About IDMWORKS**
 
-After a certificate is provisioned, log in to the PingFederate administrator console to activate it for SSL or attach it to a policy/connection. See `DOCUMENTATION.md` for annotated configuration screenshots.
+[IDMWORKS](https://www.idmworks.com/) is an identity and access management consulting and services firm, and the author of this driver.
+
+**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

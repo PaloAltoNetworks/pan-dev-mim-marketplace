@@ -1,6 +1,6 @@
 {
   "name": "Thales Data Protection on Demand",
-  "description": "Thales Data Protection on Demand ensures secure machine identities and automated key management with cloud-based HSMs, enhancing efficiency and compliance.",
+  "description": "Protect machine identity keys in Thales Luna Cloud HSM while Certificate Manager, Self-Hosted automates the key and certificate lifecycle.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Thales Group",

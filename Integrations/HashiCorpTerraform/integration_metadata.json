@@ -1,6 +1,6 @@
 {
   "name": "HashiCorp Terraform",
-  "description": "A Terraform Provider that helps DevOps go faster by reducing time spent on machine identity processes",
+  "description": "Request policy-compliant certificates directly from Terraform plans with the CyberArk Certificate Manager Provider.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Venafi",
@@ -31,8 +31,8 @@
       "overviewFile": "OVERVIEW-saas.md",
       "documentationLinks": [
         {
-          "title": "HashiCorp Terraform Integration Guide",
-          "description": "Complete integration guide for HashiCorp Terraform",
+          "title": "CyberArk Certificate Manager Provider Documentation",
+          "description": "Provider configuration and resource reference on the Terraform Registry",
           "url": "https://registry.terraform.io/providers/Venafi/venafi/latest/docs"
         }
       ]
@@ -42,8 +42,8 @@
       "overviewFile": "OVERVIEW-selfhosted.md",
       "documentationLinks": [
         {
-          "title": "HashiCorp Terraform Integration Guide",
-          "description": "Complete integration guide for HashiCorp Terraform",
+          "title": "CyberArk Certificate Manager Provider Documentation",
+          "description": "Provider configuration and resource reference on the Terraform Registry",
           "url": "https://registry.terraform.io/providers/Venafi/venafi/latest/docs"
         }
       ]
@@ -53,8 +53,8 @@
       "overviewFile": "OVERVIEW-ngts.md",
       "documentationLinks": [
         {
-          "title": "HashiCorp Terraform Integration Guide",
-          "description": "Complete integration guide for HashiCorp Terraform",
+          "title": "CyberArk Certificate Manager Provider Documentation",
+          "description": "Provider configuration and resource reference on the Terraform Registry",
           "url": "https://registry.terraform.io/providers/Venafi/venafi/latest/docs"
         }
       ]

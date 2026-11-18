@@ -1,6 +1,6 @@
 {
   "name": "Alicloud ALB",
-  "description": "Automate the provisioning, upload, and assignment of TLS/SSL certificates to AliCloud ALBs",
+  "description": "Automate the provisioning, upload and assignment of TLS certificates to Alibaba Cloud Application Load Balancers.",
   "categories": [
     "Load Balancer & ADC"
   ],

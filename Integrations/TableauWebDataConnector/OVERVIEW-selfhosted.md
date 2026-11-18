@@ -1,31 +1,27 @@
 # Tableau Web Data Connector
 
-The Information Lab, an expert Tableau partner and developer, has provided security teams with an easy, fast, and complete method to analyze and report on machine identity protection with Tableau and Venafi Platform.
+Large organizations run hundreds of thousands of machine identities, from TLS certificates to code signing and SSH keys. Without good analysis and reporting, it is hard to see where these identities are installed and who uses them, and hard to communicate that risk to the business. The Information Lab, a Tableau partner and developer, built this Web Data Connector so security teams can analyze and report on machine identity protection in Certificate Manager, Self-Hosted using Tableau.
 
-  
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Communicate clearly**: Present dynamic, complex security data to the business in Tableau.
+- **Gain actionable intelligence**: Analyze and visualize your machine identities.
+- **Explore ad hoc**: Build your own analysis in Tableau Desktop or the Tableau Server Web Editor.
+- **Start with pre-built dashboards**: Use the plug-and-play interactive dashboards in Tableau Desktop or Tableau Server.
+- **Keep reports current**: Schedule data refreshes from the REST API to Tableau Server.
 
-- **Communicate highly dynamic**, complex and critical security related data to the business 
-- **Gain actionable business intelligence**, analysis and visualization on your machine identities
-- **Perform ad hoc analysis** using Tableau Desktop and/or the Tableau Server Web Editor
-- **Perform pre-built analysis** using Tableau Desktop and/or Tableau Server and the plug-and-play interactive dashboards
-- **Schedule data refresh** from the Venafi REST API to Tableau Server to keep reports updated
+**How it Works**
 
-  
+The Web Data Connector retrieves the information sets from the Certificate Manager, Self-Hosted REST API that are needed to build TLS, SSH and code signing reports. In a Tableau Server deployment, you can schedule an automated refresh so reports stay up to date.
 
-**SOLUTION OVERVIEW**
+**Solution Components**
 
-Within modern security ecosystems, Global 5000 organizations are orchestrating hundreds of thousands of machine identities every second—from TLS/SSL certificates to code signing and SSH keys. Lack of visibility into where these machine identities are installed and who’s using them presents great risk to businesses everywhere. The inability to analyze and report on machine identities restricts an organization’s ability to build and maintain a secure machine identity practice.
+- Certificate Manager, Self-Hosted
+- Tableau Desktop or Tableau Server
+- Tableau Web Data Connector by The Information Lab
 
-  
+**About The Information Lab**
 
-The Information Lab, an expert Tableau partner and developer, has provided security teams with an easy, fast, and complete method to analyze and report on machine identity protection with Tableau and Venafi Platform. The Web Data Connector for Venafi Platform gives Tableau users the ability to retrieve different information sets from the Venafi REST API required to build TLS, SSH and code signing reports and schedule an automated refresh in case of a Tableau Server deployment.
-
-  
-
-Solving the reporting and analysis gap for Tableau will significantly increase the security team’s efficacy to communicate highly dynamic, complex and critical security related data to the business in ways that were not previously possible for an organization’s machine identity management program.
-
-MOST RECENT REVIEWS
+The Information Lab is a Tableau partner and data analytics consultancy. Learn more at [theinformationlab.co.uk](https://www.theinformationlab.co.uk/).
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

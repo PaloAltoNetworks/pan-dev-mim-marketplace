@@ -1,32 +1,28 @@
 # A10 Thunder SSLi
 
-Attackers are already using encrypted traffic to launch, expand and execute successful attacks. With Venafi, it's fast and easy using A10 to unlock incoming encrypted traffic. Venafi makes sure inspection stays at 100% and eliminates gaps in visibility.
+Attackers use encrypted traffic to hide malware and move through networks. A10 Thunder SSLi (SSL Insight) decrypts that traffic so your security devices can inspect it, but inspection only works when Thunder SSLi has the current key and certificate for every protected server. A missing or expired key creates a gap in visibility.
 
-  
+The integration between Certificate Manager, Self-Hosted and A10 Thunder SSLi keeps those keys and certificates current. Certificate Manager, Self-Hosted delivers renewed certificates and keys to Thunder SSLi automatically, so decryption and inspection continue without manual updates.
 
-**SOLUTION HIGHLIGHTS**
+**Value Highlights**
 
-- **Reduce risk of security incidents** from improperly handled keys 
-- **Scale use of HTTPS** without difficult setup or maintenance 
-- **Eliminate outages** with continuous key and certificate updates 
-- **Gain the full benefits** of application delivery with complete automation  
-- **Onboard-discovery** provides a complete machine identity inventory from the start
-- **Automated provisioning** of renewed certificates eliminates gaps in SSL visibility
+- **Reduce the risk of security incidents** caused by improperly handled keys.
+- **Close visibility gaps** by provisioning renewed certificates before the old ones expire.
+- **Scale HTTPS inspection** without difficult setup or maintenance.
+- **Eliminate outages** with continuous key and certificate updates.
+- **Build a complete inventory** of the machine identities used for decryption.
 
-  
+**How it Works**
 
-**SOLUTION OVERVIEW**
+Certificate Manager, Self-Hosted manages the lifecycle of the certificates and private keys that Thunder SSLi uses to decrypt inbound traffic. The integration uses the Adaptable Application framework to push each renewed certificate and key to the Thunder SSLi device, so the device always holds the keys it needs to decrypt and pass traffic to your inspection tools. Policy in Certificate Manager, Self-Hosted controls key strength and renewal timing.
 
-Industry experts believe over 70% of web malware will be carried by encrypted traffic in 2020. That’s a huge blind spot for enterprise security systems, which may not have threat detection or protection against these attacks. With the widespread adoption of SSL/TLS encryption, the ability to ensure every key and certificate is available for decryption and then decrypt and inspect SSL/TLS traffic in real time, is more important than ever.
+**Solution Components**
 
-  
-
-The most comprehensive decryption solution, A10 Thunder SSLi (SSL Insight) decrypts traffic, enabling security devices to analyze all enterprise traffic without compromising performance. With Venafi the joint solution helps to improve speed and accuracy as well as ensure strong security policy adherence. By speeding the decryption and inspection of encrypted traffic, the solution helps organizations to strengthen layered defenses and dramatically reduce the risk of new threats that misuse encryption.
-
-  
+- Certificate Manager, Self-Hosted
+- A10 Thunder SSLi
 
 **About A10 Networks**
 
-A10 Networks is a provider of intelligent and automated cybersecurity solutions, providing a portfolio of high-performance secure application solutions that enable intelligent automation with machine learning to ensure business critical applications are secure and always available.
+[A10 Networks](https://www.a10networks.com/) provides secure application services and solutions, including high-performance application delivery and SSL inspection products, that keep business-critical applications secure and available.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

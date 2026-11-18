@@ -1,6 +1,6 @@
 {
   "name": "F5 BIG-IP",
-  "description": "Automate and secure your SSL/TLS lifecycle with F5 BIG-IP and Venafi, ensuring scalability, visibility, and enhanced encryption management.",
+  "description": "Automate discovery, renewal and provisioning of TLS certificates on F5 BIG-IP LTM to prevent outages.",
   "categories": [
     "Load Balancer & ADC"
   ],
@@ -29,7 +29,7 @@
     "videos": [
       {
         "title": "F5 BIG-IP Integration Overview",
-        "description": "Learn how to integrate F5 BIG-IP with Venafi Certificate Manager",
+        "description": "Learn how to integrate F5 BIG-IP with Certificate Manager",
         "url": "https://www.youtube.com/watch?v=vgy6zaUEM2E",
         "platform": "youtube"
       },

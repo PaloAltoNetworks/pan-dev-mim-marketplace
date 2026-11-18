@@ -1,24 +1,19 @@
 # Microsoft Intune
 
-This integration connects Zero Touch PKI (ZTPKI) with Microsoft Intune to automatically request, install, and renew certificates on Intune-managed devices using SCEP — giving mobile and desktop fleets trusted machine identities without a customer-run CA.
+Devices managed by Microsoft Intune need user and device certificates, and running your own CA infrastructure to issue them adds cost and operational work. This integration connects Zero Touch PKI with Microsoft Intune to request, install and renew certificates on Intune-managed devices over SCEP, giving mobile and desktop fleets trusted identities without a customer-run CA.
 
-## How it works
+**Value Highlights**
 
-ZTPKI exposes a SCEP endpoint that authenticates to Intune through a Microsoft Entra ID application (app-to-app authentication). Once configured, Intune SCEP profiles deliver user and device certificates on every Intune-supported platform, and renewals flow automatically as devices check in.
+- **Skip the on-premises CA**: Issue Intune certificates from Zero Touch PKI.
+- **Cover every platform**: Deliver user and device certificates on every Intune-supported platform.
+- **Renew automatically**: Renewals happen as devices check in.
+- **Validate requests**: Zero Touch PKI checks each SCEP challenge with Intune before it issues a certificate.
 
-## Prerequisites
+**How it Works**
 
-- A Zero Touch PKI account.
-- Microsoft Intune, with permission to upload a trusted root CA certificate and create SCEP profiles.
-- Permission to register applications in Microsoft Entra ID.
-- A secure secret-sharing method (for example a one-time link) to transmit credentials to CyberArk onboarding.
+Zero Touch PKI exposes a SCEP endpoint that authenticates to Intune through a Microsoft Entra ID application (app-to-app authentication). Intune trusted root and SCEP profiles point devices at that endpoint, and Zero Touch PKI issues the certificates under policies that CyberArk provisions during onboarding. See the Documentation tab for setup.
 
-## Setup
+**Solution Components**
 
-1. **Register an Entra ID application** — create the app, record the Application (client) ID and Tenant ID, add a client secret (track its expiry), and grant the `scep_challenge_provider` and `Application.Read.All` API permissions.
-2. **Onboard with CyberArk** — send the client ID, client secret (securely), tenant ID, and admin contact to `ztpki-onboarding@cyberark.com`. CyberArk provisions the certificate policies, an Intune Requestor service account, and returns the root CA certificate and SCEP server URL.
-3. **Configure Intune** — upload the ZTPKI root CA via a trusted-root profile (once per OS), then create SCEP profiles for users and devices that point at the ZTPKI SCEP URL (`https://ztpki.<region>.venafi.com/<policy-guid>/pkiclient.exe`; omit `/pkiclient.exe` for Windows profiles).
-
-> Rotate the Entra client secret before it expires — send a replacement to CyberArk Support at least 7 days ahead to avoid an enrollment outage.
-
-See the [Microsoft Intune integration guide](https://docs.cyberark.com/mis-saas/ztpki/connectors/integrating-microsoft-intune/) for full details.
+- Zero Touch PKI
+- Microsoft Intune and Microsoft Entra ID

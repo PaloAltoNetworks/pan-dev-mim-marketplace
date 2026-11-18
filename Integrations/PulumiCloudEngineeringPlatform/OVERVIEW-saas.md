@@ -1,35 +1,26 @@
 # Pulumi Cloud Engineering Platform
 
-Pulumi provides a modern Infrastructure as Code (IaC) platform that helps engineering teams work better together and ship faster. As part of the Machine Identity Management Development Fund, Pulumi has built a Venafi Resource Provider that will enable engineering teams to manage certificates using Pulumi and Venafi.
+Cloud engineering teams need to ship quickly while keeping the services behind modern applications secure. As architectures span multiple clouds, SaaS services and Kubernetes, TLS certificates become hard to track, and expired ones break trust between components. Pulumi is an Infrastructure as Code (IaC) platform, and the Venafi provider for Pulumi lets teams create and consume certificates from Certificate Manager, SaaS alongside the cloud resources they already define in code.
 
-####   
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Define certificates as code**: Request certificates from Certificate Manager, SaaS in the same Pulumi programs that build your infrastructure.
+- **Replace expired certificates on demand**: Every deployment or infrastructure update can renew certificates and establish trust correctly.
+- **Use your favorite languages**: Work in the programming languages, source control systems and IDEs your team already uses.
+- **Test and enforce policy**: Apply unit tests, integration tests and policy enforcement to infrastructure that includes certificates.
+- **Deploy anywhere**: Combine certificates with resources in AWS, Azure, Google Cloud and many SaaS platforms.
 
-- **Reduce risk **with built-in secrets management
-- **Accelerate **your cloud deployments
-- **Works with your favorite **programming languages, source management systems and IDEs
-- **Enables unit testing, **integration testing and policy enforcement for cloud infrastructure
-- **Integrates with any cloud **and over 70 SaaS products
+**How it Works**
 
-  
+The Venafi provider is a Pulumi package, built by Pulumi through the Machine Identity Management Development Fund and based on the Venafi Terraform provider. It provides resources for certificates, policy and cloud keystore installations. The provider authenticates to Certificate Manager, SaaS with an API key or a service account JWT and requests certificates through the application and issuing template set as the zone. See the [Venafi provider documentation](https://www.pulumi.com/registry/packages/venafi/) for configuration.
 
-**SOLUTION OVERVIEW**
+**Solution Components**
 
-Cloud Engineering teams must help their organizations deliver value in the cloud quickly while maintaining the security of underlying cloud services that enable modern applications. 
+- Certificate Manager, SaaS
+- Pulumi with the Venafi provider package
 
-  
+**About Pulumi**
 
-As architectures grow increasingly complex, it can be hard to manage machine identities like TLS certificates across multiple clouds, SaaS solutions, and Kubernetes. 
-
-  
-
-With the Venafi Provider for Pulumi, teams can create and consume certificates on the Venafi Platform and Venafi as a Service alongside resources in AWS, Azure, Google Cloud, and 70 other SaaS platforms.
-
-  
-
-This ensures that every new deployment or infrastructure update can establish trust relationships correctly and replace expired certificates on demand.
-
-**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**
+[Pulumi](https://www.pulumi.com/) provides an Infrastructure as Code platform that helps engineering teams work together and ship faster.
 
 **Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**

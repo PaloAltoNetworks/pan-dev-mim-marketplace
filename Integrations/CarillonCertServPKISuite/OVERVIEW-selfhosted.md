@@ -1,27 +1,25 @@
 # Carillon CertServ PKI Suite
 
-Carillon's CertServ PKI Suite can integrate with Venafi’s Certificate Manager, Self-Hosted by way of an Adaptable CA driver. This allows lifecycle management operations (issuance, renewal, revocation) for a defined set of types of certificates in a Carillon managed PKI to be carried out using Venafi.
+Organizations that run a Carillon-managed PKI often handle certificate issuance, renewal and revocation in a separate console from the rest of their certificate inventory. Carillon's CertServ PKI Suite integrates with Certificate Manager, Self-Hosted through an Adaptable CA driver, so lifecycle operations for a defined set of certificate types in the Carillon-managed PKI are carried out from Certificate Manager, Self-Hosted.
 
-  
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Automate the lifecycle**: Handle certificates from issuance to revocation in Certificate Manager, Self-Hosted.
+- **Add approvals where needed**: Insert workflow approvals at any point in lifecycle processing.
+- **Provision certificates automatically**: Deliver Carillon-issued certificates to target devices and systems.
+- **Keep one inventory**: Track Carillon-issued certificates with the rest of your certificates.
 
-- **Automate **the entire certificate lifecycle from issuance to revocation
-- **Additional workflow approvals **can be inserted at any point of the lifecycle processing
-- **Enable automated provisioning **of Carillon-issued certificates to target devices and systems
+**How it Works**
 
-##   
+An Adaptable CA driver on Certificate Manager, Self-Hosted submits certificate requests to the CertServ PKI Suite and retrieves the issued certificates. Certificate Manager, Self-Hosted then handles renewal, revocation and provisioning under your policies. Contact Carillon for the driver and setup details.
 
-**ABOUT CARILLON**
+**Solution Components**
 
-Since 2000, Carillon Information Security Inc. provides a complete spectrum of identity management solutions that are designed to prevent identity theft, promote the migration from paper to electronic authentication, and avoid loss of intellectual property.
+- Certificate Manager, Self-Hosted
+- Carillon CertServ PKI Suite
 
-  
+**About Carillon**
 
-From consulting services, to validation software and managed identity services, Carillon can provide the skill sets and tools to help companies take control of their corporate digital credentials.
-
-  
-
-[For more information...](https://www.carillon.ca/)
+Since 2000, [Carillon Information Security](https://www.carillon.ca/) has provided identity management solutions, from consulting services to validation software and managed identity services, that help companies take control of their digital credentials.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

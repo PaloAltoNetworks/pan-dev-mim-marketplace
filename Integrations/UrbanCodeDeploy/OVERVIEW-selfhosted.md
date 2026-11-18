@@ -1,23 +1,23 @@
 # UrbanCode Deploy
 
-The Venafi Platform lets organizations realize the benefits of Fast IT without compromising security. Security teams can now centrally define policy through the Venafi API and enable DevOps to properly comply with security policies and best practices. Venafi makes it easy for DevOps teams to correctly apply and build in security from the beginning.
+DevOps teams want to move fast, and handling keys and certificates outside the pipeline slows them down and creates risk. With this plug-in for IBM UrbanCode Deploy, security teams centrally define certificate policy in Certificate Manager, Self-Hosted, and DevOps teams build that policy into their pipelines from the start.
 
-  
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Remove pipeline risk**: Keep key and certificate processes inside UrbanCode's secure pipelines.
+- **Scale easily**: Run on any number of UrbanCode agents from a single instance of the plug-in.
+- **Stay compliant**: Pipelines automatically follow the X.509 policies defined by your information security team.
+- **Skip the coding**: Use UrbanCode's native UI and secure storage to define configuration options.
+- **Automate every step**: Use build steps for authentication, certificate request, retrieval, renewal, revocation, status and validation.
 
-- **Eliminate the inherent risks** associated with handling key & certificate related processes outside of UrbanCode’s secure pipelines
-- **Scale easily** with execution capable on any number of UrbanCode agents from from a single instance of the plugin
-- **Stay secure **with UrbanCode pipelines automatically complying with X.509 corporate security policies defined by enterprise information security teams
-- **Requires no coding**, uses UrbanCode’s native UI’s and secure storage to define config options
-- **Fast, automated build steps **for Venafi authentication, certificate requests, retrieval, renewal, revocation, certificate status and validation
+**How it Works**
 
-  
+The plug-in adds automated build steps for the X.509 key and certificate lifecycle to UrbanCode Deploy pipelines and workflows. The build steps call the Certificate Manager, Self-Hosted REST API, so every request is subject to centralized policy controls.
 
-**SOLUTION OVERVIEW**
+**Solution Components**
 
-The Venafi Platform lets organizations realize the benefits of Fast IT without compromising security. Security teams can now centrally define policy through the Venafi API and enable DevOps to properly comply with security policies and best practices. Venafi makes it easy for DevOps teams to correctly apply and build in security from the beginning. 
-
-The Venafi plug-in for IBM’s UrbanCode provides developers with automated build steps for handeling X.509 key & certificate lifecycles from within their pipelines and workflows. Build steps leverage Venafi’s REST API for centralized, policy controls and all other certificate related activities.
+- Certificate Manager, Self-Hosted
+- IBM UrbanCode Deploy and its agents
+- UrbanCode Deploy plug-in
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

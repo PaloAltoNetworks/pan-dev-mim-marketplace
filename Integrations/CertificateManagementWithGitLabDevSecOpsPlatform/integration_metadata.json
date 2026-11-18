@@ -1,6 +1,6 @@
 {
   "name": "Certificate Management with GitLab DevSecOps Platform",
-  "description": "Enhance security and automate machine identity management with the GitLab DevSecOps integration for Venafi, streamlining workflows and boosting efficiency.",
+  "description": "Request, retrieve and renew policy-compliant TLS certificates as automated jobs in GitLab CI/CD pipelines.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Qensus",

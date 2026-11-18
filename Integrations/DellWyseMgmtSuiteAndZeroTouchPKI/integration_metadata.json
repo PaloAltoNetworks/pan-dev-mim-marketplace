@@ -7,7 +7,7 @@
     "Endpoint & Device Management"
   ],
   "products": [
-    "Certificate Manager Self-Hosted"
+    "Zero Touch PKI"
   ],
   "tags": [
     "Endpoint",
@@ -19,6 +19,6 @@
   "keywords": [],
   "price": "Free",
   "name": "Dell Wyse Mgmt Suite and Zero Touch PKI",
-  "description": "Manage machine identities for devices managed via Dell Wyse Management",
+  "description": "Automatically enroll Dell Wyse thin clients for unique device certificates issued by Zero Touch PKI.",
   "logoFile": "logo.svg"
 }

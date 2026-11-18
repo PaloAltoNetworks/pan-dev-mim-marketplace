@@ -1,21 +1,28 @@
 # ArcSight Enterprise Security Manager
 
-With little to no visibility, it's difficult to prevent issues with keys and certificates. Venafi makes it easy to inform your teams with event sharing to your ArcSight system.
+Security and operations teams need actionable intelligence to reduce risk, avoid outages and stay compliant. Without visibility into key and certificate activity, it is hard to spot problems before they cause an incident.
 
-  
+Certificate Manager, Self-Hosted shares its events with ArcSight Enterprise Security Manager (ESM), so your SIEM can correlate key and certificate activity with the rest of your security data and alert the right teams.
 
-**SOLUTION HIGHLIGHTS**
+**Value Highlights**
 
-- **Inform security**, operations and compliance teams with visibility and updates 
-- **Identify issues and risks** to enable remediation 
-- **Operationalize processes**, compliance and remediation through an enterprise SIEM platform 
-- **Transmits key and certificate lifecycle events**, administrator activity and workflow approvals 
-- **Analyzes activity and operations **to identify anomalies or activities to remediate 
+- **Inform security, operations and compliance teams** with timely visibility and updates.
+- **Identify issues and risks** early so teams can remediate them.
+- **Operationalize processes** for compliance and remediation through your enterprise SIEM.
+- **Share key and certificate lifecycle events**, administrator activity and workflow approvals.
+- **Analyze activity** in ArcSight to detect anomalies that need action.
 
-  
+**How it Works**
 
-**SOLUTION OVERVIEW**
+Certificate Manager, Self-Hosted forwards selected events from its event log to ArcSight ESM. ArcSight ingests the events, and you build rules, dashboards and reports on key and certificate activity alongside your other security data.
 
-Security and operations teams need access to actionable intelligence to reduce risk and eliminate potential operational issues like outages, as well as maintain compliance. With little to no visibility, it's difficult to prevent issues with keys and certificates. Venafi makes it easy to inform your teams with event sharing to your ArcSight system. 
+**Solution Components**
+
+- Certificate Manager, Self-Hosted
+- OpenText ArcSight Enterprise Security Manager
+
+**About ArcSight**
+
+ArcSight Enterprise Security Manager, now part of OpenText, is a SIEM platform for real-time threat detection, correlation and response.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

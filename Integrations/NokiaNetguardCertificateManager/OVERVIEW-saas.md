@@ -1,17 +1,31 @@
-# Nokia Netguard Certificate Manager
+# Nokia NetGuard Certificate Manager
 
-This solution is an open-source implementation of the external issuer, an extension interface provided by the de-factor certificate provisioning and management component in Kubernetes, cert-manager. It enables a K8S cluster to employ Nokia Netguard Certificate Manager as the backend Certificate Authority (CA) that signs certificate requests originated from within the cluster and issues certificates. By using this external issuer [*ncm-issuer*](https://github.com/cert-manager/aws-privateca-issuer), you gain one more option than what’s already been provided by cert-manager when it comes to Certificate Authority. This implementation is provided and currently maintained by Nokia as a helm chart that can be deployed in any Kubernetes cluster with a few common simple helm commands. **Applicability** Any organization that runs workloads in a cloud native environment with Kubernetes or any flavor of K8S orchestrating clusters should have cert-manager deployed. It is the de-factor choice for certificates, aka machine identities, provisioning and management, accepted and current incubated within CNCF. This solution should work when the cert-manager deployed meets the version requirements detailed below in the “Special notes and limitations” section. The supported flavors of K8S are as follows: · AWS EKS · AWS EKS Anywhere · Azure AKS · Azure Arc · Google GKE · Google Anthos **Special notes and limitations** From cert-manager’s point of view, despite external issuers such as *ncm-issuer* are not implemented in the main cert-manager repository, they are otherwise treated the same as any other built-in issuer. This solution is developed and tested against the open-source cert-manager v1.0.0 or higher. It supports NCM v21 and higher. 
+Kubernetes workloads need certificates from a trusted CA, and cert-manager is the standard way to request and renew them inside a cluster. ncm-issuer is an open-source external issuer for cert-manager that lets a Kubernetes cluster use Nokia NetGuard Certificate Manager (NCM) as its certificate authority, so applications get CA-signed certificates that stay valid and up to date. Certificate Manager, SaaS provides a management plane for cert-manager deployments, giving security teams visibility into the certificates issued across clusters.
 
-**ADDITIONAL RESOURCES**
+**Value Highlights**
 
- · cert-manager incubated in CNCF: https://www.cncf.io/projects/cert-manager/ · Venafi TLS Protect for Kubernetes, a management plane for all your cert-manager deployments: https://venafi.com/tls-protect-for-kubernetes/ 
+- **Use your NCM PKI in Kubernetes**: Sign certificate requests from inside the cluster with Nokia NetGuard Certificate Manager.
+- **Automate renewal**: cert-manager renews and re-enrolls certificates before they expire.
+- **Treat NCM like a built-in issuer**: cert-manager handles ncm-issuer the same way as its native issuers.
+- **Run on major Kubernetes platforms**: Supported on AWS EKS, AWS EKS Anywhere, Azure AKS, Azure Arc, Google GKE and Google Anthos.
+- **Deploy with Helm**: ncm-issuer ships as a Helm chart maintained by Nokia.
 
-**GETTING STARTED**
+**How it Works**
 
- *ncm-issuer* is release as a helm chart. The installation is one simple step process in a K8S environment. **$ helm install -n ncm-issuer ncm-issuer ./helm/.** The NetGuard Certificate Manager is a cloud service provided by Nokia, therefore requires proper authentication via REST API per Nokia so that it can be accessed and used. 
+ncm-issuer is a Kubernetes controller that adds Issuer and ClusterIssuer resources for NCM. When cert-manager creates a certificate request that references one of these issuers, ncm-issuer forwards it to the NCM REST API and returns the signed certificate. See the Documentation tab for installation.
 
-**ABOUT Nokia**
+**Applicability**
 
- **NCM** The Nokia NetGuard Certificate Manager (NCM) consists of software and highly available and secure hardware. Based on a trusted certificate authority (CA), the NCM issues and manages digital certificates in a standardized and secure way. Its primary use is for 4G and 5G mobile networks where base stations and small cells are deployed in an unsecured area, and where a secured connection to the backbone network is required.
+ncm-issuer is developed and tested against open-source cert-manager v1.0.0 or later and supports NCM v21 and later.
 
-**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**
+**Solution Components**
+
+- Certificate Manager, SaaS
+- cert-manager with [ncm-issuer](https://github.com/nokia-steward/ncm-issuer)
+- Nokia NetGuard Certificate Manager
+
+**About Nokia**
+
+The [Nokia](https://www.nokia.com/) NetGuard Certificate Manager combines software with highly available, secure hardware to issue and manage digital certificates from a trusted CA. Its primary use is in 4G and 5G mobile networks, where base stations and small cells deployed in unsecured areas need a secure connection to the backbone network.
+
+**Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**

@@ -1,6 +1,6 @@
 {
   "name": "IBM DataPower Gateway",
-  "description": "Automate certificate lifecycle management on IBM DataPower Gateway appliances, provisioning keys and certificates and binding them to SSL profiles",
+  "description": "Automate certificate provisioning and renewal on IBM DataPower Gateway, including binding certificates to SSL profiles.",
   "support": "Supported",
   "currentVersion": "1.1.0",
   "author": "Venafi",
@@ -31,8 +31,8 @@
       "overviewFile": "OVERVIEW-selfhosted.md",
       "documentationLinks": [
         {
-          "title": "IBM DataPower Gateway Integration Guide",
-          "description": "Complete integration guide for IBM DataPower Gateway",
+          "title": "DataPower Driver Configuration",
+          "description": "Configure the DataPower driver in Certificate Manager, Self-Hosted",
           "url": "https://docs.venafi.com/Docs/26.1/TopNav/Content/Drivers/cco-DataPower-AppDriverConfig-tpp.php"
         }
       ]

@@ -1,19 +1,26 @@
 # Sectigo Certificate Manager
 
-The fast growth in HTTPS requires organizations to gain full visibility, automation and control over machine identities. Certificate Manager, SaaS enables customers to automate the full certificate lifecycle when using Sectigo certificate services.
+The rapid growth of HTTPS and enterprise encryption means organizations need visibility, automation and control over every certificate, along with the agility to work with more than one certificate authority. Certificate Manager, SaaS integrates with Sectigo Certificate Manager (SCM), so you can automate the full lifecycle of Sectigo certificates under central policy and extend encryption to more applications in more places.
 
-**SOLUTION HIGHLIGHTS**
+**Value Highlights**
 
-- **Automate** the full certificate lifecycle from issuance to revocation
-- **Gain full visibility** into the demand, usage and workflow of certificate services
-- **Enforce policies** with automated workflow and detailed logging
-- **Easily track workflow approvals**, authorization and authentication
-- **Supports full lifecycle** from request, issuance and renewal to revocation
-- **Enables complete process** for configurable workflow approval and authorization
-- **Works with the native** Sectigo API interface
+- **Automate the full lifecycle** of Sectigo certificates, from request and issuance to renewal and revocation.
+- **Gain visibility** into the demand for, usage of and workflow around certificate services.
+- **Enforce policies** with automated workflow and detailed logging.
+- **Keep CA agility**: Manage Sectigo certificates alongside certificates from your other CAs.
+- **Use the native Sectigo API** for certificate requests.
 
-**SOLUTION OVERVIEW**
+**How it Works**
 
-Due to the rapid rise in enterprise encryption, the need for certificate authority (CA) agility and machine identity protection continues to escalate. Certificate Manager’s visibility and automation protects machine identities that are integrated with trusted Sectigo digital certificates. Venafi and Sectigo are recognized for providing leading innovation and expertise for complete machine identity management and secure server environments—empowering customers to expand enterprise-wide encryption initiatives for more business applications in more places.
+Certificate Manager, SaaS includes a Sectigo Certificate Manager CA connector that you add as a certificate authority and reference from your issuing templates. It authenticates with an API key for a Sectigo administrator account set to automatically approve certificate requests. Some product types, such as EV, may still require approval in the SCM web portal. See the Documentation tab for setup.
+
+**Solution Components**
+
+- Certificate Manager, SaaS
+- Sectigo Certificate Manager
+
+**About Sectigo**
+
+[Sectigo](https://www.sectigo.com/) is a certificate authority and provider of certificate lifecycle management solutions.
 
 **Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**

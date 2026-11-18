@@ -1,12 +1,19 @@
 # Microsoft Azure Key Vault
 
-When Azure is integrated with Venafi Platform, certificates, keys, and chains can be stored in the Azure Key Vault, allowing for efficiency and speed provisioning certificates.
-**SOLUTION HIGHLIGHTS**
-- **Stay in compliance** by ensuring certificate issuance follows security policy
-- **Reduce the risk** of security incidents stemming from improperly handled keys
-- **Eliminate outages** with continuous key and certificate updates
-- **Secure, automated distribution** of keys and certificates
-- **Visibility to all the certificates** in use in Azure
-- **Automated renewals** for F5s, Apache, IIS, etc., that may be running in Azure
-**SOLUTION OVERVIEW**
-Microsoft Azure is a collection of integrated cloud services that developers and IT professionals use to build, deploy, and manage applications through Microsoft's global network of data centers. When Azure is integrated with Venafi Platform, certificates, keys, and chains can be stored in the Azure Key Vault, allowing for easier and faster provisioning of certificates.
+Applications and Azure services that load certificates from Azure Key Vault go down when those certificates expire, and certificates imported by hand into many key vaults are hard to track. Next-Gen Trust Security connects to your key vaults to discover the certificates stored there and to provision new and renewed certificates into them, so Azure workloads always pick up valid, policy-compliant certificates.
+
+**Value Highlights**
+
+- **Gain visibility**: Discover the certificates stored across your Azure key vaults in one inventory.
+- **Prevent outages**: Renew certificates and push them to Azure Key Vault before they expire.
+- **Stay in compliance**: Provision only certificates issued under your organization's security policy.
+- **Reduce key handling risk**: Deliver certificates, keys and chains to Key Vault without copying files by hand.
+
+**How it Works**
+
+Next-Gen Trust Security signs in to Microsoft Entra ID as an app registration that has access to the key vault's certificates and secrets. It discovers the certificates in the key vault and imports new or renewed certificates. You can connect Azure Key Vault as a cloud keystore, or create a Microsoft Azure Private Key Vault machine that connects through a VSatellite. See the Documentation tab for requirements and setup.
+
+**Solution Components**
+
+- Next-Gen Trust Security
+- Microsoft Azure Key Vault and a Microsoft Entra app registration

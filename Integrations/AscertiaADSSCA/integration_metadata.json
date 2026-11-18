@@ -1,6 +1,6 @@
 {
   "name": "Ascertia ADSS CA",
-  "description": "Secur Solutions Group' Ascertia ADSS CA driver streamlines certificate management, enabling issuance, retrieval, and revocation with ease.",
+  "description": "Issue, retrieve and revoke Ascertia ADSS certificates from Certificate Manager, Self-Hosted.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Secur Solutions Group",

@@ -1,6 +1,6 @@
 {
   "name": "EJBCA Enterprise",
-  "description": "EJBCA Enterprise, powered by Venafi, simplifies and automates PKI security, providing visibility and governance for machine identities.",
+  "description": "Request, renew, revoke and import EJBCA Enterprise certificates with central visibility and policy.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Venafi",

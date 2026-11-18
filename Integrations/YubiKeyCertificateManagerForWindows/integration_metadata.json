@@ -18,7 +18,7 @@
   "keywords": [],
   "price": "Paid (Contact Partner)",
   "name": "YubiKey Certificate Manager for Windows",
-  "description": "Secur's Windows thick client for provisioning and installing certificate into your Yubikey device",
+  "description": "Provision and install certificates from Certificate Manager, Self-Hosted onto YubiKey devices with a Windows client from Secur Solutions.",
   "acquisition": {
     "type": "contact-partner",
     "url": "https://secursolutionsgroup.com/contact-us"

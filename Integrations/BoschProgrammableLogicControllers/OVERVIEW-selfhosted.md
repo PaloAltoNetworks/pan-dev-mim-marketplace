@@ -1,28 +1,28 @@
 # Bosch Programmable Logic Controllers
 
-This solution embeds machine identity management into their Bosch PLCs and equips their machine networks with powerful, secure identities based on industrial standards.
+Industry 4.0 and IoT connect more machinery and devices to the network, which grows the machine identity attack surface. As smart machines become self-organizing, they need trustworthy identities to authenticate with each other.
 
-  
+This solution embeds machine identity management into Bosch programmable logic controllers (PLCs) using Certificate Manager, Self-Hosted. It equips machine networks with secure identities based on industrial standards, giving organizations full control of PLC identities and simpler identity and access controls.
 
-**SOLUTION HIGHLIGHTS**
+**Value Highlights**
 
-- **Enforce consistent policy** for PLC machine identities
-- **Open source** project using VCert means the integration can be customized
-- **Fully automate provisioning** of machine identities to PLCs
-- **Gain full visibility** of PLC machine identities by creating a full inventory
+- **Enforce consistent policy**: Apply the same certificate policies to every PLC machine identity.
+- **Automate provisioning**: Provision machine identities to PLCs without manual steps.
+- **Gain full visibility**: Build a complete inventory of PLC machine identities.
+- **Customize the integration**: Adapt the open source project, built on VCert, to your environment.
 
-  
+**How it Works**
 
-**SOLUTION OVERVIEW**
+The application uses VCert, the open source Venafi client library, to request certificates from Certificate Manager, Self-Hosted and provision them to Bosch PLCs. Certificate Manager, Self-Hosted enforces policy and keeps an inventory of the PLC identities it issues. Contact accessec for setup details.
 
-The trend in Industry 4.0 and IoT encourages the networking of machinery and devices, which make machine identity attack surfaces grow even more. Once smart devices and smart machines become “self-organizing” and need trustworthy and proven identities to authenticate with, safeguarding the identity of these devices and machines becomes even more relevant.
+**Solution Components**
 
-  
+- Certificate Manager, Self-Hosted
+- Bosch programmable logic controllers
+- VCert (Python)
 
-[accessec](https://accessec.com/) is a trusted consultancy for CSOs, CISOs and CTOs on IT security issues including some of the world’s largest automotive and OT brands. 
+**About accessec**
 
-  
-
-As part of the Machine Identity Management Development Fund, accessec developed an application for Venafi customers to embed machine identity management into their Bosch PLCs. This will equip their machine networks with powerful, secure identities based on industrial standards. With that, organizations will have full control on their machine identities and enhanced security with the additional benefit of simplified identity and access controls.
+[accessec](https://accessec.com/) is an IT security consultancy for CSOs, CISOs and CTOs, including some of the largest automotive and OT brands. accessec built this application through the Machine Identity Management Development Fund.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

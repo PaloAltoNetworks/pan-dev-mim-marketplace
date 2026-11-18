@@ -1,30 +1,32 @@
 # arkade
 
-arkade is a portable Kubernetes marketplace that works on any cloud or local Kubernetes cluster. Use it to find and install common DevOps tooling and CLIs.
+arkade is a portable Kubernetes marketplace that works on any cloud or local Kubernetes cluster. Teams use it to find and install common Kubernetes apps and DevOps CLIs with a single command instead of searching for charts and manifests.
 
-  
+arkade installs cert-manager in one step. With cert-manager configured to use Certificate Manager, SaaS as its issuer, clusters get certificates that follow your organization's policy.
 
-**SOLUTION HIGHLIGHTS**
+**Value Highlights**
 
-- **Reduce operations by automating **Machine Identity Management on Kubernetes
-- **Reduce costs on training **through easy to use apps
-- **Create, renew and manage **machine identities on Kubernetes
-- **Streamline the integration **of Venafi platform and Venafi as a Service to your local and cloud Kubernetes clusters
+- **Install cert-manager in one command** with no searching for the correct charts or CRDs.
+- **Create, renew and manage** certificates on Kubernetes through cert-manager.
+- **Reduce operational work** by automating certificate management on local and cloud clusters.
+- **Keep certificates under policy** by issuing them through Certificate Manager, SaaS.
+- **Secure apps such as OpenFaaS** and ingress controllers with TLS.
 
-  
+**How it Works**
 
-**SOLUTION OVERVIEW**
+You run `arkade install cert-manager` to deploy cert-manager to your cluster. You then create a cert-manager issuer that connects to Certificate Manager, SaaS, and cert-manager requests and renews certificates for your Certificate and Ingress resources through it.
 
-arkade makes it easy for you to install over 40 Kubernetes apps and key DevOps CLIs. The arkade integration for Venafi brings a new command to install the Venafi TLS provisioners for cert-manager.
+**Special Notes and Limitations**
 
-  
+arkade previously included dedicated apps for installing Venafi issuers. Those apps were removed from arkade in 2022, so issuer configuration is now a separate cert-manager step.
 
-With just a few simple commands you can get Machine Identity through the Venafi Certificate Manager or Venafi as a Service solutions on any Kubernetes cluster.
+**Solution Components**
 
-  
+- Certificate Manager, SaaS
+- arkade and cert-manager in a Kubernetes cluster
 
-The integration works out the box with the popular microservices and FaaS framework OpenFaaS along with enterprise-grade Ingress Controllers such as Kong and NGINX.
+**About arkade**
 
-**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**
+[arkade](https://github.com/alexellis/arkade) is an open-source project created by Alex Ellis and maintained by OpenFaaS Ltd.
 
 **Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**
