@@ -1,0 +1,64 @@
+{
+  "name": "Oracle Cloud API Gateway",
+  "description": "Discover and renew the custom-domain certificates served by Oracle Cloud Infrastructure API gateways.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "API Gateway & WAF"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "API Gateway",
+    "Cloud",
+    "TLS/SSL"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Oracle Cloud",
+    "OCI",
+    "API Gateway",
+    "Machine Type"
+  ],
+  "supportUrl": "https://community.cyberark.com/s/",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Create an Oracle Cloud API Gateway Machine",
+          "description": "Create an Oracle Cloud API Gateway machine in Certificate Manager, SaaS.",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/oracle-cloud-api-gateway/"
+        },
+        {
+          "title": "Provision to Oracle Cloud API Gateway",
+          "description": "Provision a certificate from Certificate Manager, SaaS to Oracle Cloud API Gateway.",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-oracle-cloud-api-gateway/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Create an Oracle Cloud API Gateway Machine",
+          "description": "Create an Oracle Cloud API Gateway machine in Next-Gen Trust Security.",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/oracle-cloud-api-gateway"
+        },
+        {
+          "title": "Provision to Oracle Cloud API Gateway",
+          "description": "Provision a certificate from Next-Gen Trust Security to Oracle Cloud API Gateway.",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/oracle-cloud-api-gateway/provision-certificates-oracle-cloud-api-gateway"
+        }
+      ]
+    }
+  ]
+}

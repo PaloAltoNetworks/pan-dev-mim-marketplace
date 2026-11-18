@@ -1,0 +1,65 @@
+{
+  "name": "Amazon Secrets Manager",
+  "description": "Store TLS certificates and private keys as AWS secrets and keep them current automatically as certificates renew.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Secrets Management"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Secret Store",
+    "Cloud",
+    "TLS/SSL"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "AWS",
+    "Amazon Web Services",
+    "AWS Secrets Manager",
+    "Secrets",
+    "KMS"
+  ],
+  "supportUrl": "https://community.cyberark.com/s/",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Create an Amazon Secrets Manager Machine",
+          "description": "Create an Amazon Secrets Manager machine in Certificate Manager, SaaS.",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/amazon-secrets-manager/"
+        },
+        {
+          "title": "Provision to Amazon Secrets Manager",
+          "description": "Provision a certificate to an Amazon Secrets Manager machine from Certificate Manager, SaaS.",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-amazon-secrets-manager/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Create an Amazon Secrets Manager Machine",
+          "description": "Create an Amazon Secrets Manager machine in Next-Gen Trust Security.",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/amazon-secrets-manager"
+        },
+        {
+          "title": "Provision to Amazon Secrets Manager",
+          "description": "Provision a certificate to an Amazon Secrets Manager machine from Next-Gen Trust Security.",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/amazon-secrets-manager/provision-certificates-amazon-secrets-manager"
+        }
+      ]
+    }
+  ]
+}

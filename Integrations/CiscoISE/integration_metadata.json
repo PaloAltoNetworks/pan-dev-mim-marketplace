@@ -1,0 +1,67 @@
+{
+  "name": "Cisco ISE",
+  "description": "Discover and renew the system certificates on every node of a Cisco ISE deployment to avoid authentication and admin portal outages.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Identity & Access Management"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Authentication",
+    "Network Infrastructure",
+    "TLS/SSL"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Cisco",
+    "Identity Services Engine",
+    "ISE",
+    "RADIUS",
+    "EAP",
+    "pxGrid",
+    "Network Access Control"
+  ],
+  "supportUrl": "https://community.cyberark.com/s/",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Create a Cisco ISE Machine",
+          "description": "Create a Cisco ISE machine in Certificate Manager, SaaS.",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/cisco-ise/"
+        },
+        {
+          "title": "Provision to a Cisco ISE",
+          "description": "Provision a certificate to a Cisco ISE machine from Certificate Manager, SaaS.",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-cisco-ise/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Create a Cisco ISE Machine",
+          "description": "Create a Cisco ISE machine in Next-Gen Trust Security.",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/cisco-ise"
+        },
+        {
+          "title": "Provision to a Cisco ISE",
+          "description": "Provision a certificate to a Cisco ISE machine from Next-Gen Trust Security.",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/cisco-ise/provision-certificates-cisco-ise"
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,67 @@
+{
+  "name": "Aruba ClearPass",
+  "description": "Discover the certificates on Aruba ClearPass Policy Manager and provision service certificates to keep network authentication running.",
+  "support": "Supported",
+  "currentVersion": "1.0.0",
+  "author": "Venafi",
+  "categories": [
+    "Identity & Access Management"
+  ],
+  "products": [
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
+  ],
+  "tags": [
+    "Authentication",
+    "Network Infrastructure",
+    "TLS/SSL"
+  ],
+  "useCases": [
+    "Certificate Lifecycle Management"
+  ],
+  "keywords": [
+    "Aruba",
+    "HPE Aruba Networking",
+    "ClearPass Policy Manager",
+    "RADIUS",
+    "EAP",
+    "RadSec",
+    "Network Access Control"
+  ],
+  "supportUrl": "https://community.cyberark.com/s/",
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "documentationLinks": [
+        {
+          "title": "Create an Aruba ClearPass Machine",
+          "description": "Create an Aruba ClearPass machine in Certificate Manager, SaaS.",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/aruba-clearpass/"
+        },
+        {
+          "title": "Provision to Aruba ClearPass",
+          "description": "Provision a certificate to an Aruba ClearPass machine from Certificate Manager, SaaS.",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-aruba-clearpass/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "documentationLinks": [
+        {
+          "title": "Create an Aruba ClearPass Machine",
+          "description": "Create an Aruba ClearPass machine in Next-Gen Trust Security.",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/aruba-clearpass"
+        },
+        {
+          "title": "Provision to Aruba ClearPass",
+          "description": "Provision a certificate to an Aruba ClearPass machine from Next-Gen Trust Security.",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/aruba-clearpass/provision-certificates-aruba-clearpass"
+        }
+      ]
+    }
+  ]
+}
