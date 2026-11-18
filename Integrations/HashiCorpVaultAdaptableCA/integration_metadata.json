@@ -1,6 +1,6 @@
 {
   "name": "HashiCorp Vault Adaptable CA",
-  "description": "move variables to custom fields",
+  "description": "Issue and manage certificates from the HashiCorp Vault PKI secrets engine with centralized lifecycle management and policy.",
   "support": "Community",
   "currentVersion": "1.0",
   "author": "Community",
@@ -9,7 +9,9 @@
     "Certificate Authority"
   ],
   "products": [
-    "Certificate Manager Self-Hosted"
+    "Certificate Manager Self-Hosted",
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
   ],
   "tags": [
     "Certificate Authority",
@@ -19,10 +21,46 @@
     "Certificate Lifecycle Management"
   ],
   "keywords": [],
-  "downloadFiles": [
-    "HashicorpVaultAdaptableCA.ps1"
-  ],
-  "documentationFile": "DOCUMENTATION.md",
   "price": "Free",
-  "license": "MIT"
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "downloadFiles": [
+        "HashicorpVaultAdaptableCA.ps1"
+      ],
+      "license": "MIT",
+      "documentationFile": "DOCS-selfhosted.md"
+    },
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "currentVersion": "1.0.0",
+      "author": "Venafi",
+      "support": "Supported",
+      "supportUrl": "https://community.cyberark.com/s/",
+      "documentationLinks": [
+        {
+          "title": "Create a HashiCorp Vault CA Connector",
+          "description": "Set up a HashiCorp Vault custom CA connector in Certificate Manager, SaaS",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/certificates/ca/custom-ca/r-hashicorp-vault-ca-example/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "currentVersion": "1.0.0",
+      "author": "Venafi",
+      "support": "Supported",
+      "supportUrl": "https://community.cyberark.com/s/",
+      "documentationLinks": [
+        {
+          "title": "Create a HashiCorp Vault CA Connector",
+          "description": "Set up a HashiCorp Vault custom CA connector in Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/co-overview-issuing-certs/adding-a-certificate-authority/c-custom-ca-overview/r-hashicorp-vault-ca-example"
+        }
+      ]
+    }
+  ]
 }

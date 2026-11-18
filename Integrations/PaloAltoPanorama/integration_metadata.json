@@ -1,6 +1,6 @@
 {
   "name": "Palo Alto Panorama",
-  "description": "Unified certificate lifecycle management for Palo Alto Networks Panorama",
+  "description": "Automate certificate provisioning to Palo Alto Networks Panorama and the firewalls it manages.",
   "support": "Supported",
   "currentVersion": "1.5.1",
   "author": "Venafi",
@@ -8,7 +8,9 @@
     "Firewall & Network Security"
   ],
   "products": [
-    "Certificate Manager Self-Hosted"
+    "Certificate Manager Self-Hosted",
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
   ],
   "tags": [
     "Automation/Orchestration",
@@ -23,18 +25,58 @@
     "Adaptable Framework - App"
   ],
   "logoFile": "Palo-Alto-Networks.png",
-  "downloadFiles": [
-    "PanoramaAdaptableApp_1.5.1.zip"
-  ],
-  "documentationFile": "DOCUMENTATION.md",
   "supportUrl": "https://community.cyberark.com/s/",
   "price": "Free",
-  "license": "Software Tool License Agreement",
-  "licenseUrl": "https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/legal/software-tool-license-agreement.pdf",
-  "supportPrice": "Paid",
-  "supportAcquisition": {
-    "type": "contact-sales",
-    "label": "Contact Your Account Team",
-    "description": "This driver is free to download. Support is provided under a paid support subscription — contact your account team for details."
-  }
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "documentationFile": "DOCS-selfhosted.md",
+      "downloadFiles": [
+        "PanoramaAdaptableApp_1.5.1.zip"
+      ],
+      "license": "Software Tool License Agreement",
+      "licenseUrl": "https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/legal/software-tool-license-agreement.pdf",
+      "supportPrice": "Paid",
+      "supportAcquisition": {
+        "type": "contact-sales",
+        "label": "Contact Your Account Team",
+        "description": "This driver is free to download. Support is provided under a paid support subscription — contact your account team for details."
+      }
+    },
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "currentVersion": "1.0.0",
+      "documentationLinks": [
+        {
+          "title": "Palo Alto Networks Panorama Machine Setup",
+          "description": "Create a Palo Alto Networks Panorama machine in Certificate Manager, SaaS",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/palo-alto-panorama/"
+        },
+        {
+          "title": "Provision Certificates to Palo Alto Networks Panorama",
+          "description": "Provision certificates to a Palo Alto Networks Panorama machine",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-palo-alto-panorama/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "currentVersion": "1.0.0",
+      "documentationLinks": [
+        {
+          "title": "Palo Alto Networks Panorama Machine Setup",
+          "description": "Create a Palo Alto Networks Panorama machine in Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/palo-alto-panorama"
+        },
+        {
+          "title": "Provision Certificates to Palo Alto Networks Panorama",
+          "description": "Provision certificates to a Palo Alto Networks Panorama machine",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/palo-alto-panorama/provision-certificates-palo-alto-panorama"
+        }
+      ]
+    }
+  ]
 }

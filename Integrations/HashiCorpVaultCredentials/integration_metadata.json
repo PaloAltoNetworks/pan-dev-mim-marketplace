@@ -1,6 +1,6 @@
 {
   "name": "HashiCorp Vault Credentials",
-  "description": "Automate secret retrieval from HashiCorp Vault with Venafi's Adaptable Credentials, enhancing security and team collaboration.",
+  "description": "Retrieve the credentials used for certificate provisioning from HashiCorp Vault at the time of use, so they are stored only in Vault.",
   "support": "Community",
   "currentVersion": "1.0.0",
   "author": "Venafi",
@@ -8,7 +8,9 @@
     "Secrets Management"
   ],
   "products": [
-    "Certificate Manager Self-Hosted"
+    "Certificate Manager Self-Hosted",
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
   ],
   "tags": [
     "Secret Store",
@@ -23,5 +25,39 @@
   ],
   "logoFile": "HashiCorp-Light.png",
   "logoFileDark": "HashiCorp-Dark.png",
-  "price": "Free"
+  "price": "Free",
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md"
+    },
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "currentVersion": "1.0.0",
+      "support": "Supported",
+      "supportUrl": "https://community.cyberark.com/s/",
+      "documentationLinks": [
+        {
+          "title": "Set Up a HashiCorp Integration",
+          "description": "Connect HashiCorp Vault as a credential manager in Certificate Manager, SaaS",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/integrations/credential-managers/hashicorp/setting-up-hashicorp-integration/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "currentVersion": "1.0.0",
+      "support": "Supported",
+      "supportUrl": "https://community.cyberark.com/s/",
+      "documentationLinks": [
+        {
+          "title": "Set Up a HashiCorp Integration",
+          "description": "Connect HashiCorp Vault as a credential manager in Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/integrations-overview/credential-managers-overview/setting-up-hashicorp-integration"
+        }
+      ]
+    }
+  ]
 }

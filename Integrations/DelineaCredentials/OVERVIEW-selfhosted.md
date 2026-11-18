@@ -1,28 +1,21 @@
 # Delinea Credentials
 
-This integration automates the retrieval of privileged credentials from Delinea Secret Server using the Adaptable Credential framework, so Venafi can perform provisioning operations without storing those credentials directly.
+Provisioning certificates to devices and applications requires privileged credentials for those systems, and copying them into another tool adds risk and maintenance. This integration lets Certificate Manager, Self-Hosted retrieve privileged credentials from Delinea Secret Server when it needs them, using the Adaptable Credential framework, so the credentials are not stored in Certificate Manager, Self-Hosted.
 
-  
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Improve security posture**: credentials are stored only in Delinea Secret Server.
+- **Prevent outages**: Certificate Manager, Self-Hosted always uses the most recent credential for provisioning operations.
+- **Keep one source of truth**: Secret Server remains the place where credentials are stored, rotated and audited.
+- **Require no Secret Server changes**: the integration works with your existing Delinea Secret Server deployment.
 
-- **Enables teams **to work together effortlessly
-- **Enhances security posture **since credentials are only stored in Delinea Secret Server
-- **No changes required **for Delinea Secret Server
-- **Prevents outages** by ensuring Venafi always has access to the most recent credentials for provisioning operations
+**How it Works**
 
-  
+An Adaptable Credential object in Certificate Manager, Self-Hosted uses a PowerShell script to authenticate to Delinea Secret Server and retrieve privileged credentials on demand. Provisioning operations that reference the Adaptable Credential receive the current secret from Secret Server instead of a stored copy.
 
-**SOLUTION OVERVIEW**
+**Solution Components**
 
-Adaptable Credentials automate the retrieval of secrets from third-party password vaults, such as Delinea Secret Server, without compromising the security of your secrets.
-
-  
-
-Use this script with the Venafi Adaptable Credential driver to authenticate to Delinea Secret Server and retrieve privileged credentials on demand, keeping Secret Server as the single source of truth for storage, rotation, and auditing.
-
-**ABOUT DELINEA**
-
-Delinea is a privileged access management (PAM) provider whose Secret Server product centralizes the storage, rotation, and auditing of privileged credentials and secrets across an organization, helping teams control and secure access to critical systems.
+- Certificate Manager, Self-Hosted
+- Delinea Secret Server
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

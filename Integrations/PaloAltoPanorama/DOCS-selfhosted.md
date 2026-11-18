@@ -5,6 +5,7 @@
 The `PanoramaAdaptableApp` Adaptable Application provisions certificates to a Palo Alto Panorama Certificate Manager from Certificate Manager, Self-Hosted (CMSH). Depending on configuration, it can also bind the certificate to a Decryption Rule for SSL deep packet inspection.
 
 The driver supports three levels of configuration change:
+
 - **Staging** ("Commit to Panorama") — if the decryption policy fields are left blank, the certificate is only added to a template's certificate inventory.
 - **Partial-Commit** ("Commit to Panorama") — only the changes submitted by the service account are committed to Panorama.
 - **Commit-All** ("Commit and Push") — all pending changes are committed to Panorama and pushed to the specified device group.
@@ -94,6 +95,7 @@ Leaving the **Decryption Policy** field blank provisions the certificate to the 
 ### Provision and Assign to a Decryption Policy
 
 Binding a certificate to a decryption rule requires **both** `Device Group` and `Decryption Policy` to be set.
+
 - If `Decryption Policy` is set without `Device Group`, the script fails and terminates.
 - Palo Alto limits a single Decryption Policy to 12 bound certificates; the script errors and terminates if that limit is reached.
 
@@ -104,6 +106,7 @@ Re-running provisioning for a certificate already installed and bound to a Decry
 ### Automatic Expired Certificate Cleanup
 
 On every provisioning run, the script reviews all certificates bound to the target Decryption Policy and identifies expired ones from the expiration date encoded in the certificate name (see [Certificate Naming Convention](#certificate-naming-convention)).
+
 - An expired certificate is always unbound from the policy.
 - Whether it's also deleted from Panorama's certificate inventory depends on **Remove Expired Certs** (`No` by default — left for manual cleanup).
 - Certificates whose name doesn't match the `[CommonName]_[ExpDate]_[SerialNumber]` convention (or whose date can't be parsed) are assumed to be manually managed and are never touched.
@@ -115,13 +118,16 @@ On every provisioning run, the script reviews all certificates bound to the targ
 
 ## FAQ
 
-**Which CMSH server do I use for "CMSH Host Address"?**
+### Which CMSH server do I use for "CMSH Host Address"?
+
 Any CMSH server, unless your deployment splits modules across servers — in that case, use one with the WebSDK module installed and enabled.
 
-**The provisioning process failed with "The PowerShell script timed out. The configured timeout is 180 seconds." — what do I do?**
+### The provisioning process failed with "The PowerShell script timed out. The configured timeout is 180 seconds." — what do I do?
+
 Contact Venafi/CyberArk support to increase the Adaptable Application's *Script Execution Timeout*. They'll walk through enabling attribute editing on the device's policy folder (**Support** tab → **Enable Edit**) and setting the `Adaptable App` class's `Script Execution Timeout` attribute (e.g. to `3600`, with **Lock this value** checked).
 
-**What does "Enable Debug Logging" do?**
+### What does "Enable Debug Logging" do?
+
 Writes detailed driver activity and Panorama communication to a log file under `<CMSH installation folder>\Logs`. Enable it only while troubleshooting — the log can consume significant disk space.
 
 ## What to Expect in Panorama (Auditing & Naming)
@@ -135,6 +141,7 @@ The uploaded leaf certificate is renamed to `[CommonName]_[ExpDate]_[SerialNumbe
 ### Certificate Chain Import (Root → Intermediate → Leaf)
 
 When a certificate includes a chain, each CA certificate is uploaded to Panorama as its own object rather than bundled with the leaf, so the hierarchy displays correctly in Panorama's Certificate Store.
+
 - **Import order** is always Root → Intermediate → leaf (with its private key), determined automatically from each certificate's Issuer/Subject relationship — independent of the order certificates were supplied in.
 - **CA naming:** Root/Intermediate CA certificates are named `CA-<hash>`, a stable identifier derived from the certificate's own fingerprint rather than any one leaf certificate — so multiple leaf certificates sharing the same issuing chain all resolve to the same CA object.
 - **Reuse, not duplication:** before uploading a Root/Intermediate CA certificate, the script checks whether an identical object already exists in the target template and reuses it if so. Seeing "already exists; skipping" in the debug log is expected, normal behavior.

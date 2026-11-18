@@ -1,6 +1,6 @@
 {
   "name": "Microsoft ADCS",
-  "description": "Set Microsoft CA as the internal private CA for Venafi Control Plane",
+  "description": "Issue and manage certificates from your Microsoft Active Directory Certificate Services CA with full visibility and automated renewal.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Venafi",
@@ -8,17 +8,21 @@
     "Certificate Authority"
   ],
   "products": [
-    "Certificate Manager Self-Hosted"
+    "Certificate Manager Self-Hosted",
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
   ],
   "tags": [
-    "Authentication"
+    "Certificate Authority"
   ],
   "useCases": [
     "Certificate Lifecycle Management"
   ],
   "keywords": [
     "ADCS",
-    "Other"
+    "AD CS",
+    "Active Directory Certificate Services",
+    "Microsoft CA"
   ],
   "logoFile": "Microsoft.png",
   "supportUrl": "https://community.cyberark.com/s/",
@@ -32,6 +36,40 @@
           "title": "Microsoft ADCS Integration Guide",
           "description": "Complete integration guide for Microsoft ADCS",
           "url": "https://docs.venafi.com/Docs/26.1/TopNav/Content/Drivers/cco-MicrosoftCertServices-CATemplate-tpp.php"
+        }
+      ]
+    },
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "currentVersion": "1.0.0",
+      "documentationLinks": [
+        {
+          "title": "Microsoft AD CS Integration Overview",
+          "description": "How VSatellite integrates with Microsoft AD CS in Certificate Manager, SaaS",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/certificates/ca/adcs-introduction/"
+        },
+        {
+          "title": "Set Up Microsoft AD CS for Issuing and Importing Certificates",
+          "description": "Configure the AD CS connection in VSatellite to issue and import certificates",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/certificates/ca/issuing-certificates-with-microsoft-adcs/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "currentVersion": "1.0.0",
+      "documentationLinks": [
+        {
+          "title": "Microsoft AD CS Integration Overview",
+          "description": "How VSatellite integrates with Microsoft AD CS in Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/co-overview-issuing-certs/adding-a-certificate-authority/adcs-introduction"
+        },
+        {
+          "title": "Set Up Microsoft AD CS for Issuing and Importing Certificates",
+          "description": "Configure the AD CS connection in VSatellite to issue and import certificates",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/co-overview-issuing-certs/adding-a-certificate-authority/adcs-introduction/issuing-certificates-with-microsoft-adcs"
         }
       ]
     }

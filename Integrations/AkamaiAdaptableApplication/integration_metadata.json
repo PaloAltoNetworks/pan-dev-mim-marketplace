@@ -1,6 +1,6 @@
 {
   "name": "Akamai Adaptable Application",
-  "description": "Automate certificate discovery and provisioning",
+  "description": "Discover the certificates on your Akamai network and automate their renewal and provisioning to Akamai.",
   "support": "Supported",
   "currentVersion": "4.2.6",
   "author": "Venafi",
@@ -8,7 +8,9 @@
     "Load Balancer & ADC"
   ],
   "products": [
-    "Certificate Manager Self-Hosted"
+    "Certificate Manager Self-Hosted",
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
   ],
   "tags": [
     "Discovery",
@@ -24,18 +26,48 @@
     "Provisioning"
   ],
   "logoFile": "Akamai.png",
-  "downloadFiles": [
-    "AkamaiApplicationDriver_4.2.6.zip"
-  ],
-  "documentationFile": "DOCUMENTATION.md",
   "supportUrl": "https://community.cyberark.com/s/",
   "price": "Free",
-  "license": "Software Tool License Agreement",
-  "licenseUrl": "https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/legal/software-tool-license-agreement.pdf",
-  "supportPrice": "Paid",
-  "supportAcquisition": {
-    "type": "contact-sales",
-    "label": "Contact Your Account Team",
-    "description": "This driver is free to download. Support is provided under a paid support subscription — contact your account team for details."
-  }
+  "productVariants": [
+    {
+      "product": "Certificate Manager Self-Hosted",
+      "overviewFile": "OVERVIEW-selfhosted.md",
+      "downloadFiles": [
+        "AkamaiApplicationDriver_4.2.6.zip"
+      ],
+      "documentationFile": "DOCS-selfhosted.md",
+      "license": "Software Tool License Agreement",
+      "licenseUrl": "https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/legal/software-tool-license-agreement.pdf",
+      "supportPrice": "Paid",
+      "supportAcquisition": {
+        "type": "contact-sales",
+        "label": "Contact Your Account Team",
+        "description": "This driver is free to download. Support is provided under a paid support subscription — contact your account team for details."
+      }
+    },
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "currentVersion": "1.0.0",
+      "documentationLinks": [
+        {
+          "title": "Configure Akamai Connection",
+          "description": "Connect Akamai, discover enrollments and provision certificates in Certificate Manager, SaaS",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/integrations/Akamai/acp/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "currentVersion": "1.0.0",
+      "documentationLinks": [
+        {
+          "title": "Configure Akamai Connection",
+          "description": "Connect Akamai, discover enrollments and provision certificates in Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/integrations-overview/cloud-providers-overview/acp"
+        }
+      ]
+    }
+  ]
 }

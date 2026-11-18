@@ -1,24 +1,27 @@
 # HID PKIaaS
 
-Venafi and HID PKIaaS work together to automate the full lifecycle of digital certificates issued by HID Global’s cloud-based certificate authority, giving organizations centralized control and policy enforcement over their machine identities.
+HID PKIaaS is a cloud-based PKI-as-a-Service that issues private and publicly trusted TLS certificates without you running your own CA infrastructure. This Adaptable CA driver connects Certificate Manager, Self-Hosted to HID PKIaaS, so certificates issued by HID's cloud CA are requested, renewed and revoked under your existing policies and workflows.
 
-  
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Use a cloud-based certificate authority**: issue certificates from HID's multi-tenant PKI-as-a-Service instead of operating CA servers.
+- **Automate the certificate lifecycle**: request, issue, renew, replace and revoke HID PKIaaS certificates from Certificate Manager, Self-Hosted.
+- **Enforce consistent policy**: tie each CA template to an HID PKIaaS policy so only authorized certificates are issued.
+- **Tailor certificates**: set validity periods and custom extensions through custom fields.
+- **Reduce the risk of outages**: remove manual renewal steps that lead to expired or unmanaged certificates.
 
-- **Cloud-based certificate authority **issue private and publicly trusted TLS certificates from HID’s multi-tenant PKI-as-a-Service without operating your own CA infrastructure
-- **Automated lifecycle management **discover, request, issue, renew and revoke certificates through Venafi’s orchestration engine
-- **Consistent policy enforcement **apply Venafi policies to certificate templates offered by HID PKIaaS to ensure only authorized certificates are issued
-- **Reduced risk of outages **eliminate manual effort and prevent breaches or downtime caused by expired or unmanaged certificates
+**How it Works**
 
-  
+The PowerShell Adaptable CA driver calls the HID PKIaaS REST API, authenticating with Hawk using your HID PKIaaS API ID and key. Each Adaptable CA template points at an HID PKIaaS policy, and Certificate Manager, Self-Hosted calls the driver to submit CSRs, retrieve issued certificates and revoke them. A companion script creates optional custom fields for validity periods and Microsoft application policy and certificate template extensions. See the Documentation tab for setup steps.
 
-**SOLUTION OVERVIEW**
+**Solution Components**
 
-Venafi’s machine identity management platform connects to HID PKIaaS as a certificate authority, adding it as a CA template object so certificates can be requested and managed automatically. The HID PKIaaS account is prepared for automated access by obtaining a Web Service Signing Certificate (Web API certificate), registering the IP addresses of the Certificate Manager, Self-Hosted servers, and associating the signing certificate with those addresses. Venafi then selects the certificate templates and policies exposed by the HID PKIaaS web service, extending its visibility and automation across every certificate issued by HID’s cloud CA.
+- Certificate Manager, Self-Hosted
+- HID PKIaaS Adaptable CA driver
+- HID PKIaaS
 
-**ABOUT HID GLOBAL**
+**About HID Global**
 
-HID Global’s PKIaaS is a geographically dispersed, multi-tenant PKI-as-a-Service that provides dedicated issuing CA services for private and trusted TLS/SSL certificates and supports hosting private intermediate certificate authorities. Private keys are protected in dedicated hardware security modules, and the platform offers REST API access along with standards such as SCEP and ACME to automate certificate management at enterprise scale.
+HID Global's PKIaaS is a geographically dispersed, multi-tenant PKI-as-a-Service that provides dedicated issuing CA services for private and publicly trusted TLS certificates and can host private intermediate CAs. Private keys are protected in dedicated hardware security modules, and the service offers REST API access along with standards such as SCEP and ACME.
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

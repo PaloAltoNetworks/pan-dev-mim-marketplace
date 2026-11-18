@@ -1,21 +1,21 @@
 # HashiCorp Vault Adaptable CA
 
-## Overview
+Teams that use the HashiCorp Vault PKI secrets engine as a certificate authority still need visibility and policy over the certificates it issues. This Adaptable CA script lets Certificate Manager, Self-Hosted enroll and manage certificates issued by Vault, so you can keep Vault as a CA while lifecycle management, policy and visibility stay in Certificate Manager, Self-Hosted.
 
-This Adaptable CA integration enables Certificate Manager, Self-Hosted to enroll and manage
-certificates issued by the HashiCorp Vault PKI secrets engine. It lets you use Vault as a
-certificate authority while retaining centralized lifecycle management, policy, and visibility in
-Certificate Manager.
+**Value Highlights**
 
-**SOLUTION HIGHLIGHTS**
+- **Issue from Vault**: request certificates from a HashiCorp Vault PKI intermediate CA through Certificate Manager, Self-Hosted.
+- **Centralize lifecycle management**: bring Vault-issued certificates under the same renewal and revocation processes as the rest of your PKI.
+- **Import existing certificates**: pull certificates already issued by the Vault intermediate CA into your inventory.
+- **Fit your Vault layout**: configure the Vault URL, root path, issuer path and issuer role for your environment.
 
-- Issue and manage certificates from a HashiCorp Vault PKI intermediate CA
-- Bring Vault-issued certificates under centralized lifecycle management
-- Configurable Vault URL, root path, issuer path, and issuer role
+**How it Works**
 
-## Prerequisites
+The PowerShell script implements the Adaptable CA interface and calls the Vault PKI API with a Vault token stored in a Certificate Manager, Self-Hosted credential. It signs CSRs against a configured issuer role, or lets Vault generate the key, and retrieves the root and issuing CA certificates to build the chain. See the Documentation tab for prerequisites and setup.
 
-- A reachable HashiCorp Vault instance with the PKI secrets engine enabled and an issuer role configured
-- Vault connection details (URL, root path, issuer path, issuer role) available for the script
+**Solution Components**
+
+- Certificate Manager, Self-Hosted
+- HashiCorp Vault PKI secrets engine
 
 **Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**

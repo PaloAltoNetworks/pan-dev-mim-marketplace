@@ -1,6 +1,6 @@
 {
   "name": "Google Cloud Load Balancing",
-  "description": "Effortlessly scale HTTPS with Google Cloud Load Balancing and Venafi, ensuring secure, automated certificate management and eliminating outages.",
+  "description": "Automate certificate provisioning and renewal on Google Cloud load balancers to prevent HTTPS outages.",
   "support": "Supported",
   "currentVersion": "1.0.0",
   "author": "Google, Inc.",
@@ -8,7 +8,9 @@
     "Load Balancer & ADC"
   ],
   "products": [
-    "Certificate Manager Self-Hosted"
+    "Certificate Manager Self-Hosted",
+    "Certificate Manager SaaS",
+    "Next-Gen Trust Security"
   ],
   "tags": [
     "ADC/Load Balancing",
@@ -33,6 +35,46 @@
           "title": "Google Cloud Load Balancing Integration Guide",
           "description": "Complete integration guide for Google Cloud Load Balancing",
           "url": "https://docs.venafi.com/Docs/current/TopNav/Content/Drivers/cco-drivers-GoogleCloudLoadBalancer.php"
+        }
+      ]
+    },
+    {
+      "product": "Certificate Manager SaaS",
+      "overviewFile": "OVERVIEW-saas.md",
+      "author": "Venafi",
+      "support": "Supported",
+      "supportUrl": "https://community.cyberark.com/s/",
+      "currentVersion": "1.0.0",
+      "documentationLinks": [
+        {
+          "title": "Google Cloud Classic Load Balancer Machine Setup",
+          "description": "Create a Google Cloud Classic Load Balancer machine in Certificate Manager, SaaS",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/google-classic-lb/"
+        },
+        {
+          "title": "Provision Certificates to Google Cloud Classic Load Balancer",
+          "description": "Provision certificates to a Google Cloud Classic Load Balancer machine",
+          "url": "https://docs.cyberark.com/mis-saas/vaas/machines/provision-certificates-google-classic-lb/"
+        }
+      ]
+    },
+    {
+      "product": "Next-Gen Trust Security",
+      "overviewFile": "OVERVIEW-ngts.md",
+      "author": "Venafi",
+      "support": "Supported",
+      "supportUrl": "https://community.cyberark.com/s/",
+      "currentVersion": "1.0.0",
+      "documentationLinks": [
+        {
+          "title": "Google Cloud Classic Load Balancer Machine Setup",
+          "description": "Create a Google Cloud Classic Load Balancer machine in Next-Gen Trust Security",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/google-classic-lb"
+        },
+        {
+          "title": "Provision Certificates to Google Cloud Classic Load Balancer",
+          "description": "Provision certificates to a Google Cloud Classic Load Balancer machine",
+          "url": "https://docs.paloaltonetworks.com/next-gen-trust-security/next-gen-trust-security/about-vaas/installations-overview/overview-machines/google-classic-lb/provision-certificates-google-classic-lb"
         }
       ]
     }
