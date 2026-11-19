@@ -41,7 +41,7 @@ from check_owner_approval import (  # noqa: E402
     NOTE_EXISTING_UNMAPPED,
     NOTE_NEW_UNMAPPED,
     fetch_pr,
-    has_bypass_label,
+    check_bypass,
     load_mapping,
     resolve_required_reviewers,
     touched_integration_dirs,
@@ -108,9 +108,12 @@ def main():
     # labeled for an admin bulk change gets no reviewer requests or @-mentions
     # at all, not just a skipped approval requirement.
     pr_data = fetch_pr(repo, pr)
-    if has_bypass_label(pr_data):
+    bypassed, bypass_msg = check_bypass(repo, pr, pr_data)
+    if bypassed:
         print(f'PR carries the "{BYPASS_LABEL}" label — no reviewers requested or notified.')
         return
+    if bypass_msg:
+        print(bypass_msg)
 
     dirs = touched_integration_dirs(repo, pr)
     if not dirs:

@@ -86,12 +86,15 @@ NOTE_EXISTING_UNMAPPED = "existing_unmapped"
 
 # A PR carrying this label skips the per-integration reviewer gate entirely —
 # no approval required, and (via request_owner_reviewers.py) no reviewer is
-# requested or @-mentioned. Applying a label requires write access, which only
-# mim-final-approvers holds, so an outside contributor can never self-grant
-# this. Intended for a maintainer's own mechanical/bulk changes (schema
+# requested or @-mentioned. Applying a label requires write access, so an
+# outside contributor can never self-grant this, and the bypass is honored only
+# when the most recent application of the label was by someone listed in
+# .github/final-approvers.yml (mim-contributors also hold write). Intended for a maintainer's own mechanical/bulk changes (schema
 # migrations, repo-wide backfills) — not a substitute for routine per-
 # integration review. See .github/OWNER_APPROVAL_DESIGN.md.
 BYPASS_LABEL = "admin-bulk"
+
+FINAL_APPROVERS_FILE = ".github/final-approvers.yml"
 
 
 def die(msg, code=1):
@@ -531,6 +534,52 @@ def has_bypass_label(pr_data):
     return any((label.get("name") or "") == BYPASS_LABEL for label in pr_data.get("labels") or [])
 
 
+def load_final_approvers(path=FINAL_APPROVERS_FILE):
+    """Load a flat list of usernames, one per line (plain or "- name" YAML
+    list item). Not a general YAML parser — this file is only ever a flat
+    list, so no need to pull in PyYAML for it."""
+    if not os.path.exists(path):
+        die(f"Required file '{path}' not found.")
+    approvers = []
+    with open(path, encoding="utf-8") as fh:
+        for raw in fh:
+            line = raw.split("#", 1)[0].strip()
+            if not line:
+                continue
+            name = line.lstrip("-").strip().strip("'\"")
+            if name:
+                approvers.append(name)
+    if not approvers:
+        die(f"'{path}' has no final approvers listed.")
+    return approvers
+
+
+def bypass_label_applier(repo, pr):
+    """Login of whoever most recently applied BYPASS_LABEL, or None if no
+    such event is found. Issue events are returned oldest first."""
+    applier = None
+    for ev in api_get(f"/repos/{repo}/issues/{pr}/events"):
+        if ev.get("event") == "labeled" and (ev.get("label") or {}).get("name") == BYPASS_LABEL:
+            applier = (ev.get("actor") or {}).get("login")
+    return applier
+
+
+def check_bypass(repo, pr, pr_data):
+    """Return (bypassed, message). The label counts only if its most recent
+    application was by a final approver; otherwise the normal gate runs. An
+    unreadable event history also falls through to the normal gate."""
+    if not has_bypass_label(pr_data):
+        return False, None
+    applier = bypass_label_applier(repo, pr)
+    if applier and applier in load_final_approvers():
+        return True, f'PR carries the "{BYPASS_LABEL}" label (applied by @{applier}) — per-integration reviewer gate bypassed.'
+    who = f"@{applier}" if applier else "an unknown account"
+    return False, (
+        f'"{BYPASS_LABEL}" label ignored: it was applied by {who}, who is not in '
+        f"{FINAL_APPROVERS_FILE}. Running the normal reviewer gate."
+    )
+
+
 def main():
     if len(sys.argv) != 2:
         die("Usage: check_owner_approval.py <pr-number>")
@@ -543,16 +592,19 @@ def main():
     # for an admin bulk change skips this gate entirely, no matter how many
     # integrations it touches.
     pr_data = fetch_pr(repo, pr)
-    if has_bypass_label(pr_data):
-        msg = f'PR carries the "{BYPASS_LABEL}" label — per-integration reviewer gate bypassed.'
-        print(msg)
-        summarize(["## Integration reviewer gate", "", f"- ⏭️ {msg}"])
+    bypassed, bypass_msg = check_bypass(repo, pr, pr_data)
+    if bypassed:
+        print(bypass_msg)
+        summarize(["## Integration reviewer gate", "", f"- ⏭️ {bypass_msg}"])
         return
 
     base_mapping = load_mapping(MAPPING_FILE)
     dirs = touched_integration_dirs(repo, pr)
 
     summary = ["## Integration reviewer gate", ""]
+    if bypass_msg:
+        print(bypass_msg)
+        summary.append(f"- ⚠️ {bypass_msg}")
 
     if not dirs:
         msg = "No `Integrations/<Name>/` directories changed — reviewer gate not applicable."
