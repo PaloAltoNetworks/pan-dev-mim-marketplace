@@ -25,29 +25,14 @@ import os
 import sys
 
 sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
-from check_owner_approval import current_approvers, die, fetch_pr, summarize  # noqa: E402
-
-FINAL_APPROVERS_FILE = ".github/final-approvers.yml"
-
-
-def load_final_approvers(path):
-    """Load a flat list of usernames, one per line (plain or "- name" YAML
-    list item). Not a general YAML parser — this file is only ever a flat
-    list, so no need to pull in PyYAML for it."""
-    if not os.path.exists(path):
-        die(f"Required file '{path}' not found.")
-    approvers = []
-    with open(path, encoding="utf-8") as fh:
-        for raw in fh:
-            line = raw.split("#", 1)[0].strip()
-            if not line:
-                continue
-            name = line.lstrip("-").strip().strip("'\"")
-            if name:
-                approvers.append(name)
-    if not approvers:
-        die(f"'{path}' has no final approvers listed.")
-    return approvers
+from check_owner_approval import (  # noqa: E402
+    FINAL_APPROVERS_FILE,
+    current_approvers,
+    die,
+    fetch_pr,
+    load_final_approvers,
+    summarize,
+)
 
 
 def main():
