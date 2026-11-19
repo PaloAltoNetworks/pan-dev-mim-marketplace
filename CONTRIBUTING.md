@@ -50,6 +50,8 @@ gh pr create --repo PaloAltoNetworks/pan-dev-mim-marketplace --base main --fill
 
 In the pull request, say what the integration does and which products it supports, and confirm you've worked through the [Testing checklist](#testing-checklist). For a new integration, include its `.github/owner-reviewers.yml` entry in the same PR (see [Reviewer approval required to merge](#reviewer-approval-required-to-merge)). External contributors also need to accept the [Contributor Terms](#contributor-terms). The [Review process](#review-process) section explains what happens next.
 
+Internal contributors in the `mim-contributors` GitHub team have write access to this repository, so they can skip the fork. Clone `PaloAltoNetworks/pan-dev-mim-marketplace` directly, push your branch to it, and open the pull request from there. Forking also works. The review requirements are the same either way.
+
 ## Optional: AI-assisted listing generation
 
 If you use [Claude Code](https://claude.com/claude-code), this repo ships a `/generate-listing`
