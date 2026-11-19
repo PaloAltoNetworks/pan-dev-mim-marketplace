@@ -8,7 +8,7 @@ import { IntegrationMetadata } from "../types";
 import { SHOW_LAST_UPDATED } from "../featureFlags";
 import ListBuilderSidebar from "./ListBuilderSidebar";
 import RecommendedIntegrations from "./RecommendedIntegrations";
-import { PrimaryCTA } from "./PrimaryCTA";
+import { PrimaryCTA, PAID_TYPES } from "./PrimaryCTA";
 import { communityIssueUrl } from "../utils/communityIssue";
 import MarketplaceAnnouncements from "./MarketplaceAnnouncements";
 import { listingTypeOf, LISTING_TYPE_NAMES, ToolBadge } from "./ListingType";
@@ -296,8 +296,11 @@ export default function IntegrationDetail({
             <ProductContext.Provider value={selectedProduct}>
             <TabContext.Provider value={{ activeTab, setActiveTab }}>
                 <div className="integration-detail-content">
-                    {/* Keyed by product so switching to a variant with downloads off re-reads the config. */}
-                    {variantData?.downloadsDisabled && (
+                    {/* Keyed by product so switching to a variant with downloads off re-reads the config.
+                        Skipped when the primary CTA is already a paid contact (Contact Partner /
+                        Contact Your Account Team): the CTA covers access, and a second "contact your
+                        account team" banner would contradict a Contact Partner button. */}
+                    {variantData?.downloadsDisabled && !PAID_TYPES.has(variantData.primaryCta?.type ?? "") && (
                         <MarketplaceAnnouncements key={selectedProduct} placement="downloads-disabled" />
                     )}
                     <div className="product-cta-row">
