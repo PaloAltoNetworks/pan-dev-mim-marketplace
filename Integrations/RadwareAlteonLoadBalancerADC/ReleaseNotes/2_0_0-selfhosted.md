@@ -1,0 +1,6 @@
+- Replaced the `Radware Alteon ADC OS 30.5.1.200 and above.ps1` and `Radware Alteon ADC OS 33.0.x.ps1` scripts with the Radware Alteon connector v1.0.0 (`Radware_Alteon_Connector_For_PaloAlto_1.0.0.ps1`).
+- The connector renews the named Alteon certificate object in place and no longer binds the certificate or SSL policy to a virtual service. Virtual Server, Service Port and SSL Policy are now informational.
+- Added the required **Certificate Name in Alteon** field and the **Trust Insecure Alteon Device Management Certificate** option. Existing applications must set Certificate Name in Alteon.
+- Added Onboard Discovery, intermediate CA group management, and HA Sync on the master device.
+- The connector requires Windows PowerShell 5.1 and `curl.exe` 7.76 or later.
+- Setup instructions now come from the Radware Alteon Integration Guide v1.0.0 (PDF), available under Resources.
