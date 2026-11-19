@@ -1,4 +1,4 @@
-# Palo Alto Panorama Adaptable Application — Installation and Usage Guide (v1.5.1)
+# Palo Alto Panorama Adaptable Application — Installation and Usage Guide (v1.5.2)
 
 ## Introduction
 
@@ -14,7 +14,7 @@ The driver supports three levels of configuration change:
 
 ### Constraints
 
-- Panorama PanOS 10.2 or 11.2 (other versions may work but are unvalidated).
+- Panorama PanOS 10.2, 11.2, or 12.2 (other versions may work but are unvalidated).
 - Certificate Manager, Self-Hosted (CMSH) 23.3 or higher.
 
 ### Assumptions
@@ -114,7 +114,7 @@ On every provisioning run, the script reviews all certificates bound to the targ
 ### Partial Commit vs. Commit and Push
 
 - **Commit and Push = No** — changes are committed to Panorama using the API account.
-- **Commit and Push = Yes** — changes are committed, then a Commit-All is performed, automatically pushing to the configured Device Group. `Device Group` is mandatory in this mode; omitting it terminates the script immediately.
+- **Commit and Push = Yes** — changes are committed, then a Commit-All is performed, automatically pushing to the configured Device Group **and all of its descendant device groups**. `Device Group` is mandatory in this mode; omitting it terminates the script immediately. Pushing to descendants ensures firewalls assigned to a nested child device group (rather than the configured group directly) still receive the push.
 
 ## FAQ
 
@@ -145,6 +145,7 @@ When a certificate includes a chain, each CA certificate is uploaded to Panorama
 - **Import order** is always Root → Intermediate → leaf (with its private key), determined automatically from each certificate's Issuer/Subject relationship — independent of the order certificates were supplied in.
 - **CA naming:** Root/Intermediate CA certificates are named `CA-<hash>`, a stable identifier derived from the certificate's own fingerprint rather than any one leaf certificate — so multiple leaf certificates sharing the same issuing chain all resolve to the same CA object.
 - **Reuse, not duplication:** before uploading a Root/Intermediate CA certificate, the script checks whether an identical object already exists in the target template and reuses it if so. Seeing "already exists; skipping" in the debug log is expected, normal behavior.
+- **CA flag:** every Root/Intermediate chain certificate is explicitly marked as a CA certificate on Panorama (the `<ca>yes</ca>` config flag), including chain certificates uploaded by an older driver version that didn't set this flag — without it, Panorama won't include the certificate when building the trust chain it presents during a TLS handshake.
 
 ### VUPKG Package Upgrades
 
