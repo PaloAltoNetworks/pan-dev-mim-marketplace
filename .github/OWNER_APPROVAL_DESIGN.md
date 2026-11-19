@@ -5,19 +5,19 @@ Every integration change requires two approvals before merge:
 1. **`mim-final-approvers`** on every PR, regardless of which integration it touches.
 2. **The integration's designated reviewer** — whoever owns that `Integrations/<Name>/` directory, internal staff or external partner, treated identically.
 
-Everyone — internal contributors, partner developers, customers, community — contributes the same way: fork + pull request with **no access of any kind**. Nothing merges until both gates approve.
+Anyone — partner developers, customers, community, internal staff — can contribute by fork + pull request with **no access of any kind**. Internal contributors in the `mim-contributors` team hold write and may instead push a branch to this repo and open the PR from there. Either way, nothing merges until both gates approve.
 
 > **Why the design is shaped this way.** Two hard constraints drive everything:
 >
-> 1. **No one outside `mim-final-approvers` gets write access.** External partners are never org members, and internal contributors also fork/PR rather than holding write. GitHub only counts approvals toward native required-review rules when the reviewer has **write**, so *no* designated integration reviewer — internal or external — can be enforced natively.
+> 1. **Designated reviewers can't be assumed to hold write access.** External partners are never org members and never get write. GitHub only counts approvals toward native required-review rules when the reviewer has **write**, so designated integration reviewers can't be enforced natively. Internal staff in `mim-contributors` do hold write, as a convenience for pushing branches, but the gates treat their reviews exactly like a no-write reviewer's.
 > 2. **A GitHub `CODEOWNERS` file can only route to owners with write, and treats multiple owners on a line as alternatives (any one satisfies).** With no write-holding owners to list, CODEOWNERS has no job here.
 >
-> The result is a **single write-holding team** (`mim-final-approvers`) enforced natively via a branch ruleset, plus **one CI status check** (`owner-approval`) that enforces the per-integration reviewer — internal or external, uniformly — by reading their approving review through the API. This is the only mechanism that can gate on a no-write reviewer, and it lets internal and external contribution be genuinely identical.
+> The result is a **single merge-authority team** (`mim-final-approvers`) enforced via a branch ruleset, plus **one CI status check** (`owner-approval`) that enforces the per-integration reviewer — internal or external, uniformly — by reading their approving review through the API. This is the only mechanism that can gate on a no-write reviewer, and it lets internal and external contribution be genuinely identical.
 
 ## Current state
 
 - The repo is public, so fork-based contribution works for anyone with a GitHub account.
-- `mim-final-approvers` holds the only write access in this model. There is no CODEOWNERS file and no other write-holding team.
+- `mim-final-approvers` and `mim-contributors` hold write. Only `mim-final-approvers` is a merge authority (the ruleset bypass actor and the `final-approval` list). `mim-contributors` write lets internal staff push branches to this repo, and their approvals count toward the ruleset's native one-approval minimum, but never toward `final-approval`. There is no CODEOWNERS file.
 - Both `owner-approval` and `final-approval` are required status checks on the `marketplace-review` branch ruleset. Final-approver sign-off is enforced by the `final-approval` check (`.github/final-approvers.yml` + `.github/scripts/check_final_approval.py`), not by a native "require review from team" ruleset rule — see "Final-approver gate" below for why.
 - The reviewer mapping (`.github/owner-reviewers.yml`) is sparsely populated — most existing integrations have no entry yet. That's fine for an integration whose next update is authored by its own maintainer (self-attestation, below) or is brand new (self-declaration, below); an update PR from someone other than the actual owner will fail the gate until a maintainer adds an entry.
 
@@ -60,11 +60,11 @@ A PR carrying the `admin-bulk` label skips this gate entirely — `owner-approva
 
 This exists for a maintainer's own mechanical/repo-spanning changes — a schema field added across every integration, a bulk backfill — where routing dozens or hundreds of individual per-integration reviews (and notifying every one of those owners) would be pure overhead for a change no owner needs to weigh in on. It is deliberately **not** a substitute for routine per-integration review: applying the label to a PR that meaningfully changes one integration's content defeats the whole point of the gate.
 
-Applying a label requires write access, which only `mim-final-approvers` holds, so an outside contributor can never grant themselves this bypass — the `owner-approval` and `mim-final-approvers` gates together are still the only way to merge. The `owner-approval.yml` workflow re-runs on `labeled`/`unlabeled` so the check flips the moment the label is added or removed, rather than staying stuck on a stale run. Apply the label at PR-creation time (e.g. `gh pr create --label admin-bulk`) when possible — added retroactively, `request-reviewers` may already have fired on the earlier `opened` event, so reviewers can still end up requested/mentioned before the label lands.
+Applying a label requires write access, so an outside contributor can never grant themselves this bypass. `mim-contributors` members also hold write, but by convention only `mim-final-approvers` applies the label, and `final-approval` still requires a final approver either way. The `owner-approval.yml` workflow re-runs on `labeled`/`unlabeled` so the check flips the moment the label is added or removed, rather than staying stuck on a stale run. Apply the label at PR-creation time (e.g. `gh pr create --label admin-bulk`) when possible — added retroactively, `request-reviewers` may already have fired on the earlier `opened` event, so reviewers can still end up requested/mentioned before the label lands.
 
 ## Contribution flow
 
-No access of any kind is needed to contribute (public repo). This is identical for internal staff and external partners:
+No access of any kind is needed to contribute (public repo). External partners and the community use this flow. `mim-contributors` members can use it too, or push a branch to this repo instead of forking in steps 1–2:
 
 1. A contributor **forks** `pan-dev-mim-marketplace`.
 2. They edit `Integrations/<TheirIntegration>/` on a branch in their fork — for a brand-new integration, including a self-declared reviewer entry in `.github/owner-reviewers.yml` (see CONTRIBUTING.md).
@@ -87,7 +87,7 @@ No access of any kind is needed to contribute (public repo). This is identical f
 
 ## Caveats to remember
 
-- **Only `mim-final-approvers` holds write** — it's the sole team, the only merge authority, and the native gate. Everyone else forks.
+- **`mim-final-approvers` is the only merge authority** and the native gate. `mim-contributors` holds write for internal staff but has no merge authority. Partners and the community fork.
 - **Reviewers need no repo access** on a public repo — internal or external, they fork/review with a plain GitHub account. Their `APPROVED` review is API-readable, and that is what the CI gate keys on.
 - **No CODEOWNERS means no auto-requested reviewers** — this is handled by the `request-reviewers` job.
 - **`pull_request_target` runs with repo secrets even for fork PRs** — never check out and execute untrusted PR code in that job; only read metadata/reviews via the API. The self-declaration mechanism above follows this same discipline: PR-head content is fetched and parsed as data, never executed.
