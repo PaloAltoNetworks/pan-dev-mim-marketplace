@@ -74,6 +74,7 @@ SUFFIX_PRODUCT = {v: k for k, v in PRODUCT_SUFFIX.items()}
 GITHUB_USERNAME_RE = re.compile(r"^[A-Za-z0-9](?:[A-Za-z0-9]|-(?=[A-Za-z0-9])){0,38}$")
 
 _OVERVIEW_RE = re.compile(r"^OVERVIEW-([a-z0-9]+)\.md$")
+_DOCS_RE = re.compile(r"^DOCS-([a-z0-9]+)\.md$")
 _RELEASE_NOTE_RE = re.compile(r"^ReleaseNotes/[\w]+-([a-z0-9]+)\.md$")
 
 # Per-directory resolution outcomes, used both for gate messaging and by
@@ -284,15 +285,27 @@ def touched_integration_dirs(repo, pr):
 
 
 def touched_files_by_dir(repo, pr):
-    """Return {dirpath: [file paths relative to the directory]} for touched
-    Integrations/<Name>/ files. Only called when a directory's mapping entry
-    is per-product — bare-list directories never need per-file resolution."""
+    """Return {dirpath: [(file path relative to the directory, status)]} for
+    touched Integrations/<Name>/ files, where status is GitHub's file status
+    ("added", "removed", "modified", ...). A rename is reported as its old
+    path "removed" plus its new path "added", so moving a shared file to a
+    product-scoped name still counts as touching the shared file. Only called
+    when a directory's mapping entry is per-product — bare-list directories
+    never need per-file resolution."""
     by_dir = {}
-    for f in api_get(f"/repos/{repo}/pulls/{pr}/files"):
-        parts = f["filename"].split("/")
-        if len(parts) >= 2 and parts[0] == "Integrations":
+
+    def add(path, status):
+        parts = path.split("/")
+        if len(parts) >= 3 and parts[0] == "Integrations":
             d = f"Integrations/{parts[1]}"
-            by_dir.setdefault(d, []).append("/".join(parts[2:]))
+            by_dir.setdefault(d, []).append(("/".join(parts[2:]), status))
+
+    for f in api_get(f"/repos/{repo}/pulls/{pr}/files"):
+        status = f.get("status") or "modified"
+        if status == "renamed" and f.get("previous_filename"):
+            add(f["previous_filename"], "removed")
+            status = "added"
+        add(f["filename"], status)
     return by_dir
 
 
@@ -306,8 +319,39 @@ def _valid_declaration(entry):
 
 
 def _suffix_from_filename(rel_path):
-    m = _OVERVIEW_RE.match(rel_path) or _RELEASE_NOTE_RE.match(rel_path)
+    m = _OVERVIEW_RE.match(rel_path) or _DOCS_RE.match(rel_path) or _RELEASE_NOTE_RE.match(rel_path)
     return m.group(1) if m else None
+
+
+# Metadata fields that name a file inside the integration directory. A file
+# named only by productVariants[] entries belongs to those products; a file
+# named at the root or in `defaults` is shared.
+_FILE_REF_FIELDS = ("overviewFile", "documentationFile", "downloadFiles", "scriptFiles")
+
+
+def _file_refs(block):
+    refs = set()
+    for field in _FILE_REF_FIELDS:
+        value = block.get(field)
+        values = value if isinstance(value, list) else [value]
+        refs.update(v.removeprefix("./") for v in values if isinstance(v, str) and v)
+    return refs
+
+
+def _variant_scope(meta_json, rel_path):
+    """Return the set of products whose productVariants[] entry names
+    rel_path, or None if the file is shared: named at the root or in
+    `defaults`, or not named by any variant at all."""
+    if not isinstance(meta_json, dict):
+        return None
+    if rel_path in _file_refs(meta_json) or rel_path in _file_refs(meta_json.get("defaults") or {}):
+        return None
+    products = {
+        v.get("product")
+        for v in meta_json.get("productVariants") or []
+        if isinstance(v, dict) and v.get("product") and rel_path in _file_refs(v)
+    }
+    return products or None
 
 
 def _all_products(meta_json):
@@ -344,23 +388,53 @@ def metadata_changed_products(base_json, head_json):
     }
 
 
-def _products_affected_by_file(repo, d, rel_path, base_sha, head_sha):
+def _products_affected_by_file(rel_path, status, base_json, head_json):
     if rel_path == "integration_metadata.json":
-        base_text = fetch_file_at_ref(repo, f"{d}/integration_metadata.json", base_sha)
-        head_text = fetch_file_at_ref(repo, f"{d}/integration_metadata.json", head_sha)
-        base_json = json.loads(base_text) if base_text else {}
-        head_json = json.loads(head_text) if head_text else {}
         return metadata_changed_products(base_json, head_json)
 
     suffix = _suffix_from_filename(rel_path)
     if suffix and suffix in SUFFIX_PRODUCT:
         return {SUFFIX_PRODUCT[suffix]}
 
-    # No recognizable per-product suffix (logo, generic OVERVIEW.md/README.md,
-    # unsuffixed release note, etc.) — shared across every product at head.
-    head_text = fetch_file_at_ref(repo, f"{d}/integration_metadata.json", head_sha)
-    head_json = json.loads(head_text) if head_text else {}
+    # A file named only by productVariants[] entries (e.g. a variant's
+    # downloadFiles) belongs to those products. Which metadata to trust:
+    #   - added:   head only (the file doesn't exist at base).
+    #   - removed: base only (it's gone at head).
+    #   - else:    base AND head. Requiring base means a PR can't take an
+    #              existing shared file (say an image an overview embeds),
+    #              list it under one variant, and so scope its edit away
+    #              from the other products' owners.
+    # A shared answer from any trusted side makes the file shared.
+    if status == "added":
+        sides = [head_json]
+    elif status == "removed":
+        sides = [base_json]
+    else:
+        sides = [base_json, head_json]
+    scoped = set()
+    for side in sides:
+        products = _variant_scope(side, rel_path)
+        if products is None:
+            scoped = None
+            break
+        scoped |= products
+    if scoped:
+        return scoped
+
+    # No recognizable per-product suffix or variant scope (logo, generic
+    # OVERVIEW.md/README.md, unsuffixed release note, etc.) — shared across
+    # every product at head.
     return _all_products(head_json)
+
+
+def _load_metadata(repo, d, ref):
+    # Fails closed: unparseable or non-object metadata exits non-zero rather
+    # than resolving to "no products" (which would require no reviewers).
+    text = fetch_file_at_ref(repo, f"{d}/integration_metadata.json", ref)
+    data = json.loads(text) if text else {}
+    if not isinstance(data, dict):
+        sys.exit(f"{d}/integration_metadata.json at {ref} is not a JSON object")
+    return data
 
 
 def _resolve_entry_for_dir(repo, pr, d, entry, pr_data):
@@ -374,9 +448,12 @@ def _resolve_entry_for_dir(repo, pr, d, entry, pr_data):
     files = touched_files_by_dir(repo, pr).get(d, [])
     base_sha, head_sha = pr_data["base"]["sha"], pr_data["head"]["sha"]
 
+    base_json = _load_metadata(repo, d, base_sha)
+    head_json = _load_metadata(repo, d, head_sha)
+
     affected = set()
-    for rel_path in files:
-        affected |= _products_affected_by_file(repo, d, rel_path, base_sha, head_sha)
+    for rel_path, status in files:
+        affected |= _products_affected_by_file(rel_path, status, base_json, head_json)
 
     required, unmapped = set(), set()
     for product in affected:
