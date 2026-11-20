@@ -31,9 +31,10 @@
     {
       "product": "Certificate Manager Self-Hosted",
       "overviewFile": "OVERVIEW-selfhosted.md",
+      "currentVersion": "1.5.2",
       "documentationFile": "DOCS-selfhosted.md",
       "downloadFiles": [
-        "PanoramaAdaptableApp_1.5.1.zip"
+        "PanoramaAdaptableApp_1.5.2.zip"
       ],
       "license": "Software Tool License Agreement",
       "licenseUrl": "https://www.paloaltonetworks.com/content/dam/pan/en_US/assets/pdf/legal/software-tool-license-agreement.pdf",
