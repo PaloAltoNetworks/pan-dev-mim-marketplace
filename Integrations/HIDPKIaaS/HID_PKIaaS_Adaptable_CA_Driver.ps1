@@ -1,31 +1,9 @@
 <#
-//---------------------------------------------------------------------------
-// HID_PKIaaS_Adaptable_CA_Driver.ps1
-//---------------------------------------------------------------------------
-// Copyright (c) 2022 Venafi, Inc. All rights reserved.
-//
-// This software is licensed by HydrantID, in addition to Venafi.
-// Additional license terms may apply. The software and its contents are
-// provided by Venafi to customers for the purposes of integrating with
-// services and platforms. Modification of this script is only allowed to
-// update any necessary configuration details. Any sharing of the software
-// outside your organization without consent from Venafi is strictly
-// prohibited. Without limiting the foregoing, the above copyright notice,
-// this paragraph and the following paragraph must appear in all copies,
-// modifications, reproductions, and distributions of this software.
-//
-// IN NO EVENT SHALL VENAFI, INC., ITS DIRECTORS, OFFICERS, EMPLOYEES,
-// AGENTS, OR AFFILIATES BE LIABLE TO ANY PARTY FOR DIRECT, INDIRECT,
-// SPECIAL, INCIDENTAL, OR CONSEQUENTIAL DAMAGES, INCLUDING LOST PROFITS,
-// ARISING OUT OF THE USE OF THIS SOFTWARE OR ITS DOCUMENTATION, IF ANY,
-// EVEN IF VENAFI, INC. HAS BEEN ADVISED OF THE POSSIBILITY OF SUCH DAMAGES.
-// VENAFI, INC. SPECIFICALLY DISCLAIMS ANY WARRANTIES, INCLUDING, BUT NOT
-// LIMITED TO, ANY IMPLIED WARRANTIES OF MERCHANTABILITY OR FITNESS FOR A
-// PARTICULAR PURPOSE. THIS SOFTWARE, ALONG WITH ITS DOCUMENTATION, IF ANY,
-// IS PROVIDED "AS IS". VENAFI, INC. HAS NO OBLIGATION TO PROVIDE
-// MAINTENANCE, SUPPORT, OR UPDATES FOR THE SOFTWARE OR ITS DOCUMENTATION,
-// IF ANY.
-//---------------------------------------------------------------------------
+HID PKIaaS: HID_PKIaaS_Adaptable_CA_Driver.ps1
+
+Copyright (c) 2022 Venafi, Inc.
+SPDX-License-Identifier: MIT
+License: https://github.com/PaloAltoNetworks/pan-dev-mim-marketplace/blob/main/LICENSE
 #>
 
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12

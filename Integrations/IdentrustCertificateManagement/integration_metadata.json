@@ -2,7 +2,7 @@
   "name": "IdenTrust Certificate Management",
   "description": "Request, renew and revoke IdenTrust certificates automatically from Certificate Manager, Self-Hosted.",
   "support": "Supported",
-  "currentVersion": "1.0",
+  "currentVersion": "1.0.1",
   "author": "IdenTrust",
   "categories": [
     "Certificate Authority"
