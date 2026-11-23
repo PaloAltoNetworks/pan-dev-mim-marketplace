@@ -1,12 +1,14 @@
 <#
-HID PKIaaS: HID_PKIaaS_Create_Custom_Fields.ps1
-
-IMPORTANT - Before running this script please contact your HydrantID
-account representative to get the list of custom fields that are
-needed for your account.
-
-SPDX-License-Identifier: MIT
-License: https://github.com/PaloAltoNetworks/pan-dev-mim-marketplace/blob/main/LICENSE
+//---------------------------------------------------------------------------
+// HID PKIaaS: HID_PKIaaS_Create_Custom_Fields.ps1
+//
+// IMPORTANT - Before running this script please contact your HydrantID
+// account representative to get the list of custom fields that are
+// needed for your account.
+//---------------------------------------------------------------------------
+// SPDX-License-Identifier: MIT
+// License: https://github.com/PaloAltoNetworks/pan-dev-mim-marketplace/blob/main/LICENSE
+//---------------------------------------------------------------------------
 #>
 
 $websdk_url = "https://tpp.venafi.example"

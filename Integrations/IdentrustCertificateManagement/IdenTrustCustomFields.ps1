@@ -1,8 +1,10 @@
 ﻿<#
-IdenTrust Certificate Management: IdenTrustCustomFields.ps1
-
-SPDX-License-Identifier: MIT
-License: https://github.com/PaloAltoNetworks/pan-dev-mim-marketplace/blob/main/LICENSE
+//---------------------------------------------------------------------------
+// IdenTrust Certificate Management: IdenTrustCustomFields.ps1
+//---------------------------------------------------------------------------
+// SPDX-License-Identifier: MIT
+// License: https://github.com/PaloAltoNetworks/pan-dev-mim-marketplace/blob/main/LICENSE
+//---------------------------------------------------------------------------
 #>
 
 $websdk_url = "https://tpp-alpha.venafi.example"

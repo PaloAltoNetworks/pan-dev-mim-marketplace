@@ -1,8 +1,10 @@
 <#
-HID PKIaaS: HID_PKIaaS_Adaptable_CA_Driver.ps1
-
-SPDX-License-Identifier: MIT
-License: https://github.com/PaloAltoNetworks/pan-dev-mim-marketplace/blob/main/LICENSE
+//---------------------------------------------------------------------------
+// HID PKIaaS: HID_PKIaaS_Adaptable_CA_Driver.ps1
+//---------------------------------------------------------------------------
+// SPDX-License-Identifier: MIT
+// License: https://github.com/PaloAltoNetworks/pan-dev-mim-marketplace/blob/main/LICENSE
+//---------------------------------------------------------------------------
 #>
 
 [System.Net.ServicePointManager]::SecurityProtocol = [System.Net.SecurityProtocolType]::Tls12

@@ -1,9 +1,12 @@
 <#
-IdenTrust Certificate Management: IdenTrust.ps1
-
-SPDX-License-Identifier: MIT
-License: https://github.com/PaloAltoNetworks/pan-dev-mim-marketplace/blob/main/LICENSE
-#>############################################################################################################
+//---------------------------------------------------------------------------
+// IdenTrust Certificate Management: IdenTrust.ps1
+//---------------------------------------------------------------------------
+// SPDX-License-Identifier: MIT
+// License: https://github.com/PaloAltoNetworks/pan-dev-mim-marketplace/blob/main/LICENSE
+//---------------------------------------------------------------------------
+#>
+############################################################################################################
 # SETTINGS
 #
 # The following settings will be setup in the Venafi system through custom fields.
