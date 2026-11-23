@@ -145,7 +145,7 @@ Use this structure. Copy the matching `OVERVIEW-<suffix>.md` from `Integrations/
 1. **Opening narrative** (one or two paragraphs): the problem or opportunity, framed from the customer's point of view.
 2. **Value Highlights** (four to six bullets): the most important part. Start each bullet with a bold action-verb benefit (Eliminate, Streamline, Automate, Accelerate, Scale) and keep it to one line. Lead with the benefit, not the implementation: "Gain visibility into certificate inventory across your infrastructure" works; "Uses REST API for communication" and "Compatible with version 2.0+" don't.
 3. **How it Works**: two to four sentences on the mechanism for this product, pointing to the Documentation tab for setup. No numbered steps.
-4. **Optional sections**, as they apply: **Applicability** (use cases or customer segments), **Solution Components** (the product and the target system), and **About <your company>** (a sentence or two with a link; leave it out for Venafi-built integrations).
+4. **Optional sections**, as they apply: **Applicability** (use cases or customer segments), **Solution Components** (the product and the target system), and **About &lt;your company&gt;** (a sentence or two with a link; leave it out for Venafi-built integrations).
 5. **Footer**: the Self-Hosted overview ends with `**Certificate Manager, Self-Hosted is the product formerly known as Venafi Trust Protection Platform**` and the SaaS overview ends with `**Certificate Manager, SaaS is the product formerly known as Venafi TLS Protect Cloud**`. Next-Gen Trust Security and Zero Touch PKI overviews have no footer.
 
 ```markdown
