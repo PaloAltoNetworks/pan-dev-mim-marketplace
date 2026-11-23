@@ -33,18 +33,18 @@
     {
       "product": "Certificate Manager Self-Hosted",
       "overviewFile": "OVERVIEW-selfhosted.md",
-      "currentVersion": "1.1.0",
+      "currentVersion": "1.2.0",
       "documentationFile": "DOCS-selfhosted.md",
       "downloadFiles": [
-        "Radware_Cloud_Consolidated_Portal_Connector_For_Palo_Alto_Networks_1.1.ps1"
+        "Radware_Cloud_Consolidated_Portal_Connector_For_Palo_Alto_Networks_1.2.ps1"
       ],
       "license": "MIT",
       "resources": {
         "otherResources": [
           {
             "title": "Radware Cloud WAAP Integration Guide",
-            "description": "Radware technical guide for setting up the Cloud Consolidated Portal connector v1.1",
-            "url": "Radware-Cloud-WAAP-Integration-Guide-v1.1.pdf",
+            "description": "Radware technical guide for setting up the Cloud Consolidated Portal connector v1.2",
+            "url": "Radware-Cloud-WAAP-Integration-Guide-v1.2.pdf",
             "type": "pdf",
             "resourceType": "file"
           }

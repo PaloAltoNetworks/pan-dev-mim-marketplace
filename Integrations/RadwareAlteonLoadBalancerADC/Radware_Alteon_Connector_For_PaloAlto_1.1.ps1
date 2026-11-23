@@ -1,10 +1,9 @@
 <#
 //------------------------------------------------------------------------
-// Radware_Alteon_Connector_For_PaloAlto_1.0.0.ps1
-// Version:  1.0.0
+// Radware_Alteon_Connector_For_PaloAlto_1.1.ps1
+// Version:  1.1
 // Author:   Yehuda Pinchas, yehudap@radware.com
 // Support:  ase@radware.com; support@radware.com
-// Copyright (c) 2026 Radware LTD.  All rights reserved.
 //------------------------------------------------------------------------
 
 <field name>|<label text>|<flags>

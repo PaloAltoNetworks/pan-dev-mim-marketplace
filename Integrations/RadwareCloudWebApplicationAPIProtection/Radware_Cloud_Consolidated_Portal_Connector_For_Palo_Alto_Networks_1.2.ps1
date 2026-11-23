@@ -1,10 +1,9 @@
 <#
 //-----------------------------------------------------------------------
-// Radware_Cloud_Consolidated_Portal_Connector_For_PaloAlto_1.1.ps1
-// Version:  1.1
+// Radware_Cloud_Consolidated_Portal_Connector_For_PaloAlto_1.2.ps1
+// Version:  1.2
 // Author:   Yehuda Pinchas, yehudap@radware.com
 // Support:  ase@radware.com; support@radware.com
-// Copyright (c) 2026 Radware LTD.  All rights reserved.
 //-----------------------------------------------------------------------
 <field name>|<label text>|<flags>
 
