@@ -1,7 +1,6 @@
 <#
 HID PKIaaS: HID_PKIaaS_Adaptable_CA_Driver.ps1
 
-Copyright (c) 2022 Venafi, Inc.
 SPDX-License-Identifier: MIT
 License: https://github.com/PaloAltoNetworks/pan-dev-mim-marketplace/blob/main/LICENSE
 #>

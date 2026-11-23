@@ -1,7 +1,6 @@
 <#
 IdenTrust Certificate Management: IdenTrust.ps1
 
-Copyright (c) 2021 Venafi, Inc.
 SPDX-License-Identifier: MIT
 License: https://github.com/PaloAltoNetworks/pan-dev-mim-marketplace/blob/main/LICENSE
 #>############################################################################################################

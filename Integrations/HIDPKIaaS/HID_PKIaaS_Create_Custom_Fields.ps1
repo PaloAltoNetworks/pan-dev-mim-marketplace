@@ -5,7 +5,6 @@ IMPORTANT - Before running this script please contact your HydrantID
 account representative to get the list of custom fields that are
 needed for your account.
 
-Copyright (c) 2020 Venafi, Inc.
 SPDX-License-Identifier: MIT
 License: https://github.com/PaloAltoNetworks/pan-dev-mim-marketplace/blob/main/LICENSE
 #>
