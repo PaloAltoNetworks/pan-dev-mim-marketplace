@@ -1,4 +1,13 @@
-﻿$websdk_url = "https://tpp-alpha.venafi.example"
+﻿<#
+//---------------------------------------------------------------------------
+// IdenTrust Certificate Management: IdenTrustCustomFields.ps1
+//---------------------------------------------------------------------------
+// SPDX-License-Identifier: MIT
+// License: https://github.com/PaloAltoNetworks/pan-dev-mim-marketplace/blob/main/LICENSE
+//---------------------------------------------------------------------------
+#>
+
+$websdk_url = "https://tpp-alpha.venafi.example"
 
 $websdk_adm_user = "local:admin"
 $websdk_adm_pass = "newPassw0rd!"
