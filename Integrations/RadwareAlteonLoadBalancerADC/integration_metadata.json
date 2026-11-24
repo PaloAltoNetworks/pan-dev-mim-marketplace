@@ -30,12 +30,23 @@
     {
       "product": "Certificate Manager Self-Hosted",
       "overviewFile": "OVERVIEW-selfhosted.md",
+      "currentVersion": "2.0.0",
       "documentationFile": "DOCS-selfhosted.md",
       "downloadFiles": [
-        "Radware Alteon ADC OS 30.5.1.200 and above.ps1",
-        "Radware Alteon ADC OS 33.0.x.ps1"
+        "Radware_Alteon_Connector_For_PaloAlto_1.1.ps1"
       ],
-      "license": "MIT"
+      "license": "MIT",
+      "resources": {
+        "otherResources": [
+          {
+            "title": "Radware Alteon Integration Guide",
+            "description": "Radware technical guide for setting up the Alteon connector v1.1",
+            "url": "Alteon-Palo-Alto-Integration-Guide-v1.1.pdf",
+            "type": "pdf",
+            "resourceType": "file"
+          }
+        ]
+      }
     },
     {
       "product": "Certificate Manager SaaS",

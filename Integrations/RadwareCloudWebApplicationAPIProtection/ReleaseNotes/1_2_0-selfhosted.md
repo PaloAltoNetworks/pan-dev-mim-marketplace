@@ -1,0 +1,5 @@
+- Replaced `CWAF.ps1` with the Radware Cloud Consolidated Portal connector v1.2 (`Radware_Cloud_Consolidated_Portal_Connector_For_Palo_Alto_Networks_1.2.ps1`).
+- The connector authenticates with a Cloud WAAP API key stored in a Password Credential. Existing setups that use an API user must switch to an API key.
+- Added Onboard Discovery to import existing Cloud WAAP applications and their public certificates.
+- Added the optional **Application ID** field and the **Self Signed** option.
+- Setup instructions now come from the Radware Cloud WAAP Integration Guide v1.2 (PDF), available under Resources.
