@@ -248,5 +248,10 @@
     "from": "/marketplace/PingAdaptableFramework",
     "to": "/marketplace",
     "reason": "archived — no longer supported"
+  },
+  {
+    "from": "/marketplace/F5SilverlineAdaptableApp",
+    "to": "/marketplace",
+    "reason": "archived — no longer supported"
   }
 ]
